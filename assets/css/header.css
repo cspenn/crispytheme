@@ -1,0 +1,277 @@
+/**
+ * Header and Navigation Styles
+ *
+ * Compact horizontal navigation for CrispyTheme.
+ *
+ * @package CrispyTheme
+ * @since 1.0.0
+ */
+
+/* ==========================================================================
+   Site Header
+   ========================================================================== */
+
+.site-header {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	background-color: var(--wp--preset--color--background);
+	border-bottom: 1px solid var(--wp--preset--color--border);
+	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--40);
+}
+
+.site-header__inner {
+	max-width: var(--wp--style--global--wide-size, 1200px);
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--wp--preset--spacing--40);
+}
+
+/* ==========================================================================
+   Site Branding
+   ========================================================================== */
+
+.site-branding {
+	display: flex;
+	align-items: center;
+	gap: var(--wp--preset--spacing--20);
+	flex-shrink: 0;
+}
+
+.site-branding .wp-block-site-title {
+	font-size: 1.125rem;
+	font-weight: 600;
+	margin: 0;
+}
+
+.site-branding .wp-block-site-title a {
+	text-decoration: none;
+	color: var(--wp--preset--color--foreground);
+}
+
+.site-branding .wp-block-site-title a:hover {
+	color: var(--wp--preset--color--primary);
+}
+
+/* ==========================================================================
+   Navigation - Core Styles
+   ========================================================================== */
+
+.site-header__navigation {
+	display: flex;
+	align-items: center;
+	gap: var(--wp--preset--spacing--30);
+}
+
+/* WordPress Navigation Block */
+.site-header .wp-block-navigation {
+	font-size: 0.875rem;
+}
+
+/* Navigation list container */
+.site-header .wp-block-navigation__container,
+.site-header .wp-block-page-list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* Navigation items */
+.site-header .wp-block-navigation-item,
+.site-header .wp-block-pages-list__item {
+	margin: 0;
+	padding: 0;
+}
+
+/* Navigation links */
+.site-header .wp-block-navigation-item__content,
+.site-header .wp-block-pages-list__item__link,
+.site-header .wp-block-navigation__container a,
+.site-header .wp-block-page-list a {
+	display: block;
+	padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
+	color: var(--wp--preset--color--foreground-secondary);
+	text-decoration: none;
+	font-weight: 500;
+	white-space: nowrap;
+	transition: color 0.2s ease;
+}
+
+.site-header .wp-block-navigation-item__content:hover,
+.site-header .wp-block-pages-list__item__link:hover,
+.site-header .wp-block-navigation__container a:hover,
+.site-header .wp-block-page-list a:hover {
+	color: var(--wp--preset--color--primary);
+}
+
+/* Current/active page */
+.site-header .wp-block-navigation-item.current-menu-item .wp-block-navigation-item__content,
+.site-header .wp-block-pages-list__item--current .wp-block-pages-list__item__link,
+.site-header .current_page_item a {
+	color: var(--wp--preset--color--primary);
+}
+
+/* ==========================================================================
+   Navigation - Limit Visible Items (Desktop)
+   Show only important items, hide overflow
+   ========================================================================== */
+
+@media (min-width: 783px) {
+	.site-header .wp-block-navigation__container,
+	.site-header .wp-block-page-list {
+		max-height: 44px;
+		overflow: hidden;
+	}
+
+	/* Fallback: If too many items, use horizontal scroll */
+	.site-header .wp-block-navigation.has-many-items .wp-block-navigation__container,
+	.site-header .wp-block-navigation.has-many-items .wp-block-page-list {
+		overflow-x: auto;
+		overflow-y: hidden;
+		max-width: 600px;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+	}
+
+	.site-header .wp-block-navigation.has-many-items .wp-block-navigation__container::-webkit-scrollbar,
+	.site-header .wp-block-navigation.has-many-items .wp-block-page-list::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+/* ==========================================================================
+   Mobile Navigation (Overlay Menu)
+   ========================================================================== */
+
+@media (max-width: 782px) {
+	.site-header__inner {
+		flex-wrap: wrap;
+	}
+
+	/* Mobile menu button */
+	.wp-block-navigation__responsive-container-open {
+		padding: var(--wp--preset--spacing--10);
+		background: transparent;
+		border: 1px solid var(--wp--preset--color--border);
+		border-radius: 4px;
+		color: var(--wp--preset--color--foreground);
+		cursor: pointer;
+	}
+
+	/* Mobile overlay */
+	.wp-block-navigation__responsive-container.is-menu-open {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: var(--wp--preset--color--background);
+		z-index: 9999;
+		padding: var(--wp--preset--spacing--50);
+		overflow-y: auto;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--wp--preset--spacing--10);
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-page-list,
+	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container {
+		flex-direction: column;
+		align-items: flex-start;
+		width: 100%;
+	}
+
+	.wp-block-navigation__responsive-container.is-menu-open a {
+		padding: var(--wp--preset--spacing--20) 0;
+		font-size: 1.125rem;
+		width: 100%;
+		border-bottom: 1px solid var(--wp--preset--color--border);
+	}
+
+	/* Close button */
+	.wp-block-navigation__responsive-container-close {
+		position: absolute;
+		top: var(--wp--preset--spacing--30);
+		right: var(--wp--preset--spacing--30);
+		padding: var(--wp--preset--spacing--10);
+		background: transparent;
+		border: none;
+		color: var(--wp--preset--color--foreground);
+		cursor: pointer;
+	}
+}
+
+/* ==========================================================================
+   Submenu Styles
+   ========================================================================== */
+
+.site-header .wp-block-navigation-submenu {
+	position: relative;
+}
+
+.site-header .wp-block-navigation__submenu-container {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	min-width: 200px;
+	background-color: var(--wp--preset--color--background);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: 4px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	padding: var(--wp--preset--spacing--10) 0;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-10px);
+	transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+	z-index: 10;
+}
+
+.site-header .wp-block-navigation-submenu:hover > .wp-block-navigation__submenu-container,
+.site-header .wp-block-navigation-submenu:focus-within > .wp-block-navigation__submenu-container {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+.site-header .wp-block-navigation__submenu-container a {
+	display: block;
+	padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--30);
+}
+
+/* ==========================================================================
+   Dark Mode
+   ========================================================================== */
+
+.dark-mode .site-header {
+	background-color: var(--wp--preset--color--background);
+	border-bottom-color: var(--wp--preset--color--border);
+}
+
+.dark-mode .site-header .wp-block-navigation__submenu-container {
+	background-color: var(--wp--preset--color--base-2);
+	border-color: var(--wp--preset--color--contrast-3);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .wp-block-navigation__responsive-container.is-menu-open {
+	background-color: var(--wp--preset--color--background);
+}
+
+/* ==========================================================================
+   Hide Children Pages (Page List outputs all pages)
+   Only show top-level navigation items
+   ========================================================================== */
+
+.site-header .wp-block-page-list .wp-block-pages-list__item .children {
+	display: none;
+}

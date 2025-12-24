@@ -45,6 +45,14 @@ class Assets {
 			$version
 		);
 
+		// Enqueue header and navigation styles.
+		wp_enqueue_style(
+			'crispy-theme-header',
+			CRISPY_THEME_URI . '/assets/css/header.css',
+			[ 'crispy-theme-style' ],
+			$version
+		);
+
 		// Enqueue GitHub Markdown CSS.
 		wp_enqueue_style(
 			'crispy-theme-markdown',
