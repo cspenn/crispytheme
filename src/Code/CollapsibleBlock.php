@@ -102,6 +102,7 @@ class CollapsibleBlock {
 			<pre class="language-<?php echo $language; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><?php echo $line_class; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>"><code class="language-<?php echo $language; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>"><?php echo esc_html( $code ); ?></code></pre>
 		</details>
 		<?php
-		return ob_get_clean() ?: '';
+		$output = ob_get_clean();
+		return false !== $output ? $output : '';
 	}
 }

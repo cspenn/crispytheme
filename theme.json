@@ -34,6 +34,11 @@
                     "name": "Secondary"
                 },
                 {
+                    "slug": "tertiary",
+                    "color": "#94a3b8",
+                    "name": "Tertiary"
+                },
+                {
                     "slug": "accent",
                     "color": "#0ea5e9",
                     "name": "Accent"
@@ -62,6 +67,31 @@
                     "slug": "border",
                     "color": "#e2e8f0",
                     "name": "Border"
+                },
+                {
+                    "slug": "base",
+                    "color": "#ffffff",
+                    "name": "Base"
+                },
+                {
+                    "slug": "base-2",
+                    "color": "#f8fafc",
+                    "name": "Base Secondary"
+                },
+                {
+                    "slug": "contrast",
+                    "color": "#1e293b",
+                    "name": "Contrast"
+                },
+                {
+                    "slug": "contrast-2",
+                    "color": "#f1f5f9",
+                    "name": "Contrast Secondary"
+                },
+                {
+                    "slug": "contrast-3",
+                    "color": "#e2e8f0",
+                    "name": "Contrast Tertiary"
                 },
                 {
                     "slug": "success",
