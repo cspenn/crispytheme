@@ -4,6 +4,7 @@
  */
 
 .dark-mode {
+    /* CrispyTheme custom properties */
     --crispy-bg: #0d1117;
     --crispy-bg-secondary: #161b22;
     --crispy-fg: #e6edf3;
@@ -11,6 +12,23 @@
     --crispy-border: #30363d;
     --crispy-primary: #58a6ff;
     --crispy-primary-dark: #79c0ff;
+
+    /* WordPress preset color overrides for dark mode */
+    --wp--preset--color--background: #0d1117;
+    --wp--preset--color--background-secondary: #161b22;
+    --wp--preset--color--foreground: #e6edf3;
+    --wp--preset--color--foreground-secondary: #8b949e;
+    --wp--preset--color--border: #30363d;
+    --wp--preset--color--base: #0d1117;
+    --wp--preset--color--base-2: #161b22;
+    --wp--preset--color--contrast: #e6edf3;
+    --wp--preset--color--contrast-2: #21262d;
+    --wp--preset--color--contrast-3: #30363d;
+    --wp--preset--color--tertiary: #8b949e;
+    --wp--preset--color--secondary: #8b949e;
+    --wp--preset--color--primary: #58a6ff;
+    --wp--preset--color--primary-dark: #79c0ff;
+    --wp--preset--color--accent: #58a6ff;
 }
 
 .dark-mode .markdown-body {
