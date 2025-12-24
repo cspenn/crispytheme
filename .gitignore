@@ -59,6 +59,14 @@ phpstan-baseline.neon
 # Cache directories
 .cache/
 .php-cs-fixer.cache
+.deptrac.cache
+
+# Deployment artifacts
+*.zip
+
+# Tool configurations
+.claude/
+.serena/
 
 # Local development
 local-*.php
