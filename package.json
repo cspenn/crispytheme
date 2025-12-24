@@ -1,0 +1,30 @@
+{
+    "name": "crispy-theme",
+    "version": "1.0.0",
+    "description": "A high-performance, markdown-first WordPress Block Theme with built-in SEO capabilities.",
+    "author": "Christopher S. Penn",
+    "license": "MIT",
+    "homepage": "https://github.com/christopherspenn/crispytheme",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/christopherspenn/crispytheme.git"
+    },
+    "scripts": {
+        "build": "wp-scripts build",
+        "start": "wp-scripts start",
+        "lint:js": "wp-scripts lint-js assets/js/src",
+        "lint:css": "wp-scripts lint-style assets/css",
+        "lint:pkg-json": "wp-scripts lint-pkg-json",
+        "format": "wp-scripts format",
+        "packages-update": "wp-scripts packages-update"
+    },
+    "devDependencies": {
+        "@wordpress/scripts": "^28.0.0",
+        "prismjs": "^1.29.0",
+        "clipboard": "^2.0.11"
+    },
+    "engines": {
+        "node": ">=18.0.0",
+        "npm": ">=9.0.0"
+    }
+}

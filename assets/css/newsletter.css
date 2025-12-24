@@ -1,0 +1,189 @@
+/**
+ * Newsletter Block Styles
+ *
+ * Styles for the newsletter signup block and related patterns.
+ *
+ * @package CrispyTheme
+ * @since 1.0.0
+ */
+
+/* ==========================================================================
+   Newsletter Signup Block
+   ========================================================================== */
+
+.wp-block-crispytheme-newsletter-signup {
+	margin: var(--wp--preset--spacing--40) 0;
+}
+
+.newsletter-heading {
+	margin-bottom: var(--wp--preset--spacing--20);
+}
+
+.newsletter-description {
+	margin-bottom: var(--wp--preset--spacing--30);
+}
+
+.newsletter-form-wrapper {
+	margin-bottom: var(--wp--preset--spacing--20);
+}
+
+.newsletter-form-wrapper iframe {
+	max-width: 100%;
+}
+
+.newsletter-privacy {
+	font-size: 0.75rem;
+	color: var(--wp--preset--color--tertiary);
+	margin-top: var(--wp--preset--spacing--20);
+}
+
+.newsletter-privacy a {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.newsletter-privacy a:hover {
+	color: var(--wp--preset--color--primary);
+}
+
+/* ==========================================================================
+   Hero Style
+   ========================================================================== */
+
+.wp-block-crispytheme-newsletter-signup.newsletter-signup {
+	background: linear-gradient(135deg, var(--wp--preset--color--primary) 0%, #1e40af 100%);
+	color: var(--wp--preset--color--base);
+	padding: var(--wp--preset--spacing--60) var(--wp--preset--spacing--50);
+	border-radius: 12px;
+	text-align: center;
+}
+
+.newsletter-signup .newsletter-heading {
+	color: var(--wp--preset--color--base);
+}
+
+.newsletter-signup .newsletter-description {
+	color: rgba(255, 255, 255, 0.9);
+	max-width: 500px;
+	margin-inline: auto;
+}
+
+.newsletter-signup .newsletter-subscriber-count {
+	font-size: 2.5rem;
+	font-weight: 700;
+	color: var(--wp--preset--color--base);
+	display: block;
+	line-height: 1.2;
+}
+
+.newsletter-signup .newsletter-subscriber-label {
+	font-size: 0.875rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	opacity: 0.9;
+	display: block;
+	margin-bottom: var(--wp--preset--spacing--30);
+}
+
+.newsletter-signup .newsletter-privacy {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.newsletter-signup .newsletter-privacy a {
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.newsletter-signup .newsletter-privacy a:hover {
+	color: var(--wp--preset--color--base);
+}
+
+/* ==========================================================================
+   Inline Style
+   ========================================================================== */
+
+.wp-block-crispytheme-newsletter-signup.newsletter-inline {
+	background-color: var(--wp--preset--color--base-2);
+	padding: var(--wp--preset--spacing--40);
+	border-radius: 8px;
+	border: 2px solid var(--wp--preset--color--primary);
+}
+
+.newsletter-inline .newsletter-heading {
+	color: var(--wp--preset--color--contrast);
+	font-size: 1.125rem;
+}
+
+.newsletter-inline .newsletter-description {
+	font-size: 0.875rem;
+}
+
+.newsletter-inline .newsletter-subscriber-count {
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--wp--preset--color--primary);
+	display: block;
+	line-height: 1.2;
+}
+
+.newsletter-inline .newsletter-subscriber-label {
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--wp--preset--color--tertiary);
+	display: block;
+	margin-bottom: var(--wp--preset--spacing--20);
+}
+
+/* ==========================================================================
+   Dark Mode Adjustments
+   ========================================================================== */
+
+.dark-mode .wp-block-crispytheme-newsletter-signup.newsletter-signup {
+	background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+.dark-mode .wp-block-crispytheme-newsletter-signup.newsletter-inline {
+	background-color: var(--wp--preset--color--contrast-2);
+	border-color: var(--wp--preset--color--accent);
+}
+
+.dark-mode .newsletter-inline .newsletter-heading {
+	color: var(--wp--preset--color--base);
+}
+
+.dark-mode .newsletter-inline .newsletter-subscriber-count {
+	color: var(--wp--preset--color--accent);
+}
+
+/* ==========================================================================
+   Sidebar Specific
+   ========================================================================== */
+
+.widget-area .newsletter-inline,
+.sidebar .newsletter-inline {
+	margin-bottom: var(--wp--preset--spacing--50);
+}
+
+.widget-area .newsletter-inline .newsletter-heading,
+.sidebar .newsletter-inline .newsletter-heading {
+	font-size: 1rem;
+}
+
+.widget-area .newsletter-inline .newsletter-description,
+.sidebar .newsletter-inline .newsletter-description {
+	font-size: 0.8125rem;
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+
+@media (max-width: 782px) {
+	.wp-block-crispytheme-newsletter-signup.newsletter-signup {
+		padding: var(--wp--preset--spacing--50) var(--wp--preset--spacing--40);
+	}
+
+	.newsletter-signup .newsletter-subscriber-count {
+		font-size: 2rem;
+	}
+}

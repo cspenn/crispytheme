@@ -1,0 +1,43 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"site-main error-404","layout":{"type":"constrained"}} -->
+<main class="wp-block-group site-main error-404">
+    <!-- wp:group {"className":"error-content","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
+    <div class="wp-block-group error-content" style="padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)">
+        <!-- wp:heading {"textAlign":"center","level":1,"fontSize":"xxx-large"} -->
+        <h1 class="wp-block-heading has-text-align-center has-xxx-large-font-size">404</h1>
+        <!-- /wp:heading -->
+
+        <!-- wp:heading {"textAlign":"center","level":2} -->
+        <h2 class="wp-block-heading has-text-align-center">Page Not Found</h2>
+        <!-- /wp:heading -->
+
+        <!-- wp:paragraph {"align":"center","textColor":"foreground-secondary"} -->
+        <p class="has-text-align-center has-foreground-secondary-color has-text-color">
+            The page you're looking for doesn't exist or has been moved.
+        </p>
+        <!-- /wp:paragraph -->
+
+        <!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}},"layout":{"type":"constrained","contentSize":"400px"}} -->
+        <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--50)">
+            <!-- wp:search {"label":"Search for content","showLabel":false,"placeholder":"Search...","buttonText":"Search","buttonPosition":"button-inside"} /-->
+        </div>
+        <!-- /wp:group -->
+
+        <!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
+        <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--50)">
+            <!-- wp:buttons -->
+            <div class="wp-block-buttons">
+                <!-- wp:button -->
+                <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/">Go to Homepage</a></div>
+                <!-- /wp:button -->
+            </div>
+            <!-- /wp:buttons -->
+        </div>
+        <!-- /wp:group -->
+    </div>
+    <!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

@@ -1,0 +1,417 @@
+/**
+ * Pattern Styles
+ *
+ * Styles for CrispyTheme block patterns including trust signals,
+ * testimonials, and credential badges.
+ *
+ * @package CrispyTheme
+ * @since 1.0.0
+ */
+
+/* ==========================================================================
+   Client Logo Grid
+   ========================================================================== */
+
+.client-logo-grid {
+	padding: var(--wp--preset--spacing--60) 0;
+}
+
+.client-logo-row {
+	gap: var(--wp--preset--spacing--40);
+}
+
+.client-logo {
+	max-width: 120px;
+	filter: grayscale(100%);
+	opacity: 0.7;
+	transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.client-logo:hover {
+	filter: grayscale(0%);
+	opacity: 1;
+}
+
+/* Dark mode adjustments */
+.dark-mode .client-logo {
+	filter: grayscale(100%) brightness(1.2);
+	opacity: 0.6;
+}
+
+.dark-mode .client-logo:hover {
+	filter: grayscale(0%) brightness(1);
+	opacity: 1;
+}
+
+/* ==========================================================================
+   Testimonial Card
+   ========================================================================== */
+
+.testimonial-card {
+	max-width: 600px;
+	margin-inline: auto;
+}
+
+.testimonial-quote {
+	border-left: 4px solid var(--wp--preset--color--primary);
+	padding-left: var(--wp--preset--spacing--40);
+	margin-bottom: var(--wp--preset--spacing--40);
+	font-style: italic;
+}
+
+.testimonial-quote p {
+	font-size: 1.125rem;
+	line-height: 1.7;
+}
+
+.testimonial-attribution {
+	gap: var(--wp--preset--spacing--30);
+}
+
+.testimonial-avatar img {
+	object-fit: cover;
+}
+
+.testimonial-author-info {
+	gap: 0;
+}
+
+.testimonial-author-name {
+	margin: 0;
+	line-height: 1.3;
+}
+
+.testimonial-author-title {
+	margin: 0;
+	line-height: 1.3;
+}
+
+/* Dark mode adjustments */
+.dark-mode .testimonial-card {
+	background-color: var(--wp--preset--color--contrast-2);
+}
+
+.dark-mode .testimonial-quote {
+	border-left-color: var(--wp--preset--color--accent);
+}
+
+/* ==========================================================================
+   Credential Badge
+   ========================================================================== */
+
+.credential-badge {
+	gap: var(--wp--preset--spacing--30);
+	padding: var(--wp--preset--spacing--30);
+	background-color: var(--wp--preset--color--base-2);
+	border-radius: 8px;
+	border: 1px solid var(--wp--preset--color--contrast-3);
+}
+
+.credential-badge-image img {
+	object-fit: contain;
+}
+
+.credential-info {
+	gap: var(--wp--preset--spacing--10);
+}
+
+.credential-title {
+	margin: 0;
+}
+
+.credential-description {
+	margin: 0;
+	font-size: 0.875rem;
+}
+
+/* Dark mode adjustments */
+.dark-mode .credential-badge {
+	background-color: var(--wp--preset--color--contrast-2);
+	border-color: var(--wp--preset--color--contrast-3);
+}
+
+/* ==========================================================================
+   Newsletter Patterns
+   ========================================================================== */
+
+.newsletter-signup {
+	background: linear-gradient(135deg, var(--wp--preset--color--primary) 0%, var(--wp--preset--color--secondary) 100%);
+	color: var(--wp--preset--color--base);
+	padding: var(--wp--preset--spacing--60) var(--wp--preset--spacing--50);
+	border-radius: 12px;
+	text-align: center;
+}
+
+.newsletter-signup h2,
+.newsletter-signup h3 {
+	color: var(--wp--preset--color--base);
+	margin-bottom: var(--wp--preset--spacing--20);
+}
+
+.newsletter-signup p {
+	color: rgba(255, 255, 255, 0.9);
+	max-width: 500px;
+	margin-inline: auto;
+}
+
+.newsletter-inline {
+	background-color: var(--wp--preset--color--base-2);
+	padding: var(--wp--preset--spacing--40);
+	border-radius: 8px;
+	border: 2px solid var(--wp--preset--color--primary);
+}
+
+.newsletter-subscriber-count {
+	font-size: 2.5rem;
+	font-weight: 700;
+	color: var(--wp--preset--color--primary);
+	display: block;
+	line-height: 1.2;
+}
+
+/* Dark mode adjustments */
+.dark-mode .newsletter-inline {
+	background-color: var(--wp--preset--color--contrast-2);
+	border-color: var(--wp--preset--color--accent);
+}
+
+/* ==========================================================================
+   Speaking Page Patterns
+   ========================================================================== */
+
+.video-hero {
+	position: relative;
+	width: 100%;
+	padding-bottom: 56.25%; /* 16:9 aspect ratio */
+	background-color: var(--wp--preset--color--contrast);
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+.video-hero iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.keynote-card {
+	background-color: var(--wp--preset--color--base-2);
+	padding: var(--wp--preset--spacing--40);
+	border-radius: 8px;
+	border-left: 4px solid var(--wp--preset--color--primary);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.keynote-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.keynote-card h3 {
+	margin-bottom: var(--wp--preset--spacing--20);
+}
+
+.keynote-audience {
+	font-size: 0.875rem;
+	color: var(--wp--preset--color--primary);
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.event-list {
+	list-style: none;
+	padding: 0;
+}
+
+.event-item {
+	display: flex;
+	gap: var(--wp--preset--spacing--30);
+	padding: var(--wp--preset--spacing--30) 0;
+	border-bottom: 1px solid var(--wp--preset--color--contrast-3);
+}
+
+.event-date {
+	flex-shrink: 0;
+	width: 80px;
+	text-align: center;
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--base);
+	padding: var(--wp--preset--spacing--20);
+	border-radius: 8px;
+}
+
+.event-date-month {
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+.event-date-day {
+	font-size: 1.5rem;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.booking-cta {
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--base);
+	padding: var(--wp--preset--spacing--60);
+	border-radius: 12px;
+	text-align: center;
+}
+
+.booking-cta h2 {
+	color: var(--wp--preset--color--base);
+}
+
+.booking-cta p {
+	color: rgba(255, 255, 255, 0.9);
+	max-width: 600px;
+	margin-inline: auto;
+}
+
+/* Dark mode adjustments */
+.dark-mode .keynote-card {
+	background-color: var(--wp--preset--color--contrast-2);
+	border-left-color: var(--wp--preset--color--accent);
+}
+
+.dark-mode .keynote-card:hover {
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .event-item {
+	border-bottom-color: var(--wp--preset--color--contrast-3);
+}
+
+.dark-mode .event-date {
+	background-color: var(--wp--preset--color--accent);
+}
+
+/* ==========================================================================
+   Code Showcase Patterns
+   ========================================================================== */
+
+.collapsible-code {
+	margin: var(--wp--preset--spacing--40) 0;
+}
+
+.collapsible-code summary {
+	cursor: pointer;
+	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
+	background-color: var(--wp--preset--color--base-2);
+	border: 1px solid var(--wp--preset--color--contrast-3);
+	border-radius: 8px 8px 0 0;
+	font-weight: 600;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 0.875rem;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: var(--wp--preset--spacing--20);
+}
+
+.collapsible-code summary::-webkit-details-marker {
+	display: none;
+}
+
+.collapsible-code summary::before {
+	content: "\25B6"; /* Right-pointing triangle */
+	font-size: 0.75rem;
+	transition: transform 0.2s ease;
+}
+
+.collapsible-code[open] summary::before {
+	transform: rotate(90deg);
+}
+
+.collapsible-code[open] summary {
+	border-radius: 8px 8px 0 0;
+	border-bottom: none;
+}
+
+.collapsible-code pre {
+	margin: 0;
+	border-radius: 0 0 8px 8px;
+	border-top: none;
+}
+
+.code-download-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--wp--preset--spacing--10);
+	padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--base);
+	border-radius: 4px;
+	font-size: 0.75rem;
+	font-weight: 600;
+	text-decoration: none;
+	transition: background-color 0.2s ease;
+}
+
+.code-download-btn:hover {
+	background-color: var(--wp--preset--color--secondary);
+	color: var(--wp--preset--color--base);
+}
+
+.prompt-output {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--wp--preset--spacing--30);
+}
+
+@media (max-width: 768px) {
+	.prompt-output {
+		grid-template-columns: 1fr;
+	}
+}
+
+.prompt-section,
+.output-section {
+	background-color: var(--wp--preset--color--base-2);
+	padding: var(--wp--preset--spacing--30);
+	border-radius: 8px;
+	border: 1px solid var(--wp--preset--color--contrast-3);
+}
+
+.prompt-section {
+	border-left: 4px solid var(--wp--preset--color--primary);
+}
+
+.output-section {
+	border-left: 4px solid var(--wp--preset--color--accent);
+}
+
+.prompt-label,
+.output-label {
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	margin-bottom: var(--wp--preset--spacing--20);
+	display: block;
+}
+
+.prompt-label {
+	color: var(--wp--preset--color--primary);
+}
+
+.output-label {
+	color: var(--wp--preset--color--accent);
+}
+
+/* Dark mode adjustments */
+.dark-mode .collapsible-code summary {
+	background-color: var(--wp--preset--color--contrast-2);
+	border-color: var(--wp--preset--color--contrast-3);
+}
+
+.dark-mode .prompt-section,
+.dark-mode .output-section {
+	background-color: var(--wp--preset--color--contrast-2);
+	border-color: var(--wp--preset--color--contrast-3);
+}

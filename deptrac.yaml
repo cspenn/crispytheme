@@ -1,0 +1,92 @@
+# CrispyTheme Architecture Layer Configuration
+# Enforces separation of concerns between theme components
+
+deptrac:
+    paths:
+        - ./src
+
+    layers:
+        # Theme initialization and orchestration
+        - name: Theme
+          collectors:
+              - type: directory
+                value: src/Theme
+
+        # Admin-facing functionality
+        - name: Admin
+          collectors:
+              - type: directory
+                value: src/Admin
+
+        # WP-CLI commands
+        - name: CLI
+          collectors:
+              - type: directory
+                value: src/CLI
+
+        # Content processing (Markdown, excerpts, RSS)
+        - name: Content
+          collectors:
+              - type: directory
+                value: src/Content
+
+        # Markdown parser abstraction
+        - name: Parser
+          collectors:
+              - type: directory
+                value: src/Parser
+
+        # Caching layer
+        - name: Cache
+          collectors:
+              - type: directory
+                value: src/Cache
+
+        # Dark mode functionality
+        - name: DarkMode
+          collectors:
+              - type: directory
+                value: src/DarkMode
+
+    ruleset:
+        # Theme layer can use all other layers (orchestration)
+        Theme:
+            - Content
+            - Admin
+            - CLI
+            - DarkMode
+            - Parser
+            - Cache
+
+        # Admin depends on Content for markdown editing
+        Admin:
+            - Content
+            - Parser
+
+        # CLI depends on Content for import, Cache for cache commands
+        CLI:
+            - Content
+            - Parser
+            - Cache
+
+        # Content uses Parser and Cache (core functionality)
+        Content:
+            - Parser
+            - Cache
+
+        # DarkMode is independent (UI-only)
+        DarkMode: ~
+
+        # Parser is a leaf layer (no dependencies)
+        Parser: ~
+
+        # Cache is a leaf layer (no dependencies)
+        Cache: ~
+
+    formatters:
+        graphviz:
+            hidden_layers: []
+            groups: {}
+            point_to_groups: false
+
+    ignore_uncovered_internal_classes: true

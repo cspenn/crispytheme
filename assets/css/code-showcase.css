@@ -1,0 +1,276 @@
+/**
+ * Code Showcase Styles
+ *
+ * Styles for code blocks, collapsible code sections, and prompt/output displays.
+ *
+ * @package CrispyTheme
+ * @since 1.0.0
+ */
+
+/* ==========================================================================
+   Collapsible Code Block
+   ========================================================================== */
+
+.wp-block-crispytheme-collapsible-code,
+.collapsible-code {
+	margin: var(--wp--preset--spacing--40) 0;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.collapsible-code summary {
+	cursor: pointer;
+	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
+	background-color: #1e293b;
+	color: #e2e8f0;
+	font-weight: 600;
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 0.875rem;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: var(--wp--preset--spacing--20);
+	border: 1px solid #334155;
+	border-radius: 8px 8px 0 0;
+	transition: background-color 0.2s ease;
+}
+
+.collapsible-code summary:hover {
+	background-color: #334155;
+}
+
+.collapsible-code summary::-webkit-details-marker {
+	display: none;
+}
+
+.collapsible-code summary::before {
+	content: "\25B6"; /* Right-pointing triangle */
+	font-size: 0.75rem;
+	transition: transform 0.2s ease;
+	color: #94a3b8;
+}
+
+.collapsible-code[open] summary::before {
+	transform: rotate(90deg);
+}
+
+.collapsible-code[open] summary {
+	border-radius: 8px 8px 0 0;
+	border-bottom: none;
+}
+
+.collapsible-code:not([open]) summary {
+	border-radius: 8px;
+}
+
+.collapsible-code-filename {
+	margin-left: auto;
+	color: #64748b;
+	font-weight: 400;
+}
+
+.collapsible-code pre {
+	margin: 0;
+	border-radius: 0 0 8px 8px;
+	border: 1px solid #334155;
+	border-top: none;
+}
+
+/* ==========================================================================
+   Code Download Block
+   ========================================================================== */
+
+.code-download-block {
+	border-radius: 8px;
+	overflow: hidden;
+	border: 1px solid #334155;
+}
+
+.code-download-header {
+	border-bottom: 1px solid #334155;
+}
+
+.code-download-block .wp-block-code {
+	margin: 0;
+	border: none;
+	border-radius: 0;
+}
+
+.code-download-btn .wp-block-button__link {
+	padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
+	font-size: 0.75rem;
+	font-weight: 600;
+}
+
+/* ==========================================================================
+   Prompt and Output Pattern
+   ========================================================================== */
+
+.prompt-output {
+	margin: var(--wp--preset--spacing--50) 0;
+}
+
+.prompt-output .wp-block-columns {
+	gap: var(--wp--preset--spacing--30);
+}
+
+@media (max-width: 768px) {
+	.prompt-output .wp-block-columns {
+		flex-direction: column;
+	}
+}
+
+.prompt-section,
+.output-section {
+	background-color: var(--wp--preset--color--base-2);
+	border-radius: 8px;
+	border: 1px solid var(--wp--preset--color--contrast-3);
+}
+
+.prompt-section {
+	border-left: 4px solid var(--wp--preset--color--primary);
+}
+
+.output-section {
+	border-left: 4px solid #10b981; /* Green accent for output */
+}
+
+.prompt-label,
+.output-label {
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	margin-bottom: var(--wp--preset--spacing--20) !important;
+}
+
+.prompt-label {
+	color: var(--wp--preset--color--primary);
+}
+
+.output-label {
+	color: #10b981;
+}
+
+/* ==========================================================================
+   Code Block Enhancements
+   ========================================================================== */
+
+.wp-block-code {
+	position: relative;
+}
+
+/* Copy button styling (added by Prism clipboard plugin) */
+.wp-block-code .copy-to-clipboard-button,
+pre[class*="language-"] .copy-to-clipboard-button {
+	position: absolute;
+	top: var(--wp--preset--spacing--10);
+	right: var(--wp--preset--spacing--10);
+	padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
+	background-color: rgba(255, 255, 255, 0.1);
+	color: #e2e8f0;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 4px;
+	font-size: 0.75rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.wp-block-code .copy-to-clipboard-button:hover,
+pre[class*="language-"] .copy-to-clipboard-button:hover {
+	background-color: rgba(255, 255, 255, 0.2);
+	border-color: rgba(255, 255, 255, 0.3);
+}
+
+.wp-block-code .copy-to-clipboard-button.copied,
+pre[class*="language-"] .copy-to-clipboard-button.copied {
+	background-color: #10b981;
+	border-color: #10b981;
+}
+
+/* ==========================================================================
+   Dark Mode Adjustments
+   ========================================================================== */
+
+.dark-mode .prompt-section,
+.dark-mode .output-section {
+	background-color: var(--wp--preset--color--contrast-2);
+	border-color: var(--wp--preset--color--contrast-3);
+}
+
+.dark-mode .prompt-section {
+	border-left-color: var(--wp--preset--color--accent);
+}
+
+.dark-mode .prompt-label {
+	color: var(--wp--preset--color--accent);
+}
+
+.dark-mode .collapsible-code summary {
+	background-color: #0f172a;
+	border-color: #1e293b;
+}
+
+.dark-mode .collapsible-code summary:hover {
+	background-color: #1e293b;
+}
+
+.dark-mode .code-download-block {
+	border-color: #1e293b;
+}
+
+.dark-mode .code-download-header {
+	border-bottom-color: #1e293b;
+}
+
+/* ==========================================================================
+   Syntax Highlighting Theme Overrides
+   ========================================================================== */
+
+/* Ensure code blocks have proper padding for copy button */
+pre[class*="language-"] {
+	position: relative;
+	padding-top: 2.5rem;
+}
+
+/* Line numbers styling */
+pre.line-numbers {
+	padding-left: 3.5em;
+}
+
+.line-numbers .line-numbers-rows {
+	border-right: 1px solid #334155;
+	padding-right: 0.5em;
+}
+
+/* Language label */
+pre[class*="language-"]::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0.25rem 0.5rem;
+	font-size: 0.625rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	background-color: rgba(255, 255, 255, 0.1);
+	color: #94a3b8;
+	border-radius: 0 0 4px 0;
+}
+
+pre.language-python::before { content: "python"; }
+pre.language-javascript::before { content: "javascript"; }
+pre.language-js::before { content: "js"; }
+pre.language-typescript::before { content: "typescript"; }
+pre.language-ts::before { content: "ts"; }
+pre.language-php::before { content: "php"; }
+pre.language-html::before { content: "html"; }
+pre.language-css::before { content: "css"; }
+pre.language-bash::before { content: "bash"; }
+pre.language-shell::before { content: "shell"; }
+pre.language-sql::before { content: "sql"; }
+pre.language-json::before { content: "json"; }
+pre.language-yaml::before { content: "yaml"; }
+pre.language-markdown::before { content: "markdown"; }
+pre.language-r::before { content: "r"; }

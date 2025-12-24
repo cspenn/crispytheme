@@ -1,0 +1,36 @@
+parameters:
+    level: 6
+
+    paths:
+        - src/
+        - functions.php
+
+    excludePaths:
+        - vendor/
+        - node_modules/
+        - tests/
+        - includes/crispy-seo/vendor/
+        # WP-CLI commands require WP-CLI stubs which aren't available
+        - src/CLI/
+
+    reportUnmatchedIgnoredErrors: false
+
+    ignoreErrors:
+        # WordPress global functions that PHPStan doesn't recognize
+        - '#Function [a-zA-Z0-9\\_]+ not found\.#'
+        # WP-CLI classes (only available when WP-CLI is installed)
+        - '#unknown class WP_CLI#i'
+        # Theme constants defined at runtime in functions.php
+        - '#Constant CRISPY_THEME_(URI|DIR) not found#'
+        # Deprecated config warnings - using ignoreErrors instead
+        -
+            identifier: missingType.iterableValue
+        -
+            identifier: missingType.generics
+
+    # WordPress-specific settings
+    bootstrapFiles:
+        - vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
+
+    # Treat warnings as errors
+    treatPhpDocTypesAsCertain: false
