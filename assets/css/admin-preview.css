@@ -1,0 +1,115 @@
+/**
+ * Admin Preview Styles
+ * Styles for the markdown editor preview in WordPress admin
+ */
+
+.crispy-markdown-editor {
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.crispy-markdown-editor__toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border-bottom: 1px solid #c3c4c7;
+    background: #f6f7f7;
+}
+
+.crispy-markdown-editor__tabs {
+    display: flex;
+    gap: 4px;
+}
+
+.crispy-markdown-editor__tab {
+    padding: 6px 16px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 13px;
+    color: #50575e;
+    transition: all 0.2s;
+}
+
+.crispy-markdown-editor__tab:hover {
+    background: #fff;
+}
+
+.crispy-markdown-editor__tab--active {
+    background: #fff;
+    border-color: #c3c4c7;
+    color: #1d2327;
+    font-weight: 500;
+}
+
+.crispy-markdown-editor__help {
+    font-size: 12px;
+    color: #2271b1;
+    text-decoration: none;
+}
+
+.crispy-markdown-editor__help:hover {
+    text-decoration: underline;
+}
+
+.crispy-markdown-editor__content {
+    min-height: 400px;
+}
+
+.crispy-markdown-editor__textarea {
+    width: 100%;
+    min-height: 400px;
+    padding: 16px;
+    border: none;
+    resize: vertical;
+    font-family: 'IBM Plex Mono', Consolas, Monaco, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    box-sizing: border-box;
+}
+
+.crispy-markdown-editor__textarea:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.crispy-markdown-editor__preview {
+    padding: 16px;
+    min-height: 400px;
+    overflow-y: auto;
+}
+
+.crispy-markdown-editor__placeholder {
+    color: #8c8f94;
+    font-style: italic;
+}
+
+.crispy-markdown-editor__footer {
+    padding: 8px 12px;
+    border-top: 1px solid #c3c4c7;
+    background: #f6f7f7;
+    font-size: 12px;
+    color: #50575e;
+}
+
+.crispy-markdown-editor__stats {
+    display: inline-flex;
+    gap: 8px;
+}
+
+/* Loading state */
+.crispy-markdown-editor--loading .crispy-markdown-editor__preview {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.crispy-markdown-editor--loading .crispy-markdown-editor__preview::before {
+    content: 'Loading preview...';
+    display: block;
+    text-align: center;
+    padding: 2rem;
+    color: #50575e;
+}

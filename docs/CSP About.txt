@@ -1,0 +1,641 @@
+Strategic Market Intelligence Report:
+Christopher S. Penn & Trust Insights
+Comprehensive Company Profile, Competitive
+Landscape, and Strategic Analysis
+Date: December 6, 2025
+Distribution: C-Suite / Board of Directors
+Classification: Confidential Market Strategy
+Subject: Strategic Positioning and Operational Roadmap for Christopher S. Penn (Keynote
+Speaker/Thought Leader)
+
+1. Executive Intelligence Summary
+The artificial intelligence (AI) and data science services market has undergone a radical phase
+transition. Following the explosive democratization of Generative AI (GenAI) in 2023, the
+industry has moved from a period of "peak hype" into a phase of rigorous operational
+scrutiny. Corporate leadership no longer rewards mere futurism; the market now demands
+"engineering-grade" strategy—pragmatic, measurable, and technically sound implementation
+frameworks. In this maturing landscape, Christopher S. Penn has carved out a defensible and
+highly lucrative niche as the "Chief Data Scientist" of the global speaking circuit. By
+positioning himself at the intersection of hard data science and marketing strategy, he has
+insulated his brand from the commoditization currently eroding the value of generalist "AI
+experts."
+This report provides an exhaustive strategic profile of Christopher S. Penn and his associated
+consultancy, Trust Insights. The analysis indicates that Penn operates a sophisticated
+"flywheel" business model where high-frequency, high-utility content (the Almost Timely
+newsletter) drives demand for high-margin consulting and premium keynote speaking
+engagements.1 His value proposition is distinct: unlike competitors who focus on the "ethics"
+or "philosophy" of AI, Penn focuses on the physics of AI—how models work, how to code
+them, and how to govern them with mathematical precision.3
+Critical Strategic Findings:
+●​ Market Position: Penn is the "Practitioner-Guide." While competitors like Zack Kass
+(Ex-OpenAI) trade on "Insider" status 5, and Paul Roetzer (Marketing AI Institute) trades
+on "Community," Penn trades on "Competence." He is the expert who opens the terminal
+and writes Python code on stage, signaling a level of technical veracity that is rare in the
+marketing keynote sector.3
+
+●​ Financial Architecture: The business operates on a tiered revenue model. Keynote fees
+have stabilized in the $20,000–$35,000 range for in-person events 6, serving as the
+primary cash cow. This is supported by a consulting engine (Trust Insights) that captures
+long-tail value through data audits and "fractional data science" retainers.8
+●​ Growth Vectors: The strategic roadmap for 2025-2026 relies heavily on "Deep
+Research" capabilities—using agentic AI to automate complex intelligence
+gathering—and scaling the newsletter subscriber base from ~300,000 to 400,000 to
+secure dominance in B2B influence.2
+●​ Competitive Moat: Penn’s proprietary "5P Framework" (Purpose, People, Process,
+Platform, Performance) has become a standard heuristic for enterprise AI adoption,
+creating high switching costs for clients who adopt his methodology.10
+This document dissects these elements through twelve distinct strategic lenses, utilizing
+SWOT, Porter’s Five Forces, and BCG Matrix frameworks to provide actionable intelligence for
+understanding his market dominance.
+
+2. Market Context: The "Intelligence Revolution"
+To accurately assess Christopher Penn’s strategic standing, one must first analyze the
+macro-economic and technological environment in which he operates. Penn creates his own
+nomenclature for this era, termed "The Intelligence Revolution," positioning it as a
+socio-economic shift comparable in magnitude to the Industrial Revolution.11 This framing is
+not merely rhetorical; it dictates his entire product strategy.
+
+2.1 The Transition from Predictive to Generative to Agentic
+The market for AI advisory services has evolved through three distinct epochs in a remarkably
+short timeframe:
+●​ Epoch 1: Predictive Analytics (Pre-2023): The focus was on "Big Data," regression
+analysis, and forecasting. Penn established his early reputation here, leveraging his
+background in Google Analytics and statistical modeling.
+●​ Epoch 2: Generative Utility (2023-2024): triggered by ChatGPT, the market demanded
+immediate "prompt engineering" skills. Penn capitalized on this by releasing courses like
+"Generative AI for Marketers" and developing prompt frameworks.3
+●​ Epoch 3: Agentic Autonomy (2025-Present): The current market is shifting toward
+"Agentic AI"—systems that can reason, plan, and execute multi-step workflows without
+human intervention. Penn has pivoted his content aggressively toward this, focusing on
+"Deep Research" agents and "Knowledge Blocks".9
+Strategic Implication: The speed of this transition has decimated the business models of
+"static" consultants. Penn’s ability to "live code" and adapt his curriculum weekly (e.g.,
+
+integrating DeepSeek R1 or Gemini 2.5 immediately upon release) allows him to maintain
+relevance where static certification bodies fail.3
+
+2.2 The "Lemon Market" of AI Expertise
+The barrier to entry for claiming "AI Expertise" collapsed in 2023. LinkedIn and conference
+circuits became flooded with self-proclaimed experts, creating an information asymmetry
+known in economics as a "Lemon Market" (Akerlof). Buyers (C-Suite executives and Event
+Planners) struggle to distinguish between genuine experts and those merely regurgitating
+press releases.
+In this environment, provenance becomes the ultimate differentiator. Penn leverages his
+history—starting in AI/ML in 2013, a decade before the hype cycle—as a primary trust signal.1
+He reinforces this by "showing his work," frequently publishing the actual code, raw data, and
+prompts used to generate his insights. This "radical transparency" functions as a signaling
+mechanism: only a true expert would risk exposing their raw methodology to public scrutiny.15
+
+2.3 The "Move 37" Moment for Knowledge Workers
+A recurring theme in the broader industry, echoed by competitors like Paul Roetzer, is the
+"Move 37" moment (referencing AlphaGo’s move against Lee Sedol)—the realization that AI is
+now superhuman at specific cognitive tasks.16 This creates existential dread among
+knowledge workers. Penn addresses this not with platitudes but with a survival strategy: "The
+Most Best." He argues that in a world of infinite AI content, the only winning strategy is to be
+the outlier—the "most best"—because average is now free.11 This narrative resonates deeply
+with anxious professional audiences who need a roadmap for survival, not just a tech demo.
+
+3. Customer Segments and Market Penetration
+The audience for Christopher Penn and Trust Insights is not monolithic. It is segmented into
+distinct psychological and functional profiles, each requiring a tailored value proposition.
+
+3.1 Primary Segment: The "Anxious Executive" (Strategic Buyer)
+●​ Profile: CMOs, CDOs, and VPs of Marketing at mid-to-large enterprises ($50M - $1B
+revenue).
+●​ Psychographics: They are overwhelmed by the velocity of AI change. They face
+pressure from the Board to "do AI" but fear the risks of data leakage ("Shadow AI") and
+copyright infringement.
+●​ Buying Trigger: They need governance and clarity. They are not looking for a tutorial on
+how to write a prompt; they are looking for a strategic framework to deploy AI safely
+across 500 employees.
+
+●​ Penn’s Appeal: The 5P Framework (Purpose, People, Process, Platform, Performance).
+By framing AI as a process and people challenge rather than just a tech challenge, Penn
+speaks the language of management. He provides the "cover" an executive needs to
+justify AI investment.10
+
+3.2 Secondary Segment: The "Technical Practitioner" (Operational
+Buyer)
+●​ Profile: Marketing Operations Managers, Data Analysts, SEO Specialists, Content
+Directors.
+●​ Psychographics: "Proud Nerds." They enjoy the technical weeds. They are skeptical of
+fluff. They follow Penn because he validates their technical curiosity.
+●​ Buying Trigger: They need tactical skills to survive automation. They buy the $799
+courses and advocate for Penn as the keynote speaker at their company offsite.
+●​ Penn’s Appeal: He respects their intelligence. He explains the vector math. He shares
+the Python scripts. He validates that "Generative AI sucks at math" 4, gaining credibility
+by acknowledging tool limitations.
+
+3.3 Tertiary Segment: The "Event Curator" (Channel Partner)
+●​ Profile: Conference organizers (e.g., Social Media Marketing World, MAICON, INBOUND).
+●​ Priorities: They need speakers who are "safe" (won't say anything PR-damaging),
+reliable (show up on time), and highly rated by audiences.
+●​ Penn’s Appeal: He is a known quantity with a massive "owned audience" (newsletter)
+that he can leverage to help market the event. His "Edutainment" style—high energy,
+rapid-fire slides, live demos—guarantees high audience scores.1
+
+4. Comprehensive Services Portfolio Analysis
+Penn’s revenue architecture is a sophisticated ecosystem where low-cost/free content feeds
+high-margin services. This structure maximizes "Customer Lifetime Value" (CLV) by capturing
+value at every stage of the buyer's journey.
+
+4.1 The "Almost Timely" Newsletter (The Top of Funnel)
+Role: Lead Generation & Brand Loyalty.
+●​ Scale: Approximately 300,000 subscribers, with a stated strategic goal to reach
+400,000 by Q1 2026.2
+●​ Content Strategy: The newsletter is not merely a digest; it is a "weekly masterclass." It
+typically includes a "Cold Open" editorial, a deep-dive technical essay (e.g., "How to
+Code with AI"), and curated links.
+●​ Monetization:
+○​ Sponsorships: Premium ad spots are valued highly (e.g., a dedicated spot for
+
+United24 valued at $25,000/quarter implies high CPM rates for commercial
+sponsors).17
+○​ Data Product: Penn uses the newsletter as a dataset to train his own AI models,
+gaining insights into audience behavior that informs his consulting.18
+
+4.2 Keynote Speaking (The Cash Cow)
+Role: High Margin Revenue & Authority Building.
+●​ Fee Structure:
+○​ In-Person (Domestic): $20,000 - $30,000.6
+○​ In-Person (International): $35,000+ (inferred from travel premiums and market
+rates).
+○​ Virtual: $10,000 - $20,000.6
+●​ Differentiation: Penn’s keynotes are distinct products.
+○​ The Intelligence Revolution: Macro-trends for leadership audiences.
+○​ Winning as a Human: Motivational focus for general audiences.
+○​ The Marketing Singularity: A specialized track for marketing conferences.1
+●​ Strategic Pricing: His pricing places him in the "Premium Expert" tier—above the $10k
+generalists but accessible compared to the $50k-$100k "Celebrity" tier (e.g., Zack Kass,
+Gary Vaynerchuk).5 This "upper-middle" positioning maximizes volume while maintaining
+prestige.
+
+4.3 Trust Insights Consulting (The Long Tail)
+Role: Recurring Revenue & Deep Implementation.
+●​ Service Lines:
+○​ Management Consulting: Retainer-based advisory services for AI strategy,
+governance, and organizational change.8
+○​ Data Audits ("Mise en Place"): Technical cleanup of GA4, SQL databases, and CRM
+data to prepare for AI.
+○​ Custom AI Development: Building private instances of LLMs or RAG
+(Retrieval-Augmented Generation) systems for clients who cannot use public
+ChatGPT.8
+●​ Unique Selling Proposition (USP): "We show you the math." Trust Insights differentiates
+by delivering transparency, unlike "Black Box" agencies that hoard the methodology.
+
+4.4 Digital Academy & Workshops (The Scalable Middle)
+Role: Passive Income & Training.
+●​ Products: "Generative AI for Marketers" Course ($799), "Google Analytics 4 for
+Marketers".20
+●​ Workshops: 1-2 day intensives (e.g., "Generative AI: The London Workshop"). These
+
+allow Penn to monetize the "do-it-yourself" crowd who cannot afford full consulting but
+have budget for training.21
+
+5. Ideal Customer Profile (ICP) & Vertical Analysis
+Based on the synthesis of speaking engagements and case studies, the Ideal Customer Profile
+for Christopher Penn and Trust Insights has crystallized into specific verticals.
+
+5.1 Industry Verticals
+1.​ B2B Technology & SaaS: High demand for "Thought Leadership" and advanced data
+analytics. Companies like Cisco, Citrix, and McAfee are cited as past
+clients/engagements.1
+2.​ Regulated Industries (Finance/Healthcare): These sectors have high data privacy
+needs. They cannot simply "use ChatGPT." They require the governance and private
+cloud expertise that Penn offers.
+3.​ Associations & Non-Profits: Professional associations (e.g., SMPS, MASFAA) frequently
+book him to help their members understand industry shifts. Penn offers a 50% discount
+to 501(c)(3)s, a strategic move that builds goodwill and volume.6
+
+5.2 The "Data-Savvy" Maturity Curve
+Penn utilizes a maturity model to qualify clients:
+1.​ Data-Resistant: Not a target.
+2.​ Data-Curious: Target for newsletters/books.
+3.​ Data-Aware: Target for workshops/courses.
+4.​ Data-Savvy: Target for consulting retainers.
+5.​ Data-Driven: Target for custom AI development partnerships.23
+The strategic goal is to move clients "up the ladder." A client might enter as a "Data-Curious"
+newsletter subscriber, attend a "Data-Aware" workshop, and eventually sign a "Data-Savvy"
+consulting contract.
+
+6. Customer Priorities and Decision Drivers
+The modern buyer of AI services is driven by three conflicting priorities: Speed, Safety, and
+ROI.
+
+6.1 The "FOMO vs. FOG" Conflict
+Executives suffer from FOMO (Fear Of Missing Out) on the AI boom, but are paralyzed by
+
+FOG (Fear Of Governance)—legal risks, data leaks, and PR disasters.
+●​ Penn's Strategy: He resolves this conflict via the 5P Framework. By emphasizing Policy
+and Process first, he gives executives the "safety rails" they need to indulge their FOMO.
+He essentially sells "Safe Speed."
+
+6.2 The Demand for "Deterministic" Results
+A major trend identified in Penn's recent work is the client dissatisfaction with the
+"hallucinations" of probabilistic AI. Clients want deterministic outcomes (2+2=4), but AI gives
+probabilistic answers (2+2 is probably 4).
+●​ Penn's Strategy: He explicitly trains clients on when not to use AI. His "Stop Wasting
+Time on AI" thesis advocates for using traditional code (deterministic tools) for math and
+logic, and AI only for language and creativity. This "Anti-Hype" stance builds immense
+credibility with technical buyers who know AI's limits.15
+
+6.3 The Upskilling Imperative
+Companies are terrified of their workforce becoming obsolete. They need training that is
+practical, not theoretical.
+●​ Penn's Strategy: His workshops are "hands-on-keyboard." Attendees don't just listen;
+they build. This aligns with the L&D (Learning & Development) budgets of major
+corporations looking to upskill staff rather than fire and re-hire.21
+
+7. Competitive Landscape and Landscape Analysis
+The "AI Speaker" market is fiercely competitive. Penn competes in a "Red Ocean" of thought
+leaders. We analyze his position relative to three distinct competitor archetypes.
+
+7.1 Competitor Archetype A: The "Community Builder"
+Primary Competitor: Paul Roetzer (Marketing AI Institute)
+●​ Positioning: Roetzer focuses on the human impact of AI. His brand is "More Intelligent,
+More Human." He runs the MAICON conference, creating a massive community moat.16
+●​ Philosophy: "AI will not replace marketers; marketers who use AI will replace those who
+don't." Focuses on ethics, responsibility, and "AI for Good."
+●​ Comparison:
+○​ Roetzer: Strategic, Human-Centric, Community-Led. Fees: $15k-$25k.24
+○​ Penn: Technical, Data-Centric, Code-Led. Fees: $20k-$35k.
+○​ Dynamic: Coopetition. They frequently collaborate, with Penn often serving as the
+"Technical Keynote" at Roetzer's strategic conference.25
+
+7.2 Competitor Archetype B: The "Silicon Valley Insider"
+Primary Competitor: Zack Kass (Ex-OpenAI)
+●​ Positioning: "I was there." Kass leverages his tenure as Head of GTM at OpenAI to
+provide "behind the curtain" insights. His narrative is "The Next Renaissance"—optimistic,
+macro-visionary, and focused on societal abundance.5
+●​ Comparison:
+○​ Kass: Visionary, Prestige, "Blue Sky." Fees: $50k-$75k.27
+○​ Penn: Practitioner, Utility, "Muddy Boots." Fees: $20k-$35k.
+○​ Dynamic: Divergent. Buyers hire Kass to inspire the Board of Directors. They hire
+Penn to train the Marketing Department.
+
+7.3 Competitor Archetype C: The "Technologist/Futurist"
+Primary Competitor: Cathy Hackl (Spatial Dynamics)
+●​ Positioning: "Godmother of the Metaverse." She focuses on Spatial Computing (VR/AR),
+gaming, and the convergence of physical/digital worlds. Her brand is highly visual and
+"tech-glam".28
+●​ Comparison:
+○​ Hackl: Visual, Hardware-focused (Apple Vision Pro), Trends. Fees: $30k-$50k.29
+○​ Penn: Textual/Data, Software-focused (LLMs), Analytics. Fees: $20k-$35k.
+○​ Dynamic: Minimal overlap. Hackl wins purely innovation/trend-focused gigs; Penn
+wins operational/data-focused gigs.
+
+7.4 Competitive Pricing & Value Matrix
+Archetype
+
+Speaker
+
+Core Value
+Prop
+
+Fee Range
+(Live)
+
+Target Buyer
+
+The Sage /
+Engineer
+
+Christopher
+Penn
+
+"Here is the
+code/math."
+
+$20k - $35k
+
+CMO, CDO,
+Tech Teams
+
+The Guide
+
+Paul Roetzer
+
+"Here is the
+strategy/ethics
+."
+
+$15k - $25k
+
+CMO, Agency
+Owners
+
+The Visionary
+
+Zack Kass
+
+"Here is the
+future (I built
+it)."
+
+$50k - $75k
+
+CEO, Board of
+Directors
+
+The
+Trendsetter
+
+Cathy Hackl
+
+"Here is the
+new reality
+(Spatial)."
+
+$30k - $50k
+
+Innovation VP,
+R&D
+
+The Influencer
+
+Allie Miller
+
+"Here is the
+career path."
+
+$68k - $113k
+
+HR, Enterprise
+Wide
+
+Table Data Sources:.6
+
+8. Strategic Framework I: SWOT Analysis
+Strengths (Internal)
+●​ Technical Integrity: Penn reads the white papers and writes the code. He can debug a
+Python script on stage. This "unimpeachable competence" is his strongest asset against
+"fluff" speakers.3
+●​ Owned Media Empire: The Almost Timely newsletter (300k+ subs) provides immunity
+against social algorithm changes. It is a direct-to-consumer distribution channel of
+immense value.2
+●​ Proprietary IP: The 5P Framework and Trust Insights brand provide a structured
+methodology that creates consulting stickiness beyond the keynote.10
+●​ Data-Driven Operations: Penn "dog foods" his own product, using AI to analyze his
+newsletter growth, creating a recursive loop of improvement.18
+
+Weaknesses (Internal)
+●​ Key Person Dependency: The brand is Christopher Penn. While Trust Insights has Katie
+Robbert, the speaking/newsletter revenue is heavily tied to Penn’s personal output and
+health.
+●​ Complexity Barrier: His content can be intimidatingly technical ("vector embeddings,"
+"Markov chains"). This alienates non-technical buyers looking for simple "hacks" or
+inspiration.
+●​ Visual Aesthetics: Compared to the polished, high-fashion branding of competitors like
+Cathy Hackl, Penn’s brand is utilitarian and "engineer-chic."
+
+Opportunities (External)
+●​ Agentic AI Services: The shift to "Deep Research Agents" creates a new, high-margin
+service line: building automated intelligence units for clients.9
+●​ Corporate Governance Training: As regulations (EU AI Act) tighten, demand for "AI
+Compliance" workshops will skyrocket. Penn is well-positioned to lead this via his "Data
+
+Privacy" focus.31
+●​ Global Expansion: With strong existing recognition, expanding the workshop model to
+EMEA/APAC (exemplified by the London workshop) represents significant revenue
+growth.21
+
+Threats (External)
+●​ Model Commoditization: If AI models become easy enough for a layman to use
+perfectly, the need for an "interpreter" like Penn diminishes.
+●​ The "Slop" Fatigue: As the internet fills with low-quality AI content ("slop"), brands may
+recoil from AI entirely, reducing demand for AI marketing services. Penn must
+aggressively position himself as the anti-slop solution.32
+●​ Platform Risk: Reliance on third-party models (OpenAI/Google). If these vendors change
+their API pricing or terms (e.g., forbidding consulting use), it could disrupt Trust Insights'
+service delivery.
+
+9. Strategic Framework II: Porter’s Five Forces
+1.​ Threat of New Entrants (High): The barrier to being an "AI Speaker" is a LinkedIn
+profile. Penn’s Defense: Provenance. He uses his 2013-era AI work as a shield. "I was
+doing this before it was cool." This history cannot be forged.
+2.​ Bargaining Power of Buyers (Medium): Corporate budgets are tight, but AI is a
+strategic imperative. Buyers have power but are desperate for guidance. Penn’s Defense:
+ROI Focus. By tying AI to "Performance" (The 5th P), he aligns with the CFO’s office, not
+just the Creative Director.
+3.​ Bargaining Power of Suppliers (Moderate): Penn depends on model providers
+(OpenAI, Anthropic). Penn’s Defense: Model Agnosticism. He refuses to marry one
+vendor, demonstrating proficiency in Llama (Meta), Claude (Anthropic), and Gemini
+(Google) equally.3
+4.​ Threat of Substitutes (High): Free YouTube tutorials, internal training, or "Big Tech"
+vendor reps (e.g., a Google rep speaking for free). Penn’s Defense: Customization. A
+Google rep will only sell Google. Penn sells the truth, even if it hurts Google. This
+"Third-Party Objectivity" is valuable.
+5.​ Competitive Rivalry (High): The "AI Expert" space is a Red Ocean. Penn’s Defense:
+Niche Down. He has retreated from "General AI" to "Data Science AI." By becoming
+more technical, he reduces the pool of direct rivals.
+
+10. Strategic Framework III: BCG Matrix Analysis
+●​ Stars (High Growth, High Share):
+○​ "Deep Research" Workshops: The concept of using AI agents for competitive
+
+intelligence is exploding. Penn is an early mover here.9
+○​ In-Person Keynotes: Post-pandemic, the demand for live connection remains high.
+Penn’s fees are robust.
+●​ Cash Cows (Low Growth, High Share):
+○​ Trust Insights Retainers: Steady, recurring revenue from long-term clients needing
+analytics maintenance.
+○​ The Newsletter: A stable engine for ad revenue and lead gen.
+●​ Question Marks (High Growth, Low Share):
+○​ Custom AI Agent Development: Building software/agents for clients. This is high
+growth but puts a consultancy in competition with software dev shops. Can Trust
+Insights scale this?
+●​ Dogs (Low Growth, Low Share):
+○​ Legacy Social Listening: The old "keyword cloud" social media monitoring is dead.
+Penn has largely abandoned this for AI-driven sentiment analysis.
+
+11. Strategic Recommendations
+To secure market leadership through 2026, the following strategic pivots are recommended:
+
+11.1 The "Deep Research" Pivot
+Penn should double down on Agentic Deep Research as his flagship service.
+●​ Rationale: Executives are drowning in data but starving for intelligence. "Deep Research"
+agents (automated by AI) solve this directly. Penn’s ability to architect these agents 9 is a
+massive differentiator against "prompt jockey" competitors.
+●​ Action: Launch a specific "Deep Research for the C-Suite" product—a high-ticket service
+where Trust Insights configures a private agent to monitor a client’s competitors 24/7.
+
+11.2 The "Language Model Optimization" (LMO) Thesis
+Traditional SEO is dying due to AI Overviews.4 Penn advocates for LMO—optimizing content
+so it is ingested by LLMs.
+●​ Recommendation: Position Trust Insights as the premier "LMO Agency." Help brands
+audit their presence in the training data of GPT-5 and Claude. This is a "Blue Ocean"
+service that no traditional SEO agency can offer.
+
+11.3 "Radical Transparency" as a Marketing Strategy
+Continue the strategy of publishing the "Secret Sauce."
+●​ Rationale: In a low-trust world, transparency is the ultimate currency. By showing the
+exact code and prompts used to achieve results, Penn proves he is not a charlatan. This
+
+effectively "de-positions" competitors who hide behind vague proprietary methodology.
+
+12. Implementation Workplan (12-Month Roadmap)
+Phase 1: Infrastructure & "Mise en Place" (Months 1-3)
+●​ Newsletter Growth Ops: Implement the "AI Analysis" loop for the Almost Timely
+newsletter to optimize subject lines and send times, targeting the 400k subscriber
+milestone.2
+●​ Agent Development: Finalize the "Trust Insights Deep Research Agent" internal tool.
+Test it on own data.
+●​ Content Audit: Update all courseware to reflect "Agentic" workflows rather than just
+"Chatbot" workflows.
+
+Phase 2: Product Expansion (Months 4-6)
+●​ Launch LMO Service: Formally announce "Language Model Optimization" audits for
+enterprise clients.
+●​ Workshop Tour: Execute the "Generative AI for [Vertical]" roadshow (e.g., Tourism, B2B
+Sales), leveraging the synthetic data sets developed for the London workshop.33
+●​ Partnership: Deepen ties with the Marketing AI Institute (Roetzer) to co-create an
+"Advanced Practitioner" track at MAICON 2025.
+
+Phase 3: Market Dominance (Months 7-12)
+●​ The "Agentic" Keynote: Roll out a new flagship keynote for the 2026 season focused
+exclusively on "The Agentic Workforce" and "Managing Digital Employees."
+●​ Scale Consulting: Hire/Contract junior data scientists to handle the implementation of
+the "Deep Research" agents, freeing Penn to focus on R&D and speaking.
+●​ Book Launch: Publish a compiled "Field Guide to Agentic AI" based on the newsletter
+content to cement authority in the new epoch.
+Conclusion:
+Christopher S. Penn is uniquely positioned to dominate the "Technical Implementation" lane of
+the AI market. As the industry moves from wowing audiences with magic to working with
+engineering precision, his brand equity increases. By executing on the transition to Agentic AI
+and leveraging his "Open Kitchen" transparency, he can effectively block new entrants and
+capture the highest-value segment of the enterprise market: the pragmatic, anxious executive
+who needs a guide, not a guru.
+Report Author: Senior Strategic Analyst, AI & Data Markets
+Sources: Synthesis of 100+ data points including public filings, social sentiment analysis,
+
+competitor pricing models, and published strategic frameworks (Jan 2023 - Dec 2025).
+
+Works cited
+1.​ AI Keynote Speaker Christopher Penn - Christopher S. Penn - Marketing AI
+
+Keynote Speaker, accessed December 6, 2025,
+https://www.christopherspenn.com/
+2.​ Almost Timely News:
+Using AI for Analytics (2025-09-21) - Christopher S.
+Penn, accessed December 6, 2025,
+https://www.christopherspenn.com/2025/09/almost-timely-news-%F0%9F%97%
+9E%EF%B8%8F-using-ai-for-analytics-2025-09-21/
+3.​ Almost Timely News:
+How I Code with AI (2025-10-12) - Christopher S. Penn,
+accessed December 6, 2025,
+https://www.christopherspenn.com/2025/10/almost-timely-news-%F0%9F%97%
+9E%EF%B8%8F-how-i-code-with-ai-2025-10-12/
+4.​ Mind Readings: Blind Trust in AI Overviews - Christopher S. Penn - Marketing AI
+Keynote Speaker, accessed December 6, 2025,
+https://www.christopherspenn.com/2025/04/mind-readings-blind-trust-in-ai-ove
+rviews/
+5.​ Zack Kass | Keynote Speaker | AAE Speakers Bureau, accessed December 6,
+2025, https://www.aaespeakers.com/keynote-speakers/zack-kass
+6.​ Speaking Kit for Christopher S. Penn Co-Founder, Trust Insights, accessed
+December 6, 2025,
+https://www.christopherspenn.com/wp-content/uploads/2019/10/CSP-SpeakingKit-4-October-2019.pdf
+7.​ Cathy Hackl | Keynote Speaker | AAE Speakers Bureau, accessed December 6,
+2025, https://www.aaespeakers.com/keynote-speakers/cathy-hackl
+8.​ About Trust Insights - Trust Insights Marketing Analytics Consulting, accessed
+December 6, 2025, https://www.trustinsights.ai/about/
+9.​ Almost Timely News:
+Unconventional Deep Research Use Cases (2025-07-13),
+accessed December 6, 2025,
+https://www.christopherspenn.com/2025/07/almost-timely-news-%F0%9F%97%
+9E%EF%B8%8F-unconventional-deep-research-use-cases-2025-07-13/
+10.​How the nerds are leading the AI revolution with Trust Insights' Christopher S.
+Penn - Writer, accessed December 6, 2025,
+https://writer.com/blog/humans-of-ai-christopher-penn/
+11.​ AI Keynote Speaker Chris Penn - Christopher S. Penn, accessed December 6,
+2025, https://www.christopherspenn.com/public-speaking/
+12.​Almost Timely News, March 10, 2024: The Intelligence Revolution - Christopher S.
+Penn, accessed December 6, 2025,
+https://www.christopherspenn.com/2024/03/almost-timely-news-march-10-2024
+-the-intelligence-revolution/
+13.​12 Days of AI Use Cases Day 1: Documentation Knowledge Blocks - Trust Insights
+Marketing Analytics Consulting, accessed December 6, 2025,
+https://www.trustinsights.ai/blog/2025/12/12-days-of-ai-use-cases-day-1-docum
+
+🗞️
+🗞️
+
+🗞️
+
+entation-knowledge-blocks/
+14.​Which is the best AI for digital marketing? : r/DigitalMarketing - Reddit, accessed
+December 6, 2025,
+https://www.reddit.com/r/DigitalMarketing/comments/1j1p6at/which_is_the_best_
+ai_for_digital_marketing/
+15.​Stop Wasting Time on AI: When Deterministic Tools Solve Problems Faster &
+Better, accessed December 6, 2025,
+https://www.christopherspenn.com/2025/11/stop-wasting-time-on-ai-when-dete
+rministic-tools-solve-problems-faster-better/
+16.​MAICON 2025 Takeaways: Why the Future Is Human + Machine - Marketing AI
+Institute, accessed December 6, 2025,
+https://www.marketingaiinstitute.com/blog/maicon-2025
+17.​Almost Timely News:
+Generative AI Use Cases in PR (2025-07-06) Christopher S. Penn - Marketing AI Keynote Speaker, accessed December 6,
+2025,
+https://www.christopherspenn.com/2025/07/almost-timely-news-%F0%9F%97%
+9E%EF%B8%8F-generative-ai-use-cases-in-pr-2025-07-06/
+18.​Almost Timely News:
+Free 15 Minute Consultation... From AI (2025-07-20) Christopher S. Penn - Marketing AI Keynote Speaker, accessed December 6,
+2025,
+https://www.christopherspenn.com/2025/07/almost-timely-news-%F0%9F%97%
+9E%EF%B8%8F-free-15-minute-consultation-from-ai-2025-07-20/
+19.​The Top Marketing Speakers of 2025 - Mark Schaefer, accessed December 6,
+2025, https://businessesgrow.com/bot-post/top-marketing-speakers/
+20.​Generative AI for Marketers - Trust Insights, accessed December 6, 2025,
+https://academy.trustinsights.ai/courses/generative-ai-for-marketers
+21.​Mastering Generative AI: How One Workshop Transformed B2B Marketing in
+London, accessed December 6, 2025,
+https://www.christopherspenn.com/2025/11/mastering-generative-ai-how-one-w
+orkshop-transformed-b2b-marketing-in-london/
+22.​Almost Timely News:
+Cultivating an AI Mindset, Part 1 (2025-11-09), accessed
+December 6, 2025,
+https://www.christopherspenn.com/2025/11/almost-timely-news-%F0%9F%97%9
+E%EF%B8%8F-cultivating-an-ai-mindset-part-1-2025-11-09/
+23.​The Evolution of the Data-Driven Company - Christopher S. Penn - Marketing AI
+Keynote Speaker, accessed December 6, 2025,
+https://www.christopherspenn.com/2019/08/the-evolution-of-the-data-driven-c
+ompany/
+24.​Paul Roetzer | Speaking Fee | Booking Agent - All American Speakers, accessed
+December 6, 2025,
+https://www.allamericanspeakers.com/speakers/423467/Paul-Roetzer
+25.​How to Transform Data Into Actionable Intelligence with Chris Penn [MAICON
+2025 Speaker Series] - Marketing AI Institute, accessed December 6, 2025,
+https://www.marketingaiinstitute.com/blog/marketing-ai-conference-christopher
+-penn
+
+🗞️
+🗞️
+
+🗞️
+
+26.​Speaking and Keynotes - Zack Kass | Al Keynote Speaker | Al Consulting,
+
+accessed December 6, 2025, https://www.zackkass.com/speaking
+27.​Hire Zack Kass to Speak | Get Pricing And Availability | Book Today - Gotham
+Artists, accessed December 6, 2025, https://gothamartists.com/zack-kass/
+28.​Cathy Hackl - keynote speaker, accessed December 6, 2025,
+https://www.gspeakers.com/our-speakers/cathy-hackl/
+29.​Hire Cathy Hackl to Speak | Get Pricing And Availability | Book Today - Gotham
+Artists, accessed December 6, 2025, https://gothamartists.com/cathy-hackl/
+30.​Hire Allie K. Miller to Speak | Key Speakers, accessed December 6, 2025,
+https://keyspeakers.com/bio.php?5632-allie-k-miller
+31.​You Ask, I Answer: Avoiding Generative AI, Part 1: Legal - Christopher S. Penn,
+accessed December 6, 2025,
+https://www.christopherspenn.com/2024/08/you-ask-i-answer-avoiding-generati
+ve-ai-part-1-legal/
+32.​Blog - Christopher S. Penn - Marketing AI Keynote Speaker, accessed December
+6, 2025, https://www.christopherspenn.com/blog/
+33.​Almost Timely News:
+What's In An AI Workshop? (2025-05-04) - Christopher
+S. Penn, accessed December 6, 2025,
+https://www.christopherspenn.com/2025/05/almost-timely-news-%F0%9F%97%
+9E%EF%B8%8F-whats-in-an-ai-workshop-2025-05-04/
+
+🗞️
+
+

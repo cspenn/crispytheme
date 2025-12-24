@@ -1,0 +1,763 @@
+Strategic Market Analysis: Ideal
+Customer Profiles and Positioning for
+Christopher S. Penn
+1. Executive Intelligence Brief
+1.1 The Strategic Pivot: From Novelty to Operational Necessity
+The market landscape for Artificial Intelligence (AI) and data analytics has undergone a
+fundamental phase shift as we move through 2025. The initial wave of generative AI
+hype—characterized by unbridled enthusiasm and theoretical speculation—has receded. In its
+place, a more rigorous, pragmatic, and risk-aware marketplace has emerged. Corporate
+buyers, event organizers, and individual practitioners are no longer asking "What is AI?" but
+rather "How do we survive the integration of AI without legal liability, brand erosion, or
+operational collapse?"
+This shift creates a distinct competitive advantage for Christopher S. Penn. The analysis of his
+market positioning reveals a brand built on the archetype of the "Practitioner-Scholar."
+Unlike competitors who operate primarily as futurists or media commentators 1, Penn’s value
+proposition is rooted in the granular reality of execution—coding, data cleaning, model
+training, and authentic implementation.3
+This report constructs comprehensive Ideal Customer Profiles (ICPs) designed to align with
+Penn’s specific 2025 goals: driving newsletter growth, securing high-fee speaking
+engagements, selling workshops, and retaining a loyal consulting base. The core finding is
+that Penn’s ideal customer is not the "visionary" seeking inspiration, but the "Pragmatic
+Operator" seeking immunity from obsolescence.
+
+1.2 Market Forces Shaping the 2025 Buyer
+To understand the Ideal Customer, one must understand the pressures they face. The
+research identifies three macro-trends driving buyer behavior in 2025:
+1.​ The "Slop" Crisis & Brand Integrity: As generative AI floods the internet with
+low-quality content ("slop"), brands are desperate to differentiate. They fear the "Sea of
+Sameness".6 Buyers are actively seeking strategies to maintain human authenticity
+("Most Best Branding") while leveraging AI scale.
+2.​ Regulatory & Ethical Anxiety: With new precedents in IP law and the "dark side" of AI
+(resource consumption, labor dislocation) becoming board-level issues 5, buyers are
+risk-averse. They require vendors and speakers who understand compliance, not just
+capability.
+
+3.​ The "Deskilling" Threat: Corporate leaders are terrified of their workforce becoming
+"deskilled" by AI dependence.6 This drives demand for training that emphasizes using AI
+to enhance human expertise ("Most Best Ideas") rather than replacing it.
+These forces bifurcate the market. The "hype" market goes to futurists; the "help" market
+goes to practitioners like Penn. The following profiles are built for the latter.
+
+2. Ideal Customer Profile A: The Strategic Event
+Architect (B2B Speaker Buyer)
+This profile represents the primary target for the goal: "Acquire new customers that hire
+Christopher Penn to speak at their events." This buyer holds the keys to the $10,000 –
+$35,000 speaking fees identified in the research.8
+
+2.1 Demographics
+●​ Age: 35 – 55. The role requires significant seniority to manage large budgets and
+complex logistics.
+●​ Gender: Historically, the event planning and association management industry skews
+female (approx. 70-80%), though executive leadership in large tech conferences is more
+gender-balanced.
+●​ Education: Bachelor’s degree is the baseline; many possess specialized certifications
+such as the CMP (Certified Meeting Professional), CAE (Certified Association Executive),
+or CMM (Certificate in Meeting Management).
+●​ Location:
+○​ Primary: Major metropolitan hubs in North America (New York, Chicago, Las Vegas,
+San Francisco, Boston) where large-scale conventions are hosted.
+○​ Secondary: Western Europe (London, Berlin) where Penn’s "international" fee tier
+applies ($18,000 flat fee).8
+●​ Household Income/Purchasing Power:
+○​ Personal Income: $90,000 – $180,000 annually.
+○​ Purchasing Power (Corporate): They control event budgets ranging from $100,000
+to $5M+. Crucially, they have the discretionary authority to sign off on line items up to
+$50,000 for "Talent/Entertainment" without needing full board approval.9
+●​ Race/Ethnicity/Cultural Background: Diverse, but operating strictly within the norms of
+Western corporate culture. There is a growing emphasis on DEI (Diversity, Equity, and
+Inclusion) in speaker lineups. As an Asian-American speaker, Penn fits the need for
+diverse representation on panels while maintaining the highest tier of technical
+authority.10
+
+2.2 Psychographics
+Values & Beliefs
+●​ Risk Mitigation: Their primary directive is to not embarrass the organization. A speaker
+who goes off-script, has technical failures, or offends the audience is a career threat.
+They value "safe hands"—speakers with a proven track record (IBM Champion, published
+author).11
+●​ Audience Advocacy: They view themselves as the defenders of the attendee
+experience. They believe the audience deserves "actionable takeaways," not just sales
+pitches.
+●​ Professionalism: They value responsiveness. Penn’s detailed media kit, clear pricing
+transparency, and "obvious tips" like thanking organizers publicly align perfectly with
+their values.8
+
+Fears & Pain Points
+●​ The "Dud" Speaker: Investing $25,000 in a keynote speaker who puts the audience to
+sleep or recites generic ChatGPT platitudes.
+●​ Technical Obsolescence: The fear that their industry (events) is being disrupted by
+virtual formats. They need speakers who can energize a live room.13
+●​ Budget Scrutiny: Justifying high fees to the CFO. They need concrete ROI—metrics,
+books sold, or post-event workshops—to validate the spend.
+
+Interests & Activities
+●​ Professional Development: They read Meetings Today, PCMA Convene, and follow
+industry influencers like Tahira Endean.14
+●​ Trend Spotting: They are constantly scouting for "the next big thing." In 2025, they are
+specifically looking for "AI interpretation," "Workforce resilience," and "Ethical Tech".15
+●​ Networking: They attend IMEX, MPI WEC, and other planner-centric conferences to
+scout talent.
+
+Ocean Personality Estimate (The "Conscientious Organizer")
+1.​ Openness (Moderate): They are open to new topics (AI) but prefer them delivered in
+traditional, structured formats. They are not looking for avant-garde performance art;
+they want a keynote.
+2.​ Conscientiousness (Very High): They are hyper-organized, detail-oriented, and
+schedule-driven. They appreciate Penn’s reliability ("Always show up, Always be early").12
+3.​ Extraversion (High): Their role requires constant negotiation and people management.
+4.​ Agreeableness (Moderate): They are collaborative but can be fierce negotiators
+regarding fees and contract terms.
+5.​ Neuroticism (High): Event planning is consistently ranked as one of the most stressful
+
+jobs. They are anxious about logistics and crave partners who reduce that anxiety.14
+
+2.3 Firmographics
+●​ Industry:
+○​ Tier 1: Professional Associations (Marketing, Finance, Higher Education, Healthcare).
+These entities hold annual conferences regardless of economic cycles.3
+○​ Tier 2: Corporate Enterprise (Tech, Pharma, Insurance). These buyers book speakers
+for Sales Kickoffs (SKOs) or Customer Summits.
+●​ Company Size: Mid-to-Large Associations (5,000+ members) or Enterprises (1,000+
+employees). Small organizations cannot afford the $10k+ fee floor.8
+●​ Annual Revenue: Organizations with $10M+ in annual revenue, ensuring liquidity for
+event programming.
+●​ Geography: Global reach, but with a heavy concentration in North American business
+capitals.
+●​ Ownership Structure: Non-profit (Associations) or Publicly Traded (Corporate).
+
+2.4 Buying Behaviors & Journey
+Awareness
+●​ Trigger: The annual planning cycle begins (usually 6-12 months pre-event). The theme is
+decided (e.g., "The Future of [Industry] in the AI Era").
+●​ Channel: They search speaker bureaus (All American Speakers, BigSpeak) 16 or ask peers
+on LinkedIn ("Who is a good AI speaker who isn't full of fluff?").
+●​ Discovery: They encounter Penn via a shared video clip (YouTube sizzle reel), a
+recommendation from a bureau agent, or by seeing him at a competitor’s event.18
+
+Consideration
+●​ Vetting: They visit ChristopherSPenn.com. They scrutinize the "Media Kit," watch the
+"Speaking Reel," and check the "Testimonials".3
+●​ The Filter: They check the fee range. Penn’s transparency ($10k-$35k) allows them to
+immediately qualify or disqualify him based on budget.8
+●​ Differentiation Check: They compare him to Nick Thompson (Media perspective) or
+Zack Kass (Futurist perspective). They choose Penn if their audience needs instruction
+rather than just inspiration.1
+
+Evaluation
+●​ Bureau Interaction: They likely contact a bureau agent (e.g., Technology Speakers, AEI
+Speakers) to check availability.20
+●​ Customization Ask: They ask, "Can he tailor this to?" The research confirms Penn’s
+strong capability to tailor content to specific niches (e.g., "AI in Financial Aid" keynote).3
+
+Purchase
+●​ Contracting: A contract is signed, usually involving a 50% deposit.8
+●​ Riders: They negotiate travel (flat fee $2,500 - $18,000 depending on location) to
+simplify accounting.8
+
+2.5 Strategic Needs Assessment
+Need
+
+Priority
+
+Strategic Implication for
+Penn
+
+Topic Relevance
+
+Critical
+
+Must address 2025
+anxieties: "The Dark Side of
+AI," "AI for Retention,"
+"Workforce Reskilling".5
+
+Audience Engagement
+
+High
+
+Needs "brains full of
+practical advice" so
+attendees feel the ticket
+price was justified.13
+
+Operational Ease
+
+High
+
+Needs a speaker who is
+"low maintenance" and
+handles their own travel
+logistics via flat fees.
+
+3. Ideal Customer Profile B: The Enterprise
+Transformation Leader (B2B Consulting Buyer)
+This profile targets the goals: "Acquire new customers for Trust Insights," "Sell workshops,"
+and "Retain subscribers" (as a lead nurture channel). This buyer is purchasing high-stakes
+problem solving.
+
+3.1 Demographics
+●​ Job Titles: Chief Marketing Officer (CMO), Chief Data Officer (CDO), VP of Marketing
+Operations, Director of Business Intelligence, Head of Digital Transformation.
+●​ Age: 40 – 60.
+●​ Education: Master’s degree (MBA, Data Science, or Economics) is common. They are
+highly educated and respect academic rigor over "growth hacking."
+
+●​ Location: Global hubs for Finance, Healthcare, and Tech (NYC, Boston, London, San
+Francisco).
+●​ Income: $200,000 – $500,000+ (Executive Compensation).
+●​ Other Details: Often managing a team of 10-50 people; facing pressure from the Board
+to "do something with AI" but lacking the internal roadmap.
+
+3.2 Psychographics
+Values & Beliefs
+●​ Data Integrity: They believe that "bad data leads to bad decisions." They are
+fundamentally skeptical of "black box" AI solutions and prioritize transparency and
+governance.22
+●​ Strategic Resilience: They value long-term survival over short-term trends. They are
+interested in "future-proofing" their careers and their organizations.23
+●​ Empirical Truth: They prefer spreadsheets and code over slide decks. They respect
+Penn because he "bridges the gap" between coder and marketer.24
+
+Fears & Pain Points
+●​ The "Shadow AI" Risk: Employees using unauthorized AI tools, leaking IP, or generating
+hallucinations that damage the brand.5
+●​ Data Paralysis: Having massive amounts of data ("ingredients") but no idea how to cook
+with them ("appliance").6
+●​ ROI Pressure: Being unable to prove marketing attribution to the CFO. They fear budget
+cuts if they cannot demonstrate the mathematical impact of their work.22
+
+Interests
+●​ Advanced Analytics: Predictive modeling, attribution, SQL, Python, R.
+●​ Governance: GDPR, EU AI Act, Copyright law.
+●​ Organizational Design: How to structure teams for the AI era.7
+
+Ocean Personality Estimate (The "Strategic Guardian")
+1.​ Openness (High): They must be open to radical technological change (AI) to survive.
+2.​ Conscientiousness (High): They are responsible for governance and compliance;
+sloppy work is unacceptable.
+3.​ Extraversion (Moderate): They lead teams but often prefer the solitude of data analysis.
+4.​ Agreeableness (Low): They are critical thinkers. They do not accept claims at face
+value; they demand proof (making them ideal for Trust Insights' evidence-based
+approach).
+5.​ Neuroticism (Moderate): They carry the weight of organizational risk, driving them to
+seek expert counsel.
+
+3.3 Firmographics
+●​ Industry:
+○​ High Compliance Sectors: Finance, Insurance, Healthcare, Pharma. (These industries
+need the "safe," governed AI approach Penn advocates).22
+○​ Data-Rich Sectors: B2B Tech, SaaS, Logistics, Utilities.
+●​ Company Size: Mid-Market ($50M+) to Enterprise ($1B+). Smaller companies cannot
+afford the consulting fees nor do they have the data complexity requiring such services.
+●​ Technologies: They utilize complex stacks: Salesforce, HubSpot, Marketo, Google
+Analytics 4 (GA4), BigQuery, Snowflake, Tableau.
+●​ Lifecycle Stage: Mature companies undergoing digital transformation.
+
+3.4 Buying Behaviors & Journey
+Awareness
+●​ Channel: They are long-time subscribers to the Almost Timely Newsletter or listeners of
+Marketing Over Coffee. They respect the consistent delivery of high-level thought
+leadership.11
+●​ Trigger: A specific technical crisis (e.g., "GA4 migration failed," "AI policy needed
+immediately") or a strategic mandate ("We need to implement Generative AI by Q3").
+
+Consideration
+●​ Content Consumption: They read the detailed technical breakdowns in the newsletter
+(e.g., "The Dark Side of Generative AI").5 This establishes Penn/Trust Insights as the
+"adults in the room."
+●​ Micro-Conversion: They might buy a workshop or a course first ("Generative AI for
+Marketers") to test the methodology.27
+
+Evaluation
+●​ The "Audit" Entry Point: They often start by hiring Trust Insights for a discrete project:
+an SEO audit, a GA4 audit, or an ICP analysis.28
+●​ Credibility Check: They value the IBM Champion status and the specific case studies
+(e.g., helping AAA Club Alliance) as proof of enterprise capability.11
+
+Purchase
+●​ Procurement: Complex cycle involving legal review, MSAs (Master Services Agreements),
+and procurement departments.
+●​ Pattern: High retention. Once Trust Insights fixes the data foundation, the client retains
+them for ongoing predictive modeling and ad-hoc "crisis" support.31
+
+3.5 Specific Needs & Motivations
+
+Need
+
+Description
+
+Motivation
+
+Governance Frameworks
+
+Need policies for AI usage.
+
+Avoid lawsuits and data
+leaks (Fear).
+
+Data Cleaning
+
+Need to fix "rotten
+ingredients".6
+
+Enable accurate AI
+modeling (Efficiency).
+
+Skill Transfer
+
+Need to upskill teams via
+workshops.
+
+Prevent workforce
+obsolescence (Leadership).
+
+4. Ideal Customer Profile C: The Technical
+Practitioner-Advocate (B2C/B2B Hybrid)
+This profile is the engine for: "Acquire new subscribers," "Sell books," and "Sell courses." While
+they may not sign the $50k consulting check, they are the influencers who recommend Penn
+to the ICP B buyer.
+
+4.1 Demographics
+●​ Job Titles: Marketing Manager, SEO Specialist, Content Strategist, Data Analyst,
+Marketing Technologist, Freelance Consultant.
+●​ Age: 25 – 45.
+●​ Education: Self-taught "shifters" or degrees in Marketing/Comm. High propensity for
+continuous learning (Certifications: Google, HubSpot, Analytics).
+●​ Location: Global. This audience is highly distributed, working remotely or in hybrid roles.
+●​ Income: $60,000 – $150,000 (Individual Contributor to Director level).
+●​ Other: Often "Department of One" or part of a small, overworked team.
+
+4.2 Psychographics
+Values & Culture
+●​ Meritocracy: They believe skill trumps politics. They want to be the "smartest person in
+the room" regarding AI.
+●​ Hacker Ethos: They enjoy tinkering. They are willing to install Python, try new LLMs
+locally, and experiment with code.32
+●​ Autonomy: They want to control their career destiny and fear being "deskilled" by
+automation.
+
+Interests
+●​ Tactical AI: Prompt engineering, local LLMs (Llama, Mistral), RAG (Retrieval Augmented
+Generation).33
+●​ Career Survival: "Future-proofing" their skills.
+●​ Tools: They love discovering new tools (Obsidian, VS Code, specialized AI agents).
+
+Ocean Personality Estimate (The "Curious Builder")
+1.​ Openness (Very High): They are the early adopters. They crave novelty and are the first
+to try "O1" or "Gemini 1.5."
+2.​ Conscientiousness (Moderate): They are hardworking but often overwhelmed by the
+pace of change.
+3.​ Neuroticism (High): High anxiety about AI taking their jobs. They read Penn’s newsletter
+to assuage this anxiety with knowledge.6
+
+4.3 Buying Behaviors
+●​ Low-Friction Purchase: They are the primary buyers of:
+○​ Books: ~$20 (Kindle/Print).
+○​ Courses: ~$200 - $500 (Corporate card or personal investment).
+○​ Newsletter: Free subscription (data exchange).
+●​ Advocacy: They are the "Sneezers" (in Seth Godin’s terms). They forward the newsletter
+to their boss (ICP B) saying, "We need to do this."
+●​ Loyalty: High. They view Penn as a mentor figure. They appreciate his "You Ask, I
+Answer" series which directly addresses their specific operational questions.34
+
+5. Comparative Competitive Analysis
+To position Penn effectively, we must understand who he is not. The research highlights
+distinct competitors in the AI speaking and consulting space.
+
+5.1 vs. The "Futurist" (e.g., Zack Kass, Nick Thompson)
+●​ Competitor Positioning: Zack Kass (ex-OpenAI) positions himself as a
+"techno-optimist" selling the vision of the future.2 Nick Thompson (Atlantic CEO) sells the
+media/societal narrative.1
+●​ Penn’s Distinction: Penn is the Practitioner. While Kass tells you what will happen in 10
+years, Penn tells you how to write the code to survive today.
+○​ ICP Fit: Clients who want "inspiration" hire Kass. Clients who have a messy database
+and a panicked marketing team hire Penn.
+
+5.2 vs. The "Academic Ethicist" (e.g., Kate Crawford)
+
+●​ Competitor Positioning: Kate Crawford focuses on the sociological, political, and
+environmental costs of AI (The "Atlas of AI").35 Her tone is critical and academic.
+●​ Penn’s Distinction: Penn acknowledges the "Dark Side" (IP, Environment) 5 but pivots
+immediately to Business Application. He doesn't just critique the environmental cost; he
+advises using "local LLMs on consumer devices" as a practical remedy.5 This makes him
+"safe" for corporate buyers who want to be ethical but still need to make a profit.
+
+5.3 vs. The "Growth Hacker" (Generic AI Gurus)
+●​ Competitor Positioning: "How to use ChatGPT to write 1,000 blog posts in an hour."
+●​ Penn’s Distinction: Quality & Uniqueness. Penn actively advises against this ("Sea of
+Sameness"). He advocates for "Most Best Data" and "Most Best Ideas".6 This attracts a
+higher-tier client who cares about brand reputation, filtering out low-quality "get rich
+quick" customers.
+
+6. Needs, Pain Points, Goals & Motivations Matrix
+6.1 The "Most Best" Framework (2025 Keynote Theme)
+The research identifies "Most Best" as a central organizing principle for Penn's 2025 strategy.
+This framework maps directly to client needs.
+Client Need
+
+Penn's Solution ("Most
+Best")
+
+Motivation
+
+Differentiation
+
+Most Best Branding:
+Using AI to amplify unique
+human traits rather than
+flatten them.
+
+Avoid the "Sea of
+Sameness" and
+commoditization.
+
+Accuracy/Performance
+
+Most Best Data: Using
+proprietary, clean data
+("ingredients") instead of
+generic training data.
+
+competitive advantage;
+better model outputs.
+
+Innovation
+
+Most Best Ideas: Using AI
+to augment human
+creativity, not replace it.
+
+Solving novel business
+problems; workforce
+retention.
+
+6.2 Detailed Needs Analysis
+1.​ Need for Governance: Clients are terrified of IP lawsuits. They need the "Content
+Authenticity Statement" protocol Penn models.4
+2.​ Need for Attribution: In a fragmented media landscape, clients need to know where
+their leads come from. Trust Insights’ focus on GA4 and attribution modeling addresses
+this critical financial need.22
+3.​ Need for "Translation": Clients need someone to translate "Transformer Architecture"
+into "Revenue Impact." Penn’s unique "Marketer who codes" persona fulfills this.24
+
+7. Exclusion Criteria: The Anti-Persona
+To ensure efficient marketing spend, Penn must actively exclude certain segments.
+●​ The "Magic Button" Seeker: Clients who expect AI to solve problems without data
+cleaning or strategy. Penn’s philosophy ("Mise en place") requires work; these clients will
+be dissatisfied.36
+●​ The "Shadow" Operator: Companies looking for "Black Hat" SEO or unethical data
+scraping. Penn’s strong stance on "Content Authenticity" and IP respect aligns him
+against these actors.4
+●​ The "Budget" Shopper:
+○​ Speaking: Events with <$10k budget (unless 501c3).
+○​ Consulting: Small businesses with no data infrastructure. (Trust Insights focuses on
+Mid-Market/Enterprise).22
+●​ The "Purely Motivational" Buyer: Events looking for a celebrity/athlete to just "pump up
+the crowd." Penn’s content is dense and educational; it may overwhelm a casual audience
+seeking pure entertainment.
+
+8. Strategic Recommendations for 2025
+8.1 Operationalize the "Dark Side"
+The research indicates high anxiety around AI risks.5
+●​ Recommendation: Package the "Dark Side of Generative AI" newsletter content into a
+specific Corporate Risk Audit service product. Sell this to the Enterprise
+Transformation Leader (ICP B) as a mandatory "insurance policy" for their AI roadmap.
+
+8.2 Leverage the "Practitioner" Gap
+●​ Recommendation: In marketing materials against competitors like Zack Kass, explicitly
+
+highlight the "Hands-on" aspect. Use the "Live Demos" differentiator.
+●​ Tactic: For the Event Architect (ICP A), market the keynote not just as a talk, but as a
+"Live Tech Demo" where Penn builds something on stage. This addresses the need for
+"actionable takeaways" and differentiates from "slide-readers".37
+
+8.3 The "Builder" Community
+●​ Recommendation: Deepen the engagement with ICP C (The Practitioner) by offering
+mid-tier "Builder" workshops ($500-$1,000). The gap between a $20 book and a $20k
+consulting gig is large. A "Cohort-Based Course" on "Building Your Own Marketing AI
+Agent" would perfectly fit the psychographics of this segment.
+
+8.4 Global Pricing Strategy
+●​ Recommendation: The flat-fee international pricing ($18k) is a strong selling point for
+simplified procurement.8 promote this heavily to European Association planners who
+struggle with complex US speaker travel riders.
+
+9. Conclusion
+The Ideal Customer Profile for Christopher S. Penn in 2025 is defined by Pragmatism.
+Whether it is the Event Planner needing a "safe bet" who delivers high-value education, the
+CMO needing to justify their budget with hard data, or the Marketing Manager trying to save
+their career from automation—they all share a common need for operational truth.
+Penn’s market position is unique: he is the bridge between the code and the boardroom. By
+targeting the Strategic Event Architect and the Enterprise Transformation Leader with
+messages of "Most Best Data" and "Risk Mitigation," he can effectively secure high-value
+engagements while maintaining a loyal base of practitioners through his content ecosystem.
+The data suggests that as the AI market matures from hype to implementation, Penn’s
+"Practitioner-Speaker" brand will only become more valuable to this specific, high-intent
+audience.
+
+Table 1: Summary of Primary ICPs
+Feature
+
+ICP A: Strategic
+Event Architect
+
+ICP B: Enterprise
+Transformation
+Leader
+
+ICP C: Technical
+Practitioner
+
+Role
+
+VP Events / Meeting
+
+CMO / CDO / VP
+
+Mktg Manager /
+
+Planner
+
+Analytics
+
+Analyst
+
+Goal
+
+"Must-Attend"
+Conference
+
+Data ROI &
+Governance
+
+Career Survival
+
+Budget
+
+$10k - $50k
+(Speaker Fee)
+
+$50k - $200k
+(Consulting)
+
+$20 - $500
+(Books/Courses)
+
+Key Value
+
+Reliability &
+Engagement
+
+Integrity &
+Accuracy
+
+Practical Skill
+Acquisition
+
+Key Fear
+
+Boring/Risky
+Speaker
+
+"Shadow AI" / Data
+Leaks
+
+Obsolescence /
+Deskilling
+
+Primary Channel
+
+Speaker Bureaus /
+Referrals
+
+Podcast /
+Newsletter /
+LinkedIn
+
+Newsletter /
+YouTube
+
+Table 2: 2025 Market Trends & Penn Alignment
+
+Market Trend
+
+Client Pain Point
+
+Penn’s Strategic
+Alignment
+
+"Slop" Content / Brand
+Erosion 6
+
+Brands sound generic; loss
+of trust.
+
+"Most Best Branding":
+Focus on human
+distinctiveness.
+
+Regulatory Crackdown /
+IP Risk 5
+
+Fear of lawsuits;
+compliance mandates.
+
+"Authenticity Statement"
+& Ethics: Emphasis on
+governed, safe AI.
+
+Event Planner Stress /
+Budget Cuts 10
+
+Need to justify every dollar;
+high anxiety.
+
+Transparent Flat Fees &
+Practicality: Low drama,
+high ROI for attendees.
+
+Workforce Deskilling 7
+
+Employees relying too
+
+"Most Best Ideas":
+
+much on AI.
+
+Training humans to be
+better than the machine.
+
+Works cited
+1.​ Hire Nicholas Thompson | AI Speaker Agent, accessed December 6, 2025,
+
+https://ai-speakers-agency.com/speaker/nicholas-thompson
+2.​ Zack Kass – Artificial Intelligence (AI), Business Strategy | Talent ..., accessed
+December 6, 2025, https://talentbureau.com/speaker/zack-kass/
+3.​ Christopher Penn - Vice President of Marketing Technology, SHIFT - Chartwell
+Speakers, accessed December 6, 2025,
+https://www.chartwellspeakers.com/speaker/christopher-penn/
+4.​ Almost Timely Archives - Christopher S. Penn - Marketing AI Keynote Speaker,
+accessed December 6, 2025,
+https://www.christopherspenn.com/category/almost-timely/
+5.​ Almost Timely News:
+The Dark Side of Generative AI (2025-02-23) Christopher S. Penn, accessed December 6, 2025,
+https://www.christopherspenn.com/2025/02/almost-timely-news-%F0%9F%97%
+9E%EF%B8%8F-the-dark-side-of-generative-ai-2025-02-23/
+6.​ Almost Timely News:
+New Keynote Preview for 2025 (2024-11 ..., accessed
+December 6, 2025,
+https://www.christopherspenn.com/2024/11/almost-timely-news-%F0%9F%97%9
+E%EF%B8%8F-new-keynote-preview-for-2025-2024-11-10/
+7.​ Reskilling in the age of AI: Shifting from risk to resilience - Chief Learning Officer,
+accessed December 6, 2025,
+https://www.chieflearningofficer.com/2025/10/29/reskilling-in-the-age-of-ai-shifti
+ng-from-risk-to-resilience/
+8.​ Speaking Kit for Christopher S. Penn Co-Founder, Trust Insights, accessed
+December 6, 2025,
+https://www.christopherspenn.com/wp-content/uploads/2019/10/CSP-SpeakingKit-4-October-2019.pdf
+9.​ How Much Does a Keynote Speaker Cost? 2025 Pricing Guide - Prophets of AI,
+accessed December 6, 2025,
+https://prophetsofai.com/how-much-does-a-keynote-speaker-cost/
+10.​Best Keynote Speakers for Industry Events in 2025 | IconEleven, accessed
+December 6, 2025,
+https://iconelevenspeakers.com/best-keynote-speakers-industry-events-2025/
+11.​ AI Keynote Speaker Christopher Penn - Christopher S. Penn - Marketing AI
+Keynote Speaker, accessed December 6, 2025,
+https://www.christopherspenn.com/
+12.​How To Start Your Public Speaking Career - Christopher S. Penn - Marketing AI
+Keynote Speaker, accessed December 6, 2025,
+https://www.christopherspenn.com/2020/12/how-to-start-your-public-speakingcareer/
+13.​AI Keynote Speaker Chris Penn - Christopher S. Penn - Marketing AI ..., accessed
+
+🗞️
+🗞️
+
+December 6, 2025, https://www.christopherspenn.com/public-speaking/
+14.​The 2025 Meetings Trendsetters Stoking the Fire in the Events Industry, accessed
+December 6, 2025,
+https://www.meetingstoday.com/articles/145336/2025-meetings-trendsetters-sto
+king-fire-events-industry
+15.​10 Most-Booked Meeting Topics of Q2 2025 - BigSpeak Motivational Speakers
+Bureau, accessed December 6, 2025,
+https://www.bigspeak.com/10-most-booked-meeting-topics-of-q2-2025/
+16.​Christopher Penn | Speaking Fee | Booking Agent - All American Speakers Bureau,
+accessed December 6, 2025,
+https://www.allamericanspeakers.com/speakers/442248/Christopher-Penn
+17.​How Much Does A Keynote Speaker Cost? - BigSpeak, accessed December 6,
+2025, https://www.bigspeak.com/how-much-does-a-keynote-speaker-cost/
+18.​Christopher S. Penn Speaking Reel - Marketing AI Keynote Speaker - YouTube,
+accessed December 6, 2025, https://www.youtube.com/watch?v=rVyBhtdX6P4
+19.​How to Transform Data Into Actionable Intelligence with Chris Penn [MAICON
+2025 Speaker Series] - Marketing AI Institute, accessed December 6, 2025,
+https://www.marketingaiinstitute.com/blog/marketing-ai-conference-christopher
+-penn
+20.​accessed December 6, 2025,
+https://www.technologyspeakers.com/speaker/christopher-s-penn#:~:text=Conta
+ct%20Technology%20Speakers%20today%20at,price%20for%20your%20desire
+d%20personality.
+21.​Interested in Booking Christopher Penn? Contact AEI Speakers!, accessed
+December 6, 2025, https://aeispeakers.com/speakers/christopher-penn/
+22.​Ideal Customer Profile Generation - Trust Insights Marketing ..., accessed
+December 6, 2025,
+https://www.trustinsights.ai/expertise/services/ideal-customer-profile-generation
+/
+23.​You Ask, I Answer: Why You Need an Owned Audience? - YouTube, accessed
+December 6, 2025, https://www.youtube.com/watch?v=3rB3lk_7XMc
+24.​Christopher S. Penn on What's True and What's False About ChatGPT, accessed
+December 6, 2025,
+https://www.beyondthetodolist.com/christopher-s-penn-on-whats-true-and-wh
+ats-false-about-chatgpt/
+25.​Christopher S. Penn - Sprinklr, accessed December 6, 2025,
+https://www.sprinklr.com/blog/author/christopher-s-penn/
+26.​Almost Timely Newsletter | Christopher S. Penn | Substack, accessed December
+6, 2025, https://almosttimely.substack.com/
+27.​Almost Timely News, March 31, 2024: Step By Step Building an Ideal Customer
+Profile From Scratch With Generative AI - Christopher S. Penn - Marketing AI
+Keynote Speaker, accessed December 6, 2025,
+https://www.christopherspenn.com/2024/03/almost-timely-news-march-31-2024
+-step-by-step-building-an-ideal-customer-profile-from-scratch-with-generative
+-ai/
+
+28.​So What? You Built An Ideal Customer Profile, Now What? - Trust ..., accessed
+
+December 6, 2025,
+https://www.trustinsights.ai/blog/2024/08/so-what-you-built-an-ideal-customerprofile-now-what/
+29.​Case Studies - Trust Insights Marketing Analytics Consulting, accessed December
+6, 2025, https://www.trustinsights.ai/expertise/case-studies/
+30.​Case Study: Driving Membership Acquisition with Data - Trust Insights Marketing
+Analytics Consulting, accessed December 6, 2025,
+https://www.trustinsights.ai/expertise/case-studies/case-study-driving-members
+hip-acquisition-with-data/
+31.​Trust Insights - Data and Analytics Help For Marketers, accessed December 6,
+2025, https://www.trustinsights.ai/
+32.​Almost Timely News:
+Free 15 Minute Consultation... From AI (2025-07-20) Christopher S. Penn - Marketing AI Keynote Speaker, accessed December 6,
+2025,
+https://www.christopherspenn.com/2025/07/almost-timely-news-%F0%9F%97%
+9E%EF%B8%8F-free-15-minute-consultation-from-ai-2025-07-20/
+33.​Almost Timely News:
+Generative AI Use Cases in PR (2025-07-06) Christopher S. Penn - Marketing AI Keynote Speaker, accessed December 6,
+2025,
+https://www.christopherspenn.com/2025/07/almost-timely-news-%F0%9F%97%
+9E%EF%B8%8F-generative-ai-use-cases-in-pr-2025-07-06/
+34.​You Ask, I Answer: What Problems Can AI Solve? - Christopher S. Penn, accessed
+December 6, 2025,
+https://www.christopherspenn.com/2018/07/you-ask-i-answer-what-problems-c
+an-ai-solve/
+35.​Hire Kate Crawford | AI Speaker Agent, accessed December 6, 2025,
+https://ai-speakers-agency.com/speaker/kate-crawford
+36.​Almost Timely News:
+Using AI for Analytics (2025-09-21) - Christopher S.
+Penn, accessed December 6, 2025,
+https://www.christopherspenn.com/2025/09/almost-timely-news-%F0%9F%97%
+9E%EF%B8%8F-using-ai-for-analytics-2025-09-21/
+37.​Top AI Speakers 2025: Get Talks For Events, Shows + Podcasts, accessed
+December 6, 2025, https://talks.co/search/ai-speakers/
+
+🗞️
+🗞️
+
+🗞️
+
+

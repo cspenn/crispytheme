@@ -1,0 +1,32 @@
+<!-- wp:group {"tagName":"footer","className":"site-footer","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"backgroundColor":"background-secondary","layout":{"type":"constrained"}} -->
+<footer class="wp-block-group site-footer has-background-secondary-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)">
+    <!-- wp:group {"className":"site-footer__inner","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}} -->
+    <div class="wp-block-group site-footer__inner">
+        <!-- wp:group {"className":"site-footer__info"} -->
+        <div class="wp-block-group site-footer__info">
+            <!-- wp:paragraph {"fontSize":"small"} -->
+            <p class="has-small-font-size">
+                © <!-- wp:post-date {"format":"Y"} /--> <!-- wp:site-title /-->
+            </p>
+            <!-- /wp:paragraph -->
+
+            <!-- wp:paragraph {"fontSize":"small","textColor":"foreground-secondary"} -->
+            <p class="has-foreground-secondary-color has-text-color has-small-font-size">
+                Powered by <a href="https://wordpress.org">WordPress</a> and <a href="https://github.com/christopherspenn/crispytheme">CrispyTheme</a>
+            </p>
+            <!-- /wp:paragraph -->
+        </div>
+        <!-- /wp:group -->
+
+        <!-- wp:group {"className":"site-footer__nav"} -->
+        <div class="wp-block-group site-footer__nav">
+            <!-- wp:navigation {"overlayMenu":"never","layout":{"type":"flex","justifyContent":"right"},"fontSize":"small"} -->
+            <!-- wp:navigation-link {"label":"Privacy Policy","url":"/privacy-policy"} /-->
+            <!-- wp:navigation-link {"label":"Terms of Service","url":"/terms"} /-->
+            <!-- /wp:navigation -->
+        </div>
+        <!-- /wp:group -->
+    </div>
+    <!-- /wp:group -->
+</footer>
+<!-- /wp:group -->

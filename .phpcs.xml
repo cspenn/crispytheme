@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<ruleset name="CrispyTheme Coding Standards">
+    <description>WordPress Coding Standards for CrispyTheme</description>
+
+    <!-- Scan these files -->
+    <file>./src</file>
+    <file>./functions.php</file>
+    <!-- Note: includes/crispy-seo is a bundled third-party plugin, not checked by default -->
+
+    <!-- Exclude these paths -->
+    <exclude-pattern>./vendor/*</exclude-pattern>
+    <exclude-pattern>./node_modules/*</exclude-pattern>
+    <exclude-pattern>./tests/*</exclude-pattern>
+    <exclude-pattern>./build/*</exclude-pattern>
+    <exclude-pattern>./includes/crispy-seo/vendor/*</exclude-pattern>
+    <exclude-pattern>*.min.js</exclude-pattern>
+    <exclude-pattern>*.min.css</exclude-pattern>
+
+    <!-- Show progress and colors -->
+    <arg value="ps"/>
+    <arg name="colors"/>
+
+    <!-- Check for PHP cross-version compatibility -->
+    <config name="testVersion" value="8.1-"/>
+
+    <!-- WordPress version -->
+    <config name="minimum_supported_wp_version" value="6.6"/>
+
+    <!-- Text domain for i18n -->
+    <config name="text_domain" value="crispy-theme,crispy-seo"/>
+
+    <!-- Prefixes for hooks, options, etc. -->
+    <config name="prefixes" value="crispy,crispytheme,crispy_seo"/>
+
+    <!-- Use WordPress Coding Standards -->
+    <rule ref="WordPress">
+        <!-- Allow PSR-4 autoloading class file names -->
+        <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+
+        <!-- Allow short array syntax -->
+        <exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
+    </rule>
+
+    <!-- WordPress Extra (recommended additional rules) -->
+    <rule ref="WordPress-Extra"/>
+
+    <!-- WordPress Documentation Standards -->
+    <rule ref="WordPress-Docs"/>
+
+    <!-- Enforce PSR-4 compatible class names -->
+    <rule ref="Squiz.Classes.ValidClassName"/>
+
+</ruleset>
