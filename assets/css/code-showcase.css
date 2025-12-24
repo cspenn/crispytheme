@@ -21,8 +21,8 @@
 .collapsible-code summary {
 	cursor: pointer;
 	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
-	background-color: #1e293b;
-	color: #e2e8f0;
+	background-color: var(--wp--preset--color--base-2);
+	color: var(--wp--preset--color--contrast);
 	font-weight: 600;
 	font-family: var(--wp--preset--font-family--mono);
 	font-size: 0.875rem;
@@ -30,13 +30,13 @@
 	display: flex;
 	align-items: center;
 	gap: var(--wp--preset--spacing--20);
-	border: 1px solid #334155;
+	border: 1px solid var(--wp--preset--color--contrast-3);
 	border-radius: 8px 8px 0 0;
 	transition: background-color 0.2s ease;
 }
 
 .collapsible-code summary:hover {
-	background-color: #334155;
+	background-color: var(--wp--preset--color--contrast-2);
 }
 
 .collapsible-code summary::-webkit-details-marker {
@@ -47,7 +47,7 @@
 	content: "\25B6"; /* Right-pointing triangle */
 	font-size: 0.75rem;
 	transition: transform 0.2s ease;
-	color: #94a3b8;
+	color: var(--wp--preset--color--secondary);
 }
 
 .collapsible-code[open] summary::before {
@@ -65,14 +65,14 @@
 
 .collapsible-code-filename {
 	margin-left: auto;
-	color: #64748b;
+	color: var(--wp--preset--color--foreground-secondary);
 	font-weight: 400;
 }
 
 .collapsible-code pre {
 	margin: 0;
 	border-radius: 0 0 8px 8px;
-	border: 1px solid #334155;
+	border: 1px solid var(--wp--preset--color--contrast-3);
 	border-top: none;
 }
 
@@ -83,11 +83,11 @@
 .code-download-block {
 	border-radius: 8px;
 	overflow: hidden;
-	border: 1px solid #334155;
+	border: 1px solid var(--wp--preset--color--contrast-3);
 }
 
 .code-download-header {
-	border-bottom: 1px solid #334155;
+	border-bottom: 1px solid var(--wp--preset--color--contrast-3);
 }
 
 .code-download-block .wp-block-code {
@@ -167,9 +167,9 @@ pre[class*="language-"] .copy-to-clipboard-button {
 	top: var(--wp--preset--spacing--10);
 	right: var(--wp--preset--spacing--10);
 	padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
-	background-color: rgba(255, 255, 255, 0.1);
-	color: #e2e8f0;
-	border: 1px solid rgba(255, 255, 255, 0.2);
+	background-color: var(--wp--preset--color--base-2);
+	color: var(--wp--preset--color--contrast);
+	border: 1px solid var(--wp--preset--color--contrast-3);
 	border-radius: 4px;
 	font-size: 0.75rem;
 	font-weight: 600;
@@ -179,24 +179,55 @@ pre[class*="language-"] .copy-to-clipboard-button {
 
 .wp-block-code .copy-to-clipboard-button:hover,
 pre[class*="language-"] .copy-to-clipboard-button:hover {
-	background-color: rgba(255, 255, 255, 0.2);
-	border-color: rgba(255, 255, 255, 0.3);
+	background-color: var(--wp--preset--color--contrast-2);
+	border-color: var(--wp--preset--color--secondary);
 }
 
 .wp-block-code .copy-to-clipboard-button.copied,
 pre[class*="language-"] .copy-to-clipboard-button.copied {
 	background-color: #10b981;
 	border-color: #10b981;
+	color: #ffffff;
 }
 
 /* ==========================================================================
    Dark Mode Adjustments
    ========================================================================== */
 
+.dark-mode .collapsible-code summary {
+	background-color: #1e293b;
+	color: #e2e8f0;
+	border-color: #334155;
+}
+
+.dark-mode .collapsible-code summary:hover {
+	background-color: #334155;
+}
+
+.dark-mode .collapsible-code summary::before {
+	color: #94a3b8;
+}
+
+.dark-mode .collapsible-code-filename {
+	color: #64748b;
+}
+
+.dark-mode .collapsible-code pre {
+	border-color: #334155;
+}
+
+.dark-mode .code-download-block {
+	border-color: #334155;
+}
+
+.dark-mode .code-download-header {
+	border-bottom-color: #334155;
+}
+
 .dark-mode .prompt-section,
 .dark-mode .output-section {
-	background-color: var(--wp--preset--color--contrast-2);
-	border-color: var(--wp--preset--color--contrast-3);
+	background-color: #1e293b;
+	border-color: #334155;
 }
 
 .dark-mode .prompt-section {
@@ -207,21 +238,17 @@ pre[class*="language-"] .copy-to-clipboard-button.copied {
 	color: var(--wp--preset--color--accent);
 }
 
-.dark-mode .collapsible-code summary {
-	background-color: #0f172a;
-	border-color: #1e293b;
+.dark-mode .wp-block-code .copy-to-clipboard-button,
+.dark-mode pre[class*="language-"] .copy-to-clipboard-button {
+	background-color: rgba(255, 255, 255, 0.1);
+	color: #e2e8f0;
+	border-color: rgba(255, 255, 255, 0.2);
 }
 
-.dark-mode .collapsible-code summary:hover {
-	background-color: #1e293b;
-}
-
-.dark-mode .code-download-block {
-	border-color: #1e293b;
-}
-
-.dark-mode .code-download-header {
-	border-bottom-color: #1e293b;
+.dark-mode .wp-block-code .copy-to-clipboard-button:hover,
+.dark-mode pre[class*="language-"] .copy-to-clipboard-button:hover {
+	background-color: rgba(255, 255, 255, 0.2);
+	border-color: rgba(255, 255, 255, 0.3);
 }
 
 /* ==========================================================================
@@ -240,8 +267,12 @@ pre.line-numbers {
 }
 
 .line-numbers .line-numbers-rows {
-	border-right: 1px solid #334155;
+	border-right: 1px solid var(--wp--preset--color--contrast-3);
 	padding-right: 0.5em;
+}
+
+.dark-mode .line-numbers .line-numbers-rows {
+	border-right-color: #334155;
 }
 
 /* Language label */
@@ -254,9 +285,14 @@ pre[class*="language-"]::before {
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
+	background-color: var(--wp--preset--color--contrast-2);
+	color: var(--wp--preset--color--foreground-secondary);
+	border-radius: 0 0 4px 0;
+}
+
+.dark-mode pre[class*="language-"]::before {
 	background-color: rgba(255, 255, 255, 0.1);
 	color: #94a3b8;
-	border-radius: 0 0 4px 0;
 }
 
 pre.language-python::before { content: "python"; }
