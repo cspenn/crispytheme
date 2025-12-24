@@ -19,9 +19,10 @@
         "packages-update": "wp-scripts packages-update"
     },
     "devDependencies": {
+        "@babel/runtime": "^7.28.4",
         "@wordpress/scripts": "^28.0.0",
-        "prismjs": "^1.29.0",
-        "clipboard": "^2.0.11"
+        "clipboard": "^2.0.11",
+        "prismjs": "^1.29.0"
     },
     "engines": {
         "node": ">=18.0.0",

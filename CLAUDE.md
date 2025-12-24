@@ -76,6 +76,60 @@ DarkMode, Parser, Cache → (no dependencies - leaf layers)
 
 Tests use Pest PHP with Brain Monkey for WordPress function mocking. Test files mirror `src/` structure under `tests/Unit/` and `tests/Integration/`. Run single test file: `vendor/bin/pest tests/Unit/ParserFactoryTest.php`
 
+## First Principles
+
+These guiding principles inform all design and development decisions for CrispyTheme.
+
+### 1. Brand Alignment Over Feature Creep
+
+Every theme decision must reinforce Christopher Penn's "Practitioner-Scholar" brand identity. Before adding any feature, ask: "Does this signal technical competence and anti-hype credibility?" Features that don't align with the brand should be rejected, even if technically interesting.
+
+### 2. Consumption + Conversion Balance
+
+The theme must support both **content consumption** (reading, discovering, engaging) AND **audience conversion** (newsletter signups, speaking inquiries, consulting leads). A blog-only focus is incomplete; conversion paths are equally critical.
+
+### 3. Three ICP Focus
+
+Every template and pattern should serve one of the three Ideal Customer Profiles:
+- **ICP A (Event Planners)**: Need to quickly validate Penn as a "safe hands" speaker
+- **ICP B (Enterprise Leaders)**: Need trust signals and governance-focused methodology proof
+- **ICP C (Technical Practitioners)**: Need code, dark mode, and "proud nerd" signals
+
+### 4. Technical Authority Through Design
+
+Visual choices must signal technical competence:
+- **IBM Plex typography**: Designed for technical communication
+- **Dark mode toggle**: Developer tribal signal
+- **Markdown-first editing**: Version control friendly, no page builder bloat
+- **Code showcase patterns**: Collapsible blocks, syntax highlighting, prompt/output displays
+
+### 5. Restrained Design = Trust
+
+Anti-hype aesthetic builds credibility. No flashy gradients, no excessive animation. The color palette is deliberately restrained: "I don't need to shout—the content speaks for itself."
+
+### 6. Radical Transparency
+
+Show the work. The theme should enable:
+- Collapsible "Show the Code" sections
+- Downloadable code snippets
+- Open methodology disclosure
+- Clear attribution and sourcing
+
+### 7. Newsletter as Flywheel
+
+The Almost Timely Newsletter (294k+ subscribers) is the critical top-of-funnel. Newsletter signup must be:
+- Prominent in sidebar
+- Available as patterns (inline, hero)
+- Integrated throughout conversion paths
+
+### 8. Security First
+
+All code must:
+- Validate all inputs (type checking, bounds checking)
+- Escape all outputs (context-appropriate escaping)
+- Handle edge cases (empty values, missing URLs, failed operations)
+- Avoid trusting user-provided data without sanitization
+
 ## Claude Skills
 
 ### /qa - Quality Assurance
