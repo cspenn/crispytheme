@@ -192,42 +192,44 @@ pre[class*="language-"] .copy-to-clipboard-button.copied {
 
 /* ==========================================================================
    Dark Mode Adjustments
+   Note: WordPress preset colors are overridden in github-markdown-dark.css
+   for .dark-mode class, so these variables automatically get dark values.
    ========================================================================== */
 
 .dark-mode .collapsible-code summary {
-	background-color: #1e293b;
-	color: #e2e8f0;
-	border-color: #334155;
+	background-color: var(--wp--preset--color--base-2);
+	color: var(--wp--preset--color--contrast);
+	border-color: var(--wp--preset--color--contrast-3);
 }
 
 .dark-mode .collapsible-code summary:hover {
-	background-color: #334155;
+	background-color: var(--wp--preset--color--contrast-2);
 }
 
 .dark-mode .collapsible-code summary::before {
-	color: #94a3b8;
+	color: var(--wp--preset--color--tertiary);
 }
 
 .dark-mode .collapsible-code-filename {
-	color: #64748b;
+	color: var(--wp--preset--color--secondary);
 }
 
 .dark-mode .collapsible-code pre {
-	border-color: #334155;
+	border-color: var(--wp--preset--color--contrast-3);
 }
 
 .dark-mode .code-download-block {
-	border-color: #334155;
+	border-color: var(--wp--preset--color--contrast-3);
 }
 
 .dark-mode .code-download-header {
-	border-bottom-color: #334155;
+	border-bottom-color: var(--wp--preset--color--contrast-3);
 }
 
 .dark-mode .prompt-section,
 .dark-mode .output-section {
-	background-color: #1e293b;
-	border-color: #334155;
+	background-color: var(--wp--preset--color--base-2);
+	border-color: var(--wp--preset--color--contrast-3);
 }
 
 .dark-mode .prompt-section {
@@ -240,15 +242,15 @@ pre[class*="language-"] .copy-to-clipboard-button.copied {
 
 .dark-mode .wp-block-code .copy-to-clipboard-button,
 .dark-mode pre[class*="language-"] .copy-to-clipboard-button {
-	background-color: rgba(255, 255, 255, 0.1);
-	color: #e2e8f0;
-	border-color: rgba(255, 255, 255, 0.2);
+	background-color: var(--wp--preset--color--contrast-2);
+	color: var(--wp--preset--color--contrast);
+	border-color: var(--wp--preset--color--contrast-3);
 }
 
 .dark-mode .wp-block-code .copy-to-clipboard-button:hover,
 .dark-mode pre[class*="language-"] .copy-to-clipboard-button:hover {
-	background-color: rgba(255, 255, 255, 0.2);
-	border-color: rgba(255, 255, 255, 0.3);
+	background-color: var(--wp--preset--color--contrast-3);
+	border-color: var(--wp--preset--color--tertiary);
 }
 
 /* ==========================================================================
@@ -272,7 +274,7 @@ pre.line-numbers {
 }
 
 .dark-mode .line-numbers .line-numbers-rows {
-	border-right-color: #334155;
+	border-right-color: var(--wp--preset--color--contrast-3);
 }
 
 /* Language label */
@@ -291,8 +293,8 @@ pre[class*="language-"]::before {
 }
 
 .dark-mode pre[class*="language-"]::before {
-	background-color: rgba(255, 255, 255, 0.1);
-	color: #94a3b8;
+	background-color: var(--wp--preset--color--contrast-2);
+	color: var(--wp--preset--color--tertiary);
 }
 
 pre.language-python::before { content: "python"; }

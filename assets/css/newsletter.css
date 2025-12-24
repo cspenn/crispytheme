@@ -51,7 +51,7 @@
    ========================================================================== */
 
 .wp-block-crispytheme-newsletter-signup.newsletter-signup {
-	background: linear-gradient(135deg, var(--wp--preset--color--primary) 0%, #1e40af 100%);
+	background: linear-gradient(135deg, var(--wp--preset--color--primary) 0%, var(--wp--preset--color--primary-dark) 100%);
 	color: var(--wp--preset--color--base);
 	padding: var(--wp--preset--spacing--60) var(--wp--preset--spacing--50);
 	border-radius: 12px;
@@ -139,7 +139,7 @@
    ========================================================================== */
 
 .dark-mode .wp-block-crispytheme-newsletter-signup.newsletter-signup {
-	background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+	background: linear-gradient(135deg, var(--wp--preset--color--primary) 0%, var(--wp--preset--color--primary-dark) 100%);
 }
 
 .dark-mode .wp-block-crispytheme-newsletter-signup.newsletter-inline {
