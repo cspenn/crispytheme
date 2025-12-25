@@ -17,3 +17,77 @@ CrispyTheme is a markdown-first WordPress theme designed for developers and writ
 who prefer working with plain text content. It features strict type safety,
 comprehensive SEO tools, and a lean, performance-focused architecture.
 */
+
+/* ==========================================================================
+   Base Styles - Explicit Color Reset
+   Ensures proper text contrast in light and dark modes
+   ========================================================================== */
+
+body,
+.wp-site-blocks,
+.entry-content,
+.wp-block-post-content {
+	color: var(--wp--preset--color--foreground, #1e293b);
+	background-color: var(--wp--preset--color--background, #ffffff);
+}
+
+/* Ensure all text elements inherit proper color */
+p,
+li,
+span,
+div:not([class*="newsletter-"]):not([class*="booking-"]):not([class*="event-date"]) {
+	color: inherit;
+}
+
+/* Headings should use foreground color explicitly */
+h1, h2, h3, h4, h5, h6,
+.wp-block-heading {
+	color: var(--wp--preset--color--foreground, #1e293b);
+}
+
+/* Links */
+a {
+	color: var(--wp--preset--color--primary, #2563eb);
+}
+
+a:hover {
+	color: var(--wp--preset--color--primary-dark, #1d4ed8);
+}
+
+/* Button text must be white on blue background */
+.wp-block-button__link,
+.wp-element-button {
+	color: #ffffff !important;
+	background-color: var(--wp--preset--color--primary, #2563eb);
+}
+
+.wp-block-button__link:hover,
+.wp-element-button:hover {
+	background-color: var(--wp--preset--color--primary-dark, #1d4ed8);
+}
+
+/* ==========================================================================
+   Dark Mode Base Overrides
+   ========================================================================== */
+
+.dark-mode body,
+.dark-mode .wp-site-blocks,
+.dark-mode .entry-content,
+.dark-mode .wp-block-post-content {
+	color: var(--wp--preset--color--foreground, #e6edf3);
+	background-color: var(--wp--preset--color--background, #0d1117);
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6,
+.dark-mode .wp-block-heading {
+	color: var(--wp--preset--color--foreground, #e6edf3);
+}
+
+.dark-mode a {
+	color: var(--wp--preset--color--primary, #58a6ff);
+}

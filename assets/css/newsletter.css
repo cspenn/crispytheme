@@ -47,36 +47,36 @@
 }
 
 /* ==========================================================================
-   Hero Style
+   Hero Style - Scoped white text on gradient background
    ========================================================================== */
 
 .wp-block-crispytheme-newsletter-signup.newsletter-signup {
 	background: linear-gradient(135deg, var(--wp--preset--color--primary) 0%, var(--wp--preset--color--primary-dark) 100%);
-	color: var(--wp--preset--color--base);
+	color: #ffffff;
 	padding: var(--wp--preset--spacing--60) var(--wp--preset--spacing--50);
 	border-radius: 12px;
 	text-align: center;
 }
 
-.newsletter-signup .newsletter-heading {
-	color: var(--wp--preset--color--base);
+.wp-block-crispytheme-newsletter-signup.newsletter-signup .newsletter-heading {
+	color: #ffffff;
 }
 
-.newsletter-signup .newsletter-description {
+.wp-block-crispytheme-newsletter-signup.newsletter-signup .newsletter-description {
 	color: rgba(255, 255, 255, 0.9);
 	max-width: 500px;
 	margin-inline: auto;
 }
 
-.newsletter-signup .newsletter-subscriber-count {
+.wp-block-crispytheme-newsletter-signup.newsletter-signup .newsletter-subscriber-count {
 	font-size: 2.5rem;
 	font-weight: 700;
-	color: var(--wp--preset--color--base);
+	color: #ffffff;
 	display: block;
 	line-height: 1.2;
 }
 
-.newsletter-signup .newsletter-subscriber-label {
+.wp-block-crispytheme-newsletter-signup.newsletter-signup .newsletter-subscriber-label {
 	font-size: 0.875rem;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
@@ -85,16 +85,16 @@
 	margin-bottom: var(--wp--preset--spacing--30);
 }
 
-.newsletter-signup .newsletter-privacy {
+.wp-block-crispytheme-newsletter-signup.newsletter-signup .newsletter-privacy {
 	color: rgba(255, 255, 255, 0.8);
 }
 
-.newsletter-signup .newsletter-privacy a {
+.wp-block-crispytheme-newsletter-signup.newsletter-signup .newsletter-privacy a {
 	color: rgba(255, 255, 255, 0.9);
 }
 
-.newsletter-signup .newsletter-privacy a:hover {
-	color: var(--wp--preset--color--base);
+.wp-block-crispytheme-newsletter-signup.newsletter-signup .newsletter-privacy a:hover {
+	color: #ffffff;
 }
 
 /* ==========================================================================
