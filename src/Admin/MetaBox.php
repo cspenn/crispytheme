@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace CrispyTheme\Admin;
 
+use CrispyTheme\Content\HtmlToMarkdownConverter;
 use CrispyTheme\Content\MarkdownRenderer;
 
 /**
@@ -23,6 +24,22 @@ class MetaBox {
 	 * The metabox ID.
 	 */
 	private const METABOX_ID = 'markdown_editor';
+
+	/**
+	 * The HTML to Markdown converter.
+	 *
+	 * @var HtmlToMarkdownConverter
+	 */
+	private HtmlToMarkdownConverter $converter;
+
+	/**
+	 * Constructor.
+	 *
+	 * Initializes the HTML to Markdown converter.
+	 */
+	public function __construct() {
+		$this->converter = new HtmlToMarkdownConverter();
+	}
 
 	/**
 	 * The nonce action.
@@ -82,11 +99,30 @@ class MetaBox {
 	 * @return void
 	 */
 	public function render_meta_box( \WP_Post $post ): void {
-		$markdown = get_post_meta( $post->ID, MarkdownRenderer::META_KEY, true );
-		$markdown = is_string( $markdown ) ? $markdown : '';
+		$markdown      = get_post_meta( $post->ID, MarkdownRenderer::META_KEY, true );
+		$markdown      = is_string( $markdown ) ? $markdown : '';
+		$was_converted = false;
+
+		// If no markdown but has HTML content, attempt conversion.
+		if ( empty( $markdown ) && ! empty( trim( $post->post_content ) ) ) {
+			$markdown      = $this->converter->convert( $post->post_content );
+			$was_converted = true;
+		}
 
 		// Add nonce field.
 		wp_nonce_field( self::NONCE_ACTION, self::NONCE_FIELD );
+
+		// Show notice if content was auto-converted.
+		if ( $was_converted && ! empty( $markdown ) ) {
+			?>
+			<div class="notice notice-warning inline" style="margin: 0 0 12px 0;">
+				<p>
+					<strong><?php esc_html_e( 'Content Auto-Converted', 'crispy-theme' ); ?></strong><br>
+					<?php esc_html_e( 'Your existing HTML content has been converted to Markdown. Please review carefully before saving.', 'crispy-theme' ); ?>
+				</p>
+			</div>
+			<?php
+		}
 		?>
 		<div class="crispy-markdown-editor" id="crispy-markdown-editor">
 			<div class="crispy-markdown-editor__toolbar">
