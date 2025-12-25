@@ -31,11 +31,10 @@ body,
 	background-color: var(--wp--preset--color--background, #ffffff);
 }
 
-/* Ensure all text elements inherit proper color */
+/* Ensure text elements inherit proper color - DO NOT target divs */
 p,
 li,
-span,
-div:not([class*="newsletter-"]):not([class*="booking-"]):not([class*="event-date"]) {
+span {
 	color: inherit;
 }
 
