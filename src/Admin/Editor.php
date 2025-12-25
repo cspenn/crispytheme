@@ -49,11 +49,13 @@ class Editor {
 		/**
 		 * Filter whether to remove block library CSS.
 		 *
-		 * Set to false to keep the block library CSS loaded.
+		 * Default is false (keep block CSS) because the theme uses block templates
+		 * that require WordPress's block library CSS for proper layout rendering.
+		 * Set to true only if you're providing all block styling manually.
 		 *
-		 * @param bool $remove Whether to remove block library CSS.
+		 * @param bool $remove Whether to remove block library CSS. Default false.
 		 */
-		$remove = apply_filters( 'crispytheme_remove_block_library_css', true );
+		$remove = apply_filters( 'crispytheme_remove_block_library_css', false );
 
 		if ( ! $remove ) {
 			return;
