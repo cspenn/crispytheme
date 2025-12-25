@@ -134,28 +134,23 @@
    Newsletter Patterns
    ========================================================================== */
 
-/* Newsletter Signup Hero - White text on gradient background */
-/* Scoped to prevent bleeding into other elements */
-.wp-block-group.newsletter-signup,
-.newsletter-signup.is-layout-constrained,
-.newsletter-signup.wp-block-cover {
-	background: linear-gradient(135deg, var(--wp--preset--color--primary) 0%, var(--wp--preset--color--secondary) 100%);
+/* Newsletter Signup Hero - Simple single-class selector */
+/* NOTE: Main newsletter styles are in newsletter.css - this is for pattern use */
+.newsletter-signup {
+	background: linear-gradient(135deg, var(--wp--preset--color--primary) 0%, var(--wp--preset--color--primary-dark) 100%);
 	color: #ffffff;
 	padding: var(--wp--preset--spacing--60) var(--wp--preset--spacing--50);
 	border-radius: 12px;
 	text-align: center;
 }
 
-.wp-block-group.newsletter-signup h2,
-.wp-block-group.newsletter-signup h3,
-.newsletter-signup.is-layout-constrained h2,
-.newsletter-signup.is-layout-constrained h3 {
+.newsletter-signup h2,
+.newsletter-signup h3 {
 	color: #ffffff;
 	margin-bottom: var(--wp--preset--spacing--20);
 }
 
-.wp-block-group.newsletter-signup p,
-.newsletter-signup.is-layout-constrained p {
+.newsletter-signup p {
 	color: rgba(255, 255, 255, 0.9);
 	max-width: 500px;
 	margin-inline: auto;
@@ -240,9 +235,8 @@
 	border-bottom: 1px solid var(--wp--preset--color--contrast-3);
 }
 
-/* Event date badge - scoped white text on blue background */
-.event-item .event-date,
-.event-list .event-date {
+/* Event date badge - simple single-class selector */
+.event-date {
 	flex-shrink: 0;
 	width: 80px;
 	text-align: center;
@@ -264,9 +258,8 @@
 	line-height: 1.2;
 }
 
-/* Booking CTA - scoped white text on blue background */
-.wp-block-group.booking-cta,
-.booking-cta.is-layout-constrained {
+/* Booking CTA - simple single-class selector */
+.booking-cta {
 	background-color: var(--wp--preset--color--primary);
 	color: #ffffff;
 	padding: var(--wp--preset--spacing--60);
@@ -274,13 +267,11 @@
 	text-align: center;
 }
 
-.wp-block-group.booking-cta h2,
-.booking-cta.is-layout-constrained h2 {
+.booking-cta h2 {
 	color: #ffffff;
 }
 
-.wp-block-group.booking-cta p,
-.booking-cta.is-layout-constrained p {
+.booking-cta p {
 	color: rgba(255, 255, 255, 0.9);
 	max-width: 600px;
 	margin-inline: auto;
@@ -372,20 +363,15 @@
 	color: #ffffff !important;
 }
 
-/* Prompt/Output pattern - scoped grid layout */
-/* Only applies within WordPress block containers */
-.wp-block-group.prompt-output,
-.wp-block-columns.prompt-output,
-.prompt-output.is-layout-flex {
+/* Prompt/Output pattern - simple single-class selector */
+.prompt-output {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: var(--wp--preset--spacing--30);
 }
 
 @media (max-width: 768px) {
-	.wp-block-group.prompt-output,
-	.wp-block-columns.prompt-output,
-	.prompt-output.is-layout-flex {
+	.prompt-output {
 		grid-template-columns: 1fr;
 	}
 }
