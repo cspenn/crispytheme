@@ -123,6 +123,22 @@ class MetaBox {
 			</div>
 			<?php
 		}
+
+		// Add re-convert button for posts with existing markdown (not freshly converted).
+		if ( ! $was_converted && ! empty( $markdown ) && ! empty( trim( $post->post_content ) ) ) {
+			?>
+			<div class="crispy-markdown-editor__reconvert" style="margin: 0 0 12px 0; padding: 8px 12px; background: #f6f7f7; border: 1px solid #c3c4c7; border-radius: 4px;">
+				<button type="button"
+						class="button button-secondary"
+						id="crispy-reconvert-btn">
+					<?php esc_html_e( 'Re-convert from HTML', 'crispy-theme' ); ?>
+				</button>
+				<span class="description" style="margin-left: 8px;">
+					<?php esc_html_e( 'Discard current markdown and re-convert from original HTML', 'crispy-theme' ); ?>
+				</span>
+			</div>
+			<?php
+		}
 		?>
 		<div class="crispy-markdown-editor" id="crispy-markdown-editor">
 			<div class="crispy-markdown-editor__toolbar">

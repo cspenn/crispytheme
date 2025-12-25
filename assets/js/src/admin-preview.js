@@ -18,8 +18,8 @@
         textarea: '.crispy-markdown-editor__textarea',
         preview: '.crispy-markdown-editor__preview',
         placeholder: '.crispy-markdown-editor__placeholder',
-        wordCount: '.crispy-markdown-editor__word-count',
-        charCount: '.crispy-markdown-editor__char-count'
+        wordCount: '#crispy-word-count',
+        charCount: '#crispy-char-count'
     };
 
     const CLASSES = {
@@ -107,13 +107,13 @@
 
             // Make AJAX request to render markdown
             $.ajax({
-                url: window.crispyAdmin?.ajaxUrl || ajaxurl,
+                url: window.crispyThemeAdmin?.ajaxUrl || ajaxurl,
                 type: 'POST',
                 data: {
-                    action: 'crispy_preview_markdown',
-                    content: content,
+                    action: 'crispytheme_preview_markdown',
+                    markdown: content,
                     post_id: this.$textarea.data('post-id') || $('#post_ID').val(),
-                    nonce: window.crispyAdmin?.nonce || ''
+                    nonce: window.crispyThemeAdmin?.nonce || ''
                 },
                 success: (response) => {
                     if (response.success && response.data.html) {
@@ -154,13 +154,13 @@
         updateStats() {
             const content = this.$textarea.val();
 
-            // Word count
+            // Word count (just the number - label is in HTML)
             const words = content.trim() ? content.trim().split(/\s+/).length : 0;
-            this.$wordCount.text(words + ' word' + (words !== 1 ? 's' : ''));
+            this.$wordCount.text(words);
 
-            // Character count
+            // Character count (just the number - label is in HTML)
             const chars = content.length;
-            this.$charCount.text(chars + ' character' + (chars !== 1 ? 's' : ''));
+            this.$charCount.text(chars);
         }
 
         invalidatePreviewCache() {
@@ -317,8 +317,63 @@
         });
     }
 
+    /**
+     * Initialize the re-convert button handler
+     */
+    function initReconvertButton() {
+        $('#crispy-reconvert-btn').on('click', function() {
+            // eslint-disable-next-line no-alert
+            if (!confirm('This will replace your current markdown with a fresh conversion from HTML. Continue?')) {
+                return;
+            }
+
+            const $btn = $(this);
+            const postId = $('#post_ID').val();
+
+            // Disable button during request
+            $btn.prop('disabled', true).text('Converting...');
+
+            $.ajax({
+                url: window.crispyThemeAdmin?.ajaxUrl || ajaxurl,
+                type: 'POST',
+                data: {
+                    action: 'crispytheme_reconvert_markdown',
+                    post_id: postId,
+                    nonce: window.crispyThemeAdmin?.nonce || ''
+                },
+                success: function(response) {
+                    if (response.success && response.data.markdown) {
+                        // Update the textarea with new markdown
+                        $('#crispy_markdown_content').val(response.data.markdown);
+
+                        // Trigger input event to update stats
+                        $('#crispy_markdown_content').trigger('input');
+
+                        // Show success message
+                        // eslint-disable-next-line no-alert
+                        alert(response.data.message || 'Content re-converted. Review and save when ready.');
+                    } else {
+                        // eslint-disable-next-line no-alert
+                        alert(response.data?.message || 'Re-conversion failed. Please try again.');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // eslint-disable-next-line no-alert
+                    alert('Network error: ' + error);
+                },
+                complete: function() {
+                    // Re-enable button
+                    $btn.prop('disabled', false).text('Re-convert from HTML');
+                }
+            });
+        });
+    }
+
     // Initialize on document ready
-    $(document).ready(initEditors);
+    $(document).ready(function() {
+        initEditors();
+        initReconvertButton();
+    });
 
     // Expose for external use
     window.CrispyMarkdownEditor = {
