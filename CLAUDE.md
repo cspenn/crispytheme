@@ -130,6 +130,16 @@ All code must:
 - Handle edge cases (empty values, missing URLs, failed operations)
 - Avoid trusting user-provided data without sanitization
 
+### 9. Production Packaging Discipline
+
+Theme distribution must be lean and intentional:
+- **Never include dev dependencies** in `crispy-theme.zip` (phpstan, pest, rector, deptrac, phpcs)
+- **Always use** `composer install --no-dev` before packaging
+- **Verify sizes**: vendor/ ~500KB, zip <1MB (not 100MB+)
+- **Restore dev deps** after packaging with `composer install`
+
+Production dependencies are: `erusev/parsedown`, `erusev/parsedown-extra`, `league/html-to-markdown`
+
 ## Claude Skills
 
 ### /qa - Quality Assurance

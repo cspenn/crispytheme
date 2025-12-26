@@ -36,8 +36,15 @@ class Editor {
 		// Add admin notice explaining the markdown editor.
 		add_action( 'admin_notices', [ $this, 'show_markdown_notice' ] );
 
+		// Add Site Editor notice guiding users to classic edit screens.
+		add_action( 'admin_notices', [ $this, 'show_site_editor_notice' ] );
+
 		// Hide the default content editor.
 		add_action( 'admin_head', [ $this, 'hide_default_editor' ] );
+
+		// Add "Edit with Markdown" row actions to Posts/Pages list tables.
+		add_filter( 'page_row_actions', [ $this, 'add_edit_markdown_link' ], 10, 2 );
+		add_filter( 'post_row_actions', [ $this, 'add_edit_markdown_link' ], 10, 2 );
 	}
 
 	/**
@@ -175,5 +182,86 @@ class Editor {
 		}
 
 		wp_send_json_success();
+	}
+
+	/**
+	 * Replace "Edit" link text with "Edit Markdown" to clarify editing mode.
+	 *
+	 * Since the block editor is disabled, the standard "Edit" link already
+	 * takes users to the classic editor with the markdown metabox.
+	 * This method updates the link text to make that clear.
+	 *
+	 * @param array<string,string> $actions The existing row actions.
+	 * @param \WP_Post             $post    The post object.
+	 * @return array<string,string> Modified row actions.
+	 */
+	public function add_edit_markdown_link( array $actions, \WP_Post $post ): array {
+		if ( ! current_user_can( 'edit_post', $post->ID ) ) {
+			return $actions;
+		}
+
+		// Replace the standard "Edit" link text to clarify it's markdown editing.
+		if ( isset( $actions['edit'] ) ) {
+			$post_title = ! empty( $post->post_title )
+				? $post->post_title
+				: __( '(no title)', 'crispy-theme' );
+
+			$edit_url = admin_url( "post.php?post={$post->ID}&action=edit" );
+
+			$actions['edit'] = sprintf(
+				'<a href="%s" aria-label="%s">%s</a>',
+				esc_url( $edit_url ),
+				/* translators: %s: Post title. */
+				esc_attr( sprintf( __( 'Edit &#8220;%s&#8221; with Markdown', 'crispy-theme' ), $post_title ) ),
+				esc_html__( 'Edit Markdown', 'crispy-theme' )
+			);
+		}
+
+		return $actions;
+	}
+
+	/**
+	 * Show notice on Site Editor screen directing users to classic edit.
+	 *
+	 * The Site Editor (FSE) doesn't support metaboxes, so users need to
+	 * use the classic post/page edit screens for the markdown editor.
+	 *
+	 * @return void
+	 */
+	public function show_site_editor_notice(): void {
+		$screen = get_current_screen();
+
+		// Only show on Site Editor screen.
+		if ( ! $screen || 'site-editor' !== $screen->base ) {
+			return;
+		}
+
+		$pages_url = esc_url( admin_url( 'edit.php?post_type=page' ) );
+		$posts_url = esc_url( admin_url( 'edit.php' ) );
+		$pages_text = esc_html__( 'Pages', 'crispy-theme' );
+		$posts_text = esc_html__( 'Posts', 'crispy-theme' );
+
+		?>
+		<div class="notice notice-info">
+			<p>
+				<strong><?php esc_html_e( 'CrispyTheme Markdown Editor', 'crispy-theme' ); ?></strong><br>
+				<?php
+				echo wp_kses(
+					sprintf(
+						/* translators: %1$s: Pages menu link, %2$s: Posts menu link */
+						__( 'To edit page/post content with the Markdown editor, use %1$s or %2$s instead.', 'crispy-theme' ),
+						'<a href="' . $pages_url . '">' . $pages_text . '</a>',
+						'<a href="' . $posts_url . '">' . $posts_text . '</a>'
+					),
+					[
+						'a' => [
+							'href' => [],
+						],
+					]
+				);
+				?>
+			</p>
+		</div>
+		<?php
 	}
 }
