@@ -91,6 +91,7 @@ class ImportCommand extends WP_CLI_Command {
 		}
 
 		// Read the file.
+		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- Reading local file in CLI context.
 		$markdown = file_get_contents( $file );
 		if ( false === $markdown ) {
 			WP_CLI::error( sprintf( 'Failed to read file: %s', $file ) );
@@ -163,6 +164,7 @@ class ImportCommand extends WP_CLI_Command {
 		}
 
 		// Write the file.
+		// phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents -- Writing local file in CLI context.
 		$result = file_put_contents( $file, $markdown );
 		if ( false === $result ) {
 			WP_CLI::error( sprintf( 'Failed to write file: %s', $file ) );
@@ -296,6 +298,7 @@ class ImportCommand extends WP_CLI_Command {
 		foreach ( $files as $file ) {
 			$filename = basename( $file, '.md' );
 			$title    = ucwords( str_replace( [ '-', '_' ], ' ', $filename ) );
+			// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- Reading local file in CLI context.
 			$markdown = file_get_contents( $file );
 
 			if ( $dry_run ) {

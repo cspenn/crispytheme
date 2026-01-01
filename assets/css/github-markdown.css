@@ -263,3 +263,51 @@
     margin-left: 2em;
     margin-bottom: 0.5em;
 }
+
+/* ==========================================================================
+   CTA Button Styling for Markdown Links
+   Use: [Link text](url){.button} or {.button-outline}
+   ParsedownExtra supports {.class} and {#id} syntax on links
+   ========================================================================== */
+
+.markdown-body a.button,
+.markdown-body a.btn,
+.markdown-body a.cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--wp--preset--color--primary, #2563eb);
+    color: #ffffff !important;
+    text-decoration: none;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.markdown-body a.button:hover,
+.markdown-body a.btn:hover,
+.markdown-body a.cta-button:hover {
+    background-color: var(--wp--preset--color--primary-dark, #1d4ed8);
+    text-decoration: none;
+    color: #ffffff !important;
+}
+
+/* Secondary/outline button variant */
+.markdown-body a.button-outline,
+.markdown-body a.btn-outline {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    color: var(--wp--preset--color--primary, #2563eb) !important;
+    border: 2px solid var(--wp--preset--color--primary, #2563eb);
+    text-decoration: none;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.markdown-body a.button-outline:hover,
+.markdown-body a.btn-outline:hover {
+    background-color: var(--wp--preset--color--primary, #2563eb);
+    color: #ffffff !important;
+    text-decoration: none;
+}
