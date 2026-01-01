@@ -134,10 +134,10 @@ class ExcerptGenerator {
 	/**
 	 * Get the configured excerpt length.
 	 *
-	 * @param int $length The current excerpt length.
+	 * @param int $_length The current excerpt length (unused, we return our own value).
 	 * @return int The filtered excerpt length.
 	 */
-	public function get_excerpt_length( int $length ): int {
+	public function get_excerpt_length( int $_length ): int { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
 		/**
 		 * Filter the excerpt word count.
 		 *
@@ -149,10 +149,10 @@ class ExcerptGenerator {
 	/**
 	 * Get the configured excerpt more text.
 	 *
-	 * @param string $more_text The current more text.
+	 * @param string $_more_text The current more text (unused, we return our own value).
 	 * @return string The filtered more text.
 	 */
-	public function get_excerpt_more( string $more_text ): string {
+	public function get_excerpt_more( string $_more_text ): string { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
 		/**
 		 * Filter the excerpt more text.
 		 *

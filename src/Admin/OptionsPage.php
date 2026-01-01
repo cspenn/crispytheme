@@ -140,6 +140,52 @@ class OptionsPage {
 			self::PAGE_SLUG,
 			'crispytheme_markdown_section'
 		);
+
+		// Register layout settings section.
+		add_settings_section(
+			'crispytheme_layout_section',
+			__( 'Layout Settings', 'crispy-theme' ),
+			[ $this, 'render_layout_section' ],
+			self::PAGE_SLUG
+		);
+
+		// Sidebar width setting.
+		register_setting(
+			self::OPTION_GROUP,
+			'crispytheme_sidebar_width',
+			[
+				'type'              => 'string',
+				'sanitize_callback' => [ $this, 'sanitize_sidebar_width' ],
+				'default'           => '350px',
+			]
+		);
+
+		add_settings_field(
+			'crispytheme_sidebar_width',
+			__( 'Sidebar Width', 'crispy-theme' ),
+			[ $this, 'render_sidebar_width_field' ],
+			self::PAGE_SLUG,
+			'crispytheme_layout_section'
+		);
+
+		// Max container width setting.
+		register_setting(
+			self::OPTION_GROUP,
+			'crispytheme_max_width',
+			[
+				'type'              => 'string',
+				'sanitize_callback' => [ $this, 'sanitize_max_width' ],
+				'default'           => '1800px',
+			]
+		);
+
+		add_settings_field(
+			'crispytheme_max_width',
+			__( 'Max Container Width', 'crispy-theme' ),
+			[ $this, 'render_max_width_field' ],
+			self::PAGE_SLUG,
+			'crispytheme_layout_section'
+		);
 	}
 
 	/**
@@ -326,6 +372,100 @@ class OptionsPage {
 		}
 
 		return 'extra';
+	}
+
+	/**
+	 * Render the layout section description.
+	 *
+	 * @return void
+	 */
+	public function render_layout_section(): void {
+		echo '<p>' . esc_html__( 'Configure the responsive layout for content and sidebar.', 'crispy-theme' ) . '</p>';
+	}
+
+	/**
+	 * Render the sidebar width field.
+	 *
+	 * @return void
+	 */
+	public function render_sidebar_width_field(): void {
+		$value   = get_option( 'crispytheme_sidebar_width', '350px' );
+		$options = [
+			'300px' => __( '300px (Narrow)', 'crispy-theme' ),
+			'350px' => __( '350px (Default)', 'crispy-theme' ),
+			'400px' => __( '400px (Wide)', 'crispy-theme' ),
+		];
+		?>
+		<select name="crispytheme_sidebar_width">
+			<?php foreach ( $options as $option => $label ) : ?>
+				<option value="<?php echo esc_attr( $option ); ?>" <?php selected( $value, $option ); ?>>
+					<?php echo esc_html( $label ); ?>
+				</option>
+			<?php endforeach; ?>
+		</select>
+		<p class="description">
+			<?php esc_html_e( 'The fixed width of the sidebar. Content area expands to fill remaining space.', 'crispy-theme' ); ?>
+		</p>
+		<?php
+	}
+
+	/**
+	 * Render the max width field.
+	 *
+	 * @return void
+	 */
+	public function render_max_width_field(): void {
+		$value   = get_option( 'crispytheme_max_width', '1800px' );
+		$options = [
+			'1400px' => __( '1400px (Compact)', 'crispy-theme' ),
+			'1600px' => __( '1600px (Medium)', 'crispy-theme' ),
+			'1800px' => __( '1800px (Default)', 'crispy-theme' ),
+			'2000px' => __( '2000px (Wide)', 'crispy-theme' ),
+		];
+		?>
+		<select name="crispytheme_max_width">
+			<?php foreach ( $options as $option => $label ) : ?>
+				<option value="<?php echo esc_attr( $option ); ?>" <?php selected( $value, $option ); ?>>
+					<?php echo esc_html( $label ); ?>
+				</option>
+			<?php endforeach; ?>
+		</select>
+		<p class="description">
+			<?php esc_html_e( 'Maximum width of the main content container before side margins take over.', 'crispy-theme' ); ?>
+		</p>
+		<?php
+	}
+
+	/**
+	 * Sanitize the sidebar width option.
+	 *
+	 * @param mixed $value The submitted value.
+	 * @return string The sanitized value.
+	 */
+	public function sanitize_sidebar_width( $value ): string {
+		$valid = [ '300px', '350px', '400px' ];
+
+		if ( in_array( $value, $valid, true ) ) {
+			return $value;
+		}
+
+		return '350px';
+	}
+
+	/**
+	 * Sanitize the max width option.
+	 *
+	 * @param mixed $value The submitted value.
+	 * @return string The sanitized value.
+	 */
+	public function sanitize_max_width( $value ): string {
+		$valid = [ '1400px', '1600px', '1800px', '2000px' ];
+
+		if ( in_array( $value, $valid, true ) ) {
+			return $value;
+		}
+
+		return '1800px';
 	}
 
 	/**

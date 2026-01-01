@@ -27,6 +27,7 @@ class Assets {
 		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_editor_assets' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_assets' ] );
 		add_action( 'wp_head', [ $this, 'add_dark_mode_script' ], 1 );
+		add_action( 'wp_head', [ $this, 'add_layout_custom_properties' ], 5 );
 	}
 
 	/**
@@ -89,6 +90,14 @@ class Assets {
 		wp_enqueue_style(
 			'crispy-theme-code-showcase',
 			CRISPY_THEME_URI . '/assets/css/code-showcase.css',
+			[ 'crispy-theme-style' ],
+			$version
+		);
+
+		// Enqueue responsive layout styles.
+		wp_enqueue_style(
+			'crispy-theme-layout',
+			CRISPY_THEME_URI . '/assets/css/layout.css',
 			[ 'crispy-theme-style' ],
 			$version
 		);
@@ -217,6 +226,38 @@ class Assets {
 				}
 			})();
 		</script>
+		<?php
+	}
+
+	/**
+	 * Output CSS custom properties for layout settings.
+	 *
+	 * Applies user-configured sidebar width and max container width.
+	 *
+	 * @return void
+	 */
+	public function add_layout_custom_properties(): void {
+		$sidebar_width = get_option( 'crispytheme_sidebar_width', '350px' );
+		$max_width     = get_option( 'crispytheme_max_width', '1800px' );
+
+		// Validate values to prevent injection.
+		$valid_sidebar = [ '300px', '350px', '400px' ];
+		$valid_max     = [ '1400px', '1600px', '1800px', '2000px' ];
+
+		if ( ! in_array( $sidebar_width, $valid_sidebar, true ) ) {
+			$sidebar_width = '350px';
+		}
+		if ( ! in_array( $max_width, $valid_max, true ) ) {
+			$max_width = '1800px';
+		}
+
+		?>
+		<style id="crispy-layout-vars">
+			:root {
+				--crispy-sidebar-width: <?php echo esc_attr( $sidebar_width ); ?>;
+				--crispy-max-width: <?php echo esc_attr( $max_width ); ?>;
+			}
+		</style>
 		<?php
 	}
 

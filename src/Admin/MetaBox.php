@@ -309,10 +309,10 @@ class MetaBox {
 	 * Save the markdown content.
 	 *
 	 * @param int      $post_id The post ID.
-	 * @param \WP_Post $post    The post object.
+	 * @param \WP_Post $_post   The post object (unused, required by hook signature).
 	 * @return void
 	 */
-	public function save_markdown_content( int $post_id, \WP_Post $post ): void {
+	public function save_markdown_content( int $post_id, \WP_Post $_post ): void { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
 		// Verify nonce.
 		if ( ! isset( $_POST[ self::NONCE_FIELD ] ) ) {
 			return;

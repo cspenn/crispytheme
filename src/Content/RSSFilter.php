@@ -71,11 +71,11 @@ class RSSFilter {
 	/**
 	 * Filter the feed content based on settings.
 	 *
-	 * @param string $content   The post content.
-	 * @param string $feed_type The feed type.
+	 * @param string $content    The post content.
+	 * @param string $_feed_type The feed type (unused, required by hook signature).
 	 * @return string The filtered content.
 	 */
-	public function filter_feed_content( string $content, string $feed_type ): string {
+	public function filter_feed_content( string $content, string $_feed_type ): string { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
 		$post = get_post();
 		if ( ! $post ) {
 			return $content;

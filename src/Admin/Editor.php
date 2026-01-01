@@ -236,8 +236,8 @@ class Editor {
 			return;
 		}
 
-		$pages_url = esc_url( admin_url( 'edit.php?post_type=page' ) );
-		$posts_url = esc_url( admin_url( 'edit.php' ) );
+		$pages_url  = esc_url( admin_url( 'edit.php?post_type=page' ) );
+		$posts_url  = esc_url( admin_url( 'edit.php' ) );
 		$pages_text = esc_html__( 'Pages', 'crispy-theme' );
 		$posts_text = esc_html__( 'Posts', 'crispy-theme' );
 

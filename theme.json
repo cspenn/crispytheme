@@ -6,7 +6,7 @@
         "useRootPaddingAwareAlignments": true,
         "layout": {
             "contentSize": "720px",
-            "wideSize": "1200px"
+            "wideSize": "1800px"
         },
         "color": {
             "custom": true,
@@ -124,61 +124,61 @@
                             "fontFamily": "IBM Plex Sans",
                             "fontWeight": "300",
                             "fontStyle": "normal",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexSans-Light.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-sans-300.woff2"]
                         },
                         {
                             "fontFamily": "IBM Plex Sans",
                             "fontWeight": "300",
                             "fontStyle": "italic",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexSans-LightItalic.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-sans-300-italic.woff2"]
                         },
                         {
                             "fontFamily": "IBM Plex Sans",
                             "fontWeight": "400",
                             "fontStyle": "normal",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexSans-Regular.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-sans-400.woff2"]
                         },
                         {
                             "fontFamily": "IBM Plex Sans",
                             "fontWeight": "400",
                             "fontStyle": "italic",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexSans-Italic.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-sans-400-italic.woff2"]
                         },
                         {
                             "fontFamily": "IBM Plex Sans",
                             "fontWeight": "500",
                             "fontStyle": "normal",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexSans-Medium.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-sans-500.woff2"]
                         },
                         {
                             "fontFamily": "IBM Plex Sans",
                             "fontWeight": "500",
                             "fontStyle": "italic",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexSans-MediumItalic.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-sans-500-italic.woff2"]
                         },
                         {
                             "fontFamily": "IBM Plex Sans",
                             "fontWeight": "600",
                             "fontStyle": "normal",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexSans-SemiBold.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-sans-600.woff2"]
                         },
                         {
                             "fontFamily": "IBM Plex Sans",
                             "fontWeight": "600",
                             "fontStyle": "italic",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexSans-SemiBoldItalic.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-sans-600-italic.woff2"]
                         },
                         {
                             "fontFamily": "IBM Plex Sans",
                             "fontWeight": "700",
                             "fontStyle": "normal",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexSans-Bold.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-sans-700.woff2"]
                         },
                         {
                             "fontFamily": "IBM Plex Sans",
                             "fontWeight": "700",
                             "fontStyle": "italic",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexSans-BoldItalic.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-sans-700-italic.woff2"]
                         }
                     ]
                 },
@@ -191,61 +191,61 @@
                             "fontFamily": "IBM Plex Serif",
                             "fontWeight": "300",
                             "fontStyle": "normal",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexSerif-Light.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-serif-300.woff2"]
                         },
                         {
                             "fontFamily": "IBM Plex Serif",
                             "fontWeight": "300",
                             "fontStyle": "italic",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexSerif-LightItalic.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-serif-300-italic.woff2"]
                         },
                         {
                             "fontFamily": "IBM Plex Serif",
                             "fontWeight": "400",
                             "fontStyle": "normal",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexSerif-Regular.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-serif-400.woff2"]
                         },
                         {
                             "fontFamily": "IBM Plex Serif",
                             "fontWeight": "400",
                             "fontStyle": "italic",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexSerif-Italic.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-serif-400-italic.woff2"]
                         },
                         {
                             "fontFamily": "IBM Plex Serif",
                             "fontWeight": "500",
                             "fontStyle": "normal",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexSerif-Medium.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-serif-500.woff2"]
                         },
                         {
                             "fontFamily": "IBM Plex Serif",
                             "fontWeight": "500",
                             "fontStyle": "italic",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexSerif-MediumItalic.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-serif-500-italic.woff2"]
                         },
                         {
                             "fontFamily": "IBM Plex Serif",
                             "fontWeight": "600",
                             "fontStyle": "normal",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexSerif-SemiBold.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-serif-600.woff2"]
                         },
                         {
                             "fontFamily": "IBM Plex Serif",
                             "fontWeight": "600",
                             "fontStyle": "italic",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexSerif-SemiBoldItalic.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-serif-600-italic.woff2"]
                         },
                         {
                             "fontFamily": "IBM Plex Serif",
                             "fontWeight": "700",
                             "fontStyle": "normal",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexSerif-Bold.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-serif-700.woff2"]
                         },
                         {
                             "fontFamily": "IBM Plex Serif",
                             "fontWeight": "700",
                             "fontStyle": "italic",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexSerif-BoldItalic.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-serif-700-italic.woff2"]
                         }
                     ]
                 },
@@ -258,25 +258,19 @@
                             "fontFamily": "IBM Plex Mono",
                             "fontWeight": "400",
                             "fontStyle": "normal",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexMono-Regular.woff2"]
-                        },
-                        {
-                            "fontFamily": "IBM Plex Mono",
-                            "fontWeight": "400",
-                            "fontStyle": "italic",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexMono-Italic.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-mono-400.woff2"]
                         },
                         {
                             "fontFamily": "IBM Plex Mono",
                             "fontWeight": "500",
                             "fontStyle": "normal",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexMono-Medium.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-mono-500.woff2"]
                         },
                         {
                             "fontFamily": "IBM Plex Mono",
                             "fontWeight": "700",
                             "fontStyle": "normal",
-                            "src": ["file:./assets/fonts/ibm-plex/IBMPlexMono-Bold.woff2"]
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-mono-700.woff2"]
                         }
                     ]
                 }

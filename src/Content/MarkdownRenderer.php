@@ -121,6 +121,9 @@ class MarkdownRenderer {
 			return $cached_html;
 		}
 
+		// Process WordPress embeds before parsing.
+		$markdown = $this->process_embeds( $markdown );
+
 		// Parse the markdown.
 		$parser = $this->get_parser();
 		$html   = $parser->parse( $markdown );
@@ -165,10 +168,10 @@ class MarkdownRenderer {
 	 * Clear cache for a specific post.
 	 *
 	 * @param int      $post_id The post ID.
-	 * @param \WP_Post $post    The post object.
+	 * @param \WP_Post $_post   The post object (unused, required by hook signature).
 	 * @return void
 	 */
-	public function clear_post_cache( int $post_id, \WP_Post $post ): void {
+	public function clear_post_cache( int $post_id, \WP_Post $_post ): void { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
 		// Don't clear cache for revisions or autosaves.
 		if ( wp_is_post_revision( $post_id ) || wp_is_post_autosave( $post_id ) ) {
 			return;
@@ -180,13 +183,13 @@ class MarkdownRenderer {
 	/**
 	 * Handle post meta update.
 	 *
-	 * @param int    $meta_id    The meta ID.
-	 * @param int    $post_id    The post ID.
-	 * @param string $meta_key   The meta key.
-	 * @param mixed  $meta_value The meta value.
+	 * @param int    $meta_id     The meta ID.
+	 * @param int    $post_id     The post ID.
+	 * @param string $meta_key    The meta key.
+	 * @param mixed  $_meta_value The meta value (unused, required by hook signature).
 	 * @return void
 	 */
-	public function on_meta_update( int $meta_id, int $post_id, string $meta_key, mixed $meta_value ): void {
+	public function on_meta_update( int $meta_id, int $post_id, string $meta_key, mixed $_meta_value ): void { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
 		if ( self::META_KEY === $meta_key ) {
 			$this->cache->delete_for_post( $post_id );
 		}
@@ -195,13 +198,13 @@ class MarkdownRenderer {
 	/**
 	 * Handle post meta deletion.
 	 *
-	 * @param string[] $meta_ids   The meta IDs.
-	 * @param int      $post_id    The post ID.
-	 * @param string   $meta_key   The meta key.
-	 * @param mixed    $meta_value The meta value.
+	 * @param string[] $meta_ids    The meta IDs.
+	 * @param int      $post_id     The post ID.
+	 * @param string   $meta_key    The meta key.
+	 * @param mixed    $_meta_value The meta value (unused, required by hook signature).
 	 * @return void
 	 */
-	public function on_meta_delete( array $meta_ids, int $post_id, string $meta_key, mixed $meta_value ): void {
+	public function on_meta_delete( array $meta_ids, int $post_id, string $meta_key, mixed $_meta_value ): void { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
 		if ( self::META_KEY === $meta_key ) {
 			$this->cache->delete_for_post( $post_id );
 		}
@@ -239,6 +242,64 @@ class MarkdownRenderer {
 			esc_attr( $class ),
 			$html
 		);
+	}
+
+	/**
+	 * Process WordPress embeds in markdown content.
+	 *
+	 * Runs WordPress embed processing before Parsedown to support
+	 * [embed] shortcodes and auto-embed URLs in markdown content.
+	 *
+	 * @param string $markdown Raw markdown content.
+	 * @return string Markdown with embeds converted to HTML.
+	 */
+	protected function process_embeds( string $markdown ): string {
+		global $wp_embed;
+
+		if ( ! $wp_embed instanceof \WP_Embed ) {
+			return $markdown;
+		}
+
+		// Protect fenced code blocks from embed processing.
+		$protected_blocks   = [];
+		$placeholder_prefix = '<!--CRISPY_CODE_BLOCK_';
+
+		// Match fenced code blocks (``` or ~~~).
+		$markdown = (string) preg_replace_callback(
+			'/^(```|~~~).*?^\1/ms',
+			function ( array $matches ) use ( &$protected_blocks, $placeholder_prefix ): string {
+				$index                      = count( $protected_blocks );
+				$protected_blocks[ $index ] = $matches[0];
+				return $placeholder_prefix . $index . '-->';
+			},
+			$markdown
+		);
+
+		// Also protect inline code spans.
+		$markdown = (string) preg_replace_callback(
+			'/`[^`]+`/',
+			function ( array $matches ) use ( &$protected_blocks, $placeholder_prefix ): string {
+				$index                      = count( $protected_blocks );
+				$protected_blocks[ $index ] = $matches[0];
+				return $placeholder_prefix . $index . '-->';
+			},
+			$markdown
+		);
+
+		// Process WordPress embeds.
+		$markdown = $wp_embed->run_shortcode( $markdown );
+		$markdown = $wp_embed->autoembed( $markdown );
+
+		// Restore protected code blocks.
+		foreach ( $protected_blocks as $index => $block ) {
+			$markdown = str_replace(
+				$placeholder_prefix . $index . '-->',
+				$block,
+				$markdown
+			);
+		}
+
+		return $markdown;
 	}
 
 	/**

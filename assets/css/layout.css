@@ -1,0 +1,109 @@
+/**
+ * Responsive Layout - Fluid Content + Fixed Sidebar
+ *
+ * @package CrispyTheme
+ */
+
+/* ==========================================================================
+   CSS Custom Properties (Defaults)
+   ========================================================================== */
+
+:root {
+	--crispy-max-width: 1800px;
+	--crispy-sidebar-width: 350px;
+	--crispy-layout-gap: var(--wp--preset--spacing--60);
+}
+
+/* ==========================================================================
+   Main Content Container
+   ========================================================================== */
+
+/* Override block theme constrained layout for site-main */
+.site-main.wp-block-group {
+	max-width: var(--crispy-max-width);
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: var(--wp--preset--spacing--50);
+	padding-right: var(--wp--preset--spacing--50);
+}
+
+/* ==========================================================================
+   Two-Column Layout: Fluid Content + Fixed Sidebar
+   ========================================================================== */
+
+.site-main__inner {
+	display: grid;
+	grid-template-columns: 1fr var(--crispy-sidebar-width);
+	gap: var(--crispy-layout-gap);
+	align-items: start;
+}
+
+/* Content area takes remaining space */
+.site-main__inner .content-area {
+	min-width: 0; /* Prevent grid blowout from long content */
+}
+
+/* Sidebar fixed width */
+.site-main__inner .sidebar-area {
+	width: var(--crispy-sidebar-width);
+}
+
+/* ==========================================================================
+   Full-Width Title (spans above columns)
+   ========================================================================== */
+
+/* Headers with alignfull break out of WordPress constrained layout */
+.site-main > .post-header.alignfull,
+.site-main > .page-header.alignfull,
+.site-main > .archive-header.alignfull {
+	max-width: none;
+	width: 100%;
+	margin-bottom: var(--wp--preset--spacing--50);
+}
+
+/* Fallback: Override WordPress is-layout-constrained for headers without alignfull */
+.is-layout-constrained > .post-header,
+.is-layout-constrained > .page-header,
+.is-layout-constrained > .archive-header {
+	max-width: none !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+/* Ensure inner blocks inside headers also span full width */
+.site-main > .post-header > *,
+.site-main > .archive-header > * {
+	max-width: none;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+/* Tablet: narrower sidebar */
+@media (max-width: 1200px) {
+	:root {
+		--crispy-sidebar-width: 300px;
+	}
+}
+
+/* Mobile: single column, sidebar below content */
+@media (max-width: 782px) {
+	.site-main__inner {
+		grid-template-columns: 1fr;
+	}
+
+	.site-main__inner .sidebar-area {
+		width: 100%;
+		order: 2;
+		margin-top: var(--wp--preset--spacing--50);
+	}
+
+	/* Ensure full-width headers on mobile */
+	.site-main > .post-header,
+	.site-main > .page-header,
+	.site-main > .archive-header {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}

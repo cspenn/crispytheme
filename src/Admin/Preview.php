@@ -38,6 +38,24 @@ class Preview {
 	public function init(): void {
 		add_action( 'wp_ajax_' . self::AJAX_ACTION, [ $this, 'handle_preview_request' ] );
 		add_action( 'wp_ajax_' . self::AJAX_RECONVERT_ACTION, [ $this, 'handle_reconvert_request' ] );
+
+		// Debug: Add a simple test action to verify AJAX is working.
+		add_action( 'wp_ajax_crispytheme_debug_test', [ $this, 'handle_debug_test' ] );
+	}
+
+	/**
+	 * Debug test handler to verify AJAX is working.
+	 *
+	 * @return void
+	 */
+	public function handle_debug_test(): void {
+		wp_send_json_success(
+			[
+				'message'   => 'CrispyTheme AJAX is working!',
+				'timestamp' => gmdate( 'Y-m-d H:i:s' ),
+				'php'       => PHP_VERSION,
+			]
+		);
 	}
 
 	/**
