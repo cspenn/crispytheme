@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Theme version constant.
  */
-define( 'CRISPY_THEME_VERSION', '1.0.0' );
+define( 'CRISPY_THEME_VERSION', '1.0.1' );
 
 /**
  * Theme directory path.
@@ -195,17 +195,60 @@ function crispy_theme_init(): void {
 add_action( 'after_setup_theme', __NAMESPACE__ . '\crispy_theme_init' );
 
 /**
- * Load the bundled CrispySEO plugin.
+ * Display soft recommendation for CrispySEO plugin.
+ *
+ * Shows a dismissible admin notice recommending the standalone
+ * CrispySEO plugin if it's not already active.
  *
  * @return void
  */
-function crispy_theme_load_seo_plugin(): void {
-	$seo_plugin = CRISPY_THEME_DIR . '/includes/crispy-seo/crispy-seo.php';
-
-	if ( file_exists( $seo_plugin ) ) {
-		require_once $seo_plugin;
+function crispy_theme_seo_recommendation(): void {
+	// Skip if CrispySEO plugin is active.
+	if ( defined( 'CRISPY_SEO_VERSION' ) ) {
+		return;
 	}
-}
 
-// Load SEO plugin after plugins are loaded to allow detection of other SEO plugins.
-add_action( 'plugins_loaded', __NAMESPACE__ . '\crispy_theme_load_seo_plugin', 5 );
+	// Skip if user has dismissed the notice.
+	$dismissed = get_user_meta( get_current_user_id(), 'crispy_seo_notice_dismissed', true );
+	if ( $dismissed ) {
+		return;
+	}
+
+	// Only show on relevant admin pages.
+	$screen = get_current_screen();
+	if ( ! $screen || ! in_array( $screen->base, [ 'dashboard', 'themes', 'plugins' ], true ) ) {
+		return;
+	}
+
+	echo '<div class="notice notice-info is-dismissible" id="crispy-seo-recommendation">';
+	echo '<p><strong>' . esc_html__( 'CrispyTheme Recommendation:', 'crispy-theme' ) . '</strong> ';
+	echo esc_html__( 'For SEO features (meta tags, schema, sitemaps, redirects, image optimization), install the CrispySEO plugin.', 'crispy-theme' );
+	echo '</p></div>';
+
+	// Add inline script to handle dismissal.
+	?>
+	<script>
+	jQuery(document).ready(function($) {
+		$('#crispy-seo-recommendation').on('click', '.notice-dismiss', function() {
+			$.post(ajaxurl, {
+				action: 'crispy_dismiss_seo_notice',
+				nonce: '<?php echo esc_js( wp_create_nonce( 'crispy_dismiss_seo_notice' ) ); ?>'
+			});
+		});
+	});
+	</script>
+	<?php
+}
+add_action( 'admin_notices', __NAMESPACE__ . '\crispy_theme_seo_recommendation' );
+
+/**
+ * Handle AJAX request to dismiss SEO recommendation notice.
+ *
+ * @return void
+ */
+function crispy_theme_dismiss_seo_notice(): void {
+	check_ajax_referer( 'crispy_dismiss_seo_notice', 'nonce' );
+	update_user_meta( get_current_user_id(), 'crispy_seo_notice_dismissed', '1' );
+	wp_die();
+}
+add_action( 'wp_ajax_crispy_dismiss_seo_notice', __NAMESPACE__ . '\crispy_theme_dismiss_seo_notice' );
