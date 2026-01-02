@@ -64,13 +64,15 @@ DarkMode, Parser, Cache → (no dependencies - leaf layers)
 
 - **PHP 8.1+ required**, WordPress 6.6+
 - **PSR-4 autoloading**: `CrispyTheme\` namespace maps to `src/`
-- **Text domains**: `crispy-theme`, `crispy-seo`
-- **Prefixes**: `crispy`, `crispytheme`, `crispy_seo` for hooks/options
+- **Text domains**: `crispy-theme`
+- **Prefixes**: `crispy`, `crispytheme` for hooks/options
 - **Strict types**: All PHP files use `declare(strict_types=1)`
 
-## Bundled SEO Plugin
+## Recommended: CrispySEO Plugin
 
-`includes/crispy-seo/` contains a bundled SEO plugin loaded via `plugins_loaded` hook. It has its own `vendor/` directory.
+For SEO functionality (meta tags, schema, sitemaps, redirects, image optimization), install the standalone **CrispySEO** plugin separately. The theme will display a soft recommendation in the admin if the plugin is not detected.
+
+The plugin is available at: `crispy-seo/crispy-seo.php`
 
 ## Testing
 
