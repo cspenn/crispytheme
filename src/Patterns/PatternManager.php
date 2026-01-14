@@ -34,6 +34,7 @@ class PatternManager {
 	 */
 	public function register_pattern_categories(): void {
 		$categories = [
+			'crispytheme-homepage'   => __( 'Homepage', 'crispy-theme' ),
 			'crispytheme-trust'      => __( 'Trust Signals', 'crispy-theme' ),
 			'crispytheme-newsletter' => __( 'Newsletter', 'crispy-theme' ),
 			'crispytheme-speaking'   => __( 'Speaking', 'crispy-theme' ),

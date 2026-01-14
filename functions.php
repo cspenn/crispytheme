@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Theme version constant.
  */
-define( 'CRISPY_THEME_VERSION', '1.0.1' );
+define( 'CRISPY_THEME_VERSION', '1.1.0' );
 
 /**
  * Theme directory path.
@@ -149,6 +149,10 @@ function crispy_theme_init(): void {
 	// Initialize RSS filter.
 	$rss_filter = new Content\RSSFilter();
 	$rss_filter->init();
+
+	// Initialize markdown dropdown (copy/view as markdown).
+	$markdown_dropdown = new Content\MarkdownDropdown();
+	$markdown_dropdown->init();
 
 	// Initialize dark mode.
 	$dark_mode = new DarkMode\Toggle();

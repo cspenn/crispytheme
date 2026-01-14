@@ -123,7 +123,9 @@ describe('Architecture: Code Quality', function () {
 
     test('source code should not use die or exit')
         ->expect('CrispyTheme')
-        ->not->toUse(['die', 'exit']);
+        ->not->toUse(['die', 'exit'])
+        // MarkdownDropdown serves raw content via /raw/ endpoint and must exit after output.
+        ->ignoring('CrispyTheme\Content\MarkdownDropdown');
 
 });
 

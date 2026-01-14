@@ -1,0 +1,270 @@
+/**
+ * Markdown Dropdown Component Styles
+ *
+ * Anthropic-style dropdown for copying/viewing page as Markdown.
+ * Uses CrispyTheme design system with IBM Plex typography.
+ *
+ * @package CrispyTheme
+ * @since 1.0.9
+ */
+
+/* ==========================================================================
+   Base Component
+   ========================================================================== */
+
+.crispy-markdown-dropdown {
+	position: relative;
+	display: inline-flex;
+	margin-bottom: var(--wp--preset--spacing--40, 1.5rem);
+	font-family: var(--wp--preset--font-family--body, 'IBM Plex Sans', sans-serif);
+	font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   Trigger Button
+   ========================================================================== */
+
+.crispy-markdown-dropdown__trigger {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.375rem;
+	padding: 0.5rem 0.875rem;
+	background-color: var(--wp--preset--color--base-2, #f8fafc);
+	border: 1px solid var(--wp--preset--color--border, #e2e8f0);
+	border-radius: 0.375rem;
+	color: var(--wp--preset--color--foreground-secondary, #64748b);
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: 500;
+	line-height: 1.4;
+	cursor: pointer;
+	transition:
+		background-color 0.2s ease,
+		border-color 0.2s ease,
+		color 0.2s ease;
+	white-space: nowrap;
+}
+
+.crispy-markdown-dropdown__trigger:hover {
+	background-color: var(--wp--preset--color--background, #fff);
+	border-color: var(--wp--preset--color--foreground-secondary, #64748b);
+	color: var(--wp--preset--color--foreground, #1e293b);
+}
+
+.crispy-markdown-dropdown__trigger:focus-visible {
+	outline: 2px solid var(--wp--preset--color--primary, #3b82f6);
+	outline-offset: 2px;
+}
+
+.crispy-markdown-dropdown__trigger[aria-expanded="true"] {
+	background-color: var(--wp--preset--color--background, #fff);
+	border-color: var(--wp--preset--color--primary, #3b82f6);
+}
+
+.crispy-markdown-dropdown__chevron {
+	flex-shrink: 0;
+	transition: transform 0.2s ease;
+}
+
+.crispy-markdown-dropdown__trigger[aria-expanded="true"] .crispy-markdown-dropdown__chevron {
+	transform: rotate(180deg);
+}
+
+/* ==========================================================================
+   Dropdown Menu
+   ========================================================================== */
+
+.crispy-markdown-dropdown__menu {
+	position: absolute;
+	top: calc(100% + 0.5rem);
+	left: 0;
+	z-index: 100;
+	min-width: 280px;
+	padding: 0.25rem;
+	background-color: var(--wp--preset--color--background, #fff);
+	border: 1px solid var(--wp--preset--color--border, #e2e8f0);
+	border-radius: 0.5rem;
+	box-shadow:
+		0 4px 6px -1px rgba(0, 0, 0, 0.1),
+		0 2px 4px -2px rgba(0, 0, 0, 0.1);
+
+	/* Animation */
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-0.5rem);
+	transition:
+		opacity 0.15s ease,
+		transform 0.15s ease,
+		visibility 0.15s ease;
+}
+
+.crispy-markdown-dropdown__menu:not([hidden]) {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+/* Right-align menu if near right edge */
+.crispy-markdown-dropdown--align-right .crispy-markdown-dropdown__menu {
+	left: auto;
+	right: 0;
+}
+
+/* ==========================================================================
+   Menu Items
+   ========================================================================== */
+
+.crispy-markdown-dropdown__item {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
+	width: 100%;
+	padding: 0.5rem 0.75rem;
+	background: transparent;
+	border: none;
+	border-radius: 0.375rem;
+	color: var(--wp--preset--color--foreground, #1e293b);
+	font-family: inherit;
+	font-size: inherit;
+	text-decoration: none;
+	text-align: left;
+	cursor: pointer;
+	transition: background-color 0.15s ease;
+}
+
+.crispy-markdown-dropdown__item:hover {
+	background-color: var(--wp--preset--color--base-2, #f8fafc);
+}
+
+.crispy-markdown-dropdown__item:focus-visible {
+	outline: 2px solid var(--wp--preset--color--primary, #3b82f6);
+	outline-offset: -2px;
+}
+
+/* Copied state */
+.crispy-markdown-dropdown__item--copied {
+	background-color: rgba(34, 197, 94, 0.1);
+}
+
+.crispy-markdown-dropdown__item--copied .crispy-markdown-dropdown__title {
+	color: #16a34a;
+}
+
+/* ==========================================================================
+   Item Elements
+   ========================================================================== */
+
+.crispy-markdown-dropdown__icon {
+	flex-shrink: 0;
+	margin-top: 0.125rem;
+	color: var(--wp--preset--color--foreground-secondary, #64748b);
+}
+
+.crispy-markdown-dropdown__text {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 0.125rem;
+}
+
+.crispy-markdown-dropdown__title {
+	font-weight: 500;
+	color: var(--wp--preset--color--foreground, #1e293b);
+	line-height: 1.3;
+}
+
+.crispy-markdown-dropdown__description {
+	font-size: 0.8125rem;
+	color: var(--wp--preset--color--foreground-secondary, #64748b);
+	line-height: 1.4;
+}
+
+.crispy-markdown-dropdown__external {
+	flex-shrink: 0;
+	margin-top: 0.125rem;
+	color: var(--wp--preset--color--foreground-secondary, #64748b);
+	opacity: 0.7;
+}
+
+/* ==========================================================================
+   Dark Mode
+   ========================================================================== */
+
+.dark-mode .crispy-markdown-dropdown__trigger {
+	background-color: var(--wp--preset--color--contrast-2, #1e293b);
+	border-color: var(--wp--preset--color--contrast-3, #334155);
+	color: var(--wp--preset--color--foreground-secondary, #94a3b8);
+}
+
+.dark-mode .crispy-markdown-dropdown__trigger:hover {
+	background-color: var(--wp--preset--color--contrast, #0f172a);
+	border-color: var(--wp--preset--color--foreground-secondary, #94a3b8);
+	color: var(--wp--preset--color--foreground, #f1f5f9);
+}
+
+.dark-mode .crispy-markdown-dropdown__menu {
+	background-color: var(--wp--preset--color--contrast-2, #1e293b);
+	border-color: var(--wp--preset--color--contrast-3, #334155);
+	box-shadow:
+		0 4px 6px -1px rgba(0, 0, 0, 0.3),
+		0 2px 4px -2px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .crispy-markdown-dropdown__item {
+	color: var(--wp--preset--color--foreground, #f1f5f9);
+}
+
+.dark-mode .crispy-markdown-dropdown__item:hover {
+	background-color: var(--wp--preset--color--contrast, #0f172a);
+}
+
+.dark-mode .crispy-markdown-dropdown__title {
+	color: var(--wp--preset--color--foreground, #f1f5f9);
+}
+
+.dark-mode .crispy-markdown-dropdown__description {
+	color: var(--wp--preset--color--foreground-secondary, #94a3b8);
+}
+
+.dark-mode .crispy-markdown-dropdown__icon,
+.dark-mode .crispy-markdown-dropdown__external {
+	color: var(--wp--preset--color--foreground-secondary, #94a3b8);
+}
+
+.dark-mode .crispy-markdown-dropdown__item--copied {
+	background-color: rgba(34, 197, 94, 0.15);
+}
+
+.dark-mode .crispy-markdown-dropdown__item--copied .crispy-markdown-dropdown__title {
+	color: #4ade80;
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+
+@media (max-width: 600px) {
+	.crispy-markdown-dropdown__menu {
+		min-width: 260px;
+		left: 0;
+		right: auto;
+	}
+
+	.crispy-markdown-dropdown__description {
+		display: none;
+	}
+
+	.crispy-markdown-dropdown__item {
+		padding: 0.625rem;
+	}
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+	.crispy-markdown-dropdown {
+		display: none;
+	}
+}

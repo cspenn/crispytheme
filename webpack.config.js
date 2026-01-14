@@ -13,6 +13,7 @@ module.exports = {
 		'dark-mode-toggle': path.resolve( __dirname, 'assets/js/src/dark-mode-toggle.js' ),
 		'admin-preview': path.resolve( __dirname, 'assets/js/src/admin-preview.js' ),
 		'prism-clipboard': path.resolve( __dirname, 'assets/js/src/prism-clipboard.js' ),
+		'markdown-dropdown': path.resolve( __dirname, 'assets/js/src/markdown-dropdown.js' ),
 	},
 	output: {
 		...defaultConfig.output,
