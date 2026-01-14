@@ -421,3 +421,325 @@
 	background-color: var(--wp--preset--color--contrast-2);
 	border-color: var(--wp--preset--color--contrast-3);
 }
+
+/* ==========================================================================
+   Homepage Hero
+   ========================================================================== */
+
+.homepage-hero {
+	position: relative;
+}
+
+.homepage-hero .wp-block-cover__image-background {
+	filter: brightness(0.7);
+}
+
+.dark-mode .homepage-hero .wp-block-cover__image-background {
+	filter: brightness(0.5);
+}
+
+.homepage-hero-content {
+	text-align: center;
+}
+
+.homepage-hero-content h1 {
+	color: #ffffff !important;
+	text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.homepage-hero-content p {
+	color: rgba(255, 255, 255, 0.95) !important;
+	text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.homepage-hero-eyebrow {
+	font-size: 0.875rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--wp--preset--color--accent) !important;
+	margin-bottom: var(--wp--preset--spacing--20);
+}
+
+/* ==========================================================================
+   Audience Routing Cards
+   ========================================================================== */
+
+.audience-routing {
+	background-color: var(--wp--preset--color--base);
+}
+
+.dark-mode .audience-routing {
+	background-color: var(--wp--preset--color--contrast);
+}
+
+/* Force grid layout to override WP flex defaults and generated layout classes */
+.routing-cards.wp-block-columns,
+.routing-cards.wp-block-columns.is-layout-flex,
+.routing-cards.wp-block-columns.wp-block-columns-is-layout-flex,
+.wp-block-columns.routing-cards[class*="wp-container-"] {
+	display: grid !important;
+	grid-template-columns: repeat(4, 1fr) !important;
+	gap: var(--wp--preset--spacing--40) !important;
+	flex-wrap: unset !important;
+}
+
+.routing-cards > .wp-block-column,
+.routing-cards.is-layout-flex > .wp-block-column,
+.routing-cards > .wp-block-column.is-layout-flow {
+	flex-basis: auto !important;
+	flex-grow: 0 !important;
+	flex-shrink: 0 !important;
+	min-width: 0 !important;
+	width: 100% !important;
+}
+
+.routing-card {
+	background-color: var(--wp--preset--color--base);
+	border: 1px solid var(--wp--preset--color--contrast-3);
+	border-radius: 8px;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	text-align: center;
+	height: 100%;
+	min-width: 200px;
+}
+
+.routing-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.routing-card-icon {
+	width: 48px;
+	height: 48px;
+	margin: 0 auto var(--wp--preset--spacing--30);
+	color: var(--wp--preset--color--primary);
+}
+
+.routing-card-icon svg {
+	width: 100%;
+	height: 100%;
+}
+
+.routing-card h3 {
+	margin-bottom: var(--wp--preset--spacing--20);
+	white-space: nowrap !important;
+	word-break: keep-all !important;
+}
+
+.routing-card p {
+	font-size: 0.9375rem;
+	color: var(--wp--preset--color--foreground-secondary);
+}
+
+/* Prevent button text wrapping - !important needed to override WP core */
+.routing-card .wp-block-button__link,
+.routing-card .wp-element-button {
+	white-space: nowrap !important;
+	word-break: keep-all !important;
+	overflow-wrap: normal !important;
+	padding-left: var(--wp--preset--spacing--30);
+	padding-right: var(--wp--preset--spacing--30);
+	min-width: max-content;
+}
+
+/* Dark mode adjustments */
+.dark-mode .routing-card {
+	background-color: var(--wp--preset--color--contrast-2);
+	border-color: var(--wp--preset--color--contrast-3);
+}
+
+.dark-mode .routing-card:hover {
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .routing-card-icon {
+	color: var(--wp--preset--color--accent);
+}
+
+/* Responsive: 2x2 grid on medium screens */
+@media (max-width: 1024px) {
+	.routing-cards.wp-block-columns,
+	.routing-cards.wp-block-columns.is-layout-flex,
+	.wp-block-columns.routing-cards[class*="wp-container-"] {
+		grid-template-columns: repeat(2, 1fr) !important;
+	}
+}
+
+/* Responsive: single column on small screens */
+@media (max-width: 600px) {
+	.routing-cards.wp-block-columns,
+	.routing-cards.wp-block-columns.is-layout-flex,
+	.wp-block-columns.routing-cards[class*="wp-container-"] {
+		grid-template-columns: 1fr !important;
+	}
+
+	.routing-card {
+		margin-bottom: var(--wp--preset--spacing--30);
+		min-width: auto;
+	}
+}
+
+/* ==========================================================================
+   Speaking Stats Bar
+   ========================================================================== */
+
+.speaking-stats-bar {
+	background-color: var(--wp--preset--color--base-2);
+	border-radius: 8px;
+	margin: var(--wp--preset--spacing--60) auto;
+	max-width: 800px;
+}
+
+.stat-item {
+	text-align: center;
+	min-width: 120px;
+}
+
+.stat-number {
+	font-size: 2.5rem;
+	font-weight: 700;
+	color: var(--wp--preset--color--primary);
+	line-height: 1.2;
+	margin: 0 0 var(--wp--preset--spacing--10) 0;
+}
+
+.stat-label {
+	font-size: 0.875rem;
+	color: var(--wp--preset--color--foreground-secondary);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin: 0;
+}
+
+/* Dark mode adjustments */
+.dark-mode .speaking-stats-bar {
+	background-color: var(--wp--preset--color--contrast-2);
+}
+
+.dark-mode .stat-number {
+	color: var(--wp--preset--color--accent);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+	.speaking-stats-bar {
+		flex-direction: column;
+		gap: var(--wp--preset--spacing--40);
+	}
+
+	.stat-number {
+		font-size: 2rem;
+	}
+}
+
+/* ==========================================================================
+   Homepage Client Showcase
+   ========================================================================== */
+
+.homepage-clients {
+	background-color: var(--wp--preset--color--base);
+}
+
+.homepage-clients-label {
+	color: var(--wp--preset--color--foreground-secondary);
+	font-weight: 600;
+}
+
+.homepage-clients-row {
+	gap: var(--wp--preset--spacing--50);
+}
+
+.homepage-clients-row .client-logo {
+	max-width: 100px;
+}
+
+/* Dark mode adjustments */
+.dark-mode .homepage-clients {
+	background-color: var(--wp--preset--color--contrast);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+	.homepage-clients-row {
+		gap: var(--wp--preset--spacing--30);
+	}
+
+	.homepage-clients-row .client-logo {
+		max-width: 80px;
+	}
+}
+
+/* ==========================================================================
+   Homepage Video Showcase
+   ========================================================================== */
+
+.video-showcase {
+	background-color: var(--wp--preset--color--contrast);
+}
+
+.video-showcase h2 {
+	color: #ffffff;
+}
+
+.video-showcase p {
+	color: rgba(255, 255, 255, 0.85);
+}
+
+.video-showcase-wrapper {
+	position: relative;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-showcase-wrapper:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+}
+
+/* Video embed container - must override WP layout classes */
+.video-showcase-embed,
+.wp-block-group.video-showcase-embed,
+.video-showcase-embed.wp-block-group {
+	position: relative !important;
+	width: 100% !important;
+	padding-bottom: 56.25% !important; /* 16:9 aspect ratio */
+	background-color: #000000;
+	display: block !important;
+}
+
+.video-showcase-embed iframe,
+.wp-block-group.video-showcase-embed iframe {
+	position: absolute !important;
+	top: 0 !important;
+	left: 0 !important;
+	width: 100% !important;
+	height: 100% !important;
+	border: none;
+}
+
+/* Dark mode adjustments */
+.dark-mode .video-showcase {
+	background-color: var(--wp--preset--color--contrast-2);
+}
+
+.dark-mode .video-showcase-wrapper {
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .video-showcase-wrapper:hover {
+	box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+	.video-showcase {
+		padding: var(--wp--preset--spacing--50) var(--wp--preset--spacing--30);
+	}
+
+	.video-showcase h2 {
+		font-size: 1.5rem;
+	}
+}

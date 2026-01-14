@@ -54,11 +54,11 @@ class Assets {
 			$version
 		);
 
-		// Enqueue GitHub Markdown CSS.
+		// Enqueue GitHub Markdown CSS (depends on style.css for cascade order).
 		wp_enqueue_style(
 			'crispy-theme-markdown',
 			CRISPY_THEME_URI . '/assets/css/github-markdown.css',
-			[],
+			[ 'crispy-theme-style' ],
 			$version
 		);
 
@@ -123,6 +123,50 @@ class Assets {
 			[
 				'storageKey'  => 'crispy-theme-dark-mode',
 				'defaultMode' => 'auto',
+			]
+		);
+
+		// Enqueue markdown dropdown assets on singular views.
+		if ( is_singular() ) {
+			$this->enqueue_markdown_dropdown_assets();
+		}
+	}
+
+	/**
+	 * Enqueue markdown dropdown assets.
+	 *
+	 * @return void
+	 */
+	private function enqueue_markdown_dropdown_assets(): void {
+		$version = CRISPY_THEME_VERSION;
+
+		// Enqueue markdown dropdown styles.
+		wp_enqueue_style(
+			'crispy-theme-markdown-dropdown',
+			CRISPY_THEME_URI . '/assets/css/markdown-dropdown.css',
+			[ 'crispy-theme-style' ],
+			$version
+		);
+
+		// Enqueue markdown dropdown script.
+		wp_enqueue_script(
+			'crispy-theme-markdown-dropdown',
+			CRISPY_THEME_URI . '/build/markdown-dropdown.js',
+			[],
+			$version,
+			true
+		);
+
+		// Pass AJAX URL and nonce to JavaScript.
+		wp_localize_script(
+			'crispy-theme-markdown-dropdown',
+			'crispyMarkdownDropdown',
+			[
+				'ajaxUrl'         => admin_url( 'admin-ajax.php' ),
+				'nonce'           => wp_create_nonce( \CrispyTheme\Content\MarkdownDropdown::get_nonce_action() ),
+				'copiedText'      => __( 'Copied!', 'crispy-theme' ),
+				'trackingEnabled' => true,
+				'trackingNonce'   => wp_create_nonce( \CrispyTheme\Content\MarkdownDropdown::get_tracking_nonce_action() ),
 			]
 		);
 	}

@@ -1,0 +1,27 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"site-main homepage","layout":{"type":"default"}} -->
+<main class="wp-block-group site-main homepage">
+
+    <!-- Zone 1: Homepage Hero (Full-width) -->
+    <!-- wp:pattern {"slug":"crispytheme/homepage-hero"} /-->
+
+    <!-- Zone 1.5: Video Showcase (Conditional - enabled via Theme Options) -->
+    <!-- wp:pattern {"slug":"crispytheme/homepage-video-showcase"} /-->
+
+    <!-- Zone 2: Audience Routing (Constrained) -->
+    <!-- wp:pattern {"slug":"crispytheme/audience-routing"} /-->
+
+    <!-- Zone 3: Trust Signals (Constrained) -->
+    <!-- wp:group {"layout":{"type":"constrained"}} -->
+    <div class="wp-block-group">
+        <!-- wp:pattern {"slug":"crispytheme/speaking-stats"} /-->
+    </div>
+    <!-- /wp:group -->
+
+    <!-- wp:pattern {"slug":"crispytheme/homepage-clients"} /-->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
