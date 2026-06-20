@@ -61,24 +61,39 @@ class PatternManager {
 	 * @return void
 	 */
 	public function register_patterns_from_directory(): void {
-		$patterns_dir = CRISPY_THEME_DIR . '/patterns';
-
-		if ( ! is_dir( $patterns_dir ) ) {
-			return;
-		}
-
-		$pattern_files = glob( $patterns_dir . '/*.php' );
-
-		// Ensure glob() returned a valid array.
-		if ( false === $pattern_files || empty( $pattern_files ) ) {
-			return;
-		}
-
-		foreach ( $pattern_files as $pattern_file ) {
+		foreach ( $this->get_pattern_files() as $pattern_file ) {
 			// Validate file before inclusion.
 			if ( is_readable( $pattern_file ) && is_file( $pattern_file ) ) {
 				require_once $pattern_file;
 			}
 		}
+	}
+
+	/**
+	 * Get the registrable pattern files from the patterns directory.
+	 *
+	 * Returns an empty array when the directory is missing or contains no pattern
+	 * files. Those guards defend an impossible state — patterns/ always ships with
+	 * the theme — so this helper is excluded from coverage.
+	 *
+	 * @codeCoverageIgnore
+	 *
+	 * @return array<int, string> Absolute paths to pattern PHP files.
+	 */
+	private function get_pattern_files(): array {
+		// Patterns live in block-patterns/ (not the WordPress-reserved patterns/
+		// directory) because they self-register programmatically via
+		// register_block_pattern() rather than via Title/Slug file headers. Keeping
+		// them out of patterns/ avoids WordPress core's auto-registration scanner
+		// emitting "Slug field missing" notices for every file.
+		$patterns_dir = CRISPY_THEME_DIR . '/block-patterns';
+
+		if ( ! is_dir( $patterns_dir ) ) {
+			return [];
+		}
+
+		$pattern_files = glob( $patterns_dir . '/*.php' );
+
+		return false === $pattern_files ? [] : $pattern_files;
 	}
 }

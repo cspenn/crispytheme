@@ -39,11 +39,11 @@ npm run start       # Development watch mode
 ### Layer Structure (Enforced by Deptrac)
 
 ```
-Theme (orchestration) → Admin, CLI, Content, DarkMode, Parser, Cache
+Theme (orchestration) → Admin, CLI, Content, DarkMode, Parser, Cache, SEO
 Admin → Content, Parser
 CLI → Content, Parser
 Content → Parser, Cache
-DarkMode, Parser, Cache → (no dependencies - leaf layers)
+DarkMode, Parser, Cache, SEO → (no dependencies - leaf layers)
 ```
 
 ### Source Code Organization (`src/`)
@@ -55,6 +55,7 @@ DarkMode, Parser, Cache → (no dependencies - leaf layers)
 - **Admin/**: Editor (disables block editor), MetaBox (markdown textarea), Preview, OptionsPage
 - **CLI/**: WP-CLI import command (`wp crispy`)
 - **DarkMode/**: Toggle functionality
+- **SEO/**: Schema.org JSON-LD injection (Person, Organization, VideoObject, Speakable) via `wp_head`
 
 ### Entry Point
 
@@ -90,6 +91,8 @@ Every theme decision must reinforce Christopher Penn's "Practitioner-Scholar" br
 
 The theme must support both **content consumption** (reading, discovering, engaging) AND **audience conversion** (newsletter signups, speaking inquiries, consulting leads). A blog-only focus is incomplete; conversion paths are equally critical.
 
+**Homepage exception (resolved 2026-06-19 against the conversion report):** on the planner-facing homepage, **booking and newsletter are the primary actions and the blog is demoted to the footer.** Consumption paths remain primary on `/blog`, `/newsletter`, and the sidebar — the demotion is homepage-only.
+
 ### 3. Three ICP Focus
 
 Every template and pattern should serve one of the three Ideal Customer Profiles:
@@ -97,10 +100,12 @@ Every template and pattern should serve one of the three Ideal Customer Profiles
 - **ICP B (Enterprise Leaders)**: Need trust signals and governance-focused methodology proof
 - **ICP C (Technical Practitioners)**: Need code, dark mode, and "proud nerd" signals
 
+On the homepage (resolved 2026-06-19), ICP routing is a **subordinate row beneath the dominant booking CTA** — not four equal cards — so booking stays the single dominant action while still routing all three ICPs.
+
 ### 4. Technical Authority Through Design
 
 Visual choices must signal technical competence:
-- **IBM Plex typography**: Designed for technical communication
+- **IBM Plex typography**: Designed for technical communication. Headings use **IBM Plex Sans** (geometric-humanist sans, **no serif**); accent is cyan `#06b6d4` with a dark-navy `#0f172a` surface (resolved 2026-06-19 against the conversion report — IBM Plex Sans satisfies the report's "no serif" intent while keeping the brand typeface)
 - **Dark mode toggle**: Developer tribal signal
 - **Markdown-first editing**: Version control friendly, no page builder bloat
 - **Code showcase patterns**: Collapsible blocks, syntax highlighting, prompt/output displays
@@ -156,3 +161,12 @@ Runs all code quality checks and reports results:
 All checks run even if earlier ones fail, providing a complete report with pass/fail summary.
 
 Usage: `/qa`
+
+## graphify
+
+This project has a graphify knowledge graph at graphify-out/.
+
+Rules:
+- Before answering architecture or codebase questions, read graphify-out/GRAPH_REPORT.md for god nodes and community structure
+- If graphify-out/wiki/index.md exists, navigate it instead of reading raw files
+- After modifying code files in this session, run `graphify update .` to keep the graph current (AST-only, no API cost)

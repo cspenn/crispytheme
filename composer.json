@@ -40,7 +40,7 @@
     "scripts": {
         "lint": "phpcs",
         "lint:fix": "phpcbf",
-        "analyze": "phpstan analyse --memory-limit=512M",
+        "analyze": "phpstan analyse --memory-limit=2G",
         "architecture": "deptrac",
         "test": "pest",
         "test:unit": "pest --group=unit",

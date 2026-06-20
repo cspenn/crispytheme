@@ -288,7 +288,7 @@ class OptionsPage {
 			[
 				'type'              => 'string',
 				'sanitize_callback' => 'sanitize_text_field',
-				'default'           => 'Data-Driven Marketing Strategist & AI Implementation Expert',
+				'default'           => 'Equipping Global Organizations to Win the AI Revolution',
 			]
 		);
 
@@ -307,7 +307,7 @@ class OptionsPage {
 			[
 				'type'              => 'string',
 				'sanitize_callback' => 'sanitize_text_field',
-				'default'           => 'Practitioner-scholar approach to AI, marketing analytics, and data science. No hype, just results.',
+				'default'           => 'Christopher Penn shows enterprise teams how to deploy AI as a competitive advantage — not a threat.',
 			]
 		);
 
@@ -471,6 +471,203 @@ class OptionsPage {
 				'crispytheme_homepage_section',
 				[ 'logo_number' => $i ]
 			);
+		}
+
+		// Register conversion / booking CTA section.
+		add_settings_section(
+			'crispytheme_conversion_section',
+			__( 'Booking & Conversion CTAs', 'crispy-theme' ),
+			[ $this, 'render_conversion_section' ],
+			self::PAGE_SLUG
+		);
+
+		$this->register_simple_field(
+			'crispytheme_conversion_section',
+			'crispytheme_booking_url',
+			__( 'Booking CTA URL', 'crispy-theme' ),
+			[
+				'type'        => 'url',
+				'sanitize'    => 'esc_url_raw',
+				'default'     => '/contact/',
+				'placeholder' => '/contact/',
+				'description' => __( "Where every 'Book Christopher' CTA points. Change to /book-christopher once that page exists.", 'crispy-theme' ),
+			]
+		);
+
+		$this->register_simple_field(
+			'crispytheme_conversion_section',
+			'crispytheme_hero_cta_primary_label',
+			__( 'Hero Primary CTA Label', 'crispy-theme' ),
+			[
+				'default'     => 'Book Christopher',
+				'description' => __( 'Label for the solid primary hero button.', 'crispy-theme' ),
+			]
+		);
+
+		$this->register_simple_field(
+			'crispytheme_conversion_section',
+			'crispytheme_hero_cta_secondary_label',
+			__( 'Hero Secondary CTA Label', 'crispy-theme' ),
+			[
+				'default'     => 'Watch Demo Reel',
+				'description' => __( 'Label for the secondary (ghost/outline) hero button.', 'crispy-theme' ),
+			]
+		);
+
+		$this->register_simple_field(
+			'crispytheme_conversion_section',
+			'crispytheme_newsletter_subscriber_count',
+			__( 'Newsletter Subscriber Count', 'crispy-theme' ),
+			[
+				'default'     => '294,000+',
+				'description' => __( 'Almost Timely subscriber count shown in the metrics badge. Manual for now; a future API integration can override it via the crispytheme_subscriber_count filter.', 'crispy-theme' ),
+			]
+		);
+
+		// Register social proof section.
+		add_settings_section(
+			'crispytheme_social_proof_section',
+			__( 'Social Proof (PostEventScore & Testimonial)', 'crispy-theme' ),
+			[ $this, 'render_social_proof_section' ],
+			self::PAGE_SLUG
+		);
+
+		$social_fields = [
+			'crispytheme_posteventscore_value'  => [
+				'label'       => __( 'PostEventScore Value', 'crispy-theme' ),
+				'placeholder' => 'e.g. 4.8/5.0',
+				'description' => __( 'Average post-event satisfaction. Leave blank to hide the block — use only verified survey data.', 'crispy-theme' ),
+			],
+			'crispytheme_posteventscore_count'  => [
+				'label'       => __( 'PostEventScore Engagement Count', 'crispy-theme' ),
+				'placeholder' => 'e.g. 120+',
+				'description' => __( 'Number of engagements the score is based on.', 'crispy-theme' ),
+			],
+			'crispytheme_posteventscore_source' => [
+				'label'       => __( 'PostEventScore Source Line', 'crispy-theme' ),
+				'default'     => 'Source: post-event surveys',
+				'description' => __( 'Small attribution line shown beneath the score.', 'crispy-theme' ),
+			],
+			'crispytheme_testimonial_quote'     => [
+				'label'       => __( 'Testimonial Quote', 'crispy-theme' ),
+				'type'        => 'textarea',
+				'description' => __( 'Planner testimonial pull quote (outcome-focused). Leave blank to hide the testimonial.', 'crispy-theme' ),
+			],
+			'crispytheme_testimonial_name'      => [
+				'label'       => __( 'Testimonial Name', 'crispy-theme' ),
+				'description' => __( 'Full name of the event planner.', 'crispy-theme' ),
+			],
+			'crispytheme_testimonial_title'     => [
+				'label'       => __( 'Testimonial Title', 'crispy-theme' ),
+				'description' => __( 'Their title at the time of the event.', 'crispy-theme' ),
+			],
+			'crispytheme_testimonial_org'       => [
+				'label'       => __( 'Testimonial Organization', 'crispy-theme' ),
+				'description' => __( 'Organization name.', 'crispy-theme' ),
+			],
+			'crispytheme_testimonial_event'     => [
+				'label'       => __( 'Testimonial Event & Year', 'crispy-theme' ),
+				'description' => __( 'Event name and year, e.g. "MAICON 2025".', 'crispy-theme' ),
+			],
+			'crispytheme_testimonial_video'     => [
+				'label'       => __( 'Testimonial Video URL', 'crispy-theme' ),
+				'type'        => 'url',
+				'sanitize'    => 'esc_url_raw',
+				'description' => __( 'Optional Vimeo testimonial URL.', 'crispy-theme' ),
+			],
+		];
+
+		foreach ( $social_fields as $option => $config ) {
+			$label = $config['label'];
+			unset( $config['label'] );
+			$this->register_simple_field( 'crispytheme_social_proof_section', $option, $label, $config );
+		}
+
+		// Register SEO / Schema section.
+		add_settings_section(
+			'crispytheme_schema_section',
+			__( 'SEO / Schema (JSON-LD)', 'crispy-theme' ),
+			[ $this, 'render_schema_section' ],
+			self::PAGE_SLUG
+		);
+
+		$schema_fields = [
+			'crispytheme_schema_person_name'        => [
+				'label'   => __( 'Person Name', 'crispy-theme' ),
+				'default' => 'Christopher S. Penn',
+			],
+			'crispytheme_schema_person_image'       => [
+				'label'       => __( 'Person Headshot URL', 'crispy-theme' ),
+				'type'        => 'media',
+				'sanitize'    => 'esc_url_raw',
+				'description' => __( 'Headshot for Person schema. Omitted from output if blank.', 'crispy-theme' ),
+			],
+			'crispytheme_schema_person_job_title'   => [
+				'label'   => __( 'Person Job Title', 'crispy-theme' ),
+				'default' => 'AI Keynote Speaker & Strategist',
+			],
+			'crispytheme_schema_person_description' => [
+				'label'   => __( 'Person Description', 'crispy-theme' ),
+				'type'    => 'textarea',
+				'default' => 'Christopher Penn is an internationally recognized AI keynote speaker, IBM Champion, and 8× published author. Co-founder of Trust Insights.',
+			],
+			'crispytheme_schema_same_as'            => [
+				'label'       => __( 'Profile URLs (sameAs)', 'crispy-theme' ),
+				'type'        => 'textarea',
+				'sanitize'    => 'sanitize_textarea_field',
+				'default'     => 'https://www.trustinsights.ai',
+				'description' => __( 'One profile URL per line (LinkedIn, X, etc.). Only verified URLs.', 'crispy-theme' ),
+			],
+			'crispytheme_schema_org_name'           => [
+				'label'   => __( 'Organization Name', 'crispy-theme' ),
+				'default' => 'Christopher S. Penn Speaking',
+			],
+			'crispytheme_schema_org_logo'           => [
+				'label'       => __( 'Organization Logo URL', 'crispy-theme' ),
+				'type'        => 'media',
+				'sanitize'    => 'esc_url_raw',
+				'description' => __( 'Logo for Organization schema. Omitted if blank.', 'crispy-theme' ),
+			],
+			'crispytheme_schema_booking_email'      => [
+				'label'       => __( 'Booking Contact Email', 'crispy-theme' ),
+				'sanitize'    => 'sanitize_email',
+				'description' => __( 'Booking inquiry email for Organization schema. Omitted if blank.', 'crispy-theme' ),
+			],
+			'crispytheme_schema_video_url'          => [
+				'label'       => __( 'Demo Reel Video URL', 'crispy-theme' ),
+				'type'        => 'url',
+				'sanitize'    => 'esc_url_raw',
+				'description' => __( 'Vimeo URL for the VideoObject schema. The whole block is omitted if blank.', 'crispy-theme' ),
+			],
+			'crispytheme_schema_video_name'         => [
+				'label'   => __( 'Demo Reel Title', 'crispy-theme' ),
+				'default' => 'Christopher Penn AI Keynote Demo Reel',
+			],
+			'crispytheme_schema_video_description'  => [
+				'label' => __( 'Demo Reel Description', 'crispy-theme' ),
+				'type'  => 'textarea',
+			],
+			'crispytheme_schema_video_thumbnail'    => [
+				'label'    => __( 'Demo Reel Thumbnail URL', 'crispy-theme' ),
+				'type'     => 'media',
+				'sanitize' => 'esc_url_raw',
+			],
+			'crispytheme_schema_video_upload_date'  => [
+				'label'       => __( 'Demo Reel Upload Date', 'crispy-theme' ),
+				'placeholder' => 'YYYY-MM-DD',
+				'description' => __( 'ISO date, e.g. 2026-01-15.', 'crispy-theme' ),
+			],
+			'crispytheme_schema_video_duration'     => [
+				'label'       => __( 'Demo Reel Duration', 'crispy-theme' ),
+				'placeholder' => 'PT2M30S',
+				'description' => __( 'ISO 8601 duration, e.g. PT2M30S. Required for video rich results.', 'crispy-theme' ),
+			],
+		];
+
+		foreach ( $schema_fields as $option => $config ) {
+			$label = $config['label'];
+			unset( $config['label'] );
+			$this->register_simple_field( 'crispytheme_schema_section', $option, $label, $config );
 		}
 
 		// Register markdown analytics section (display only, no settings to register).
@@ -848,7 +1045,7 @@ class OptionsPage {
 	 * @return void
 	 */
 	public function render_hero_headline_field(): void {
-		$value = get_option( 'crispytheme_hero_headline', 'Data-Driven Marketing Strategist & AI Implementation Expert' );
+		$value = get_option( 'crispytheme_hero_headline', 'Equipping Global Organizations to Win the AI Revolution' );
 		?>
 		<input type="text"
 				name="crispytheme_hero_headline"
@@ -866,7 +1063,7 @@ class OptionsPage {
 	 * @return void
 	 */
 	public function render_hero_subheadline_field(): void {
-		$value = get_option( 'crispytheme_hero_subheadline', 'Practitioner-scholar approach to AI, marketing analytics, and data science. No hype, just results.' );
+		$value = get_option( 'crispytheme_hero_subheadline', 'Christopher Penn shows enterprise teams how to deploy AI as a competitive advantage — not a threat.' );
 		?>
 		<textarea name="crispytheme_hero_subheadline"
 				rows="2"
@@ -958,9 +1155,9 @@ class OptionsPage {
 				name="crispytheme_video_showcase_url"
 				value="<?php echo esc_url( $value ); ?>"
 				class="large-text"
-				placeholder="https://www.youtube.com/watch?v=...">
+				placeholder="https://vimeo.com/123456789">
 		<p class="description">
-			<?php esc_html_e( 'YouTube video URL. Supports youtube.com and youtu.be links.', 'crispy-theme' ); ?>
+			<?php esc_html_e( 'Demo reel URL. Vimeo is preferred (white-labeled, no competitor end-cards); YouTube is supported as a fallback.', 'crispy-theme' ); ?>
 		</p>
 		<?php
 	}
@@ -1195,5 +1392,190 @@ class OptionsPage {
 		);
 
 		return implode( "\n", $sanitized );
+	}
+
+	/**
+	 * Render the conversion section description.
+	 *
+	 * @return void
+	 */
+	public function render_conversion_section(): void {
+		echo '<p>' . esc_html__( 'Configure booking CTA destinations, hero button labels, and the newsletter subscriber count.', 'crispy-theme' ) . '</p>';
+	}
+
+	/**
+	 * Render the social proof section description.
+	 *
+	 * @return void
+	 */
+	public function render_social_proof_section(): void {
+		echo '<p>' . esc_html__( 'PostEventScore and a planner testimonial. Leave fields blank to hide a block — publish only verified figures and complete testimonials.', 'crispy-theme' ) . '</p>';
+	}
+
+	/**
+	 * Render the SEO / Schema section description.
+	 *
+	 * @return void
+	 */
+	public function render_schema_section(): void {
+		echo '<p>' . esc_html__( 'Structured data (JSON-LD) emitted in the page head. Blank fields are omitted from output; never enter unverified claims.', 'crispy-theme' ) . '</p>';
+	}
+
+	/**
+	 * Register a setting and its settings field using a generic renderer.
+	 *
+	 * @param string               $section The settings section ID.
+	 * @param string               $option  The option name.
+	 * @param string               $label   The field label.
+	 * @param array<string, mixed> $config  Field config: type, sanitize, default, description, placeholder, class.
+	 * @return void
+	 */
+	private function register_simple_field( string $section, string $option, string $label, array $config ): void {
+		$type     = (string) ( $config['type'] ?? 'text' );
+		$default  = (string) ( $config['default'] ?? '' );
+		$sanitize = $config['sanitize'] ?? 'sanitize_text_field';
+
+		register_setting(
+			self::OPTION_GROUP,
+			$option,
+			[
+				'type'              => 'string',
+				'sanitize_callback' => $sanitize,
+				'default'           => $default,
+			]
+		);
+
+		$renderer = match ( $type ) {
+			'url'      => 'render_url_input_field',
+			'textarea' => 'render_textarea_input_field',
+			'media'    => 'render_media_input_field',
+			default    => 'render_text_input_field',
+		};
+
+		add_settings_field(
+			$option,
+			$label,
+			[ $this, $renderer ],
+			self::PAGE_SLUG,
+			$section,
+			[
+				'option'      => $option,
+				'default'     => $default,
+				'description' => (string) ( $config['description'] ?? '' ),
+				'placeholder' => (string) ( $config['placeholder'] ?? '' ),
+				'class'       => (string) ( $config['class'] ?? 'large-text' ),
+			]
+		);
+	}
+
+	/**
+	 * Render a generic text input field.
+	 *
+	 * @param array<string, string> $args Field args: option, default, description, placeholder, class.
+	 * @return void
+	 */
+	public function render_text_input_field( array $args ): void {
+		$this->render_input_field( 'text', $args );
+	}
+
+	/**
+	 * Render a generic URL input field.
+	 *
+	 * @param array<string, string> $args Field args: option, default, description, placeholder, class.
+	 * @return void
+	 */
+	public function render_url_input_field( array $args ): void {
+		$this->render_input_field( 'url', $args );
+	}
+
+	/**
+	 * Render a text/url input field.
+	 *
+	 * @param string                $input_type The HTML input type.
+	 * @param array<string, string> $args       Field args.
+	 * @return void
+	 */
+	private function render_input_field( string $input_type, array $args ): void {
+		$option      = (string) ( $args['option'] ?? '' );
+		$default     = (string) ( $args['default'] ?? '' );
+		$description = (string) ( $args['description'] ?? '' );
+		$placeholder = (string) ( $args['placeholder'] ?? '' );
+		$class       = (string) ( $args['class'] ?? 'large-text' );
+		$value       = (string) get_option( $option, $default );
+		?>
+		<input type="<?php echo esc_attr( $input_type ); ?>"
+				name="<?php echo esc_attr( $option ); ?>"
+				value="<?php echo 'url' === $input_type ? esc_url( $value ) : esc_attr( $value ); ?>"
+				class="<?php echo esc_attr( $class ); ?>"
+				<?php
+				if ( '' !== $placeholder ) :
+					?>
+					placeholder="<?php echo esc_attr( $placeholder ); ?>"<?php endif; ?>>
+		<?php
+		$this->render_field_description( $description );
+	}
+
+	/**
+	 * Render a generic textarea field.
+	 *
+	 * @param array<string, string> $args Field args: option, default, description.
+	 * @return void
+	 */
+	public function render_textarea_input_field( array $args ): void {
+		$option      = (string) ( $args['option'] ?? '' );
+		$default     = (string) ( $args['default'] ?? '' );
+		$description = (string) ( $args['description'] ?? '' );
+		$value       = (string) get_option( $option, $default );
+		?>
+		<textarea name="<?php echo esc_attr( $option ); ?>" rows="3" class="large-text"><?php echo esc_textarea( $value ); ?></textarea>
+		<?php
+		$this->render_field_description( $description );
+	}
+
+	/**
+	 * Render a generic media (image URL + uploader) field.
+	 *
+	 * @param array<string, string> $args Field args: option, default, description.
+	 * @return void
+	 */
+	public function render_media_input_field( array $args ): void {
+		$option      = (string) ( $args['option'] ?? '' );
+		$default     = (string) ( $args['default'] ?? '' );
+		$description = (string) ( $args['description'] ?? '' );
+		$value       = (string) get_option( $option, $default );
+		?>
+		<div class="crispytheme-media-field">
+			<input type="text"
+					id="<?php echo esc_attr( $option ); ?>"
+					name="<?php echo esc_attr( $option ); ?>"
+					value="<?php echo esc_url( $value ); ?>"
+					class="regular-text"
+					placeholder="<?php esc_attr_e( 'Enter image URL or use media library', 'crispy-theme' ); ?>">
+			<button type="button" class="button crispytheme-media-upload" data-target="<?php echo esc_attr( $option ); ?>">
+				<?php esc_html_e( 'Select Image', 'crispy-theme' ); ?>
+			</button>
+			<?php if ( '' !== $value ) : ?>
+				<div style="margin-top: 10px;">
+					<img src="<?php echo esc_url( $value ); ?>" style="max-width: 200px; height: auto;" alt="">
+				</div>
+			<?php endif; ?>
+		</div>
+		<?php
+		$this->render_field_description( $description );
+	}
+
+	/**
+	 * Render a field description paragraph.
+	 *
+	 * @param string $description The description text.
+	 * @return void
+	 */
+	private function render_field_description( string $description ): void {
+		if ( '' === $description ) {
+			return;
+		}
+		?>
+		<p class="description"><?php echo esc_html( $description ); ?></p>
+		<?php
 	}
 }

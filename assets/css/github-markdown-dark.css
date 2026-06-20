@@ -28,7 +28,10 @@
     --wp--preset--color--secondary: #8b949e;
     --wp--preset--color--primary: #58a6ff;
     --wp--preset--color--primary-dark: #79c0ff;
-    --wp--preset--color--accent: #58a6ff;
+    /* Cyan accent persists in dark mode (brighter for dark surfaces); navy
+       button text keeps WCAG AA on both the cyan fill and its hover. */
+    --wp--preset--color--accent: #22d3ee;
+    --wp--preset--color--accent-dark: #06b6d4;
 }
 
 .dark-mode .markdown-body {
@@ -154,12 +157,13 @@
 
 /* Dark mode buttons */
 .dark-mode .wp-block-button__link {
-    background-color: var(--crispy-primary);
-    color: var(--crispy-bg);
+    background-color: var(--wp--preset--color--accent);
+    color: var(--wp--preset--color--surface-dark);
 }
 
 .dark-mode .wp-block-button__link:hover {
-    background-color: var(--crispy-primary-dark);
+    background-color: var(--wp--preset--color--accent-dark);
+    color: var(--wp--preset--color--surface-dark);
 }
 
 /* Dark mode toggle styles */

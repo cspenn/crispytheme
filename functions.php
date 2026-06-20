@@ -40,6 +40,9 @@ define( 'CRISPY_THEME_MIN_PHP', '8.1' );
  */
 define( 'CRISPY_THEME_MIN_WP', '6.6' );
 
+// Load global template helper functions (used by block patterns/templates).
+require_once CRISPY_THEME_DIR . '/inc/template-tags.php';
+
 /**
  * Load Composer autoloader.
  *
@@ -169,6 +172,10 @@ function crispy_theme_init(): void {
 	// Initialize collapsible code block.
 	$collapsible_block = new Code\CollapsibleBlock();
 	$collapsible_block->init();
+
+		// Initialize SEO schema (JSON-LD output in wp_head; no-ops in admin).
+		$schema = new SEO\SchemaGraph();
+		$schema->init();
 
 	// Admin-only components.
 	if ( is_admin() ) {
