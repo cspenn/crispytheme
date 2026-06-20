@@ -29,9 +29,13 @@ class HtmlToMarkdownConverter {
 
 	/**
 	 * Initialize the converter with WordPress-optimized options.
+	 *
+	 * @param HtmlConverter|null $converter Optional converter to inject (for testing
+	 *                                      and dependency inversion); defaults to a
+	 *                                      WordPress-optimized HtmlConverter.
 	 */
-	public function __construct() {
-		$this->converter = new HtmlConverter( $this->get_converter_options() );
+	public function __construct( ?HtmlConverter $converter = null ) {
+		$this->converter = $converter ?? new HtmlConverter( $this->get_converter_options() );
 	}
 
 	/**

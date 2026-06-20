@@ -19,7 +19,7 @@ declare(strict_types=1);
 |
 | Theme → Content, Admin, CLI, DarkMode, Parser, Cache
 | Admin → Content, Parser
-| CLI → Content, Parser
+| CLI → Content, Parser, Cache
 | Content → Parser, Cache
 | DarkMode → (no dependencies)
 | Parser → (no dependencies)
@@ -80,13 +80,13 @@ describe('Architecture: Layer Dependencies', function () {
             'CrispyTheme\Cache',
         ]);
 
-    test('CLI layer only depends on Content and Parser')
+    // CLI may use Cache for the `wp crispy cache` subcommands (matches deptrac.yaml).
+    test('CLI layer only depends on Content, Parser and Cache')
         ->expect('CrispyTheme\CLI')
         ->not->toUse([
             'CrispyTheme\Theme',
             'CrispyTheme\Admin',
             'CrispyTheme\DarkMode',
-            'CrispyTheme\Cache',
         ]);
 
 });

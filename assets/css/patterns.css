@@ -258,9 +258,9 @@
 	line-height: 1.2;
 }
 
-/* Booking CTA - simple single-class selector */
+/* Booking CTA - navy surface so it pairs with the cyan accent button */
 .booking-cta {
-	background-color: var(--wp--preset--color--primary);
+	background-color: var(--wp--preset--color--surface-dark);
 	color: #ffffff;
 	padding: var(--wp--preset--spacing--60);
 	border-radius: 12px;
@@ -427,29 +427,11 @@
    ========================================================================== */
 
 .homepage-hero {
-	position: relative;
+	background-color: var(--wp--preset--color--background);
 }
 
-.homepage-hero .wp-block-cover__image-background {
-	filter: brightness(0.7);
-}
-
-.dark-mode .homepage-hero .wp-block-cover__image-background {
-	filter: brightness(0.5);
-}
-
-.homepage-hero-content {
-	text-align: center;
-}
-
-.homepage-hero-content h1 {
-	color: #ffffff !important;
-	text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 4px 16px rgba(0, 0, 0, 0.5);
-}
-
-.homepage-hero-content p {
-	color: rgba(255, 255, 255, 0.95) !important;
-	text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+.homepage-hero__inner {
+	align-items: center;
 }
 
 .homepage-hero-eyebrow {
@@ -457,8 +439,34 @@
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
-	color: var(--wp--preset--color--accent) !important;
+	color: var(--wp--preset--color--foreground-secondary);
 	margin-bottom: var(--wp--preset--spacing--20);
+}
+
+.homepage-hero__title {
+	color: var(--wp--preset--color--foreground);
+}
+
+.homepage-hero__subhead {
+	max-width: 36rem;
+}
+
+.homepage-hero__image img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Stack the 60/40 split on mobile (image below text). */
+@media (max-width: 781px) {
+	.homepage-hero__inner .wp-block-column {
+		flex-basis: 100% !important;
+	}
+
+	.homepage-hero__ctas {
+		justify-content: flex-start;
+	}
 }
 
 /* ==========================================================================
@@ -675,7 +683,7 @@
    ========================================================================== */
 
 .video-showcase {
-	background-color: var(--wp--preset--color--contrast);
+	background-color: var(--wp--preset--color--surface-dark);
 }
 
 .video-showcase h2 {
@@ -741,5 +749,154 @@
 
 	.video-showcase h2 {
 		font-size: 1.5rem;
+	}
+}
+
+/* ==========================================================================
+   Homepage Metrics Badge
+   ========================================================================== */
+
+.metrics-badge__row {
+	gap: var(--wp--preset--spacing--50);
+}
+
+.metrics-badge__item {
+	min-width: 140px;
+	text-align: center;
+}
+
+.metrics-badge__value {
+	color: var(--wp--preset--color--foreground);
+	margin: 0 0 var(--wp--preset--spacing--10);
+}
+
+.metrics-badge__label {
+	margin: 0;
+}
+
+.dark-mode .metrics-badge {
+	background-color: var(--wp--preset--color--contrast-2);
+}
+
+.dark-mode .metrics-badge__value {
+	color: var(--wp--preset--color--foreground);
+}
+
+/* ==========================================================================
+   Homepage Booking Block + 3-ICP routing row
+   ========================================================================== */
+
+.homepage-booking__routing {
+	gap: var(--wp--preset--spacing--50);
+}
+
+.homepage-booking__routing p {
+	margin: 0;
+}
+
+.homepage-booking__routing-label {
+	margin: 0;
+}
+
+/* ==========================================================================
+   PostEventScore
+   ========================================================================== */
+
+.posteventscore {
+	margin-inline: auto;
+	border-radius: 8px;
+}
+
+.posteventscore__value {
+	color: var(--wp--preset--color--foreground);
+}
+
+.dark-mode .posteventscore {
+	background-color: var(--wp--preset--color--contrast-2);
+}
+
+/* ==========================================================================
+   Homepage Planner Testimonial
+   ========================================================================== */
+
+.homepage-testimonial__quote {
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+.homepage-testimonial__quote p {
+	font-style: italic;
+	line-height: 1.5;
+}
+
+.homepage-testimonial__name {
+	margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Client Logo Marquee (monochrome, seamless loop)
+   ========================================================================== */
+
+.homepage-clients-marquee {
+	width: 100%;
+	overflow: hidden;
+	-webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+	mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.homepage-clients-track {
+	display: flex;
+	width: max-content;
+	animation: crispy-marquee 40s linear infinite;
+}
+
+.homepage-clients-set {
+	display: flex;
+	align-items: center;
+	gap: var(--wp--preset--spacing--70);
+	padding-inline: calc(var(--wp--preset--spacing--70) / 2);
+}
+
+.homepage-clients-set .client-logo__img {
+	height: 38px;
+	width: auto;
+	max-width: 150px;
+	object-fit: contain;
+	filter: grayscale(100%);
+	opacity: 0.65;
+	transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.homepage-clients-marquee:hover .client-logo__img {
+	opacity: 0.85;
+}
+
+.dark-mode .homepage-clients-set .client-logo__img {
+	filter: grayscale(100%) brightness(1.4);
+	opacity: 0.6;
+}
+
+@keyframes crispy-marquee {
+	from {
+		transform: translateX(0);
+	}
+
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+/* Reduced motion: stop the marquee and fall back to a centered wrapped row. */
+@media (prefers-reduced-motion: reduce) {
+	.homepage-clients-track {
+		width: 100%;
+		flex-wrap: wrap;
+		justify-content: center;
+		animation: none;
+	}
+
+	.homepage-clients-set[aria-hidden="true"] {
+		display: none;
 	}
 }

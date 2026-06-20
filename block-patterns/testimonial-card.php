@@ -44,6 +44,10 @@ register_block_pattern(
 			<!-- wp:paragraph {"className":"testimonial-author-title","style":{"typography":{"fontSize":"0.875rem"},"color":{"text":"var:preset|color|tertiary"}}} -->
 			<p class="testimonial-author-title has-tertiary-color has-text-color" style="font-size:0.875rem">' . esc_html__( 'VP of Marketing, Example Corp', 'crispy-theme' ) . '</p>
 			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph {"className":"testimonial-author-event","style":{"typography":{"fontSize":"0.8125rem"},"color":{"text":"var:preset|color|tertiary"}}} -->
+			<p class="testimonial-author-event has-tertiary-color has-text-color" style="font-size:0.8125rem">' . esc_html__( '[Event Name], [Year] — replace with a real event', 'crispy-theme' ) . '</p>
+			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->
 	</div>

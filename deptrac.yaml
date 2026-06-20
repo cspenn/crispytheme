@@ -48,6 +48,12 @@ deptrac:
               - type: directory
                 value: src/DarkMode
 
+        # SEO / Schema.org JSON-LD output
+        - name: SEO
+          collectors:
+              - type: directory
+                value: src/SEO
+
     ruleset:
         # Theme layer can use all other layers (orchestration)
         Theme:
@@ -57,6 +63,7 @@ deptrac:
             - DarkMode
             - Parser
             - Cache
+            - SEO
 
         # Admin depends on Content for markdown editing
         Admin:
@@ -82,6 +89,9 @@ deptrac:
 
         # Cache is a leaf layer (no dependencies)
         Cache: ~
+
+        # SEO is a leaf layer (reads options only, no class dependencies)
+        SEO: ~
 
     formatters:
         graphviz:

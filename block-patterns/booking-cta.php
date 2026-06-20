@@ -14,6 +14,8 @@ if ( ! function_exists( 'register_block_pattern' ) ) {
 	return;
 }
 
+$booking_url = function_exists( 'crispytheme_get_booking_url' ) ? crispytheme_get_booking_url() : '/contact/';
+
 register_block_pattern(
 	'crispytheme/booking-cta',
 	[
@@ -35,8 +37,8 @@ register_block_pattern(
 
 		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 		<div class="wp-block-buttons">
-			<!-- wp:button {"backgroundColor":"base","textColor":"primary","className":"is-style-fill","style":{"elements":{"link":{"color":{"text":"var:preset|color|primary"}}}}} -->
-			<div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-primary-color has-base-background-color has-text-color has-background has-link-color wp-element-button" href="/contact/">' . esc_html__( 'Request Availability', 'crispy-theme' ) . '</a></div>
+			<!-- wp:button {"className":"is-style-fill"} -->
+			<div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button" href="' . esc_url( $booking_url ) . '">' . esc_html__( 'Request Availability', 'crispy-theme' ) . '</a></div>
 			<!-- /wp:button -->
 
 			<!-- wp:button {"className":"is-style-outline"} -->

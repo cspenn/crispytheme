@@ -124,9 +124,26 @@ class MarkdownDropdown {
 		$post   = get_post( $post_id );
 		$output = $this->build_markdown_output( $post, $markdown );
 
+		$this->output_raw_markdown( $output, (string) $post->post_name );
+	}
+
+	/**
+	 * Emit the raw markdown response (plain-text headers + body) and terminate.
+	 *
+	 * This is pure HTTP side-effect ending in exit(); it cannot be exercised in a
+	 * unit-test process, so it is excluded from coverage. The orchestration that
+	 * builds the output (in handle_raw_request) remains fully covered.
+	 *
+	 * @codeCoverageIgnore
+	 *
+	 * @param string $output   The markdown body to send.
+	 * @param string $filename The download filename (without extension).
+	 * @return void
+	 */
+	protected function output_raw_markdown( string $output, string $filename ): void {
 		// Send appropriate headers.
 		header( 'Content-Type: text/plain; charset=utf-8' );
-		header( 'Content-Disposition: inline; filename="' . sanitize_file_name( $post->post_name ) . '.md"' );
+		header( 'Content-Disposition: inline; filename="' . sanitize_file_name( $filename ) . '.md"' );
 		header( 'X-Robots-Tag: noindex' );
 		header( 'Cache-Control: public, max-age=3600' );
 

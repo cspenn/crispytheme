@@ -7,6 +7,12 @@
 # Build artifacts
 /build/
 
+# Generated knowledge graph (large, AST-derived; rebuild with `graphify update .`)
+/graphify-out/
+
+# opencode local tool state
+/.opencode/
+
 # Composer
 composer.lock
 

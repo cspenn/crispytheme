@@ -53,16 +53,34 @@ a:hover {
 	color: var(--wp--preset--color--primary-dark, #1d4ed8);
 }
 
-/* Button text must be white on blue background */
+/* Primary CTA buttons: cyan accent fill with navy text.
+   Navy text is set as an explicit hex (not a CSS var) so it stays readable
+   in both light and dark mode — navy-on-cyan passes WCAG AA (~8:1). */
 .wp-block-button__link,
 .wp-element-button {
-	color: #ffffff !important;
-	background-color: var(--wp--preset--color--primary, #2563eb);
+	color: #0f172a !important;
+	background-color: var(--wp--preset--color--accent, #06b6d4);
 }
 
 .wp-block-button__link:hover,
 .wp-element-button:hover {
-	background-color: var(--wp--preset--color--primary-dark, #1d4ed8);
+	background-color: var(--wp--preset--color--accent-dark, #0891b2);
+}
+
+/* Outline / ghost buttons must not get the cyan fill: transparent background,
+   cyan border + label. Used for secondary CTAs (e.g. "Watch Demo Reel").
+   Label uses #0e7490 (cyan-700) — ~5.3:1 on white, clears WCAG AA for normal
+   text, where the lighter accent-dark would fail. */
+.wp-block-button.is-style-outline .wp-block-button__link,
+.wp-block-button .wp-element-button.is-style-outline {
+	color: #0e7490 !important;
+	background-color: transparent;
+	border: 2px solid var(--wp--preset--color--accent, #06b6d4);
+}
+
+.dark-mode .wp-block-button.is-style-outline .wp-block-button__link,
+.dark-mode .wp-block-button .wp-element-button.is-style-outline {
+	color: var(--wp--preset--color--accent, #06b6d4) !important;
 }
 
 /* ==========================================================================
