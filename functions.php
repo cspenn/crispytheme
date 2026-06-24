@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Theme version constant.
  */
-define( 'CRISPY_THEME_VERSION', '2.0.0' );
+define( 'CRISPY_THEME_VERSION', '2.0.1' );
 
 /**
  * Theme directory path.
