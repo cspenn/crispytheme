@@ -43,8 +43,8 @@ register_block_pattern(
 
 		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
 		<div class="wp-block-buttons">
-			<!-- wp:button {"backgroundColor":"base","textColor":"primary","style":{"elements":{"link":{"color":{"text":"var:preset|color|primary"}}}}} -->
-			<div class="wp-block-button"><a class="wp-block-button__link has-primary-color has-base-background-color has-text-color has-background has-link-color wp-element-button" href="https://almosttimely.substack.com">' . esc_html__( 'Subscribe Free', 'crispy-theme' ) . '</a></div>
+			<!-- wp:button {"className":"is-style-fill"} -->
+			<div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button" href="https://almosttimely.substack.com">' . esc_html__( 'Subscribe Free', 'crispy-theme' ) . '</a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->

@@ -137,10 +137,9 @@
 /* Newsletter Signup Hero - Simple single-class selector */
 /* NOTE: Main newsletter styles are in newsletter.css - this is for pattern use */
 .newsletter-signup {
-	background: linear-gradient(135deg, var(--wp--preset--color--primary) 0%, var(--wp--preset--color--primary-dark) 100%);
+	background-color: var(--wp--preset--color--surface-dark);
 	color: #ffffff;
-	padding: var(--wp--preset--spacing--60) var(--wp--preset--spacing--50);
-	border-radius: 12px;
+	padding: var(--wp--preset--spacing--70) var(--wp--preset--spacing--50);
 	text-align: center;
 }
 
@@ -160,13 +159,13 @@
 	background-color: var(--wp--preset--color--base-2);
 	padding: var(--wp--preset--spacing--40);
 	border-radius: 8px;
-	border: 2px solid var(--wp--preset--color--primary);
+	border: 1px solid var(--wp--preset--color--accent);
 }
 
 .newsletter-subscriber-count {
 	font-size: 2.5rem;
 	font-weight: 700;
-	color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--accent);
 	display: block;
 	line-height: 1.2;
 }
@@ -899,4 +898,71 @@
 	.homepage-clients-set[aria-hidden="true"] {
 		display: none;
 	}
+}
+
+/* ==========================================================================
+   Homepage Hero CTAs — keep the dual CTA on one row (wrap only if needed)
+   ========================================================================== */
+
+.homepage-hero__ctas {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	gap: var(--wp--preset--spacing--30);
+}
+
+/* ==========================================================================
+   Expanded Footer
+   Columns must wrap and never collapse — the newsletter column was shrinking
+   to ~1 character wide because 4 columns + block gaps overflowed the row.
+   ========================================================================== */
+
+.site-footer__top.wp-block-columns {
+	/* Grid distributes the columns evenly and wraps responsively, so no column
+	   can collapse (the newsletter column was shrinking to ~1 character wide).
+	   max-width widens past the 720px constrained default so all four columns
+	   sit on one row on desktop. */
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: var(--wp--preset--spacing--50) var(--wp--preset--spacing--60);
+	align-items: start;
+	max-width: 1180px;
+	margin-inline: auto;
+}
+
+.site-footer__top > .wp-block-column {
+	/* Grid controls the width; allow items to shrink without overflow. */
+	min-width: 0;
+	flex-basis: auto;
+}
+
+/* Footer newsletter button stays compact and on one line. */
+.site-footer__top .wp-block-button__link {
+	font-size: var(--wp--preset--font-size--small);
+	white-space: nowrap;
+}
+
+.site-footer__heading {
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--wp--preset--color--foreground-secondary);
+	margin-bottom: var(--wp--preset--spacing--30);
+}
+
+.site-footer__location {
+	margin-top: var(--wp--preset--spacing--30);
+}
+
+/* The footer newsletter box should sit flush in its column. */
+.site-footer__top .newsletter-inline {
+	margin: 0;
+}
+
+.site-footer__bottom {
+	max-width: 1180px;
+	margin: var(--wp--preset--spacing--50) auto 0;
+}
+
+.dark-mode .site-footer__heading {
+	color: var(--wp--preset--color--foreground-secondary);
 }

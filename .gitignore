@@ -7,6 +7,10 @@
 # Build artifacts
 /build/
 
+# Generated outputs (distribution zips, staging) — never committed
+/output/
+/temp/
+
 # Generated knowledge graph (large, AST-derived; rebuild with `graphify update .`)
 /graphify-out/
 

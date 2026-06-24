@@ -51,10 +51,9 @@
    ========================================================================== */
 
 .wp-block-crispytheme-newsletter-signup.newsletter-signup {
-	background: linear-gradient(135deg, var(--wp--preset--color--primary) 0%, var(--wp--preset--color--primary-dark) 100%);
+	background-color: var(--wp--preset--color--surface-dark);
 	color: #ffffff;
-	padding: var(--wp--preset--spacing--60) var(--wp--preset--spacing--50);
-	border-radius: 12px;
+	padding: var(--wp--preset--spacing--70) var(--wp--preset--spacing--50);
 	text-align: center;
 }
 
@@ -139,7 +138,7 @@
    ========================================================================== */
 
 .dark-mode .newsletter-signup {
-	background: linear-gradient(135deg, var(--wp--preset--color--primary) 0%, var(--wp--preset--color--primary-dark) 100%);
+	background-color: var(--wp--preset--color--surface-dark);
 }
 
 .dark-mode .newsletter-inline {
