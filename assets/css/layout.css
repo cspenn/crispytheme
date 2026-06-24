@@ -49,6 +49,40 @@
 }
 
 /* ==========================================================================
+   Sidebar Typography — compact and consistent
+   (widgets/links were inheriting the oversized default body size)
+   ========================================================================== */
+
+.site-sidebar {
+	font-size: var(--wp--preset--font-size--small);
+	line-height: 1.5;
+}
+
+.site-sidebar .widget {
+	margin-bottom: var(--wp--preset--spacing--50);
+}
+
+.site-sidebar h3,
+.site-sidebar .wp-block-heading {
+	font-size: 0.8125rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--wp--preset--color--foreground-secondary);
+	margin-bottom: var(--wp--preset--spacing--30);
+}
+
+.site-sidebar p,
+.site-sidebar li,
+.site-sidebar a {
+	font-size: var(--wp--preset--font-size--small);
+}
+
+.site-sidebar ul {
+	line-height: 1.7;
+}
+
+/* ==========================================================================
    Full-Width Title (spans above columns)
    ========================================================================== */
 

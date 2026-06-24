@@ -2,7 +2,7 @@
 
 A high-performance, **Markdown-first WordPress block theme** with a **booking-first conversion homepage**, Schema.org structured data, IBM Plex typography, and dark mode.
 
-- **Version:** 2.0.0 · **Requires:** WordPress 6.6+ · PHP 8.1–8.3 · **License:** MIT
+- **Version:** 2.0.2 · **Requires:** WordPress 6.6+ · PHP 8.1–8.3 · **License:** MIT
 - Content is authored as raw Markdown in `post_meta` (`_markdown_content`), rendered at runtime via Parsedown and cached with WordPress Transients — no page-builder bloat, version-control friendly.
 
 > **v2 installs alongside v1.** It uses a distinct theme name (`CrispyTheme v2`) and is deployed to its own directory (`crispytheme-v2/`), so the original `CrispyTheme` (v1) stays installed and you can switch back in one click. See [Deployment & rollback](#deployment--rollback).
