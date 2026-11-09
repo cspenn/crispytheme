@@ -229,7 +229,7 @@ describe('BookingPage reads Theme Options', function () {
 
         expect($text)->toContain('Keynotes from $25,000');
         expect($text)->toContain('Workshops from $25,000');
-        expect($text)->toContain('Keynotes from $25,000. Workshops from $25,000. Travel is billed at cost.');
+        expect($text)->toContain('Keynotes from $25,000. Workshops from $25,000. Travel is billed at cost pursuant to contract requirements.');
         expect($text)->not->toContain('$35,000');
         expect($text)->not->toContain('$50,000');
         expect($text)->not->toContain('Executive and investor');
@@ -242,7 +242,7 @@ describe('BookingPage reads Theme Options', function () {
         ]));
 
         expect($text)->toContain('Keynotes from $30,000');
-        expect($text)->toContain('Keynotes from $30,000. Workshops from $28,000. Travel is billed at cost.');
+        expect($text)->toContain('Keynotes from $30,000. Workshops from $28,000. Travel is billed at cost pursuant to contract requirements.');
         expect($text)->toContain('Workshops from $28,000');
         expect($text)->not->toContain('$25,000');
     });

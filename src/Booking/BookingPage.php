@@ -495,7 +495,7 @@ final class BookingPage {
 			[
 				'What do you charge?',
 				sprintf(
-					'Keynotes from %1$s. Workshops from %2$s. Travel is billed at cost.',
+					'Keynotes from %1$s. Workshops from %2$s. Travel is billed at cost pursuant to contract requirements.',
 					BookingFacts::money( 'fee_keynote_from' ),
 					BookingFacts::money( 'fee_workshop_from' )
 				),
