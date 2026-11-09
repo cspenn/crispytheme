@@ -71,13 +71,7 @@ final class HomePage {
 	 * @return void
 	 */
 	public function register_block(): void {
-		register_block_type(
-			self::BLOCK,
-			[
-				'api_version'     => '3',
-				'render_callback' => [ self::class, 'html' ],
-			]
-		);
+		BookingPage::register_dynamic_block( self::BLOCK, [ self::class, 'html' ] );
 	}
 
 	/**

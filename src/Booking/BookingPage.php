@@ -72,11 +72,22 @@ final class BookingPage {
 	 * @return void
 	 */
 	public function register_block(): void {
+		self::register_dynamic_block( self::BLOCK, [ self::class, 'render_block' ] );
+	}
+
+	/**
+	 * Register a dynamic block type. The home page uses it too.
+	 *
+	 * @param string   $name   Block name.
+	 * @param callable $render Render callback.
+	 * @return void
+	 */
+	public static function register_dynamic_block( string $name, callable $render ): void {
 		register_block_type(
-			self::BLOCK,
+			$name,
 			[
 				'api_version'     => '3',
-				'render_callback' => [ self::class, 'render_block' ],
+				'render_callback' => $render,
 			]
 		);
 	}
