@@ -10,6 +10,13 @@ declare(strict_types=1);
 use CrispyTheme\Theme\Assets;
 use Brain\Monkey\Functions;
 
+// The booking page and home page checks run inside enqueue_frontend_assets(). These tests are not on that page.
+beforeEach(function () {
+    Functions\when('is_page')->justReturn(false);
+    Functions\when('is_front_page')->justReturn(false);
+    Functions\when('get_option')->alias(static fn(string $name, mixed $default = false): mixed => $default);
+});
+
 describe('Assets::init', function () {
     it('registers wp_enqueue_scripts action for enqueue_frontend_assets', function () {
         $this->setupHooks();
@@ -411,7 +418,67 @@ describe('Assets::add_dark_mode_script', function () {
 
         expect($output)->toContain('localStorage');
         expect($output)->toContain('dark-mode');
-        expect($output)->toContain('prefersDark');
+        expect($output)->toContain('matchMedia(\'(prefers-color-scheme: dark)\')');
+    });
+
+    it('reads the key the toggle writes and the older key', function () {
+        ob_start();
+        $assets = new Assets();
+        $assets->add_dark_mode_script();
+        $output = ob_get_clean();
+
+        // build/dark-mode-toggle.js writes 'true' or 'false' under crispy-dark-mode.
+        expect($output)->toContain("const storageKey = 'crispy-dark-mode';");
+        expect($output)->toContain("'true'");
+        expect($output)->toContain("'false'");
+        // The older head script read 'dark' or 'light' under crispy-theme-dark-mode.
+        expect($output)->toContain("const legacyKey = 'crispy-theme-dark-mode';");
+        expect($output)->toContain("'dark'");
+        expect($output)->toContain("'light'");
+    });
+
+    it('prefers the toggle key and reads the older key only when it is unset', function () {
+        ob_start();
+        $assets = new Assets();
+        $assets->add_dark_mode_script();
+        $output = ob_get_clean();
+
+        $toggleBranch = strpos($output, "stored === 'true' || stored === 'false'");
+        $legacyBranch = strpos($output, "legacy === 'dark' || legacy === 'light'");
+
+        expect($toggleBranch)->not->toBeFalse();
+        expect($legacyBranch)->not->toBeFalse();
+        expect($toggleBranch)->toBeLessThan($legacyBranch);
+        expect($output)->toContain('} else if (legacy');
+    });
+
+    it('keeps the system preference when storage throws', function () {
+        ob_start();
+        $assets = new Assets();
+        $assets->add_dark_mode_script();
+        $output = ob_get_clean();
+
+        expect($output)->toContain('try {');
+        expect($output)->toContain('catch (e)');
+    });
+
+    it('passes the toggle key to the script settings', function () {
+        $localized = [];
+
+        Functions\when('is_singular')->justReturn(false);
+        Functions\when('apply_filters')->returnArg(2);
+        Functions\when('wp_enqueue_style')->justReturn(null);
+        Functions\when('wp_enqueue_script')->justReturn(null);
+        Functions\when('wp_localize_script')->alias(
+            static function (string $handle, string $objectName, array $data) use (&$localized): bool {
+                $localized[$handle] = $data;
+                return true;
+            }
+        );
+
+        (new Assets())->enqueue_frontend_assets();
+
+        expect($localized['crispy-theme-dark-mode']['storageKey'])->toBe('crispy-dark-mode');
     });
 });
 
@@ -430,8 +497,8 @@ describe('Assets::add_layout_custom_properties', function () {
         $output = ob_get_clean();
 
         expect($output)->toContain('<style');
-        expect($output)->toContain('--crispy-sidebar-width: 350px');
-        expect($output)->toContain('--crispy-max-width: 1800px');
+        expect($output)->toContain('--crispy-sidebar-width-base: 350px');
+        expect($output)->toContain('--crispy-max-width-base: 1800px');
     });
 
     it('outputs configured valid sidebar and max width values', function () {
@@ -455,8 +522,8 @@ describe('Assets::add_layout_custom_properties', function () {
         $assets->add_layout_custom_properties();
         $output = ob_get_clean();
 
-        expect($output)->toContain('--crispy-sidebar-width: 400px');
-        expect($output)->toContain('--crispy-max-width: 2000px');
+        expect($output)->toContain('--crispy-sidebar-width-base: 400px');
+        expect($output)->toContain('--crispy-max-width-base: 2000px');
     });
 
     it('falls back to defaults for invalid sidebar_width value', function () {
@@ -480,7 +547,7 @@ describe('Assets::add_layout_custom_properties', function () {
         $assets->add_layout_custom_properties();
         $output = ob_get_clean();
 
-        expect($output)->toContain('--crispy-sidebar-width: 350px');
+        expect($output)->toContain('--crispy-sidebar-width-base: 350px');
     });
 
     it('falls back to default for invalid max_width value', function () {
@@ -504,7 +571,7 @@ describe('Assets::add_layout_custom_properties', function () {
         $assets->add_layout_custom_properties();
         $output = ob_get_clean();
 
-        expect($output)->toContain('--crispy-max-width: 1800px');
+        expect($output)->toContain('--crispy-max-width-base: 1800px');
     });
 
     it('outputs style id attribute for crispy-layout-vars', function () {

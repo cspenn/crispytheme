@@ -54,9 +54,9 @@ describe('crispytheme_get_booking_url', function () {
         expect(crispytheme_get_booking_url())->toBe('/book-christopher/');
     });
 
-    it('falls back to /contact/ when the option is blank', function () {
+    it('falls back to /contact-me/ when the option is blank', function () {
         Functions\when('get_option')->justReturn('   ');
-        expect(crispytheme_get_booking_url())->toBe('/contact/');
+        expect(crispytheme_get_booking_url())->toBe('/contact-me/');
     });
 });
 
@@ -66,5 +66,29 @@ describe('crispytheme_copyright_shortcode', function () {
         Functions\when('get_bloginfo')->justReturn('Test Site');
         Functions\when('esc_html')->returnArg();
         expect(crispytheme_copyright_shortcode())->toBe('&copy; 2026 Test Site');
+    });
+});
+
+describe('crispytheme_get_subscriber_as_of', function () {
+    it('returns the month beside the approved public form of the count', function () {
+        Functions\when('get_option')->alias(static fn(string $key, mixed $default = ''): mixed => $default);
+
+        expect(crispytheme_get_subscriber_as_of())->toBe('October 2026');
+    });
+
+    it('returns the configured month and falls back when it is blank', function () {
+        Functions\when('get_option')->justReturn('January 2027');
+        expect(crispytheme_get_subscriber_as_of())->toBe('January 2027');
+
+        Functions\when('get_option')->justReturn('  ');
+        expect(crispytheme_get_subscriber_as_of())->toBe('October 2026');
+    });
+
+    it('defaults the subscriber count to the approved public form', function () {
+        Functions\when('get_transient')->justReturn(false);
+        Functions\when('apply_filters')->alias(static fn(string $tag, mixed $value): mixed => $value);
+        Functions\when('get_option')->alias(static fn(string $key, mixed $default = ''): mixed => $default);
+
+        expect(crispytheme_get_subscriber_count())->toBe('About 292K');
     });
 });

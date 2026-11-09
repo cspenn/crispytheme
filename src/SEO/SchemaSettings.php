@@ -43,7 +43,7 @@ class SchemaSettings {
 	 * @return string Job title.
 	 */
 	public function get_person_job_title(): string {
-		return (string) get_option( 'crispytheme_schema_person_job_title', 'AI Keynote Speaker & Strategist' );
+		return (string) get_option( 'crispytheme_schema_person_job_title', 'AI builder and keynote speaker' );
 	}
 
 	/**
@@ -54,7 +54,7 @@ class SchemaSettings {
 	public function get_person_description(): string {
 		return (string) get_option(
 			'crispytheme_schema_person_description',
-			'Christopher Penn is an internationally recognized AI keynote speaker, IBM Champion, and 8× published author. Co-founder of Trust Insights.'
+			'Christopher Penn is an internationally recognized AI keynote speaker, eight-time IBM Champion, and author of 14 published books. Co-founder of Trust Insights.'
 		);
 	}
 
@@ -67,7 +67,7 @@ class SchemaSettings {
 	 * @return array<int, string> List of sameAs URLs.
 	 */
 	public function get_same_as(): array {
-		$raw = (string) get_option( 'crispytheme_schema_same_as', 'https://www.trustinsights.ai' );
+		$raw = (string) get_option( 'crispytheme_schema_same_as', "https://www.linkedin.com/in/christopherspenn/\nhttps://almosttimely.substack.com" );
 
 		// explode() (unlike preg_split) never returns false, so there is no
 		// unreachable defensive branch to cover. Normalize CRLF/CR to LF first.
@@ -84,7 +84,7 @@ class SchemaSettings {
 	 * @return string Organization name.
 	 */
 	public function get_org_name(): string {
-		return (string) get_option( 'crispytheme_schema_org_name', 'Christopher S. Penn Speaking' );
+		return (string) get_option( 'crispytheme_schema_org_name', 'Christopher S. Penn' );
 	}
 
 	/**
@@ -108,12 +108,17 @@ class SchemaSettings {
 	/**
 	 * Get the booking URL as an absolute URL.
 	 *
-	 * Resolves relative paths via home_url().
+	 * Returns an absolute URL unchanged and resolves a relative path via home_url().
 	 *
 	 * @return string Absolute booking URL.
 	 */
 	public function get_booking_url(): string {
-		$path = (string) get_option( 'crispytheme_booking_url', '/contact/' );
+		$path = (string) get_option( 'crispytheme_booking_url', '/contact-me/' );
+
+		if ( 1 === preg_match( '#^https?://#i', $path ) ) {
+			return $path;
+		}
+
 		return home_url( $path );
 	}
 

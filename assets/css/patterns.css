@@ -215,11 +215,9 @@
 }
 
 .keynote-audience {
-	font-size: 0.875rem;
+	font-size: 0.9375rem;
 	color: var(--wp--preset--color--primary);
 	font-weight: 600;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
 }
 
 .event-list {
@@ -246,9 +244,7 @@
 }
 
 .event-date-month {
-	font-size: 0.75rem;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
+	font-size: 0.9375rem;
 }
 
 .event-date-day {
@@ -393,10 +389,8 @@
 
 .prompt-label,
 .output-label {
-	font-size: 0.75rem;
+	font-size: 0.9375rem;
 	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
 	margin-bottom: var(--wp--preset--spacing--20);
 	display: block;
 }
@@ -434,16 +428,16 @@
 }
 
 .homepage-hero-eyebrow {
-	font-size: 0.875rem;
+	font-size: 0.9375rem;
 	font-weight: 600;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
 	color: var(--wp--preset--color--foreground-secondary);
 	margin-bottom: var(--wp--preset--spacing--20);
 }
 
 .homepage-hero__title {
 	color: var(--wp--preset--color--foreground);
+	letter-spacing: -0.02em;
+	text-wrap: balance;
 }
 
 .homepage-hero__subhead {
@@ -454,11 +448,17 @@
 	width: 100%;
 	height: auto;
 	object-fit: cover;
-	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* Stack the 60/40 split on mobile (image below text). */
 @media (max-width: 781px) {
+	/* The root padding on this full-width group added a second gutter (text at
+	   40px against 24px on other pages). Drop it so the hero shares the page gutter. */
+	.site-main .homepage-hero.alignfull {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
 	.homepage-hero__inner .wp-block-column {
 		flex-basis: 100% !important;
 	}
@@ -612,10 +612,8 @@
 }
 
 .stat-label {
-	font-size: 0.875rem;
+	font-size: 0.9375rem;
 	color: var(--wp--preset--color--foreground-secondary);
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
 	margin: 0;
 }
 
@@ -771,6 +769,12 @@
 
 .metrics-badge__label {
 	margin: 0;
+}
+
+/* When the cells wrap, a label above the next value reads as an eyebrow.
+   A row gap over 72px keeps each label with its own value. */
+.metrics-badge .metrics-badge__row {
+	row-gap: 5rem;
 }
 
 .dark-mode .metrics-badge {
@@ -943,8 +947,6 @@
 }
 
 .site-footer__heading {
-	text-transform: uppercase;
-	letter-spacing: 0.06em;
 	color: var(--wp--preset--color--foreground-secondary);
 	margin-bottom: var(--wp--preset--spacing--30);
 }

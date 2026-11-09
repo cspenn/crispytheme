@@ -1,0 +1,34 @@
+/**
+ * WordPress block-supports layout CSS for the FLOW variant — sanity-check only.
+ *
+ * Unlike wp-generated.css (captured verbatim from a live page), no page today
+ * renders `site-main__inner` with `"layout":{"type":"default"}` — that only
+ * exists after this fix's template edit. There is nothing live to capture.
+ *
+ * This file is instead derived directly from WordPress core source —
+ * wp-includes/block-supports/layout.php:244-266 (`'default' === $layout_type`
+ * branch) — which for a flow-type group with block-gap support generates:
+ *
+ *   $selector > *     { margin-block-start: 0; margin-block-end: 0; }
+ *   $selector > * + * { margin-block-start: <gap>; margin-block-end: 0; }
+ *
+ * Applied to .site-main__inner's two direct children (.content-area,
+ * .sidebar-area), the second rule puts a top margin on whichever one is not
+ * first in DOM order — here, the sidebar. This is the real mechanism the
+ * advisor flagged: flow layout doesn't just drop the flex rules, it emits a
+ * *different* spacing model (margin-based, not container `gap`). The fix's
+ * `margin-block: 0` reset in layout.css neutralizes this regardless of the
+ * exact gap value WordPress resolves, which is why this fixture is a sanity
+ * check rather than a second proof — the assertion under test is "the reset
+ * wins", not "this specific margin value occurs".
+ */
+
+.wp-container-core-group-is-layout-flowdemo > * {
+	margin-block-start: 0;
+	margin-block-end: 0;
+}
+
+.wp-container-core-group-is-layout-flowdemo > * + * {
+	margin-block-start: 24px;
+	margin-block-end: 0;
+}

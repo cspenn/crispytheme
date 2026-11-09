@@ -59,12 +59,12 @@ register_block_pattern(
 		'keywords'    => [ 'video', 'vimeo', 'youtube', 'demo', 'reel', 'showcase', 'speaking', 'keynote' ],
 		'content'     => '<!-- wp:group {"tagName":"section","anchor":"demo-reel","align":"full","className":"video-showcase","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}}},"backgroundColor":"surface-dark","layout":{"type":"constrained","contentSize":"900px"}} -->
 <section id="demo-reel" class="wp-block-group alignfull video-showcase has-surface-dark-background-color has-background" style="padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--80);padding-left:var(--wp--preset--spacing--50)">
-	<!-- wp:heading {"textAlign":"center","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}},"typography":{"fontWeight":"700"}},"textColor":"background"} -->
-	<h2 class="wp-block-heading has-text-align-center has-background-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--20);font-weight:700">' . esc_html( $video_heading ) . '</h2>
+	<!-- wp:heading {"textAlign":"center","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}},"typography":{"fontWeight":"700"}},"textColor":"on-dark"} -->
+	<h2 class="wp-block-heading has-text-align-center has-on-dark-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--20);font-weight:700">' . esc_html( $video_heading ) . '</h2>
 	<!-- /wp:heading -->
 
-	<!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|50"}}},"textColor":"foreground-secondary"} -->
-	<p class="has-text-align-center has-foreground-secondary-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--50)">' . esc_html( $video_description ) . '</p>
+	<!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|50"}}},"textColor":"on-dark-secondary"} -->
+	<p class="has-text-align-center has-on-dark-secondary-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--50)">' . esc_html( $video_description ) . '</p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:group {"className":"video-showcase-embed","layout":{"type":"default"}} -->

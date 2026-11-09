@@ -14,7 +14,7 @@ if ( ! function_exists( 'register_block_pattern' ) ) {
 	return;
 }
 
-$booking_url = function_exists( 'crispytheme_get_booking_url' ) ? crispytheme_get_booking_url() : '/contact/';
+$booking_url = function_exists( 'crispytheme_get_booking_url' ) ? crispytheme_get_booking_url() : '/contact-me/';
 
 register_block_pattern(
 	'crispytheme/booking-cta',
@@ -39,10 +39,6 @@ register_block_pattern(
 		<div class="wp-block-buttons">
 			<!-- wp:button {"className":"is-style-fill"} -->
 			<div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button" href="' . esc_url( $booking_url ) . '">' . esc_html__( 'Request Availability', 'crispy-theme' ) . '</a></div>
-			<!-- /wp:button -->
-
-			<!-- wp:button {"className":"is-style-outline"} -->
-			<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="https://www.allamericanspeakers.com/speakers/442248/Christopher-Penn">' . esc_html__( 'View Speaker Bureau', 'crispy-theme' ) . '</a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->

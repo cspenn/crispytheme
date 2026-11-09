@@ -99,11 +99,42 @@ describe('SchemaSettings', function () {
         expect($same_as)->toHaveCount(2);
     });
 
-    it('returns default sameAs as single-item array', function () {
+    it('returns the two profile links as the default sameAs list', function () {
         $settings = new SchemaSettings();
         $same_as = $settings->get_same_as();
 
-        expect($same_as)->toContain('https://www.trustinsights.ai');
+        expect($same_as)->toBe([
+            'https://www.linkedin.com/in/christopherspenn/',
+            'https://almosttimely.substack.com',
+        ]);
+    });
+
+    it('returns an absolute booking URL unchanged, with its fragment', function () {
+        Functions\when('get_option')->alias(
+            static fn(string $key, mixed $default = false): mixed =>
+                'crispytheme_booking_url' === $key ? 'https://example.com/public-speaking/#check-my-dates' : $default
+        );
+        Functions\when('home_url')->alias(
+            static fn(string $path = ''): string => 'https://example.com' . $path
+        );
+
+        $settings = new SchemaSettings();
+
+        expect($settings->get_booking_url())->toBe('https://example.com/public-speaking/#check-my-dates');
+    });
+
+    it('does not wrap a foreign absolute booking URL in home_url', function () {
+        Functions\when('get_option')->alias(
+            static fn(string $key, mixed $default = false): mixed =>
+                'crispytheme_booking_url' === $key ? 'https://form.example.org/book' : $default
+        );
+        Functions\when('home_url')->alias(
+            static fn(string $path = ''): string => 'https://example.com' . $path
+        );
+
+        $settings = new SchemaSettings();
+
+        expect($settings->get_booking_url())->toBe('https://form.example.org/book');
     });
 
     it('resolves booking URL relative path to absolute URL', function () {

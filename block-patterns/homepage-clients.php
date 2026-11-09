@@ -74,8 +74,8 @@ register_block_pattern(
 		'keywords'    => [ 'logos', 'clients', 'brands', 'trust', 'homepage', 'marquee' ],
 		'content'     => '<!-- wp:group {"align":"full","className":"homepage-clients","style":{"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull homepage-clients" style="padding-top:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--60)">
-	<!-- wp:paragraph {"align":"center","className":"homepage-clients-label","style":{"typography":{"fontSize":"0.875rem","textTransform":"uppercase","letterSpacing":"0.1em"},"spacing":{"margin":{"bottom":"var:preset|spacing|40"}}},"textColor":"foreground-secondary"} -->
-	<p class="has-text-align-center homepage-clients-label has-foreground-secondary-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--40);font-size:0.875rem;text-transform:uppercase;letter-spacing:0.1em">' . esc_html__( 'Trusted by industry leaders', 'crispy-theme' ) . '</p>
+	<!-- wp:paragraph {"align":"center","className":"homepage-clients-label","style":{"typography":{"fontSize":"0.9375rem"},"spacing":{"margin":{"bottom":"var:preset|spacing|40"}}},"textColor":"foreground-secondary"} -->
+	<p class="has-text-align-center homepage-clients-label has-foreground-secondary-color has-text-color" style="margin-bottom:var(--wp--preset--spacing--40);font-size:0.9375rem">' . esc_html__( 'Trusted by industry leaders', 'crispy-theme' ) . '</p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:html -->

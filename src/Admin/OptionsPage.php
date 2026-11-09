@@ -269,7 +269,7 @@ class OptionsPage {
 			[
 				'type'              => 'string',
 				'sanitize_callback' => 'sanitize_text_field',
-				'default'           => 'IBM Champion · 8× Author · 294,000+ Newsletter Subscribers',
+				'default'           => 'Eight-time IBM Champion · 14 published books · About 292K subscribers (October 2026)',
 			]
 		);
 
@@ -288,7 +288,7 @@ class OptionsPage {
 			[
 				'type'              => 'string',
 				'sanitize_callback' => 'sanitize_text_field',
-				'default'           => 'Equipping Global Organizations to Win the AI Revolution',
+				'default'           => \CrispyTheme\Booking\HomePage::HEADLINE,
 			]
 		);
 
@@ -307,7 +307,7 @@ class OptionsPage {
 			[
 				'type'              => 'string',
 				'sanitize_callback' => 'sanitize_text_field',
-				'default'           => 'Christopher Penn shows enterprise teams how to deploy AI as a competitive advantage — not a threat.',
+				'default'           => \CrispyTheme\Booking\HomePage::SUBHEAD,
 			]
 		);
 
@@ -326,7 +326,7 @@ class OptionsPage {
 			[
 				'type'              => 'string',
 				'sanitize_callback' => 'sanitize_text_field',
-				'default'           => '500+',
+				'default'           => '',
 			]
 		);
 
@@ -344,7 +344,7 @@ class OptionsPage {
 			[
 				'type'              => 'string',
 				'sanitize_callback' => 'sanitize_text_field',
-				'default'           => '25',
+				'default'           => '',
 			]
 		);
 
@@ -362,7 +362,7 @@ class OptionsPage {
 			[
 				'type'              => 'string',
 				'sanitize_callback' => 'sanitize_text_field',
-				'default'           => '98%',
+				'default'           => '',
 			]
 		);
 
@@ -488,9 +488,9 @@ class OptionsPage {
 			[
 				'type'        => 'url',
 				'sanitize'    => 'esc_url_raw',
-				'default'     => '/contact/',
-				'placeholder' => '/contact/',
-				'description' => __( "Where every 'Book Christopher' CTA points. Change to /book-christopher once that page exists.", 'crispy-theme' ),
+				'default'     => '/contact-me/',
+				'placeholder' => '/contact-me/',
+				'description' => __( "Where every 'Book Christopher' CTA points. Set to /public-speaking/#check-my-dates to send every button to the form on the booking page.", 'crispy-theme' ),
 			]
 		);
 
@@ -519,8 +519,18 @@ class OptionsPage {
 			'crispytheme_newsletter_subscriber_count',
 			__( 'Newsletter Subscriber Count', 'crispy-theme' ),
 			[
-				'default'     => '294,000+',
-				'description' => __( 'Almost Timely subscriber count shown in the metrics badge. Manual for now; a future API integration can override it via the crispytheme_subscriber_count filter.', 'crispy-theme' ),
+				'default'     => 'About 292K',
+				'description' => __( 'Almost Timely subscriber count shown in the metrics badge, for example About 292K. The month goes in the next field. Manual for now; a future API integration can override it via the crispytheme_subscriber_count filter.', 'crispy-theme' ),
+			]
+		);
+
+		$this->register_simple_field(
+			'crispytheme_conversion_section',
+			'crispytheme_newsletter_subscriber_as_of',
+			__( 'Newsletter Count Month', 'crispy-theme' ),
+			[
+				'default'     => 'October 2026',
+				'description' => __( 'Month and year of the subscriber count. It always appears beside the count, for example About 292K subscribers (October 2026). Update it each quarter.', 'crispy-theme' ),
 			]
 		);
 
@@ -583,6 +593,36 @@ class OptionsPage {
 			$this->register_simple_field( 'crispytheme_social_proof_section', $option, $label, $config );
 		}
 
+		// Register booking page facts section.
+		add_settings_section(
+			'crispytheme_booking_section',
+			__( 'Booking Page Facts', 'crispy-theme' ),
+			[ $this, 'render_booking_section' ],
+			self::PAGE_SLUG
+		);
+
+		$sanitizers = [
+			'number'   => 'absint',
+			'url'      => 'esc_url_raw',
+			'textarea' => 'sanitize_textarea_field',
+			'text'     => 'sanitize_text_field',
+		];
+
+		foreach ( \CrispyTheme\Booking\BookingFacts::definitions() as $key => $definition ) {
+			$this->register_simple_field(
+				'crispytheme_booking_section',
+				\CrispyTheme\Booking\BookingFacts::option_name( $key ),
+				$definition['label'],
+				[
+					'type'        => in_array( $definition['kind'], [ 'url', 'textarea' ], true ) ? $definition['kind'] : 'text',
+					'sanitize'    => $sanitizers[ $definition['kind'] ] ?? 'sanitize_text_field',
+					'default'     => $definition['default'],
+					'description' => $definition['description'],
+					'class'       => 'number' === $definition['kind'] ? 'small-text' : 'large-text',
+				]
+			);
+		}
+
 		// Register SEO / Schema section.
 		add_settings_section(
 			'crispytheme_schema_section',
@@ -604,23 +644,23 @@ class OptionsPage {
 			],
 			'crispytheme_schema_person_job_title'   => [
 				'label'   => __( 'Person Job Title', 'crispy-theme' ),
-				'default' => 'AI Keynote Speaker & Strategist',
+				'default' => 'AI builder and keynote speaker',
 			],
 			'crispytheme_schema_person_description' => [
 				'label'   => __( 'Person Description', 'crispy-theme' ),
 				'type'    => 'textarea',
-				'default' => 'Christopher Penn is an internationally recognized AI keynote speaker, IBM Champion, and 8× published author. Co-founder of Trust Insights.',
+				'default' => 'Christopher Penn is an internationally recognized AI keynote speaker, eight-time IBM Champion, and author of 14 published books. Co-founder of Trust Insights.',
 			],
 			'crispytheme_schema_same_as'            => [
 				'label'       => __( 'Profile URLs (sameAs)', 'crispy-theme' ),
 				'type'        => 'textarea',
 				'sanitize'    => 'sanitize_textarea_field',
-				'default'     => 'https://www.trustinsights.ai',
+				'default'     => implode( "\n", \CrispyTheme\Booking\SchemaFeed::SAME_AS ),
 				'description' => __( 'One profile URL per line (LinkedIn, X, etc.). Only verified URLs.', 'crispy-theme' ),
 			],
 			'crispytheme_schema_org_name'           => [
 				'label'   => __( 'Organization Name', 'crispy-theme' ),
-				'default' => 'Christopher S. Penn Speaking',
+				'default' => \CrispyTheme\Booking\SchemaFeed::ENTITY_NAME,
 			],
 			'crispytheme_schema_org_logo'           => [
 				'label'       => __( 'Organization Logo URL', 'crispy-theme' ),
@@ -1027,7 +1067,7 @@ class OptionsPage {
 	 * @return void
 	 */
 	public function render_hero_eyebrow_field(): void {
-		$value = get_option( 'crispytheme_hero_eyebrow', 'IBM Champion · 8× Author · 294,000+ Newsletter Subscribers' );
+		$value = get_option( 'crispytheme_hero_eyebrow', 'Eight-time IBM Champion · 14 published books · About 292K subscribers (October 2026)' );
 		?>
 		<input type="text"
 				name="crispytheme_hero_eyebrow"
@@ -1045,7 +1085,7 @@ class OptionsPage {
 	 * @return void
 	 */
 	public function render_hero_headline_field(): void {
-		$value = get_option( 'crispytheme_hero_headline', 'Equipping Global Organizations to Win the AI Revolution' );
+		$value = get_option( 'crispytheme_hero_headline', \CrispyTheme\Booking\HomePage::HEADLINE );
 		?>
 		<input type="text"
 				name="crispytheme_hero_headline"
@@ -1063,7 +1103,7 @@ class OptionsPage {
 	 * @return void
 	 */
 	public function render_hero_subheadline_field(): void {
-		$value = get_option( 'crispytheme_hero_subheadline', 'Christopher Penn shows enterprise teams how to deploy AI as a competitive advantage — not a threat.' );
+		$value = get_option( 'crispytheme_hero_subheadline', \CrispyTheme\Booking\HomePage::SUBHEAD );
 		?>
 		<textarea name="crispytheme_hero_subheadline"
 				rows="2"
@@ -1080,13 +1120,13 @@ class OptionsPage {
 	 * @return void
 	 */
 	public function render_stat_events_field(): void {
-		$value = get_option( 'crispytheme_stat_events', '500+' );
+		$value = get_option( 'crispytheme_stat_events', '' );
 		?>
 		<input type="text"
 				name="crispytheme_stat_events"
 				value="<?php echo esc_attr( $value ); ?>"
 				class="small-text">
-		<span class="description"><?php esc_html_e( 'e.g., 500+', 'crispy-theme' ); ?></span>
+		<span class="description"><?php esc_html_e( 'Leave blank to hide the count. Enter a count only when you can source it.', 'crispy-theme' ); ?></span>
 		<?php
 	}
 
@@ -1096,7 +1136,7 @@ class OptionsPage {
 	 * @return void
 	 */
 	public function render_stat_countries_field(): void {
-		$value = get_option( 'crispytheme_stat_countries', '25' );
+		$value = get_option( 'crispytheme_stat_countries', '' );
 		?>
 		<input type="text"
 				name="crispytheme_stat_countries"
@@ -1112,13 +1152,13 @@ class OptionsPage {
 	 * @return void
 	 */
 	public function render_stat_satisfaction_field(): void {
-		$value = get_option( 'crispytheme_stat_satisfaction', '98%' );
+		$value = get_option( 'crispytheme_stat_satisfaction', '' );
 		?>
 		<input type="text"
 				name="crispytheme_stat_satisfaction"
 				value="<?php echo esc_attr( $value ); ?>"
 				class="small-text">
-		<span class="description"><?php esc_html_e( 'e.g., 98%', 'crispy-theme' ); ?></span>
+		<span class="description"><?php esc_html_e( 'Leave blank until a source exists.', 'crispy-theme' ); ?></span>
 		<?php
 	}
 
@@ -1401,6 +1441,15 @@ class OptionsPage {
 	 */
 	public function render_conversion_section(): void {
 		echo '<p>' . esc_html__( 'Configure booking CTA destinations, hero button labels, and the newsletter subscriber count.', 'crispy-theme' ) . '</p>';
+	}
+
+	/**
+	 * Render the booking facts section description.
+	 *
+	 * @return void
+	 */
+	public function render_booking_section(): void {
+		echo '<p>' . esc_html__( 'Every fee, term, count, and credential on the booking page. A blank field restores the default. Update the "Facts checked on" date each time Christopher confirms these facts.', 'crispy-theme' ) . '</p>';
 	}
 
 	/**

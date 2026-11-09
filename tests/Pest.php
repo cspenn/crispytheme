@@ -12,6 +12,7 @@ use Brain\Monkey;
 
 // Load bootstrap.
 require_once __DIR__ . '/bootstrap.php';
+require_once __DIR__ . '/Support/subscriber_stubs.php';
 
 /*
 |--------------------------------------------------------------------------

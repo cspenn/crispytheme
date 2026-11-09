@@ -55,11 +55,6 @@
     color: var(--crispy-fg);
 }
 
-.dark-mode .markdown-body h1,
-.dark-mode .markdown-body h2 {
-    border-bottom-color: var(--crispy-border);
-}
-
 .dark-mode .markdown-body h6 {
     color: var(--crispy-fg-secondary);
 }

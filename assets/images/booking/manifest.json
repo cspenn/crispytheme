@@ -1,0 +1,37 @@
+{
+ "hero-43": {
+  "file": "hero-43.jpg",
+  "width": 1800,
+  "height": 1350
+ },
+ "reach": {
+  "file": "reach.jpg",
+  "width": 1600,
+  "height": 1199
+ },
+ "close": {
+  "file": "close.jpg",
+  "width": 2000,
+  "height": 1499
+ },
+ "level": {
+  "file": "level.jpg",
+  "width": 900,
+  "height": 1125
+ },
+ "stages": {
+  "file": "stages.jpg",
+  "width": 1200,
+  "height": 900
+ },
+ "fees": {
+  "file": "fees.jpg",
+  "width": 800,
+  "height": 1000
+ },
+ "steps": {
+  "file": "steps.jpg",
+  "width": 1200,
+  "height": 900
+ }
+}

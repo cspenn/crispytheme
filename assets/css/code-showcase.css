@@ -137,10 +137,8 @@
 
 .prompt-label,
 .output-label {
-	font-size: 0.75rem;
+	font-size: 0.9375rem;
 	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
 	margin-bottom: var(--wp--preset--spacing--20) !important;
 }
 

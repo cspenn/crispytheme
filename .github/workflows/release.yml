@@ -33,66 +33,23 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
 
-      - name: Install Composer dependencies (production)
-        run: composer install --prefer-dist --no-dev --optimize-autoloader --no-progress
-
-      - name: Install npm dependencies
-        run: npm ci
-
-      - name: Build assets
-        run: npm run build
-
-      - name: Create release directory
+      - name: Check that the tag matches style.css
+        env:
+          TAG_VERSION: ${{ steps.get_version.outputs.version }}
         run: |
-          mkdir -p release/crispytheme
+          STYLE_VERSION="$(sed -n 's/^Version:[[:space:]]*//p' style.css | head -1 | tr -d '[:space:]')"
+          if [ "$STYLE_VERSION" != "$TAG_VERSION" ]; then
+            echo "Tag version $TAG_VERSION does not match style.css version $STYLE_VERSION" >&2
+            exit 1
+          fi
 
-      - name: Copy theme files
-        run: |
-          # Core theme files
-          cp -r assets release/crispytheme/
-          cp -r includes release/crispytheme/
-          cp -r parts release/crispytheme/
-          cp -r patterns release/crispytheme/
-          cp -r src release/crispytheme/
-          cp -r templates release/crispytheme/
-          cp -r vendor release/crispytheme/
-
-          # Root files
-          cp functions.php release/crispytheme/
-          cp index.php release/crispytheme/
-          cp style.css release/crispytheme/
-          cp theme.json release/crispytheme/
-          cp README.md release/crispytheme/
-
-      - name: Remove development files
-        run: |
-          # Remove dev dependencies from vendor
-          find release/crispytheme/vendor -type d -name ".git" -exec rm -rf {} + 2>/dev/null || true
-
-          # Remove test files
-          rm -rf release/crispytheme/vendor/*/tests
-          rm -rf release/crispytheme/vendor/*/Tests
-          rm -rf release/crispytheme/vendor/*/test
-
-          # Remove documentation
-          rm -rf release/crispytheme/vendor/*/docs
-          rm -rf release/crispytheme/vendor/*/doc
-
-          # Remove unnecessary files
-          find release/crispytheme -name "*.md" ! -name "README.md" -delete
-          find release/crispytheme -name ".gitignore" -delete
-          find release/crispytheme -name "phpunit.xml*" -delete
-          find release/crispytheme -name "phpstan.neon*" -delete
-          find release/crispytheme -name ".phpcs.xml*" -delete
-          find release/crispytheme -name "composer.json" ! -path "release/crispytheme/composer.json" -delete
-          find release/crispytheme -name "composer.lock" -delete
-
-      - name: Create zip archive
-        run: |
-          cd release
-          zip -r ../crispytheme-${{ steps.get_version.outputs.version }}.zip crispytheme
+      - name: Build the release zip
+        # The same script that a person runs on a laptop. It copies the real theme folders,
+        # installs production dependencies, builds the assets, checks the file list, and zips.
+        env:
+          TAG_VERSION: ${{ steps.get_version.outputs.version }}
+        run: bin/package.sh --out dist --version "$TAG_VERSION" --list
 
       - name: Generate changelog
         id: changelog
@@ -111,7 +68,7 @@ jobs:
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          files: crispytheme-${{ steps.get_version.outputs.version }}.zip
+          files: dist/crispytheme-v2-${{ steps.get_version.outputs.version }}.zip
           body_path: changelog.txt
           draft: false
           prerelease: ${{ contains(github.ref, '-alpha') || contains(github.ref, '-beta') || contains(github.ref, '-rc') }}
@@ -121,8 +78,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: crispytheme-${{ steps.get_version.outputs.version }}
-          path: crispytheme-${{ steps.get_version.outputs.version }}.zip
+          name: crispytheme-v2-${{ steps.get_version.outputs.version }}
+          path: dist/crispytheme-v2-${{ steps.get_version.outputs.version }}.zip
           retention-days: 30
 
   notify:

@@ -28,7 +28,7 @@ register_block_pattern(
 	<!-- /wp:heading -->
 
 	<!-- wp:paragraph {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
-	<p style="margin-bottom:var(--wp--preset--spacing--30)">' . esc_html__( 'Join 294,000+ readers getting weekly insights on AI, marketing, and analytics.', 'crispy-theme' ) . '</p>
+	<p style="margin-bottom:var(--wp--preset--spacing--30)">' . esc_html( sprintf( /* translators: %s: month and year */ __( 'Join about 292K subscribers (%s) getting weekly insights on AI, marketing, and analytics.', 'crispy-theme' ), function_exists( 'crispytheme_get_subscriber_as_of' ) ? crispytheme_get_subscriber_as_of() : 'October 2026' ) ) . '</p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:buttons -->

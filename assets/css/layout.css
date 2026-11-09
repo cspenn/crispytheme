@@ -8,15 +8,26 @@
    CSS Custom Properties (Defaults)
    ========================================================================== */
 
+/* --crispy-*-base are set by the admin option (Assets.php). Never redeclare
+   them here, or this stylesheet would silently overwrite the user's choice. */
 :root {
-	--crispy-max-width: 1800px;
-	--crispy-sidebar-width: 350px;
+	--crispy-max-width: var(--crispy-max-width-base, 1800px);
+	--crispy-sidebar-width: var(--crispy-sidebar-width-base, 350px);
 	--crispy-layout-gap: var(--wp--preset--spacing--60);
 }
 
 /* ==========================================================================
    Main Content Container
    ========================================================================== */
+
+/* Header and footer take the same side gutter as site-main. Without this the
+   root padding left them at 16px while the page sat at 24px, so the page looked
+   shifted. The doubled class beats the root-padding rule of block supports. */
+.site-header.wp-block-group,
+.site-footer.wp-block-group {
+	padding-left: var(--wp--preset--spacing--50);
+	padding-right: var(--wp--preset--spacing--50);
+}
 
 /* Override block theme constrained layout for site-main */
 .site-main.wp-block-group {
@@ -31,21 +42,31 @@
    Two-Column Layout: Fluid Content + Fixed Sidebar
    ========================================================================== */
 
-.site-main__inner {
+/* The `.wp-block-group` qualifier is load-bearing, not decorative. WordPress'
+   block-supports layout engine emits `body .is-layout-flex { display: flex }`
+   (specificity 0,1,1) for any group with a flex layout attribute — which every
+   template using this wrapper declares. A bare `.site-main__inner` (0,1,0)
+   loses that fight and `display: grid` never applies, at any viewport.
+   Doubling the class to (0,2,0) is what lets grid win. Every rule below that
+   must beat block-supports carries this same qualifier, including inside the
+   media queries — bumping specificity only at the default breakpoint would
+   leave the *mobile* override losing to this desktop rule instead. */
+.site-main__inner.wp-block-group {
 	display: grid;
-	grid-template-columns: 1fr var(--crispy-sidebar-width);
+	grid-template-columns: minmax(0, 1fr) var(--crispy-sidebar-width);
 	gap: var(--crispy-layout-gap);
 	align-items: start;
 }
 
-/* Content area takes remaining space */
-.site-main__inner .content-area {
-	min-width: 0; /* Prevent grid blowout from long content */
-}
-
-/* Sidebar fixed width */
+/* Grid items must be allowed to shrink below their min-content width, and any
+   margin block-supports adds for gap in a flow/flex spacing model must be
+   zeroed — the grid's own `gap` above is the single source of spacing here.
+   This must sit above the mobile block so the mobile `margin-top` below still
+   wins there by source order at equal (0,2,0) specificity. */
+.site-main__inner .content-area,
 .site-main__inner .sidebar-area {
-	width: var(--crispy-sidebar-width);
+	min-width: 0;
+	margin-block: 0;
 }
 
 /* ==========================================================================
@@ -64,10 +85,8 @@
 
 .site-sidebar h3,
 .site-sidebar .wp-block-heading {
-	font-size: 0.8125rem;
+	font-size: 0.9375rem;
 	font-weight: 600;
-	text-transform: uppercase;
-	letter-spacing: 0.06em;
 	color: var(--wp--preset--color--foreground-secondary);
 	margin-bottom: var(--wp--preset--spacing--30);
 }
@@ -95,7 +114,8 @@
 	margin-bottom: var(--wp--preset--spacing--50);
 }
 
-/* Fallback: Override WordPress is-layout-constrained for headers without alignfull */
+/* Fallback: Override WordPress is-layout-constrained for headers
+   without alignfull */
 .is-layout-constrained > .post-header,
 .is-layout-constrained > .page-header,
 .is-layout-constrained > .archive-header {
@@ -111,25 +131,73 @@
 }
 
 /* ==========================================================================
+   Embeds and Wide Blocks Stay Inside the Column
+   ========================================================================== */
+
+/* Fixed-width embeds (the 500px YouTube iframe from oEmbed) and wide blocks
+   pushed the phone page past the screen: booking 524px, about and contact
+   454px at a 390px screen. :where() keeps specificity at zero, so the
+   absolute-fill rules of .video-hero and .video-showcase-embed still win. */
+:where(.markdown-body, .entry-content, .wp-block-post-content) :where(img, video, canvas, iframe) {
+	max-width: 100%;
+}
+
+:where(.markdown-body, .entry-content, .wp-block-post-content) :where(img, video, canvas) {
+	height: auto;
+}
+
+:where(.markdown-body, .entry-content, .wp-block-post-content) :where(iframe[src*="youtube"], iframe[src*="youtu.be"], iframe[src*="vimeo"]) {
+	height: auto;
+	aspect-ratio: 16 / 9;
+}
+
+/* Code and tables scroll inside their own box, not the page. */
+:where(.markdown-body, .entry-content, .wp-block-post-content) :where(pre, table) {
+	max-width: 100%;
+	overflow-x: auto;
+}
+
+/* ==========================================================================
+   Fluid Headline Sizes
+   ========================================================================== */
+
+/* Page titles and section headings shrink on a phone so each stays within
+   two lines. The upper bound is the theme.json size, so desktop is unchanged.
+   Only the size changes. The words stay as written. */
+.site-main .wp-block-post-title {
+	font-size: clamp(1.75rem, 1.2rem + 2.2vw, var(--wp--preset--font-size--xxx-large));
+}
+
+.site-main h2.wp-block-heading {
+	font-size: clamp(1.5rem, 1.1rem + 1.8vw, var(--wp--preset--font-size--xx-large));
+}
+
+/* ==========================================================================
    Responsive Breakpoints
    ========================================================================== */
 
 /* Tablet: narrower sidebar */
 @media (max-width: 1200px) {
+
 	:root {
-		--crispy-sidebar-width: 300px;
+		--crispy-sidebar-width: min(var(--crispy-sidebar-width-base, 350px), 300px);
 	}
 }
 
-/* Mobile: single column, sidebar below content */
+/* Mobile: single column, sidebar below content.
+   grid-template-columns here MUST carry the same .wp-block-group qualifier as
+   the default-breakpoint rule above (both 0,2,0) — otherwise the unconditional
+   desktop rule outranks this override on specificity and mobile never stacks,
+   regardless of the media query matching. width/order are removed entirely:
+   a single-column grid item stretches to fill by default, and the sidebar
+   already follows the content in DOM order. */
 @media (max-width: 782px) {
-	.site-main__inner {
-		grid-template-columns: 1fr;
+
+	.site-main__inner.wp-block-group {
+		grid-template-columns: minmax(0, 1fr);
 	}
 
 	.site-main__inner .sidebar-area {
-		width: 100%;
-		order: 2;
 		margin-top: var(--wp--preset--spacing--50);
 	}
 

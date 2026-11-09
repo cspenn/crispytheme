@@ -1,0 +1,39 @@
+/**
+ * WordPress block-supports layout CSS — captured verbatim.
+ *
+ * Extracted from the live rendered HTML of a real single-post page on
+ * christopherspenn.com (WordPress 6.8.2 / theme v2.0.2), via a HAR capture
+ * taken 2026-07-31. This is not a guess at what WordPress emits for a
+ * `"layout":{"type":"flex","orientation":"horizontal","flexWrap":"nowrap"}`
+ * group — it is the actual generated stylesheet content for that exact page.
+ *
+ * Confirmed against WordPress core source:
+ * wp-includes/class-wp-theme-json.php:1746-1755 builds the selector as
+ * `ROOT_BLOCK_SELECTOR . ' .' . $className`, where ROOT_BLOCK_SELECTOR is the
+ * literal string 'body' (class-wp-theme-json.php:55). That is why the first
+ * rule below is `body .is-layout-flex` and not just `.is-layout-flex`.
+ *
+ * Do not "clean up" or minify this file — its exact selector text and rule
+ * order is the point.
+ */
+
+/* specificity (0,1,1) — beats a bare .site-main__inner at (0,1,0), which is
+   the entire root cause this harness demonstrates. */
+body .is-layout-flex { display: flex; }
+
+.is-layout-flex { flex-wrap: wrap; align-items: center; }
+
+/* the block gap value from theme.json (appearanceTools: true, no explicit
+   blockGap set) resolves to this fixed 24px on the flex wrapper. */
+:root :where(.is-layout-flex) { gap: 24px; }
+
+/* per-instance container class WordPress generated for this exact
+   site-main__inner element on the captured page. */
+.wp-container-core-group-is-layout-00d5c706 {
+	flex-wrap: nowrap;
+	align-items: flex-start;
+}
+
+/* per-instance child-layout class WordPress generated for the content-area
+   article, from its style.layout.selfStretch:"fill" attribute. */
+.wp-container-content-9cfa9a5a { flex-grow: 1; }

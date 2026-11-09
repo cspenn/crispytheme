@@ -54,6 +54,12 @@ deptrac:
               - type: directory
                 value: src/SEO
 
+        # Booking page facts and markup (reads options only)
+        - name: Booking
+          collectors:
+              - type: directory
+                value: src/Booking
+
     ruleset:
         # Theme layer can use all other layers (orchestration)
         Theme:
@@ -64,11 +70,13 @@ deptrac:
             - Parser
             - Cache
             - SEO
+            - Booking
 
-        # Admin depends on Content for markdown editing
+        # Admin depends on Content for markdown editing, and on Booking for the fact options
         Admin:
             - Content
             - Parser
+            - Booking
 
         # CLI depends on Content for import, Cache for cache commands
         CLI:
@@ -89,6 +97,9 @@ deptrac:
 
         # Cache is a leaf layer (no dependencies)
         Cache: ~
+
+        # Booking is a leaf layer (reads options only)
+        Booking: ~
 
         # SEO is a leaf layer (reads options only, no class dependencies)
         SEO: ~

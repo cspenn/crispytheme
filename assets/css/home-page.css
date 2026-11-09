@@ -1,0 +1,59 @@
+/**
+ * Home page only (/). The closing photograph. Everything else comes from booking-page.css, so the two pages share one design.
+ * Tokens only: no colour is set here.
+ *
+ * @package CrispyTheme
+ * @since 2.3.0
+ */
+
+/* Close: the photograph on one side, the heading, the pitch, and the action on a flat field on the other ----- */
+
+.close {
+	background: var(--bp-field);
+	color: var(--bp-on-navy);
+}
+
+.close__in {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	column-gap: var(--bp-gap);
+	row-gap: var(--sp-5);
+	align-items: center;
+}
+
+.close__pic {
+	grid-column: 1 / 7;
+	aspect-ratio: 4 / 3;
+	overflow: hidden;
+}
+
+.close__pic img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: 25% 6%;
+}
+
+.close__body {
+	grid-column: 7 / 13;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--sp-4);
+}
+
+.close__body h2 {
+	color: var(--bp-on-navy);
+}
+
+.close__pitch {
+	font-size: var(--t-lead);
+	line-height: 1.5;
+}
+
+@media (max-width: 999px) {
+	.close__pic,
+	.close__body {
+		grid-column: 1 / 13;
+	}
+}

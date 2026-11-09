@@ -76,9 +76,7 @@
 }
 
 .newsletter-signup .newsletter-subscriber-label {
-	font-size: 0.875rem;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
+	font-size: 0.9375rem;
 	opacity: 0.9;
 	display: block;
 	margin-bottom: var(--wp--preset--spacing--30);
@@ -125,9 +123,7 @@
 }
 
 .newsletter-inline .newsletter-subscriber-label {
-	font-size: 0.75rem;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
+	font-size: 0.9375rem;
 	color: var(--wp--preset--color--tertiary);
 	display: block;
 	margin-bottom: var(--wp--preset--spacing--20);

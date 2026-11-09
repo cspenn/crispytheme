@@ -12,7 +12,7 @@ use Brain\Monkey\Functions;
 
 describe('Toggle constants', function () {
     it('has correct STORAGE_KEY constant', function () {
-        expect(Toggle::STORAGE_KEY)->toBe('crispy-theme-dark-mode');
+        expect(Toggle::STORAGE_KEY)->toBe('crispy-dark-mode');
     });
 
     it('has correct MODE_AUTO constant', function () {

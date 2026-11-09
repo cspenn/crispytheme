@@ -44,6 +44,33 @@ describe('SchemaGraph', function () {
 
     describe('init()', function () {
 
+        it('registers nothing when the CrispySEO plugin owns the schema', function () {
+            $captured = [];
+
+            Functions\when('add_action')->alias(
+                static function (string $hook) use (&$captured): bool {
+                    $captured[] = $hook;
+                    return true;
+                }
+            );
+
+            $graph = new class() extends SchemaGraph {
+                protected function plugin_owns_schema(): bool {
+                    return true;
+                }
+            };
+            $graph->init();
+
+            expect($captured)->toBe([]);
+        });
+
+        it('reads the plugin version constant to decide who owns the schema', function () {
+            $graph  = new SchemaGraph();
+            $method = new ReflectionMethod($graph, 'plugin_owns_schema');
+
+            expect($method->invoke($graph))->toBe(defined('CRISPY_SEO_VERSION'));
+        });
+
         it('registers a wp_head action with priority 5', function () {
             $captured = [];
 

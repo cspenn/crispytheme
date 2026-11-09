@@ -1,5 +1,3 @@
-# About Christopher S. Penn
-
 ## The Practitioner-Scholar
 
 I'm Christopher S. Penn—data scientist, marketing strategist, and keynote speaker. I help organizations navigate the Intelligence Revolution with practical, engineering-grade AI strategies. No hype, no magic, no buzzwords. Just results.
@@ -8,19 +6,20 @@ While others talk about AI in abstract terms, I open the terminal and write the 
 
 ## Credentials
 
-- **IBM Champion** — Recognized for technical expertise and community contribution
-- **8× Published Author** — Including works on marketing analytics, AI, and data science
-- **294,000+ Newsletter Subscribers** — The Almost Timely newsletter delivers weekly, practical AI insights
+- **Eight-time IBM Champion (2025 was the final year)** — Recognized for technical expertise and community contribution
+- **14 published books, 19 editions** — Including works on marketing analytics, AI, and data science
+- **About 292K subscribers (October 2026)** — The Almost Timely newsletter delivers weekly, practical AI insights
 - **Co-Founder, Trust Insights** — A marketing analytics consultancy focused on data-driven decision making
 
 ## Experience
 
 I started working with AI and machine learning in **2013**—a full decade before ChatGPT made it a household name. That history matters. In an industry flooded with overnight "AI experts," provenance is the ultimate differentiator.
 
-**Speaking:**
-- 500+ events worldwide
-- 25 countries
-- 98% audience satisfaction rating
+**What LPA wrote:**
+
+> Not only were you the highest rated presenter we have ever had for a sales and marketing workshop, but based on our survey feedback as of right now, you are looking to be the highest rated presenter we have ever had for a spring meeting. And rightfully so. The content you delivered to our members was absolutely spot on. A number of attendees commented to me as to how timely and relevant your presentations were, especially the hands-on component. It made many realize just how behind they are, but you gave them inspiration and ideas as to how they can incorporate AI into their companies moving forward.
+>
+> Clark Mulligan, President, LPA, April 2024
 
 **Notable Clients & Engagements:**
 IBM, Cisco, T-Mobile, McDonald's, GoDaddy, AAA, and hundreds of associations, agencies, and enterprises seeking practical AI guidance.
@@ -72,14 +71,14 @@ I deliver high-energy presentations that combine strategic insight with live tec
 Through Trust Insights, I help organizations audit their data, build AI governance frameworks, and implement practical AI solutions. We show you the math.
 
 **Almost Timely Newsletter**
-Join 294,000+ subscribers who get weekly AI and marketing insights delivered to their inbox. Free, practical, no fluff.
+Join about 292K subscribers (October 2026) who get weekly AI and marketing insights delivered to their inbox. Free, practical, no fluff.
 
 ## Connect
 
 - **Email:** cspenn@trustinsights.ai
 - **Newsletter:** [Almost Timely](https://www.christopherspenn.com/newsletter)
 - **Company:** [Trust Insights](https://www.trustinsights.ai)
-- **Speaking Inquiries:** [Contact](/contact/)
+- **Speaking Inquiries:** [Check my dates](/public-speaking/#check-my-dates)
 
 ---
 

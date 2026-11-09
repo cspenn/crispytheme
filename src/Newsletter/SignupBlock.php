@@ -61,7 +61,7 @@ class SignupBlock {
 					],
 					'subscriberCount'     => [
 						'type'    => 'string',
-						'default' => '294,000+',
+						'default' => 'About 292K',
 					],
 					'buttonText'          => [
 						'type'    => 'string',
@@ -87,7 +87,7 @@ class SignupBlock {
 		$heading          = wp_kses_post( $attributes['heading'] ?? '' );
 		$description      = wp_kses_post( $attributes['description'] ?? '' );
 		$show_count       = (bool) ( $attributes['showSubscriberCount'] ?? false );
-		$subscriber_count = esc_html( $attributes['subscriberCount'] ?? '294,000+' );
+		$subscriber_count = esc_html( $attributes['subscriberCount'] ?? 'About 292K' );
 		$button_text      = esc_html( $attributes['buttonText'] ?? __( 'Subscribe', 'crispy-theme' ) );
 		$style            = esc_attr( $attributes['style'] ?? 'hero' );
 

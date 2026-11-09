@@ -15,8 +15,7 @@
 	position: sticky;
 	top: 0;
 	z-index: 100;
-	background-color: var(--wp--preset--color--background);
-	border-bottom: 1px solid var(--wp--preset--color--border);
+	background-color: var(--wp--preset--color--base-2);
 	padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--40);
 }
 
@@ -37,7 +36,8 @@
 	display: flex;
 	align-items: center;
 	gap: var(--wp--preset--spacing--20);
-	flex-shrink: 0;
+	/* A long site title wraps to two lines instead of pushing the page wider. */
+	min-width: min(100%, 22rem);
 }
 
 .site-branding .wp-block-site-title {
@@ -251,11 +251,6 @@
 /* ==========================================================================
    Dark Mode
    ========================================================================== */
-
-.dark-mode .site-header {
-	background-color: var(--wp--preset--color--background);
-	border-bottom-color: var(--wp--preset--color--border);
-}
 
 .dark-mode .site-header .wp-block-navigation__submenu-container {
 	background-color: var(--wp--preset--color--base-2);

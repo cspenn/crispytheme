@@ -115,7 +115,7 @@ register_block_pattern(
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
-				<p class="has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--30)">' . esc_html__( 'Join 294,000+ subscribers. Weekly insights on AI, marketing, and analytics.', 'crispy-theme' ) . '</p>
+				<p class="has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--30)">' . esc_html( sprintf( /* translators: %s: month and year */ __( 'Join about 292K subscribers (%s). Weekly insights on AI, marketing, and analytics.', 'crispy-theme' ), function_exists( 'crispytheme_get_subscriber_as_of' ) ? crispytheme_get_subscriber_as_of() : 'October 2026' ) ) . '</p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->

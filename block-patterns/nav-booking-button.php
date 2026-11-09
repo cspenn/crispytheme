@@ -16,7 +16,7 @@ if ( ! function_exists( 'register_block_pattern' ) ) {
 	return;
 }
 
-$booking_url = function_exists( 'crispytheme_get_booking_url' ) ? crispytheme_get_booking_url() : '/contact/';
+$booking_url = function_exists( 'crispytheme_get_booking_url' ) ? crispytheme_get_booking_url() : '/contact-me/';
 $cta_label   = get_option( 'crispytheme_hero_cta_primary_label', 'Book Christopher' );
 
 register_block_pattern(

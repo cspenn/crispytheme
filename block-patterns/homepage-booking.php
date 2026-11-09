@@ -17,7 +17,7 @@ if ( ! function_exists( 'register_block_pattern' ) ) {
 	return;
 }
 
-$booking_url = function_exists( 'crispytheme_get_booking_url' ) ? crispytheme_get_booking_url() : '/contact/';
+$booking_url = function_exists( 'crispytheme_get_booking_url' ) ? crispytheme_get_booking_url() : '/contact-me/';
 $cta_label   = get_option( 'crispytheme_hero_cta_primary_label', 'Book Christopher' );
 
 register_block_pattern(
@@ -34,7 +34,7 @@ register_block_pattern(
 	<!-- /wp:heading -->
 
 	<!-- wp:paragraph {"align":"center","fontSize":"large","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|50"}}},"textColor":"foreground-secondary"} -->
-	<p class="has-text-align-center has-foreground-secondary-color has-text-color has-large-font-size" style="margin-bottom:var(--wp--preset--spacing--50)">' . esc_html__( 'Keynotes and workshops that turn AI from a threat into your audience\'s competitive advantage — delivered for Fortune 500 organizations worldwide.', 'crispy-theme' ) . '</p>
+	<p class="has-text-align-center has-foreground-secondary-color has-text-color has-large-font-size" style="margin-bottom:var(--wp--preset--spacing--50)">' . esc_html__( 'Keynotes and workshops that turn AI into your audience\'s competitive advantage. Christopher has worked with Fortune 500 companies including Pfizer, T-Mobile, and McDonald\'s.', 'crispy-theme' ) . '</p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->

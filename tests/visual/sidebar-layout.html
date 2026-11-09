@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sidebar layout — mobile crush repro &amp; fix verification</title>
+<style>
+	body {
+		margin: 0;
+		padding: 24px;
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+		background: #f8fafc;
+		color: #0f172a;
+	}
+	h1 { font-size: 1.25rem; }
+	h2 { font-size: 1rem; margin-top: 2rem; }
+	p.note { color: #475569; font-size: 0.875rem; max-width: 70ch; }
+	.row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+		align-items: flex-start;
+	}
+	.frame-block { display: flex; flex-direction: column; gap: 6px; }
+	.frame-label {
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: #64748b;
+	}
+	iframe {
+		border: 2px solid #cbd5e1;
+		border-radius: 6px;
+		display: block;
+	}
+	.expect {
+		font-size: 0.8125rem;
+		color: #334155;
+		max-width: 300px;
+	}
+	.verdict-broken { color: #b91c1c; font-weight: 600; }
+	.verdict-fixed { color: #15803d; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<h1>Sidebar layout — mobile crush reproduction &amp; fix verification</h1>
+<p class="note">
+	Static repro, no browser automation. Each box below is an <code>&lt;iframe&gt;</code>
+	given a fixed pixel width via CSS — that width is the iframe's own viewport for
+	media-query purposes, independent of this window's size, so mobile vs. desktop
+	renders correctly no matter how you view this file.
+	Rows 1–2 use markup and WordPress-generated CSS captured verbatim from a real
+	HAR of the live site (see comments in each fixture file for exact source).
+	Row 3 is a sanity check derived from WordPress core source, not a live capture —
+	see its fixture files for why.
+</p>
+
+<h2>1. BEFORE — v2.0.2 (root cause: <code>body .is-layout-flex</code> beats <code>.site-main__inner</code> on specificity)</h2>
+<div class="row">
+	<div class="frame-block">
+		<span class="frame-label">Mobile · 390px</span>
+		<iframe src="fixtures/post-before.html" style="width:390px;height:520px;"></iframe>
+		<span class="expect"><span class="verdict-broken">Expected: broken.</span> Sidebar takes the full row width
+			(<code>width:100%</code> under nowrap flex); content column is crushed to a sliver, text
+			breaks mid-word — this is the reported bug.</span>
+	</div>
+	<div class="frame-block">
+		<span class="frame-label">Desktop · 1440px</span>
+		<iframe src="fixtures/post-before.html" style="width:1440px;height:360px;"></iframe>
+		<span class="expect">Looks fine here — <code>display:grid</code> never applied at any width, but at
+			this width the flex row still happens to read as two columns, which is why the bug went
+			unnoticed.</span>
+	</div>
+</div>
+
+<h2>2. AFTER — fixed (links the real, current <code>assets/css/layout.css</code>)</h2>
+<div class="row">
+	<div class="frame-block">
+		<span class="frame-label">Mobile · 390px</span>
+		<iframe src="fixtures/post-fixed.html" style="width:390px;height:640px;"></iframe>
+		<span class="expect"><span class="verdict-fixed">Expected: fixed.</span> Content column full width,
+			sidebar stacks below it, no crushed text.</span>
+	</div>
+	<div class="frame-block">
+		<span class="frame-label">Desktop · 1440px</span>
+		<iframe src="fixtures/post-fixed.html" style="width:1440px;height:360px;"></iframe>
+		<span class="expect"><span class="verdict-fixed">Expected: fixed.</span> True CSS grid, two columns,
+			sidebar a fixed 350px track, content fluid.</span>
+	</div>
+</div>
+
+<h2>3. Sanity check — flow variant (what the edited templates render; not independently verified against a live capture)</h2>
+<div class="row">
+	<div class="frame-block">
+		<span class="frame-label">Desktop · 1440px</span>
+		<iframe src="fixtures/post-fixed-flow.html" style="width:1440px;height:360px;"></iframe>
+		<span class="expect">Confirms the fix's <code>margin-block: 0</code> reset neutralizes flow layout's
+			margin-based gap model (a stray top margin on the sidebar), derived from WordPress core
+			source rather than a captured page. See <code>fixtures/wp-generated-flow.css</code> for the
+			derivation. Should render identically to row 2's desktop panel.</span>
+	</div>
+</div>
+
+<h2>How to read a failure</h2>
+<p class="note">
+	If row 2 ever regresses to look like row 1, someone changed
+	<code>assets/css/layout.css</code> in a way that dropped the <code>.wp-block-group</code>
+	specificity qualifier (see the comments in that file) — re-open this harness before
+	shipping. <code>fixtures/before-layout.css</code> is a frozen snapshot and must never be
+	edited; if it needs to change, the bug it demonstrates has changed too.
+</p>
+
+</body>
+</html>

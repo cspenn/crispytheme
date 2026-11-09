@@ -54,6 +54,16 @@
                     "name": "Surface Dark"
                 },
                 {
+                    "slug": "on-dark",
+                    "color": "#ffffff",
+                    "name": "On Dark"
+                },
+                {
+                    "slug": "on-dark-secondary",
+                    "color": "#cbd5e1",
+                    "name": "On Dark Secondary"
+                },
+                {
                     "slug": "background",
                     "color": "#ffffff",
                     "name": "Background"
@@ -196,6 +206,31 @@
                     "fontFamily": "'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif",
                     "slug": "heading",
                     "name": "Heading (IBM Plex Sans)"
+                },
+                {
+                    "fontFamily": "'IBM Plex Serif', Georgia, 'Times New Roman', serif",
+                    "slug": "serif",
+                    "name": "Display serif (IBM Plex Serif)",
+                    "fontFace": [
+                        {
+                            "fontFamily": "IBM Plex Serif",
+                            "fontWeight": "500",
+                            "fontStyle": "normal",
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-serif-500.woff2"]
+                        },
+                        {
+                            "fontFamily": "IBM Plex Serif",
+                            "fontWeight": "600",
+                            "fontStyle": "normal",
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-serif-600.woff2"]
+                        },
+                        {
+                            "fontFamily": "IBM Plex Serif",
+                            "fontWeight": "700",
+                            "fontStyle": "normal",
+                            "src": ["file:./assets/fonts/ibm-plex/ibm-plex-serif-700.woff2"]
+                        }
+                    ]
                 },
                 {
                     "fontFamily": "'IBM Plex Mono', 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace",

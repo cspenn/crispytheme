@@ -7,6 +7,7 @@
  * and emits them as <script type="application/ld+json"> tags.
  *
  * Context rules:
+ * - CrispySEO plugin active: this class prints nothing. The plugin prints one @graph.
  * - Person + Organization: all front-end views
  * - VideoObject + Speakable: front page only
  *
@@ -68,7 +69,20 @@ class SchemaGraph {
 	 * @return void
 	 */
 	public function init(): void {
+		if ( $this->plugin_owns_schema() ) {
+			return;
+		}
+
 		add_action( 'wp_head', [ $this, 'render' ], 5 );
+	}
+
+	/**
+	 * Tell if the CrispySEO plugin prints the schema. The plugin then owns every JSON-LD block.
+	 *
+	 * @return bool
+	 */
+	protected function plugin_owns_schema(): bool {
+		return defined( 'CRISPY_SEO_VERSION' );
 	}
 
 	/**

@@ -19,12 +19,19 @@ if ( ! function_exists( 'register_block_pattern' ) ) {
 
 // Get configurable options with defaults.
 $hero_image       = get_option( 'crispytheme_hero_image', '' );
-$hero_eyebrow     = get_option( 'crispytheme_hero_eyebrow', 'IBM Champion · 8× Author · 294,000+ Newsletter Subscribers' );
-$hero_headline    = get_option( 'crispytheme_hero_headline', 'Equipping Global Organizations to Win the AI Revolution' );
-$hero_subheadline = get_option( 'crispytheme_hero_subheadline', 'Christopher Penn shows enterprise teams how to deploy AI as a competitive advantage — not a threat.' );
+$hero_eyebrow     = get_option( 'crispytheme_hero_eyebrow', '' );
+$hero_headline    = get_option( 'crispytheme_hero_headline', \CrispyTheme\Booking\HomePage::HEADLINE );
+$hero_subheadline = get_option( 'crispytheme_hero_subheadline', 'Christopher S. Penn is an AI builder and keynote speaker. His keynotes and workshops teach teams the Five Levels of AI Enablement.' );
 $cta_primary      = get_option( 'crispytheme_hero_cta_primary_label', 'Book Christopher' );
 $cta_secondary    = get_option( 'crispytheme_hero_cta_secondary_label', 'Watch Demo Reel' );
-$booking_url      = function_exists( 'crispytheme_get_booking_url' ) ? crispytheme_get_booking_url() : '/contact/';
+$booking_url      = function_exists( 'crispytheme_get_booking_url' ) ? crispytheme_get_booking_url() : '/contact-me/';
+
+// The label above the headline is off by default. An editor can still set the option.
+$hero_eyebrow_html = '' === $hero_eyebrow ? '' : '<!-- wp:paragraph {"className":"homepage-hero-eyebrow"} -->
+			<p class="homepage-hero-eyebrow">' . esc_html( $hero_eyebrow ) . '</p>
+			<!-- /wp:paragraph -->
+
+			';
 
 // Use placeholder if no image configured.
 if ( empty( $hero_image ) ) {
@@ -44,12 +51,8 @@ register_block_pattern(
 	<div class="wp-block-columns are-vertically-aligned-center homepage-hero__inner">
 		<!-- wp:column {"verticalAlignment":"center","width":"60%"} -->
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:60%">
-			<!-- wp:paragraph {"className":"homepage-hero-eyebrow"} -->
-			<p class="homepage-hero-eyebrow">' . esc_html( $hero_eyebrow ) . '</p>
-			<!-- /wp:paragraph -->
-
-			<!-- wp:heading {"level":1,"className":"homepage-hero__title","style":{"typography":{"fontSize":"clamp(3rem, 6vw, 4rem)","lineHeight":"1.1"},"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|40"}}}} -->
-			<h1 class="wp-block-heading homepage-hero__title" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--40);font-size:clamp(3rem, 6vw, 4rem);line-height:1.1">' . esc_html( $hero_headline ) . '</h1>
+			' . $hero_eyebrow_html . '<!-- wp:heading {"level":1,"className":"homepage-hero__title","style":{"typography":{"fontSize":"clamp(1.75rem, 1.1rem + 2.4vw, 3.25rem)","lineHeight":"1.1"},"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|40"}}}} -->
+			<h1 class="wp-block-heading homepage-hero__title" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--40);font-size:clamp(1.75rem, 1.1rem + 2.4vw, 3.25rem);line-height:1.1">' . esc_html( $hero_headline ) . '</h1>
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph {"className":"homepage-hero__subhead speakable-summary","style":{"typography":{"fontSize":"1.25rem","lineHeight":"1.5"}},"textColor":"foreground-secondary"} -->

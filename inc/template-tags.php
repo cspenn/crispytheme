@@ -29,7 +29,7 @@ if ( ! function_exists( 'crispytheme_get_subscriber_count' ) ) {
 		if ( is_string( $cached ) && '' !== $cached ) {
 			$value = $cached;
 		} else {
-			$value = (string) get_option( 'crispytheme_newsletter_subscriber_count', '294,000+' );
+			$value = (string) get_option( 'crispytheme_newsletter_subscriber_count', 'About 292K' );
 		}
 
 		/**
@@ -44,6 +44,22 @@ if ( ! function_exists( 'crispytheme_get_subscriber_count' ) ) {
 		$value = apply_filters( 'crispytheme_subscriber_count', $value );
 
 		return trim( (string) $value );
+	}
+}
+
+if ( ! function_exists( 'crispytheme_get_subscriber_as_of' ) ) {
+	/**
+	 * Get the month of the subscriber count, for display beside the count.
+	 *
+	 * The approved public form is "About 292K subscribers (October 2026)": the count and the month
+	 * always appear together.
+	 *
+	 * @return string The month and year, for example "October 2026".
+	 */
+	function crispytheme_get_subscriber_as_of(): string {
+		$value = trim( (string) get_option( 'crispytheme_newsletter_subscriber_as_of', 'October 2026' ) );
+
+		return '' !== $value ? $value : 'October 2026';
 	}
 }
 
@@ -74,15 +90,15 @@ if ( ! function_exists( 'crispytheme_get_booking_url' ) ) {
 	/**
 	 * Get the configured booking CTA URL.
 	 *
-	 * Defaults to the existing contact path until a dedicated
+	 * Defaults to the live contact page (/contact-me/) until a dedicated
 	 * /book-christopher page is built, at which point only the option needs
 	 * to change for every CTA on the site to repoint.
 	 *
 	 * @return string The booking URL.
 	 */
 	function crispytheme_get_booking_url(): string {
-		$url = (string) get_option( 'crispytheme_booking_url', '/contact/' );
+		$url = (string) get_option( 'crispytheme_booking_url', '/contact-me/' );
 
-		return '' !== trim( $url ) ? $url : '/contact/';
+		return '' !== trim( $url ) ? $url : '/contact-me/';
 	}
 }

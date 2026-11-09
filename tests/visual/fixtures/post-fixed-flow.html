@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AFTER — fixed, flow variant (sanity check)</title>
+<link rel="stylesheet" href="wp-generated-flow.css">
+<link rel="stylesheet" href="../../../assets/css/layout.css">
+<style>
+	body { margin: 0; font-family: sans-serif; background: #0f172a; color: #e2e8f0; }
+	.content-area p { line-height: 1.6; }
+	.site-sidebar .widget { border: 1px dashed #475569; padding: 8px; }
+</style>
+</head>
+<body>
+
+<!-- site-main__inner rendered as `"layout":{"type":"default"}` (flow), which is
+     what all 8 sidebar templates emit after this fix's template edit. No
+     wp-container-content-* class either — selfStretch was removed from
+     content-area, so block-supports never generates one. -->
+<main id="wp--skip-link--target" class="wp-block-group site-main is-layout-flow wp-block-group-is-layout-flow">
+	<div class="wp-block-group site-main__inner is-layout-flow wp-block-group-is-layout-flow wp-container-core-group-is-layout-flowdemo">
+
+		<article class="wp-block-group content-area single-post is-layout-flow wp-block-group-is-layout-flow">
+			<h1>The Truth About AI Bias: Why It Can Never Be Completely Removed</h1>
+			<p>July 30, 2026 · Christopher S Penn</p>
+			<p>Back in 2019, Paul Roetzer asked me to speak at a brand new event called the Marketing AI Conference. At the time, few people were talking seriously about how artificial intelligence would reshape marketing, but the room was packed anyway.</p>
+			<p>Sanity check: this fixture is hand-derived from WP core source, not captured from a live page (none exists yet in flow mode). It confirms the fix's `margin-block: 0` reset neutralizes flow's margin-based gap model — treat as a sanity check, not proof.</p>
+		</article>
+
+		<aside class="sidebar-area wp-block-template-part">
+			<aside class="wp-block-group site-sidebar is-layout-flow wp-block-group-is-layout-flow">
+				<div class="widget">
+					<h3>AI Tools for This Page</h3>
+					<input type="search" placeholder="Search...">
+				</div>
+				<div class="widget">
+					<h3>Almost Timely Newsletter</h3>
+					<p>Join 294,000+ readers getting weekly insights on AI, marketing, and analytics.</p>
+					<button>Subscribe Free</button>
+				</div>
+				<div class="widget">
+					<h3>Recent Posts</h3>
+					<ul>
+						<li>Hands-On AI Workshops for Marketers</li>
+						<li>Stop the SaaS Trap</li>
+						<li>The Truth About AI Bias</li>
+					</ul>
+				</div>
+			</aside>
+		</aside>
+
+	</div>
+</main>
+
+</body>
+</html>

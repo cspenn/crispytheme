@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Theme version constant.
  */
-define( 'CRISPY_THEME_VERSION', '2.0.2' );
+define( 'CRISPY_THEME_VERSION', '2.1.0' );
 
 /**
  * Theme directory path.
@@ -164,6 +164,18 @@ function crispy_theme_init(): void {
 	// Initialize pattern manager.
 	$pattern_manager = new Patterns\PatternManager();
 	$pattern_manager->init();
+
+	// Initialize the booking page shortcode.
+	$booking_page = new Booking\BookingPage();
+	$booking_page->init();
+
+	// Feed the speaker facts to the CrispySEO schema graph.
+	$schema_feed = new Booking\SchemaFeed();
+	$schema_feed->init();
+
+	// Initialize the home page block.
+	$home_page = new Booking\HomePage();
+	$home_page->init();
 
 	// Initialize newsletter signup block.
 	$newsletter_block = new Newsletter\SignupBlock();

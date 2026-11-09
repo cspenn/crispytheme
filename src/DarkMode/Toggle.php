@@ -20,7 +20,7 @@ class Toggle {
 	/**
 	 * Local storage key for dark mode preference.
 	 */
-	public const STORAGE_KEY = 'crispy-theme-dark-mode';
+	public const STORAGE_KEY = 'crispy-dark-mode';
 
 	/**
 	 * Dark mode value: auto (follow system).

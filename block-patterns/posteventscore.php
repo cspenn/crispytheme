@@ -47,8 +47,8 @@ register_block_pattern(
 		'keywords'    => [ 'posteventscore', 'satisfaction', 'social proof', 'trust' ],
 		'content'     => '<!-- wp:group {"className":"posteventscore","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}},"border":{"top":{"color":"var:preset|color|accent","width":"3px"}}},"backgroundColor":"background-secondary","layout":{"type":"constrained","contentSize":"680px"}} -->
 <div class="wp-block-group posteventscore has-background-secondary-background-color has-background" style="border-top-color:var(--wp--preset--color--accent);border-top-width:3px;padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--50)">
-	<!-- wp:paragraph {"align":"center","className":"posteventscore__label","style":{"typography":{"fontSize":"0.8125rem","textTransform":"uppercase","letterSpacing":"0.08em"}},"textColor":"foreground-secondary"} -->
-	<p class="has-text-align-center posteventscore__label has-foreground-secondary-color has-text-color" style="font-size:0.8125rem;text-transform:uppercase;letter-spacing:0.08em">' . esc_html__( 'Average Post-Event Satisfaction', 'crispy-theme' ) . '</p>
+	<!-- wp:paragraph {"align":"center","className":"posteventscore__label","style":{"typography":{"fontSize":"0.9375rem"}},"textColor":"foreground-secondary"} -->
+	<p class="has-text-align-center posteventscore__label has-foreground-secondary-color has-text-color" style="font-size:0.9375rem">' . esc_html__( 'Average Post-Event Satisfaction', 'crispy-theme' ) . '</p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:paragraph {"align":"center","className":"posteventscore__value","style":{"typography":{"fontSize":"2.75rem","fontWeight":"700","lineHeight":"1.1"},"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|10"}}}} -->

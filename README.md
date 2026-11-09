@@ -2,7 +2,7 @@
 
 A high-performance, **Markdown-first WordPress block theme** with a **booking-first conversion homepage**, Schema.org structured data, IBM Plex typography, and dark mode.
 
-- **Version:** 2.0.2 · **Requires:** WordPress 6.6+ · PHP 8.1–8.3 · **License:** MIT
+- **Version:** 2.1.0 · **Requires:** WordPress 6.6+ · PHP 8.1–8.3 · **License:** MIT
 - Content is authored as raw Markdown in `post_meta` (`_markdown_content`), rendered at runtime via Parsedown and cached with WordPress Transients — no page-builder bloat, version-control friendly.
 
 > **v2 installs alongside v1.** It uses a distinct theme name (`CrispyTheme v2`) and is deployed to its own directory (`crispytheme-v2/`), so the original `CrispyTheme` (v1) stays installed and you can switch back in one click. See [Deployment & rollback](#deployment--rollback).
@@ -61,9 +61,9 @@ npm ci && npm run build
 
 # Package the theme into a v2-named directory so it installs alongside v1.
 # (WordPress identifies a theme by its DIRECTORY name — this is what enables
-#  parallel install + rollback.)
-rm -rf /tmp/crispytheme-v2 && mkdir -p /tmp/crispytheme-v2
-rsync -a --exclude-from=- ./ /tmp/crispytheme-v2/ <<'EXCLUDES'
+#  parallel install + rollback.) output/ is gitignored — never /tmp.
+rm -rf output/crispytheme-v2 && mkdir -p output/crispytheme-v2
+rsync -a --exclude-from=- ./ output/crispytheme-v2/ <<'EXCLUDES'
 .git/
 node_modules/
 tests/
@@ -71,6 +71,8 @@ input/
 references/
 graphify-out/
 .github/
+output/
+temp/
 *.md
 phpstan.neon
 deptrac.yaml
@@ -78,14 +80,22 @@ patchwork.json
 phpcs.xml
 .phpcs.xml.dist
 rector.php
+webpack.config.js
+opencode.json
+package-lock.json
+composer.lock
+crispy-theme.zip
+bin/
+includes/
+.DS_Store
 EXCLUDES
-( cd /tmp && zip -rq crispytheme-v2.zip crispytheme-v2 )
+( cd output && zip -rq crispytheme-v2.zip crispytheme-v2 )
 
 # Restore dev dependencies for local development
 composer install
 ```
 
-You now have `/tmp/crispytheme-v2.zip` with `vendor/` ~500 KB and the zip under ~1 MB.
+You now have `output/crispytheme-v2.zip` with `vendor/` ~500 KB and the zip under ~1 MB.
 
 > **Packaging discipline:** never ship dev dependencies. The production runtime needs only the three Composer packages above plus the built `build/` assets.
 
@@ -98,7 +108,7 @@ You now have `/tmp/crispytheme-v2.zip` with `vendor/` ~500 KB and the zip under 
 
 **Via WP-CLI:**
 ```bash
-wp theme install /tmp/crispytheme-v2.zip          # installs alongside v1
+wp theme install output/crispytheme-v2.zip        # installs alongside v1
 wp theme list                                     # you should see both crispytheme and crispytheme-v2
 wp theme activate crispytheme-v2                   # go live with v2
 ```
@@ -121,8 +131,8 @@ No re-deploy, no data loss — switching the active theme is instantaneous. Once
 The pre-v2 code is at commit `e7d486f`. To produce a v1 package:
 
 ```bash
-git worktree add /tmp/crispytheme-v1 e7d486f
-cd /tmp/crispytheme-v1 && composer install --no-dev && npm ci && npm run build
+git worktree add output/crispytheme-v1 e7d486f
+cd output/crispytheme-v1 && composer install --no-dev && npm ci && npm run build
 # zip the directory as "crispytheme" (v1's Theme Name is "CrispyTheme")
 ```
 
@@ -136,8 +146,8 @@ All runtime content is editable under **Appearance → Theme Options** (no code 
 
 | Section | What it controls |
 |---|---|
-| **Homepage Settings** | Hero image, eyebrow, headline, subheadline; the `500+ / 25 / 98%` stats; demo-reel video (Vimeo preferred), heading, description; up to 6 client logos |
-| **Booking & Conversion CTAs** | `crispytheme_booking_url` (where every “Book Christopher” CTA points — set to `/book-christopher` once that page exists; defaults to `/contact/`); hero CTA labels; the newsletter subscriber count shown in the metrics badge |
+| **Homepage Settings** | Hero image, eyebrow, headline, subheadline; the optional events, countries, and satisfaction stats (all blank by default until a sourced value exists); demo-reel video (Vimeo preferred), heading, description; up to 6 client logos |
+| **Booking & Conversion CTAs** | `crispytheme_booking_url` (where every “Book Christopher” CTA points — set to `/public-speaking/#check-my-dates` for the booking page; defaults to `/contact-me/`); hero CTA labels; the newsletter subscriber count shown in the metrics badge |
 | **Social Proof** | PostEventScore value/count/source and the planner testimonial (quote, name, title, organization, event + year, optional video). **Blank = hidden** — these blocks never render placeholder or unverified data |
 | **SEO / Schema (JSON-LD)** | Person (name, headshot, job title, description, `sameAs` URLs), Organization (name, logo, booking email), and the demo-reel VideoObject (URL, name, description, thumbnail, upload date, ISO-8601 duration). Blank fields are omitted from output |
 | **Layout / Markdown / RSS / Archive** | Sidebar & max content width, Parsedown flavor, RSS full vs. excerpt, archive display, Markdown shortcode replacements |

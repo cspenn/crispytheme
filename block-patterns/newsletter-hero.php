@@ -26,11 +26,11 @@ register_block_pattern(
 	<!-- wp:group {"layout":{"type":"constrained","contentSize":"600px"}} -->
 	<div class="wp-block-group">
 		<!-- wp:paragraph {"align":"center","className":"newsletter-subscriber-count","style":{"typography":{"fontSize":"3rem","fontWeight":"700"}}} -->
-		<p class="has-text-align-center newsletter-subscriber-count" style="font-size:3rem;font-weight:700">294,000+</p>
+		<p class="has-text-align-center newsletter-subscriber-count" style="font-size:3rem;font-weight:700">' . esc_html( function_exists( 'crispytheme_get_subscriber_count' ) ? crispytheme_get_subscriber_count() : 'About 292K' ) . '</p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:paragraph {"align":"center","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|30"}}}} -->
-		<p class="has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--30)">' . esc_html__( 'readers get the Almost Timely Newsletter every week', 'crispy-theme' ) . '</p>
+		<p class="has-text-align-center" style="margin-bottom:var(--wp--preset--spacing--30)">' . esc_html( sprintf( /* translators: %s: month and year */ __( 'subscribers (%s) get the Almost Timely Newsletter every week', 'crispy-theme' ), function_exists( 'crispytheme_get_subscriber_as_of' ) ? crispytheme_get_subscriber_as_of() : 'October 2026' ) ) . '</p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:heading {"textAlign":"center","level":2,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"}}}} -->

@@ -121,15 +121,59 @@ class Assets {
 			'crispy-theme-dark-mode',
 			'crispyThemeDarkMode',
 			[
-				'storageKey'  => 'crispy-theme-dark-mode',
+				'storageKey'  => 'crispy-dark-mode',
 				'defaultMode' => 'auto',
 			]
 		);
+
+		// The booking page and the home page share one design system, one stylesheet, and one script.
+		$is_home = \CrispyTheme\Booking\HomePage::is_home_page();
+
+		if ( $is_home || \CrispyTheme\Booking\BookingPage::is_booking_page() ) {
+			$this->enqueue_booking_assets();
+		}
+
+		// The home page adds its own small stylesheet.
+		if ( $is_home ) {
+			wp_enqueue_style(
+				'crispy-theme-home',
+				CRISPY_THEME_URI . '/assets/css/home-page.css',
+				[ 'crispy-theme-booking' ],
+				CRISPY_THEME_VERSION
+			);
+		}
 
 		// Enqueue markdown dropdown assets on singular views.
 		if ( is_singular() ) {
 			$this->enqueue_markdown_dropdown_assets();
 		}
+	}
+
+	/**
+	 * Enqueue the booking page stylesheet and script.
+	 *
+	 * @return void
+	 */
+	private function enqueue_booking_assets(): void {
+		$version = CRISPY_THEME_VERSION;
+
+		wp_enqueue_style(
+			'crispy-theme-booking',
+			CRISPY_THEME_URI . '/assets/css/booking-page.css',
+			[ 'crispy-theme-style', 'crispy-theme-header', 'crispy-theme-patterns', 'crispy-theme-layout' ],
+			$version
+		);
+
+		wp_enqueue_script(
+			'crispy-theme-booking',
+			CRISPY_THEME_URI . '/assets/js/booking-page.js',
+			[],
+			$version,
+			[
+				'in_footer' => true,
+				'strategy'  => 'defer',
+			]
+		);
 	}
 
 	/**
@@ -252,17 +296,22 @@ class Assets {
 		?>
 		<script>
 			(function() {
-				const storageKey = 'crispy-theme-dark-mode';
-				const stored = localStorage.getItem(storageKey);
-				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+				// The toggle (build/dark-mode-toggle.js) writes 'true' or 'false' under this key.
+				const storageKey = 'crispy-dark-mode';
+				// Older value: 'dark' or 'light'. Read only when the toggle key is unset.
+				const legacyKey = 'crispy-theme-dark-mode';
 
-				let isDark = false;
-				if (stored === 'dark') {
-					isDark = true;
-				} else if (stored === 'light') {
-					isDark = false;
-				} else {
-					isDark = prefersDark;
+				let isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+				try {
+					const stored = localStorage.getItem(storageKey);
+					const legacy = localStorage.getItem(legacyKey);
+					if (stored === 'true' || stored === 'false') {
+						isDark = stored === 'true';
+					} else if (legacy === 'dark' || legacy === 'light') {
+						isDark = legacy === 'dark';
+					}
+				} catch (e) {
+					// Storage is blocked: keep the system preference.
 				}
 
 				if (isDark) {
@@ -298,8 +347,8 @@ class Assets {
 		?>
 		<style id="crispy-layout-vars">
 			:root {
-				--crispy-sidebar-width: <?php echo esc_attr( $sidebar_width ); ?>;
-				--crispy-max-width: <?php echo esc_attr( $max_width ); ?>;
+				--crispy-sidebar-width-base: <?php echo esc_attr( $sidebar_width ); ?>;
+				--crispy-max-width-base: <?php echo esc_attr( $max_width ); ?>;
 			}
 		</style>
 		<?php

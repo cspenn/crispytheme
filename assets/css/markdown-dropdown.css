@@ -20,6 +20,13 @@
 	font-size: 0.875rem;
 }
 
+/* The button is a tool for editors and AI readers, not a planner benefit.
+   Public pages hide it from visitors who are not logged in; posts keep it.
+   The Markdown view stays reachable through the ?crispy_raw=1 address. */
+body.page:not(.logged-in) .crispy-markdown-dropdown {
+	display: none;
+}
+
 /* ==========================================================================
    Trigger Button
    ========================================================================== */
