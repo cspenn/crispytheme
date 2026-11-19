@@ -269,7 +269,7 @@ class OptionsPage {
 			[
 				'type'              => 'string',
 				'sanitize_callback' => 'sanitize_text_field',
-				'default'           => 'Eight-time IBM Champion · 14 published books · About 292K subscribers (October 2026)',
+				'default'           => '',
 			]
 		);
 
@@ -602,7 +602,7 @@ class OptionsPage {
 		);
 
 		$sanitizers = [
-			'number'   => 'absint',
+			'number'   => [ self::class, 'sanitize_number' ],
 			'url'      => 'esc_url_raw',
 			'textarea' => 'sanitize_textarea_field',
 			'text'     => 'sanitize_text_field',
@@ -1067,7 +1067,7 @@ class OptionsPage {
 	 * @return void
 	 */
 	public function render_hero_eyebrow_field(): void {
-		$value = get_option( 'crispytheme_hero_eyebrow', 'Eight-time IBM Champion · 14 published books · About 292K subscribers (October 2026)' );
+		$value = get_option( 'crispytheme_hero_eyebrow', '' );
 		?>
 		<input type="text"
 				name="crispytheme_hero_eyebrow"
@@ -1468,6 +1468,19 @@ class OptionsPage {
 	 */
 	public function render_schema_section(): void {
 		echo '<p>' . esc_html__( 'Structured data (JSON-LD) emitted in the page head. Blank fields are omitted from output; never enter unverified claims.', 'crispy-theme' ) . '</p>';
+	}
+
+	/**
+	 * Sanitize a whole-number field. A blank field stays blank, so the default comes back. Other text
+	 * keeps its digits only, so "49,269" saves as 49269 and not as 49.
+	 *
+	 * @param mixed $value Submitted value.
+	 * @return string
+	 */
+	public static function sanitize_number( $value ): string {
+		$digits = preg_replace( '/\D+/', '', (string) $value );
+
+		return '' === $digits ? '' : (string) absint( $digits );
 	}
 
 	/**

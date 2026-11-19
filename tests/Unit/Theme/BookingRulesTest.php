@@ -222,7 +222,7 @@ describe('booking page options screen', function () {
             expect($registered)->toHaveKey($name);
             expect($registered[$name]['default'])->toBe($definition['default']);
         }
-        expect($registered[BookingFacts::option_name('fee_keynote_from')]['sanitize_callback'])->toBe('absint');
+        expect($registered[BookingFacts::option_name('fee_keynote_from')]['sanitize_callback'])->toBe([CrispyTheme\Admin\OptionsPage::class, 'sanitize_number']);
         expect($registered[BookingFacts::option_name('reel_url')]['sanitize_callback'])->toBe('esc_url_raw');
     });
 });

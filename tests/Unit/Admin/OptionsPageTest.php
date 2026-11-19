@@ -1195,3 +1195,32 @@ describe('OptionsPage', function () {
         });
     });
 });
+
+describe('OptionsPage::sanitize_number', function () {
+    beforeEach(function () {
+        Functions\when('absint')->alias(static fn($v) => abs((int) $v));
+    });
+
+    it('keeps a blank field blank, so the default comes back and the page never shows $0', function () {
+        expect(OptionsPage::sanitize_number(''))->toBe('');
+        expect(OptionsPage::sanitize_number('  '))->toBe('');
+    });
+
+    it('keeps every digit of a number with a thousands comma', function () {
+        expect(OptionsPage::sanitize_number('49,269'))->toBe('49269');
+        expect(OptionsPage::sanitize_number('25000'))->toBe('25000');
+    });
+
+    it('saves a typed zero as zero and drops letters', function () {
+        expect(OptionsPage::sanitize_number('0'))->toBe('0');
+        expect(OptionsPage::sanitize_number('$25k'))->toBe('25');
+    });
+});
+
+describe('OptionsPage hero eyebrow', function () {
+    it('has no default text, so the first save of Theme Options does not turn the eyebrow on', function () {
+        $source = (string) file_get_contents(dirname(__DIR__, 3) . '/src/Admin/OptionsPage.php');
+
+        expect($source)->not->toContain('Eight-time IBM Champion');
+    });
+});
