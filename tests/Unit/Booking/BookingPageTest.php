@@ -103,14 +103,14 @@ describe('BookingPage structure', function () {
         expect(crispyBookingText($reach[0]))->toContain('A full-fee keynote includes promotion of your event: newsletter inclusion, social media posts, and a promotional video clip.');
     });
 
-    it('opens with the question and the six problems on the first screen, and puts the level finder after the proof', function () {
+    it('opens with the question and the five problems on the first screen, and puts the level finder after the proof', function () {
         $html = crispyBookingRender();
 
         expect(strpos($html, 'class="pk"'))->toBeGreaterThan(strpos($html, 'class="hero"'));
         expect(strpos($html, 'class="pk"'))->toBeLessThan(strpos($html, 'id="rooms"'));
         expect(strpos($html, 'id="levels"'))->toBeGreaterThan(strpos($html, 'id="also"'));
         expect(strpos($html, 'id="levels"'))->toBeLessThan(strpos($html, 'id="fees"'));
-        expect(substr_count($html, 'class="pk__item"'))->toBe(6);
+        expect(substr_count($html, 'class="pk__item"'))->toBe(5);
         expect(strpos(substr($html, 0, (int) strpos($html, 'id="levels"')), 'Done by you'))->toBeFalse();
     });
 

@@ -116,7 +116,7 @@ describe('SchemaFeed', function () {
 
         expect($person['name'])->toBe('Christopher S. Penn');
         expect($person['job_title'])->toBe('AI builder and keynote speaker');
-        expect($person['knows_about'])->toBe(['The Five Levels of AI Enablement', 'Nobody Decided This', 'Who Controls Your AI']);
+        expect($person['knows_about'])->toBe(['The Five Levels of AI Enablement', 'Nobody Decided This']);
         expect($person['same_as'])->toBe(['https://www.linkedin.com/in/christopherspenn/', 'https://almosttimely.substack.com']);
     });
 

@@ -54,7 +54,7 @@ describe('home page stylesheet', function () {
         expect($booking)->toContain('letter-spacing: -0.025em;');
     });
 
-    it('keeps the header booking button, because the first screen holds six problems and one of them is not enough', function () {
+    it('keeps the header booking button, because the first screen holds five problems and one of them is not enough', function () {
         expect($this->css)->not->toMatch('/\.site-header__cta\s*\{[^}]*display:\s*none/');
     });
 });

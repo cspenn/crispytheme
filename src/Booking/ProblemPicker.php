@@ -4,7 +4,7 @@
  *
  * The front door of the home page and the first field of the booking form (Penn, 2026-10-26): a planner
  * names the audience's main problem and sees the talk that answers it and, when a file backs it, a
- * recent room. The six problems live here once. The home page, the booking page, the form tool, and the
+ * recent room. The five problems live here once. The home page, the booking page, the form tool, and the
  * script all read this list.
  *
  * @package CrispyTheme
@@ -60,7 +60,7 @@ final class ProblemPicker {
 	}
 
 	/**
-	 * The six problems. Sources: docs/client-context.md (Penn, 2026-10-26), the problem list, the talks,
+	 * The five problems. Sources: docs/client-context.md (Penn, 2026-10-26), the problem list, the talks,
 	 * and the rooms. A room shows only when a file backs it. A missing talk title or room stays empty.
 	 *
 	 * Keys: slug, label (the category), phrase (the planner's words), promise, talk (approved title or empty),
@@ -75,10 +75,10 @@ final class ProblemPicker {
 				'label'   => 'AI enablement and adoption',
 				'phrase'  => 'our people do not use it well',
 				'promise' => 'Name the level your people work at today, and the next step up.',
-				'talk'    => BookingPage::LEAD_TALK,
+				'talk'    => '',
 				'topic'   => BookingPage::LEAD_TALK,
-				'room'    => 'Self Storage Institute',
-				'when'    => '2026-04',
+				'room'    => 'MAICON',
+				'when'    => '2024-09',
 			],
 			[
 				'slug'    => 'visibility',
@@ -109,16 +109,6 @@ final class ProblemPicker {
 				'topic'   => 'Never Think Alone',
 				'room'    => 'JLL and AMA Central PA',
 				'when'    => '2025-08',
-			],
-			[
-				'slug'    => 'governance',
-				'label'   => 'AI governance and data privacy',
-				'phrase'  => 'we fear leaks and lock-in',
-				'promise' => 'Learn why every business needs a local AI fallback.',
-				'talk'    => BookingPage::ALTERNATE_TALKS[1],
-				'topic'   => BookingPage::ALTERNATE_TALKS[1],
-				'room'    => '',
-				'when'    => '',
 			],
 			[
 				'slug'    => 'analytics',

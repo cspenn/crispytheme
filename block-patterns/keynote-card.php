@@ -39,7 +39,6 @@ register_block_pattern(
 	<ul class="keynote-outcomes">
 		<li>' . esc_html__( 'Understand what generative AI actually does', 'crispy-theme' ) . '</li>
 		<li>' . esc_html__( 'Identify high-impact use cases for your industry', 'crispy-theme' ) . '</li>
-		<li>' . esc_html__( 'Build an AI governance framework', 'crispy-theme' ) . '</li>
 	</ul>
 	<!-- /wp:list -->
 </div>

@@ -124,7 +124,7 @@ describe('HomePage first screen', function () {
     it('keeps the fees link beside the button, and leaves the not-listed choice to the first form field', function () {
         $html = crispyHomeRender();
 
-        // Round 4 cut the "My problem is not here" line from the first screen so the headline, the six names, and the button fit above the fold.
+        // Round 4 cut the "My problem is not here" line from the first screen so the headline, the five names, and the button fit above the fold.
         // A planner whose problem is not listed presses the button, and the first form field offers "Something else, or not sure yet".
         expect($html)->not->toContain('pk__other');
         expect(\CrispyTheme\Booking\ProblemPicker::choices())->toContain(\CrispyTheme\Booking\ProblemPicker::OTHER);

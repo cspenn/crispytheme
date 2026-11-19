@@ -30,11 +30,11 @@ final class BookingPage {
 	public const LEAD_TALK = 'The Five Levels of AI Enablement';
 
 	/**
-	 * The two alternate keynotes (docs/client-context.md: lead keynote and alternates).
+	 * The alternate keynote (docs/client-context.md: lead keynote and alternate). Penn does not speak on AI governance (2026-11-13).
 	 *
 	 * @var string[]
 	 */
-	public const ALTERNATE_TALKS = [ 'Nobody Decided This', 'Who Controls Your AI' ];
+	public const ALTERNATE_TALKS = [ 'Nobody Decided This' ];
 
 	/**
 	 * Cached photo manifest.
@@ -519,10 +519,9 @@ final class BookingPage {
 			[
 				'Which talk should I book?',
 				sprintf(
-					'Start with your audience’s main problem in the form, and I match a talk to it. %1$s is my lead keynote. My two alternates are %2$s and %3$s.',
+					'Start with your audience’s main problem in the form, and I match a talk to it. %1$s is my lead keynote. My alternate is %2$s.',
 					self::LEAD_TALK,
-					self::ALTERNATE_TALKS[0],
-					self::ALTERNATE_TALKS[1]
+					self::ALTERNATE_TALKS[0]
 				),
 			],
 			[

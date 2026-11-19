@@ -2,7 +2,7 @@
 /**
  * ProblemPicker Unit Tests.
  *
- * The six problems are the front door (Penn, 2026-10-26). A room shows only when a file backs it. The form
+ * The five problems are the front door (Penn, 2026-10-26; he dropped governance on 2026-11-13). A room shows only when a file backs it. The form
  * field, the page, and the script all read one list, so each test reads that list.
  *
  * @package CrispyTheme\Tests\Unit\Booking
@@ -19,13 +19,12 @@ beforeEach(function () {
 });
 
 describe('ProblemPicker list', function () {
-    it('holds the six problems in the order Penn gave, with the last choice for a problem that is not listed', function () {
+    it('holds the five problems in the order Penn gave, with the last choice for a problem that is not listed', function () {
         expect(ProblemPicker::choices())->toBe([
             'AI enablement and adoption: our people do not use it well',
             'AI visibility: people no longer find us',
             'AI skills and judgment: our people stop thinking',
             'AI in daily work: where does it save time',
-            'AI governance and data privacy: we fear leaks and lock-in',
             'AI analytics: we cannot trust the numbers',
             'Something else, or not sure yet',
         ]);
@@ -37,11 +36,10 @@ describe('ProblemPicker list', function () {
         $talks = array_column(ProblemPicker::problems(), 'talk', 'slug');
 
         expect($talks)->toBe([
-            'enablement' => 'The Five Levels of AI Enablement',
+            'enablement' => '',
             'visibility' => '',
             'judgment'   => 'Nobody Decided This',
             'daily-work' => 'Never Think Alone',
-            'governance' => 'Who Controls Your AI',
             'analytics'  => 'Build an Analytics Powerhouse with AI',
         ]);
     });
@@ -53,13 +51,21 @@ describe('ProblemPicker list', function () {
         }
 
         expect($rooms)->toBe([
-            'enablement' => 'Self Storage Institute, April 2026',
+            'enablement' => 'MAICON, September 2024',
             'visibility' => 'Spotlight Summit, September 2026',
             'judgment'   => 'Alberta Tourism Advocacy Summit, February 2026',
             'daily-work' => 'JLL and AMA Central PA, August 2025',
-            'governance' => '',
             'analytics'  => 'MAICON, October 2026',
         ]);
+    });
+
+    it('keeps the lead talk in the form topic while the first card names only the MAICON 2024 room (Penn, 2026-11-19)', function () {
+        $first = ProblemPicker::problems()[0];
+
+        expect($first['slug'])->toBe('enablement');
+        expect($first['talk'])->toBe('');
+        expect($first['topic'])->toBe(\CrispyTheme\Booking\BookingPage::LEAD_TALK);
+        expect(ProblemPicker::room($first))->toBe('MAICON, September 2024');
     });
 
     it('states the promise of visibility and analytics in the words of the recording and the session page', function () {
@@ -69,6 +75,14 @@ describe('ProblemPicker list', function () {
         expect($promises['analytics'])->toBe('Do data analysis with the AI tools you already have, with no coding.');
     });
 
+    it('lists no governance problem and no governance talk, because Penn does not speak on it (2026-11-13)', function () {
+        $all = json_encode([ProblemPicker::problems(), ProblemPicker::choices(), \CrispyTheme\Booking\BookingPage::ALTERNATE_TALKS]);
+
+        expect(strtolower((string) $all))->not->toContain('governance');
+        expect($all)->not->toContain('Who Controls Your AI');
+        expect(array_column(ProblemPicker::problems(), 'slug'))->not->toContain('governance');
+    });
+
     it('turns a year and month into words', function () {
         expect(ProblemPicker::month_year('2026-04'))->toBe('April 2026');
         expect(ProblemPicker::month_year('2025-12'))->toBe('December 2025');
@@ -76,16 +90,16 @@ describe('ProblemPicker list', function () {
 });
 
 describe('ProblemPicker markup', function () {
-    it('prints a radio group of six rows in a plain form, each radio carrying the problem and the topic', function () {
+    it('prints a radio group of five rows in a plain form, each radio carrying the problem and the topic', function () {
         $menu = ProblemPicker::menu('');
 
         expect($menu)->toContain('<form class="pk" method="get" action="/public-speaking/#check-my-dates"');
-        expect(substr_count($menu, 'class="pk__item"'))->toBe(6);
-        expect(substr_count($menu, 'type="radio" name="problem"'))->toBe(6);
+        expect(substr_count($menu, 'class="pk__item"'))->toBe(5);
+        expect(substr_count($menu, 'type="radio" name="problem"'))->toBe(5);
         expect($menu)->toContain('value="AI analytics: we cannot trust the numbers" data-topic="Build an Analytics Powerhouse with AI"');
         expect($menu)->toContain('value="AI visibility: people no longer find us" data-topic="AI visibility"');
         // Every radio has its own label, so a tap on the name picks the row, and the first row is chosen.
-        expect(substr_count($menu, '<label class="pk__label" for="pk-'))->toBe(6);
+        expect(substr_count($menu, '<label class="pk__label" for="pk-'))->toBe(5);
         expect(substr_count($menu, ' checked '))->toBe(1);
     });
 
@@ -94,13 +108,13 @@ describe('ProblemPicker markup', function () {
             ->toBe('/public-speaking/?problem=AI%20analytics%3A%20we%20cannot%20trust%20the%20numbers&topic=Build%20an%20Analytics%20Powerhouse%20with%20AI#check-my-dates');
     });
 
-    it('prints no talk element for visibility and no room element for governance', function () {
+    it('prints no talk element for visibility and a room element for every problem', function () {
         $rows = explode('</li>', ProblemPicker::menu(''));
 
         expect($rows[1])->not->toContain('pk__talk');
         expect($rows[1])->toContain('pk__room');
-        expect($rows[4])->toContain('pk__talk');
-        expect($rows[4])->not->toContain('pk__room');
+        expect($rows[3])->toContain('pk__talk');
+        expect($rows[3])->toContain('pk__room');
     });
 
     it('gives the planner a plain link when no problem fits', function () {

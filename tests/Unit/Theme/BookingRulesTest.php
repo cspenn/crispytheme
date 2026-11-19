@@ -100,8 +100,8 @@ describe('booking page stylesheet', function () {
 
         expect($code)->toMatch('/html\.dark-mode:has\(body\.bp-page\),\s*\.dark-mode body\.bp-page,\s*\.dark-mode body\.bp-page \.wp-site-blocks \{\s*background-color: #0f172a;/');
         expect($code)->toMatch('/\.wp-site-blocks > footer,[^}]*\{\s*margin-block-end: 0;/');
-        // From 1700 px the quote band starts a full step lower, so the quote sits below a 1080 px first screen.
-        expect($code)->toMatch('/@media \(min-width: 1700px\) \{\s*\.hero__grid \{\s*--ans-h: 200px;\s*\}\s*\.hero__band \{\s*padding-top: var\(--sp-8\);/');
+        // From 1700 px the quote band starts a step and a half lower, so the quote sits below a 1080 px first screen even with five problem rows (governance dropped, 2026-11-13).
+        expect($code)->toMatch('/@media \(min-width: 1700px\) \{\s*\.hero__grid \{\s*--ans-h: 200px;\s*\}\s*\.hero__band \{\s*padding-top: calc\(var\(--sp-8\) \+ var\(--sp-2\)\);/');
     });
 
     it('rests dark mode on deep navy and uses the second field only for the alternate bands', function () {

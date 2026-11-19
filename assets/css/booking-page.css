@@ -1783,8 +1783,9 @@ body.bp-page .site-header .wp-block-navigation__responsive-container-open {
 		--ans-h: 200px;
 	}
 
+	/* Five problem rows (governance dropped, 2026-11-13) shorten the hero, so the band keeps its start below the 1080 px first screen. */
 	.hero__band {
-		padding-top: var(--sp-8);
+		padding-top: calc(var(--sp-8) + var(--sp-2));
 	}
 
 	.bp {
