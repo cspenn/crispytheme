@@ -42,7 +42,10 @@
         "lint:fix": "phpcbf",
         "analyze": "phpstan analyse --memory-limit=2G",
         "architecture": "deptrac",
-        "test": "pest",
+        "test": [
+            "pest --testsuite=Unit,Integration",
+            "pest --testsuite=Architecture"
+        ],
         "test:unit": "pest --group=unit",
         "test:integration": "pest --group=integration",
         "test:coverage": "pest --coverage --min=80",

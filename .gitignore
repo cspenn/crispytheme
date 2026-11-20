@@ -90,3 +90,6 @@ local-*.php
 /input/
 /docs/CSP ICP.txt
 /docs/CSP About.txt
+
+# PHPUnit and Pest cache
+/.phpunit.cache/

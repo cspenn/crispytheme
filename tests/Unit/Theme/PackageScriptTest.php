@@ -113,6 +113,8 @@ describe('release workflow', function () {
         expect($ci)->not->toContain("cache: 'npm'");
         expect($ci)->not->toContain('--fail-on-uncovered');
         expect($ci)->not->toContain('install-wp-tests');
+        expect($ci)->toContain('composer test');
+        expect((string) file_get_contents($this->root . '/phpunit.xml.dist'))->toContain('tests/Architecture');
     });
 
     it('refuses an output folder under /tmp', function () {
