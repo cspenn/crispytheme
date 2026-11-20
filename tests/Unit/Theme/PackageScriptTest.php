@@ -102,6 +102,17 @@ describe('release workflow', function () {
         expect($yaml)->not->toContain('npm ci');
     });
 
+    it('runs on PHP 8.3 or newer, because Pest 4 needs it, and assumes no lock file', function () {
+        $release = (string) file_get_contents($this->root . '/.github/workflows/release.yml');
+        $ci      = (string) file_get_contents($this->root . '/.github/workflows/ci.yml');
+
+        expect($release)->toContain("PHP_VERSION: '8.3'");
+        expect($ci)->toContain("PHP_VERSION: '8.3'");
+        expect($ci)->not->toContain("'8.1'");
+        expect($ci)->not->toContain('npm ci');
+        expect($ci)->not->toContain("cache: 'npm'");
+    });
+
     it('refuses an output folder under /tmp', function () {
         $output = shell_exec('bash ' . escapeshellarg($this->root . '/bin/package.sh') . ' --out /tmp/crispy-release-test --prebuilt /nonexistent 2>&1');
 

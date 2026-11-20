@@ -6,13 +6,16 @@ on:
       - 'v*'
 
 env:
-  PHP_VERSION: '8.1'
+  # Pest 4 (a dev dependency that Composer resolves even for --no-dev) needs PHP 8.3 or newer.
+  PHP_VERSION: '8.3'
   NODE_VERSION: '20'
 
 jobs:
   build:
     name: Build Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout code
