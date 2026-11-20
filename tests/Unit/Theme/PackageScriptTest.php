@@ -107,6 +107,7 @@ describe('release workflow', function () {
         $ci      = (string) file_get_contents($this->root . '/.github/workflows/ci.yml');
 
         expect($release)->toContain("PHP_VERSION: '8.4'");
+        expect($release)->toContain('fetch-depth: 0');
         expect($ci)->toContain("PHP_VERSION: '8.4'");
         expect($ci)->not->toContain("'8.1'");
         expect($ci)->toContain('npm ci');
