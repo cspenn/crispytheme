@@ -623,7 +623,7 @@ final class BookingPage {
 			. '<figure class="foot__pic">' . self::img( 'stages', 'Christopher Penn walks across a large stage in front of a lit screen.' ) . '</figure>'
 			. '<div class="foot__main">' . $news
 			. '<nav class="foot__nav" aria-label="Site"><a href="/blog/">Blog</a><a href="/public-speaking/">Speaking</a><a href="/newsletter/">Newsletter</a><a href="/about/">About</a><a href="/contact-me/">Contact</a></nav>'
-			. '<nav class="foot__nav" aria-label="Elsewhere"><a href="' . esc_url( SchemaFeed::SAME_AS[0] ) . '">LinkedIn</a><a href="' . esc_url( self::TRUST_INSIGHTS_URL ) . '">Trust Insights</a><a href="/feed/">RSS</a></nav>'
+			. '<nav class="foot__nav foot__nav--more" aria-label="Elsewhere"><a href="' . esc_url( SchemaFeed::SAME_AS[0] ) . '">LinkedIn</a><a href="' . esc_url( self::TRUST_INSIGHTS_URL ) . '">Trust Insights</a><a href="/feed/">RSS</a></nav>'
 			. '<p class="foot__meta">&copy; ' . esc_html( $year ) . ' Christopher S. Penn, <a href="/privacy/">Privacy</a></p>'
 			. '<p class="foot__credit">' . esc_html( self::PHOTO_CREDIT ) . '</p>'
 			. '</div></div></footer>';
