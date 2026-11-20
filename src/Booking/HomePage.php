@@ -84,15 +84,6 @@ final class HomePage {
 	}
 
 	/**
-	 * Get the address of the primary action: the form on the booking page.
-	 *
-	 * @return string
-	 */
-	public static function action_url(): string {
-		return BookingFacts::get( 'page_path' ) . '#check-my-dates';
-	}
-
-	/**
 	 * Get an option text, or the approved default when the option is blank.
 	 *
 	 * @param string $name     Option name.
@@ -129,7 +120,7 @@ final class HomePage {
 		$reel     = BookingPage::reel();
 		$sections = [
 			self::hero(),
-			Proof::reach_section( self::action_url() ),
+			Proof::reach_section( BookingFacts::form_url() ),
 			Proof::rooms_section( false ),
 			Proof::letter_section( false, false ),
 			Proof::also_section( false ),
@@ -167,7 +158,7 @@ final class HomePage {
 			. '<div class="close__body">'
 			. '<h2 id="hp-close-h" data-reveal>Bring Christopher to your stage</h2>'
 			. '<p class="close__pitch" data-reveal>' . esc_html( self::PITCH ) . '</p>'
-			. '<p data-reveal><a class="bp-btn" href="' . esc_url( self::action_url() ) . '">' . esc_html( self::ACTION ) . '</a></p>'
+			. '<p data-reveal><a class="bp-btn" href="' . esc_url( BookingFacts::form_url() ) . '">' . esc_html( self::ACTION ) . '</a></p>'
 			. '</div></div></section>';
 	}
 }

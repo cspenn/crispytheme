@@ -41,6 +41,13 @@ final class SchemaFeed {
 	];
 
 	/**
+	 * Topics that the original theme Person schema listed under knowsAbout.
+	 *
+	 * @var string[]
+	 */
+	public const TOPICS = [ 'Artificial Intelligence', 'Marketing Analytics', 'Generative AI', 'Data Science' ];
+
+	/**
 	 * Pages that llms.txt lists, as paths. The plugin resolves the titles at run time.
 	 *
 	 * @var string[]
@@ -68,7 +75,8 @@ final class SchemaFeed {
 
 		$profile['organization_name'] = trim( (string) get_option( 'crispytheme_schema_org_name', self::ENTITY_NAME ) );
 		$profile['person']            = $this->person();
-		$profile['booking_url']       = home_url( $path . '#check-my-dates' );
+		$profile['booking_url']       = home_url( $path . BookingFacts::FORM_ANCHOR );
+		$profile['booking_email']     = function_exists( 'crispytheme_get_schema_setting' ) ? crispytheme_get_schema_setting( 'booking_email' ) : '';
 		$profile['summary']           = $this->summary();
 		$profile['levels']            = $this->levels();
 		$profile['key_pages']         = array_merge( [ $path ], self::KEY_PAGES );
@@ -126,9 +134,15 @@ final class SchemaFeed {
 		return [
 			'name'        => (string) get_option( 'crispytheme_schema_person_name', 'Christopher S. Penn' ),
 			'job_title'   => (string) get_option( 'crispytheme_schema_person_job_title', 'AI builder and keynote speaker' ),
+			'description' => function_exists( 'crispytheme_get_schema_setting' ) ? crispytheme_get_schema_setting( 'person_description' ) : '',
 			'image'       => $image,
 			'same_as'     => $this->same_as(),
-			'knows_about' => array_merge( [ BookingPage::LEAD_TALK ], BookingPage::ALTERNATE_TALKS ),
+			// The topics of the original theme schema, then the talks.
+			'knows_about' => array_merge( self::TOPICS, [ BookingPage::LEAD_TALK ], BookingPage::ALTERNATE_TALKS ),
+			'affiliation' => [
+				'name' => 'Trust Insights',
+				'url'  => BookingPage::TRUST_INSIGHTS_URL,
+			],
 			'credentials' => [
 				[
 					'name'        => 'IBM Champion',

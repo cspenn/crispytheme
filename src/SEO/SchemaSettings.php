@@ -113,7 +113,7 @@ class SchemaSettings {
 	 * @return string Absolute booking URL.
 	 */
 	public function get_booking_url(): string {
-		$path = (string) get_option( 'crispytheme_booking_url', '/contact-me/' );
+		$path = function_exists( 'crispytheme_get_booking_url' ) ? crispytheme_get_booking_url() : (string) get_option( 'crispytheme_booking_url', '/contact-me/' );
 
 		if ( 1 === preg_match( '#^https?://#i', $path ) ) {
 			return $path;

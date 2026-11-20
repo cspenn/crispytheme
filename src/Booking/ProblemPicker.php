@@ -156,7 +156,7 @@ final class ProblemPicker {
 			$query['topic'] = $topic;
 		}
 
-		return BookingFacts::get( 'page_path' ) . '?' . http_build_query( $query, '', '&', PHP_QUERY_RFC3986 ) . '#check-my-dates';
+		return BookingFacts::get( 'page_path' ) . '?' . http_build_query( $query, '', '&', PHP_QUERY_RFC3986 ) . BookingFacts::FORM_ANCHOR;
 	}
 
 	/**
@@ -242,7 +242,7 @@ final class ProblemPicker {
 				. '</li>';
 		}
 
-		return '<form class="pk" method="get" action="' . esc_url( BookingFacts::get( 'page_path' ) . '#check-my-dates' ) . '" data-bp-picker>'
+		return '<form class="pk" method="get" action="' . esc_url( BookingFacts::form_url() ) . '" data-bp-picker>'
 			. '<fieldset class="pk__set"><legend class="pk__legend"><h2 id="pk-q">' . esc_html( self::QUESTION ) . '</h2></legend>'
 			. '<ol class="pk__list" role="list">' . $items . '</ol>'
 			. ( '' !== $after_list ? '<p class="pk__other">' . $after_list . '</p>' : '' )

@@ -54,9 +54,10 @@ describe('crispytheme_get_booking_url', function () {
         expect(crispytheme_get_booking_url())->toBe('/book-christopher/');
     });
 
-    it('falls back to /contact-me/ when the option is blank', function () {
+    it('falls back to the one booking form address when the option is blank', function () {
         Functions\when('get_option')->justReturn('   ');
-        expect(crispytheme_get_booking_url())->toBe('/contact-me/');
+        expect(crispytheme_get_booking_url())->toBe(\CrispyTheme\Booking\BookingFacts::form_url());
+        expect(crispytheme_get_booking_url())->toBe('/public-speaking/#check-my-dates');
     });
 });
 

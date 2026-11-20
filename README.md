@@ -9,7 +9,18 @@ A high-performance, **Markdown-first WordPress block theme** with a **booking-fi
 
 ---
 
-## What's new in v2.0
+## What's new in v2.1
+
+v2.1 makes the booking page and the home page one system, built around the question "What is your audience's main problem?". The full list is in [`CHANGELOG.md`](CHANGELOG.md).
+
+- **One booking page** (`/public-speaking/`) with one form (Gravity Form 5), the five problems, and one booking address for every button (`BookingFacts::form_url()`).
+- **One home page** (`crispytheme/home-page`), printed by `templates/front-page.html`: the problem list, reach, recent rooms, the LPA letter, the talk, the newsletter, and the footer.
+- **Facts in one place**: fees, terms, counts, and the reel are Theme Options under "Booking Page Facts", with defaults in `src/Booking/BookingFacts.php`.
+- **The demo reel** plays from a YouTube link or an MP4 file, in a dialog that loads nothing until a visitor presses the button.
+- **Schema** is built by the CrispySEO plugin (1.1.0 and later) from the speaker profile that the theme supplies. The theme prints its own blocks only when the plugin lacks that graph.
+- **Fixes since v2.0**: the dark-mode choice survives a reload, the layout width options work, phones do not scroll sideways, and releases build from `bin/package.sh`.
+
+## What was new in v2.0
 
 v2 converts the homepage from a content-discovery layout into a **booking-first conversion surface** (for event planners / enterprise buyers), per the TrustInsights conversion strategy in [`input/`](input/).
 
@@ -136,7 +147,7 @@ cd output/crispytheme-v1 && composer install --no-dev && npm ci && npm run build
 # zip the directory as "crispytheme" (v1's Theme Name is "CrispyTheme")
 ```
 
-> Tip: tag the release commits so rollback is trivial — `git tag v1.1.0 e7d486f` and `git tag v2.0.0 HEAD`.
+> Releases are tagged `vX.Y.Z` on `main`. Pushing a tag builds the release zip with `bin/package.sh` (see `.github/workflows/release.yml`).
 
 ---
 
@@ -146,7 +157,7 @@ All runtime content is editable under **Appearance → Theme Options** (no code 
 
 | Section | What it controls |
 |---|---|
-| **Homepage Settings** | Hero image, eyebrow, headline, subheadline; the optional events, countries, and satisfaction stats (all blank by default until a sourced value exists); demo-reel video (Vimeo preferred), heading, description; up to 6 client logos |
+| **Homepage Settings** | Hero image, eyebrow, headline, subheadline; the optional events, countries, and satisfaction stats (all blank by default until a sourced value exists); the older demo-reel showcase and up to 6 client logos (these feed the older home patterns, which the front page no longer uses) |
 | **Booking & Conversion CTAs** | `crispytheme_booking_url` (where every “Book Christopher” CTA points — set to `/public-speaking/#check-my-dates` for the booking page; defaults to `/contact-me/`); hero CTA labels; the newsletter subscriber count shown in the metrics badge |
 | **Social Proof** | PostEventScore value/count/source and the planner testimonial (quote, name, title, organization, event + year, optional video). **Blank = hidden** — these blocks never render placeholder or unverified data |
 | **SEO / Schema (JSON-LD)** | Person (name, headshot, job title, description, `sameAs` URLs), Organization (name, logo, booking email), and the demo-reel VideoObject (URL, name, description, thumbnail, upload date, ISO-8601 duration). Blank fields are omitted from output |
@@ -158,16 +169,9 @@ The booking form itself (a `/book-christopher` page with a pre-qualified form) i
 
 ## Homepage structure
 
-The front page (`templates/front-page.html`) assembles these block patterns (all in `block-patterns/`):
+The front page (`templates/front-page.html`) prints one block, `crispytheme/home-page` (`src/Booking/HomePage.php`). Its sections, in order: the audience's main problem and the booking button; reach; recent rooms; the LPA letter; also spoken at; the talk (The Five Levels of AI Enablement); the close; the newsletter and the footer with Blog, Speaking, Newsletter, About, Contact, LinkedIn, Trust Insights, and RSS links.
 
-1. `crispytheme/homepage-hero` — split hero + dual CTA
-2. `crispytheme/homepage-clients` — monochrome logo marquee (reduced-motion-safe)
-3. `crispytheme/newsletter-hero` — newsletter opt-in (pulled high)
-4. `crispytheme/metrics-badge` — subscriber reach + IBM Champion / 8× Author
-5. `crispytheme/homepage-booking` — dominant booking CTA + subordinate 3-ICP row
-6. `crispytheme/homepage-video-showcase` — Vimeo/YouTube demo reel (renders when a URL is set)
-7. `crispytheme/posteventscore` + `crispytheme/homepage-testimonial` — social proof (render when configured)
-8. `crispytheme/booking-cta` — closing booking band
+The older patterns in `block-patterns/` (`homepage-hero`, `homepage-clients`, `homepage-booking`, `homepage-video-showcase`, `metrics-badge`, `speaking-stats`) stay registered and available in the editor. The front page does not use them.
 
 ---
 

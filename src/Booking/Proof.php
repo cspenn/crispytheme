@@ -129,15 +129,6 @@ final class Proof {
 	}
 
 	/**
-	 * Address of the form on the booking page, for the quiet text links that close a section.
-	 *
-	 * @return string
-	 */
-	private static function form_url(): string {
-		return BookingFacts::get( 'page_path' ) . '#check-my-dates';
-	}
-
-	/**
 	 * The reach line: newsletter and LinkedIn, each with the month of the count. Podcast, website, and
 	 * YouTube figures stay off the site because their dates are unverified.
 	 *
@@ -223,7 +214,7 @@ final class Proof {
 			. '<div class="bp-in rooms__in">'
 			. '<div class="rooms__side"><h2 id="bp-rooms-h" data-reveal>Recent rooms</h2>'
 			. '<p class="rooms__lead" data-reveal>' . esc_html( $first_person ? "Rooms where I spoke, newest first. $word booked me again." : "Rooms where Christopher spoke, newest first. $word booked him again." ) . '</p>'
-			. '<p class="rooms__act" data-reveal><a class="bp-link" href="' . esc_url( self::form_url() ) . '">Check my dates</a></p>'
+			. '<p class="rooms__act" data-reveal><a class="bp-link" href="' . esc_url( BookingFacts::form_url() ) . '">Check my dates</a></p>'
 			. '</div>'
 			. self::reel_frame()
 			. '<ol class="rooms__list" role="list">' . $rows . '</ol>'
@@ -280,7 +271,7 @@ final class Proof {
 			. '<p class="also__cred" data-reveal>' . esc_html( $cred ) . '</p>'
 			. '<details class="bp-fold also__fold" data-wide-open open data-reveal><summary>' . esc_html( $first_person ? 'Teams I have worked with' : 'Teams Christopher has worked with' ) . '</summary>'
 			. '<ul class="also__teams" role="list">' . $teams . '</ul></details>'
-			. '<p class="also__act" data-reveal><a class="bp-link" href="' . esc_url( self::form_url() ) . '">Check my dates</a></p>'
+			. '<p class="also__act" data-reveal><a class="bp-link" href="' . esc_url( BookingFacts::form_url() ) . '">Check my dates</a></p>'
 			. '</div></div></section>';
 	}
 

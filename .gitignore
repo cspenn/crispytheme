@@ -85,3 +85,8 @@ local-*.php
 # Captured copies of the live site (hold third-party key strings). Kept on disk, never tracked (Penn, 2026-11-19).
 /input/livehtml.htm
 /input/www.christopherspenn.com.har
+
+# Personal photographs and internal research: never published (Penn, 2026-11-20). The repo is public.
+/input/
+/docs/CSP ICP.txt
+/docs/CSP About.txt

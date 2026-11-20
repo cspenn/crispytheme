@@ -64,11 +64,12 @@ describe('SchemaGraph', function () {
             expect($captured)->toBe([]);
         });
 
-        it('reads the plugin version constant to decide who owns the schema', function () {
+        it('reads the plugin schema graph constant, not the version constant, to decide who owns the schema', function () {
             $graph  = new SchemaGraph();
             $method = new ReflectionMethod($graph, 'plugin_owns_schema');
 
-            expect($method->invoke($graph))->toBe(defined('CRISPY_SEO_VERSION'));
+            expect($method->invoke($graph))->toBe(defined('CRISPY_SEO_SCHEMA_GRAPH'));
+            expect(file_get_contents(dirname(__DIR__, 3) . '/src/SEO/SchemaGraph.php'))->not->toContain("defined( 'CRISPY_SEO_VERSION' )");
         });
 
         it('registers a wp_head action with priority 5', function () {

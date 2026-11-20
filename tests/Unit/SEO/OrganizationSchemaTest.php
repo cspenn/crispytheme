@@ -60,7 +60,7 @@ describe('OrganizationSchema', function () {
         expect($result)->not->toBeNull();
         expect($result['contactPoint']['@type'])->toBe('ContactPoint');
         expect($result['contactPoint']['contactType'])->toBe('Booking Inquiry');
-        expect($result['contactPoint']['url'])->toBe('https://example.com/contact-me/');
+        expect($result['contactPoint']['url'])->toBe('https://example.com/public-speaking/#check-my-dates');
     });
 
     it('resolves relative booking path to absolute URL in contactPoint', function () {

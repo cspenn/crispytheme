@@ -88,6 +88,21 @@ final class BookingFacts {
 	}
 
 	/**
+	 * Anchor of the booking form on the booking page. Every link to the form ends with it.
+	 */
+	public const FORM_ANCHOR = '#check-my-dates';
+
+	/**
+	 * Get the one address of the booking form: the booking page path and the form anchor. The header button,
+	 * the home buttons, the booking buttons, and the schema all use it, so the site has one booking destination.
+	 *
+	 * @return string
+	 */
+	public static function form_url(): string {
+		return self::get( 'page_path' ) . self::FORM_ANCHOR;
+	}
+
+	/**
 	 * Get a fact. A blank option falls back to the default, except for the optional reel fields.
 	 *
 	 * @param string $key Fact key.

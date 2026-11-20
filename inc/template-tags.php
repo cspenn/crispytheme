@@ -97,8 +97,25 @@ if ( ! function_exists( 'crispytheme_get_booking_url' ) ) {
 	 * @return string The booking URL.
 	 */
 	function crispytheme_get_booking_url(): string {
-		$url = (string) get_option( 'crispytheme_booking_url', '/contact-me/' );
+		// The default is the booking form: the one destination of the site (BookingFacts::form_url()).
+		$default = class_exists( '\CrispyTheme\Booking\BookingFacts' ) ? \CrispyTheme\Booking\BookingFacts::form_url() : '/contact-me/';
+		$url     = (string) get_option( 'crispytheme_booking_url', $default );
 
-		return '' !== trim( $url ) ? $url : '/contact-me/';
+		return '' !== trim( $url ) ? $url : $default;
+	}
+}
+
+if ( ! function_exists( 'crispytheme_get_schema_setting' ) ) {
+	/**
+	 * Get one schema fact from the Theme Options, with its default. The booking feed uses it so that it
+	 * does not depend on the SEO layer. Keys: person_description, booking_email.
+	 *
+	 * @param string $key Fact key.
+	 * @return string
+	 */
+	function crispytheme_get_schema_setting( string $key ): string {
+		$settings = new \CrispyTheme\SEO\SchemaSettings();
+
+		return 'booking_email' === $key ? $settings->get_booking_email() : $settings->get_person_description();
 	}
 }

@@ -259,6 +259,36 @@ describe('HomePage newsletter and footer', function () {
     });
 });
 
+describe('HomePage footer links and the one booking address', function () {
+    it('keeps the links of the original footer: Blog, LinkedIn, Trust Insights, and RSS, and the privacy page', function () {
+        $html = crispyHomeRender();
+
+        foreach (['href="/blog/"', 'href="https://www.linkedin.com/in/christopherspenn/"', 'href="https://www.trustinsights.ai"', 'href="/feed/"', 'href="/privacy/"'] as $link) {
+            expect($html)->toContain($link);
+        }
+        expect($html)->not->toContain('/terms');
+        expect($html)->not->toContain('/privacy-policy');
+    });
+
+    it('builds the booking form address in one place', function () {
+        crispyHomeRender(); // sets the option stubs
+        expect(BookingFacts::form_url())->toBe('/public-speaking/#check-my-dates');
+
+        foreach (glob(dirname(__DIR__, 3) . '/src/Booking/*.php') as $file) {
+            if (basename($file) === 'BookingFacts.php') {
+                continue;
+            }
+            expect(file_get_contents($file))->not->toMatch("/page_path'\\s*\\)\\s*\\.\\s*'#check-my-dates'/", basename($file));
+        }
+    });
+
+    it('points the home buttons at the one booking form address', function () {
+        $html = crispyHomeRender();
+
+        expect($html)->toContain('href="' . BookingFacts::form_url() . '"');
+    });
+});
+
 describe('HomePage structure and removed content', function () {
     it('gives every section a heading and uses the home root class so the booking script runs', function () {
         $html = crispyHomeRender();

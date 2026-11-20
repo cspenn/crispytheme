@@ -947,6 +947,7 @@ class OptionsPage {
 	 */
 	public function render_homepage_section(): void {
 		echo '<p>' . esc_html__( 'Configure the homepage hero, stats, and trust signals.', 'crispy-theme' ) . '</p>';
+		echo '<p><strong>' . esc_html__( 'The front page now prints the booking home page (headline and subheadline only). The hero image, eyebrow, button labels, video showcase, and client logo fields below feed the older home patterns, which the front page no longer uses. The demo reel is set under Booking Page Facts.', 'crispy-theme' ) . '</strong></p>';
 	}
 
 	/**
@@ -1459,6 +1460,7 @@ class OptionsPage {
 	 */
 	public function render_social_proof_section(): void {
 		echo '<p>' . esc_html__( 'PostEventScore and a planner testimonial. Leave fields blank to hide a block — publish only verified figures and complete testimonials.', 'crispy-theme' ) . '</p>';
+		echo '<p><strong>' . esc_html__( 'The front page no longer reads these fields. They feed the older patterns only.', 'crispy-theme' ) . '</strong></p>';
 	}
 
 	/**

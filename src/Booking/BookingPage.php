@@ -242,6 +242,11 @@ final class BookingPage {
 	}
 
 	/**
+	 * Trust Insights, the company site. The footer links to it, as the original footer part did.
+	 */
+	public const TRUST_INSIGHTS_URL = 'https://www.trustinsights.ai';
+
+	/**
 	 * Write the reel dialog and its control.
 	 *
 	 * @return array{button: string, dialog: string}
@@ -617,8 +622,9 @@ final class BookingPage {
 		return '<footer class="bp foot bp-alt"><div class="bp-in foot__in">'
 			. '<figure class="foot__pic">' . self::img( 'stages', 'Christopher Penn walks across a large stage in front of a lit screen.' ) . '</figure>'
 			. '<div class="foot__main">' . $news
-			. '<nav class="foot__nav" aria-label="Site"><a href="/public-speaking/">Speaking</a><a href="/newsletter/">Newsletter</a><a href="/about/">About</a><a href="/contact-me/">Contact</a></nav>'
-			. '<p class="foot__meta">' . esc_html( $year ) . ', <a href="/privacy/">Privacy</a></p>'
+			. '<nav class="foot__nav" aria-label="Site"><a href="/blog/">Blog</a><a href="/public-speaking/">Speaking</a><a href="/newsletter/">Newsletter</a><a href="/about/">About</a><a href="/contact-me/">Contact</a></nav>'
+			. '<nav class="foot__nav" aria-label="Elsewhere"><a href="' . esc_url( SchemaFeed::SAME_AS[0] ) . '">LinkedIn</a><a href="' . esc_url( self::TRUST_INSIGHTS_URL ) . '">Trust Insights</a><a href="/feed/">RSS</a></nav>'
+			. '<p class="foot__meta">&copy; ' . esc_html( $year ) . ' Christopher S. Penn, <a href="/privacy/">Privacy</a></p>'
 			. '<p class="foot__credit">' . esc_html( self::PHOTO_CREDIT ) . '</p>'
 			. '</div></div></footer>';
 	}

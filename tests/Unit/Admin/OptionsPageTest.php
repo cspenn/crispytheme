@@ -534,6 +534,7 @@ describe('OptionsPage', function () {
             (new OptionsPage())->render_homepage_section();
             $output = ob_get_clean();
             expect($output)->toContain('<p>');
+            expect($output)->toContain('no longer uses');
         });
 
         it('render_conversion_section outputs conversion description', function () {

@@ -97,7 +97,7 @@ The theme must support both **content consumption** (reading, discovering, engag
 
 Every template and pattern should serve one of the three Ideal Customer Profiles:
 - **ICP A (Event Planners)**: Need to quickly validate Penn as a "safe hands" speaker
-- **ICP B (Enterprise Leaders)**: Need trust signals and governance-focused methodology proof
+- **ICP B (Enterprise Leaders)**: Need trust signals and proof of the method
 - **ICP C (Technical Practitioners)**: Need code, dark mode, and "proud nerd" signals
 
 On the homepage (resolved 2026-06-19), ICP routing is a **subordinate row beneath the dominant booking CTA** — not four equal cards — so booking stays the single dominant action while still routing all three ICPs.
@@ -124,7 +124,7 @@ Show the work. The theme should enable:
 
 ### 7. Newsletter as Flywheel
 
-The Almost Timely Newsletter (294k+ subscribers) is the critical top-of-funnel. Newsletter signup must be:
+The Almost Timely Newsletter (about 292K subscribers, October 2026; the count is a Theme Option) is the critical top-of-funnel. Newsletter signup must be:
 - Prominent in sidebar
 - Available as patterns (inline, hero)
 - Integrated throughout conversion paths

@@ -77,12 +77,14 @@ class SchemaGraph {
 	}
 
 	/**
-	 * Tell if the CrispySEO plugin prints the schema. The plugin then owns every JSON-LD block.
+	 * Tell if the CrispySEO plugin prints the schema. The plugin then owns every JSON-LD block. The check is for the
+	 * constant that plugin 1.1.0 and later define. An older plugin (1.0.5) has a version constant but builds no
+	 * graph from the theme profile, so the theme keeps printing its own blocks until the plugin is updated.
 	 *
 	 * @return bool
 	 */
 	protected function plugin_owns_schema(): bool {
-		return defined( 'CRISPY_SEO_VERSION' );
+		return defined( 'CRISPY_SEO_SCHEMA_GRAPH' );
 	}
 
 	/**
