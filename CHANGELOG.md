@@ -17,6 +17,8 @@ Changed
 - The hero eyebrow defaults to empty. The unsourced events, countries, and satisfaction stats default to empty.
 - The default booking address is the booking form, not `/contact-me/`.
 - The problem list has five problems; governance is not a talk topic (Penn, 2026-11-13).
+- Build and CI: `composer.lock` and `package-lock.json` are tracked, so CI, a laptop, and the release build install the same versions. The workflows run on PHP 8.4 (the locked Symfony 8 packages need it, and production runs it). A tracked `phpunit.xml.dist` lists the Unit, Integration, and Architecture suites; `composer test` runs Unit and Integration, then Architecture as a second command. The release job fetches the full history for its changelog step.
+- Dev tools updated for security advisories (Pest 4.7, PHPUnit, PHP_CodeSniffer, WPCS, Symfony Process). None ships in the release zip.
 
 Removed
 - The "View Speaker Bureau" button on the booking band.
