@@ -1211,9 +1211,20 @@ describe('OptionsPage::sanitize_number', function () {
         expect(OptionsPage::sanitize_number('25000'))->toBe('25000');
     });
 
-    it('saves a typed zero as zero and drops letters', function () {
+    it('saves a typed zero as zero', function () {
         expect(OptionsPage::sanitize_number('0'))->toBe('0');
-        expect(OptionsPage::sanitize_number('$25k'))->toBe('25');
+    });
+
+    it('drops a dollar sign, spaces, and the fraction, and never moves the decimal point', function () {
+        expect(OptionsPage::sanitize_number('$25,000'))->toBe('25000');
+        expect(OptionsPage::sanitize_number('25000.00'))->toBe('25000');
+        expect(OptionsPage::sanitize_number('33.5'))->toBe('33');
+        expect(OptionsPage::sanitize_number(' 30 '))->toBe('30');
+    });
+
+    it('treats text that is not a number as blank, so the default returns', function () {
+        expect(OptionsPage::sanitize_number('$25k'))->toBe('');
+        expect(OptionsPage::sanitize_number('abc'))->toBe('');
     });
 });
 

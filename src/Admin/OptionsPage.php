@@ -1471,16 +1471,21 @@ class OptionsPage {
 	}
 
 	/**
-	 * Sanitize a whole-number field. A blank field stays blank, so the default comes back. Other text
-	 * keeps its digits only, so "49,269" saves as 49269 and not as 49.
+	 * Sanitize a whole-number field. A blank or non-numeric field stays blank, so the default comes back.
+	 * Commas, spaces, and a dollar sign are dropped, so "$25,000" saves as 25000 and "49,269" as 49269.
+	 * A decimal point is kept, then the fraction is dropped, so "25000.00" saves as 25000 (not 2500000).
 	 *
 	 * @param mixed $value Submitted value.
 	 * @return string
 	 */
 	public static function sanitize_number( $value ): string {
-		$digits = preg_replace( '/\D+/', '', (string) $value );
+		$clean = str_replace( [ ',', ' ', '$' ], '', trim( (string) $value ) );
 
-		return '' === $digits ? '' : (string) absint( $digits );
+		if ( '' === $clean || ! is_numeric( $clean ) ) {
+			return '';
+		}
+
+		return (string) absint( (int) floor( (float) $clean ) );
 	}
 
 	/**
