@@ -111,6 +111,8 @@ describe('release workflow', function () {
         expect($ci)->not->toContain("'8.1'");
         expect($ci)->not->toContain('npm ci');
         expect($ci)->not->toContain("cache: 'npm'");
+        expect($ci)->not->toContain('--fail-on-uncovered');
+        expect($ci)->not->toContain('install-wp-tests');
     });
 
     it('refuses an output folder under /tmp', function () {

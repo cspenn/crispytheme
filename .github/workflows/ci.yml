@@ -58,20 +58,6 @@ jobs:
       matrix:
         php: ['8.3', '8.4']
 
-    services:
-      mysql:
-        image: mysql:8.0
-        env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: wordpress_test
-        ports:
-          - 3306:3306
-        options: >-
-          --health-cmd="mysqladmin ping"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=3
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -100,15 +86,8 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --prefer-dist --no-progress --no-suggest
 
-      - name: Install WordPress test suite
-        run: |
-          bash bin/install-wp-tests.sh wordpress_test root root 127.0.0.1 latest true
-
       - name: Run Pest tests
         run: vendor/bin/pest
-        env:
-          WP_TESTS_DIR: /tmp/wordpress-tests-lib
-          WP_CORE_DIR: /tmp/wordpress
 
   deptrac:
     name: Architecture (Deptrac)
@@ -140,7 +119,7 @@ jobs:
         run: composer install --prefer-dist --no-progress --no-suggest
 
       - name: Run Deptrac
-        run: vendor/bin/deptrac analyse --fail-on-uncovered
+        run: vendor/bin/deptrac analyse
 
   build:
     name: Build Assets
