@@ -6,8 +6,8 @@ on:
       - 'v*'
 
 env:
-  # Pest 4 (a dev dependency that Composer resolves even for --no-dev) needs PHP 8.3 or newer.
-  PHP_VERSION: '8.3'
+  # The locked packages (Symfony 8) need PHP 8.4 or newer, which is what production runs.
+  PHP_VERSION: '8.4'
   NODE_VERSION: '20'
 
 jobs:

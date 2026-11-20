@@ -7,8 +7,8 @@ on:
     branches: [main, develop]
 
 env:
-  # Pest 4 needs PHP 8.3 or newer. composer.lock and package-lock.json are tracked, so CI uses the same versions as a laptop.
-  PHP_VERSION: '8.3'
+  # The locked packages (Symfony 8) need PHP 8.4 or newer, which is what production runs. composer.lock and package-lock.json are tracked, so CI uses the same versions as a laptop.
+  PHP_VERSION: '8.4'
   NODE_VERSION: '20'
 
 jobs:
@@ -56,7 +56,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ['8.3', '8.4']
+        php: ['8.4']
 
     steps:
       - name: Checkout code
@@ -164,7 +164,7 @@ jobs:
           tools: composer:v2
 
       - name: Audit Composer dependencies
-        run: composer audit
+        run: composer audit --locked
 
       - name: Setup Node.js
         uses: actions/setup-node@v4

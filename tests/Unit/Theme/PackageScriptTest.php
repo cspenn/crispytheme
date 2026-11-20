@@ -102,12 +102,12 @@ describe('release workflow', function () {
         expect($yaml)->not->toContain('npm ci');
     });
 
-    it('runs on PHP 8.3 or newer, because Pest 4 needs it, and installs from the tracked lock files', function () {
+    it('runs on PHP 8.4, because the locked packages need it, and installs from the tracked lock files', function () {
         $release = (string) file_get_contents($this->root . '/.github/workflows/release.yml');
         $ci      = (string) file_get_contents($this->root . '/.github/workflows/ci.yml');
 
-        expect($release)->toContain("PHP_VERSION: '8.3'");
-        expect($ci)->toContain("PHP_VERSION: '8.3'");
+        expect($release)->toContain("PHP_VERSION: '8.4'");
+        expect($ci)->toContain("PHP_VERSION: '8.4'");
         expect($ci)->not->toContain("'8.1'");
         expect($ci)->toContain('npm ci');
         expect($ci)->not->toContain('--fail-on-uncovered');
