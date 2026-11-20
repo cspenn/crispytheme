@@ -7,7 +7,7 @@ on:
     branches: [main, develop]
 
 env:
-  # Pest 4 needs PHP 8.3 or newer. The lock files are git-ignored, so Composer and npm resolve fresh.
+  # Pest 4 needs PHP 8.3 or newer. composer.lock and package-lock.json are tracked, so CI uses the same versions as a laptop.
   PHP_VERSION: '8.3'
   NODE_VERSION: '20'
 
@@ -133,9 +133,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
 
       - name: Install npm dependencies
-        run: npm install --no-audit --no-fund
+        run: npm ci
 
       - name: Build assets
         run: npm run build
@@ -161,9 +162,6 @@ jobs:
         with:
           php-version: ${{ env.PHP_VERSION }}
           tools: composer:v2
-
-      - name: Install Composer dependencies
-        run: composer install --prefer-dist --no-progress
 
       - name: Audit Composer dependencies
         run: composer audit

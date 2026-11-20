@@ -17,11 +17,7 @@
 # opencode local tool state
 /.opencode/
 
-# Composer
-composer.lock
-
-# npm
-package-lock.json
+# Composer and npm lock files are tracked: CI and every laptop resolve the same dependency versions.
 
 # IDE and editors
 .idea/

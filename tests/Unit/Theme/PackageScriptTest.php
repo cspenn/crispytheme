@@ -102,18 +102,20 @@ describe('release workflow', function () {
         expect($yaml)->not->toContain('npm ci');
     });
 
-    it('runs on PHP 8.3 or newer, because Pest 4 needs it, and assumes no lock file', function () {
+    it('runs on PHP 8.3 or newer, because Pest 4 needs it, and installs from the tracked lock files', function () {
         $release = (string) file_get_contents($this->root . '/.github/workflows/release.yml');
         $ci      = (string) file_get_contents($this->root . '/.github/workflows/ci.yml');
 
         expect($release)->toContain("PHP_VERSION: '8.3'");
         expect($ci)->toContain("PHP_VERSION: '8.3'");
         expect($ci)->not->toContain("'8.1'");
-        expect($ci)->not->toContain('npm ci');
-        expect($ci)->not->toContain("cache: 'npm'");
+        expect($ci)->toContain('npm ci');
         expect($ci)->not->toContain('--fail-on-uncovered');
         expect($ci)->not->toContain('install-wp-tests');
         expect($ci)->toContain('composer test');
+        expect(is_file($this->root . '/composer.lock'))->toBeTrue();
+        expect(is_file($this->root . '/package-lock.json'))->toBeTrue();
+        expect((string) file_get_contents($this->root . '/.gitignore'))->not->toMatch('/^(composer\\.lock|package-lock\\.json)$/m');
         expect((string) file_get_contents($this->root . '/phpunit.xml.dist'))->toContain('tests/Architecture');
     });
 
