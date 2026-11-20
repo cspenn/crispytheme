@@ -328,6 +328,25 @@ describe('BookingPage reads Theme Options', function () {
         expect($html)->toContain('poster="https://example.com/poster.jpg"');
     });
 
+    it('plays a YouTube reel in a lazy no-cookie frame, with no video element and no YouTube request before the dialog opens', function () {
+        $html = crispyBookingRender(['reel_url' => 'https://www.youtube.com/watch?v=w7uxV3PjGXA']);
+
+        expect($html)->toContain('Play the reel');
+        expect($html)->toContain('data-src="https://www.youtube-nocookie.com/embed/w7uxV3PjGXA?rel=0');
+        expect($html)->not->toContain('<iframe title="Demo reel" src=');
+        expect($html)->not->toContain('<video controls');
+    });
+
+    it('reads the video id of YouTube watch, short, and embed links only', function () {
+        expect(BookingPage::youtube_id('https://www.youtube.com/watch?v=w7uxV3PjGXA'))->toBe('w7uxV3PjGXA');
+        expect(BookingPage::youtube_id('https://www.youtube.com/watch?feature=share&v=w7uxV3PjGXA'))->toBe('w7uxV3PjGXA');
+        expect(BookingPage::youtube_id('https://youtu.be/w7uxV3PjGXA'))->toBe('w7uxV3PjGXA');
+        expect(BookingPage::youtube_id('https://www.youtube.com/embed/w7uxV3PjGXA'))->toBe('w7uxV3PjGXA');
+        expect(BookingPage::youtube_id('https://example.com/reel.mp4'))->toBe('');
+        expect(BookingPage::youtube_id('https://evil.example/https://www.youtube.com/watch?v=w7uxV3PjGXA'))->toBe('');
+        expect(BookingPage::youtube_id('https://www.youtube.com/watch?v=w7uxV3PjGXAextra'))->toBe('');
+    });
+
     it('moves the topic links when the page path option changes', function () {
         $html = crispyBookingRender(['page_path' => '/book/']);
 

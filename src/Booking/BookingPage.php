@@ -257,13 +257,38 @@ final class BookingPage {
 		}
 
 		$poster = BookingFacts::get( 'reel_poster' );
+		$id     = self::youtube_id( $url );
+		// A YouTube reel loads only when the dialog opens (the script sets src from data-src), so the page loads no YouTube code.
+		$media = '' !== $id
+			? '<iframe title="Demo reel" data-src="' . esc_url( self::youtube_embed( $id ) . '?rel=0&modestbranding=1&autoplay=1' ) . '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>'
+			: '<video controls preload="none" playsinline'
+				. ( '' !== $poster ? ' poster="' . esc_url( $poster ) . '"' : '' )
+				. ' src="' . esc_url( $url ) . '"></video>';
 
 		return [
 			'button' => '<button type="button" class="bp-link bp-reel-open" data-reel-open>Play the reel</button>',
-			'dialog' => '<dialog class="bp-reel" aria-label="Demo reel"><video controls preload="none" playsinline'
-				. ( '' !== $poster ? ' poster="' . esc_url( $poster ) . '"' : '' )
-				. ' src="' . esc_url( $url ) . '"></video><button type="button" class="bp-btn" data-reel-close>Close</button></dialog>',
+			'dialog' => '<dialog class="bp-reel" aria-label="Demo reel">' . $media . '<button type="button" class="bp-btn" data-reel-close>Close</button></dialog>',
 		];
+	}
+
+	/**
+	 * Get the video id of a YouTube watch, short, or embed link.
+	 *
+	 * @param string $url Reel URL.
+	 * @return string The 11-character id, or an empty string for any other URL.
+	 */
+	public static function youtube_id( string $url ): string {
+		return 1 === preg_match( '#^https?://(?:www\.|m\.)?(?:youtube\.com/(?:watch\?(?:[^\s]*&)?v=|embed/|shorts/)|youtu\.be/)([A-Za-z0-9_-]{11})(?![A-Za-z0-9_-])#', $url, $m ) ? $m[1] : '';
+	}
+
+	/**
+	 * Get the privacy-friendly embed address of a YouTube video.
+	 *
+	 * @param string $id Video id.
+	 * @return string
+	 */
+	public static function youtube_embed( string $id ): string {
+		return 'https://www.youtube-nocookie.com/embed/' . $id;
 	}
 
 	/**

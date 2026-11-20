@@ -142,6 +142,14 @@ describe('SchemaFeed', function () {
         expect((new SchemaFeed())->profile([])['video']['content_url'])->toBe('https://example.com/reel.mp4');
     });
 
+    it('gives a YouTube reel an embed URL and no content URL', function () {
+        crispyFeedSetup([BookingFacts::option_name('reel_url') => 'https://www.youtube.com/watch?v=w7uxV3PjGXA']);
+        $video = (new SchemaFeed())->profile([])['video'];
+
+        expect($video['content_url'])->toBe('');
+        expect($video['embed_url'])->toBe('https://www.youtube-nocookie.com/embed/w7uxV3PjGXA');
+    });
+
     it('reads the reel upload date from the option first, then from the Media Library item', function () {
         $reel = BookingFacts::option_name('reel_url');
 

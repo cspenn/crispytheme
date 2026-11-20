@@ -1720,6 +1720,13 @@ body.bp-page .site-header .wp-block-navigation__responsive-container-open {
 	height: auto;
 }
 
+.bp-reel iframe {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	border: 0;
+}
+
 .bp-reel .bp-btn {
 	margin: 12px;
 }

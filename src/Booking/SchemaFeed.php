@@ -197,10 +197,13 @@ final class SchemaFeed {
 			return [];
 		}
 
+		$id = BookingPage::youtube_id( $url );
+
 		return [
 			'name'        => (string) get_option( 'crispytheme_schema_video_name', 'Christopher Penn AI Keynote Demo Reel' ),
 			'description' => (string) get_option( 'crispytheme_schema_video_description', '' ),
-			'content_url' => $url,
+			'content_url' => '' === $id ? $url : '',
+			'embed_url'   => '' === $id ? '' : BookingPage::youtube_embed( $id ),
 			'thumbnail'   => BookingFacts::get( 'reel_poster' ),
 			'upload_date' => $this->upload_date( $url ),
 			'duration'    => (string) get_option( 'crispytheme_schema_video_duration', '' ),

@@ -52,7 +52,7 @@ final class BookingFacts {
 			'quote_date'            => self::def( 'LPA letter date', 'April 2024', 'text', 'Month and year of the LPA letter.' ),
 			'form_id'               => self::def( 'Gravity Forms form ID', '5', 'number', 'The booking form that the page shows.' ),
 			'page_path'             => self::def( 'Booking page path', '/public-speaking/', 'text', 'Path of the booking page. The level finder links use it.' ),
-			'reel_url'              => self::def( 'Demo reel file URL', '', 'url', 'MP4 file of the demo reel. Leave blank to hide the Play the reel control.' ),
+			'reel_url'              => self::def( 'Demo reel URL', '', 'url', 'MP4 file or YouTube link of the demo reel. Leave blank to hide the Play the reel control.' ),
 			'reel_poster'           => self::def( 'Demo reel poster URL', '', 'url', 'Poster image of the demo reel.' ),
 			'reel_loop_url'         => self::def( 'Reel loop file URL', '', 'url', 'MP4 file of a short silent loop cut from the reel. Leave blank to show a photograph instead.' ),
 			'facts_as_of'           => self::def( 'Facts checked on', '2026-10-26', 'text', 'Date (YYYY-MM-DD) when Christopher Penn last confirmed these facts.' ),

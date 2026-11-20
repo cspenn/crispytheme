@@ -187,11 +187,17 @@
 
 	if ( dialog && opens.length && typeof dialog.showModal === 'function' ) {
 		var video = dialog.querySelector( 'video' );
+		var frame = dialog.querySelector( 'iframe' );
 
 		opens.forEach( function ( open ) {
 			open.addEventListener( 'click', function () {
 				dialog.showModal();
-				video.play().catch( function () {} );
+
+				if ( frame ) {
+					frame.src = frame.getAttribute( 'data-src' );
+				} else {
+					video.play().catch( function () {} );
+				}
 			} );
 		} );
 
@@ -200,7 +206,11 @@
 		} );
 
 		dialog.addEventListener( 'close', function () {
-			video.pause();
+			if ( frame ) {
+				frame.removeAttribute( 'src' );
+			} else {
+				video.pause();
+			}
 		} );
 	} else {
 		opens.forEach( function ( open ) {
