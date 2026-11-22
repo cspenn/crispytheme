@@ -342,6 +342,8 @@ describe('BookingPage reads Theme Options', function () {
         expect(BookingPage::youtube_id('https://www.youtube.com/watch?feature=share&v=w7uxV3PjGXA'))->toBe('w7uxV3PjGXA');
         expect(BookingPage::youtube_id('https://youtu.be/w7uxV3PjGXA'))->toBe('w7uxV3PjGXA');
         expect(BookingPage::youtube_id('https://www.youtube.com/embed/w7uxV3PjGXA'))->toBe('w7uxV3PjGXA');
+        expect(BookingPage::youtube_id('https://www.youtube.com/live/w7uxV3PjGXA'))->toBe('w7uxV3PjGXA');
+        expect(BookingPage::youtube_id('https://www.youtube-nocookie.com/embed/w7uxV3PjGXA'))->toBe('w7uxV3PjGXA');
         expect(BookingPage::youtube_id('https://example.com/reel.mp4'))->toBe('');
         expect(BookingPage::youtube_id('https://evil.example/https://www.youtube.com/watch?v=w7uxV3PjGXA'))->toBe('');
         expect(BookingPage::youtube_id('https://www.youtube.com/watch?v=w7uxV3PjGXAextra'))->toBe('');

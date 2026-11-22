@@ -277,13 +277,13 @@ final class BookingPage {
 	}
 
 	/**
-	 * Get the video id of a YouTube watch, short, or embed link.
+	 * Get the video id of a YouTube watch, live, short, or embed link (also the no-cookie embed address).
 	 *
 	 * @param string $url Reel URL.
 	 * @return string The 11-character id, or an empty string for any other URL.
 	 */
 	public static function youtube_id( string $url ): string {
-		return 1 === preg_match( '#^https?://(?:www\.|m\.)?(?:youtube\.com/(?:watch\?(?:[^\s]*&)?v=|embed/|shorts/)|youtu\.be/)([A-Za-z0-9_-]{11})(?![A-Za-z0-9_-])#', $url, $m ) ? $m[1] : '';
+		return 1 === preg_match( '#^https?://(?:www\.|m\.)?(?:youtube(?:-nocookie)?\.com/(?:watch\?(?:[^\s]*&)?v=|embed/|shorts/|live/)|youtu\.be/)([A-Za-z0-9_-]{11})(?![A-Za-z0-9_-])#', $url, $m ) ? $m[1] : '';
 	}
 
 	/**

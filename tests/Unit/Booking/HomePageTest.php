@@ -282,6 +282,14 @@ describe('HomePage footer links and the one booking address', function () {
         }
     });
 
+    it('makes the booking address absolute from the root, whatever slashes the saved page path has', function () {
+        foreach (['public-speaking', '/public-speaking', 'public-speaking/', '/public-speaking/'] as $saved) {
+            crispyHomeRender(['page_path' => $saved]);
+
+            expect(BookingFacts::form_url())->toBe('/public-speaking/#check-my-dates');
+        }
+    });
+
     it('points the home buttons at the one booking form address', function () {
         $html = crispyHomeRender();
 

@@ -75,7 +75,7 @@ final class SchemaFeed {
 
 		$profile['organization_name'] = trim( (string) get_option( 'crispytheme_schema_org_name', self::ENTITY_NAME ) );
 		$profile['person']            = $this->person();
-		$profile['booking_url']       = home_url( $path . BookingFacts::FORM_ANCHOR );
+		$profile['booking_url']       = home_url( BookingFacts::form_url() );
 		$profile['booking_email']     = function_exists( 'crispytheme_get_schema_setting' ) ? crispytheme_get_schema_setting( 'booking_email' ) : '';
 		$profile['summary']           = $this->summary();
 		$profile['levels']            = $this->levels();

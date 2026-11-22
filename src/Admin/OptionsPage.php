@@ -1475,19 +1475,14 @@ class OptionsPage {
 	/**
 	 * Sanitize a whole-number field. A blank or non-numeric field stays blank, so the default comes back.
 	 * Commas, spaces, and a dollar sign are dropped, so "$25,000" saves as 25000 and "49,269" as 49269.
-	 * A decimal point is kept, then the fraction is dropped, so "25000.00" saves as 25000 (not 2500000).
+	 * A decimal point is kept, then the fraction is dropped, so "25000.00" saves as 25000 (not 2500000). The parser is
+	 * BookingFacts::number(), which also reads the saved values.
 	 *
 	 * @param mixed $value Submitted value.
 	 * @return string
 	 */
 	public static function sanitize_number( $value ): string {
-		$clean = str_replace( [ ',', ' ', '$' ], '', trim( (string) $value ) );
-
-		if ( '' === $clean || ! is_numeric( $clean ) ) {
-			return '';
-		}
-
-		return (string) absint( (int) floor( (float) $clean ) );
+		return \CrispyTheme\Booking\BookingFacts::number( $value );
 	}
 
 	/**

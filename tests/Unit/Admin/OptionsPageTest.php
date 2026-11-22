@@ -1236,3 +1236,16 @@ describe('OptionsPage hero eyebrow', function () {
         expect($source)->not->toContain('Eight-time IBM Champion');
     });
 });
+
+describe('BookingFacts::number, the one number parser', function () {
+    beforeEach(function () {
+        Functions\when('absint')->alias(static fn($v) => abs((int) $v));
+    });
+
+    it('reads the saved value the way the options page saves it', function () {
+        foreach (['$25,000' => '25000', '25,000.00' => '25000', '49,269' => '49269', '33.5' => '33', '' => '', 'abc' => ''] as $in => $out) {
+            expect(\CrispyTheme\Booking\BookingFacts::number($in))->toBe($out);
+            expect(OptionsPage::sanitize_number($in))->toBe($out);
+        }
+    });
+});

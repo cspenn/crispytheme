@@ -99,7 +99,7 @@ final class BookingFacts {
 	 * @return string
 	 */
 	public static function form_url(): string {
-		return self::get( 'page_path' ) . self::FORM_ANCHOR;
+		return '/' . trim( self::get( 'page_path' ), '/' ) . '/' . self::FORM_ANCHOR;
 	}
 
 	/**
@@ -127,7 +127,21 @@ final class BookingFacts {
 	 * @return int
 	 */
 	public static function int( string $key ): int {
-		return (int) preg_replace( '/[^0-9]/', '', self::get( $key ) );
+		return (int) self::number( self::get( $key ) );
+	}
+
+	/**
+	 * Read a whole number from text, the one parser of the theme. Commas, spaces, and a dollar sign are dropped, a
+	 * decimal point is kept and the fraction is dropped, so "$25,000" is 25000 and "25000.00" is 25000 (not 2500000).
+	 * Text that is not a number gives an empty string.
+	 *
+	 * @param mixed $value Text.
+	 * @return string
+	 */
+	public static function number( $value ): string {
+		$clean = str_replace( [ ',', ' ', '$' ], '', trim( (string) $value ) );
+
+		return '' === $clean || ! is_numeric( $clean ) ? '' : (string) absint( $clean );
 	}
 
 	/**

@@ -1136,10 +1136,6 @@ body.bp-page .site-header .wp-block-navigation__responsive-container-open {
 
 /* The links to LinkedIn, Trust Insights, and the feed sit in a quieter stack under the site links. */
 
-.foot__nav--more {
-	gap: 0;
-}
-
 .foot__nav--more a {
 	font-size: var(--t-small);
 }

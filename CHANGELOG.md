@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.1.1 (2026-11-21)
+
+Fixed
+- A YouTube `live/` link and a `youtube-nocookie.com/embed/` address now play in the reel dialog (they fell through to a `<video>` tag that cannot play them).
+- `BookingFacts::form_url()` makes the booking address absolute from the root whatever slashes the saved page path has (`public-speaking` gave a relative link); the schema feed uses the same helper.
+- One number parser, `BookingFacts::number()`: the options page and the readers of saved values agree ("25,000.00" is 25000 in both; the reader used to give 2500000).
+- Removed a CSS rule that had no effect (`.foot__nav--more { gap: 0 }`).
+
+Note: on PHP 8.6 the Pest renderer (Termwind) crashes when a test reports a deprecation, so run `vendor/bin/pest --teamcity` there. CI runs PHP 8.4 and is not affected.
+
 ## 2.1.0 (branch `fee/one-public-keynote-fee-2026-11-08`)
 
 Added
